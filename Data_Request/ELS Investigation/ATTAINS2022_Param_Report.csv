@@ -1,0 +1,1218 @@
+ASSESSMENT_UNIT_ID,ASSESSMENT_UNIT_NAME,PARAMETER_CODE_NAME,PARAMETER_STATUS_NAME,USE_NAME,ATTAINMENT_CODE_NAME,PARAMETER_ATTAINMENT,FIRST_LISTED_CYCLE
+UT14060005-002_00,Pariette Draw Creek,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT14060005-002_00,Pariette Draw Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT14060005-002_00,Pariette Draw Creek,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT14060005-002_00,Pariette Draw Creek,SELENIUM,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,1998
+UT-L-16030006-008_00,Newcastle Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1996
+UT-L-16030006-008_00,Newcastle Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1996
+UT-L-16030006-008_00,Newcastle Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT-L-14060010-006_00,Steinaker Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT14060003-008_00,Lake Fork-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2004
+UT-L-16010202-002_00,Cutler Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2004
+UT-L-16010202-002_00,Cutler Reservoir,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT-L-16010202-002_00,Cutler Reservoir,EUTROPHICATION,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2004
+UT16010202-004_00,Bear River-3,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT16010202-004_00,Bear River-3,"PHOSPHORUS, TOTAL",Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,1998
+UT16010202-008_00,High Creek Lower,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16010202-009_00,Spring Creek Lewiston,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT16010202-009_00,Spring Creek Lewiston,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT16010202-010_00,Cub River,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT16010203-005_00,Logan River-1,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-14060010-002_00,Brough Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16010204-033_00,Mantua Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16010204-033_00,Mantua Reservoir,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT-L-16010204-033_00,Mantua Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020102-026_02,Murnin Creek,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1992
+UT16020102-026_03,Toll Canyon,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1992
+UT16020102-026_01,East Canyon Creek-2,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1992
+UT-L-16020102-020_00,East Canyon Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1988
+UT-L-16020102-020_00,East Canyon Reservoir,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16030007-002_00,Beaver River-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16030007-002_00,Beaver River-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-16030007-011_00,Minersville Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16030007-011_00,Minersville Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-16030007-011_00,Minersville Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16030002-003_00,Otter Creek-3,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16030002-003_00,Otter Creek-3,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16030002-004_00,Otter Creek-2,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16030002-004_00,Otter Creek-2,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16030002-004_00,Otter Creek-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT-L-16030007-028_00,Puffer Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-16030007-028_00,Puffer Lake,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16030007-020_00,Kents Lake,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16030007-020_00,Kents Lake,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16030007-027_00,LaBaron Lake,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-16030007-027_00,LaBaron Lake,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020101-011_00,South Fork Chalk Creek,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-011_00,South Fork Chalk Creek,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-014_00,Chalk Creek3-Coalville,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-014_00,Chalk Creek3-Coalville,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-016_00,Chalk Creek-4,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-016_00,Chalk Creek-4,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-013_00,Huff Creek,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-013_00,Huff Creek,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-14070003-015_00,Mill Meadow Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT14070003-005_00,Fremont River-2,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT14070003-014_00,Fremont River-4,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT-L-16020203-001_00,Deer Creek Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT14030005-005_00,Mill Creek1-Moab,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT14030005-011_00,Pack Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT-L-14060007-005_00,Scofield Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-14060007-005_00,Scofield Reservoir,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT-L-14060007-005_00,Scofield Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT14030005-010_00,Onion Creek Lower,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT-L-16010203-005_00,Hyrum Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16010203-005_00,Hyrum Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16010203-008_00,Spring Creek-Hyrum,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2002
+UT16010203-008_00,Spring Creek-Hyrum,"AMMONIA, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16010203-008_00,Spring Creek-Hyrum,"AMMONIA, TOTAL",Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,1998
+UT14080201-006_00,Cottonwood Wash-2,ALPHA PARTICLES,Cause,Domestic Source,Not Supporting,Not meeting criteria,1998
+UT14080201-007_00,Cottonwood Wash-3,ALPHA PARTICLES,Cause,Domestic Source,Not Supporting,Not meeting criteria,2010
+UT14080201-007_00,Cottonwood Wash-3,ALPHA PARTICLES,Cause,Agricultural,Not Supporting,Not meeting criteria,2010
+UT16020204-022_00,Little Cottonwood Creek-2,ZINC,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16020102-014_00,Pineview Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16020102-014_00,Pineview Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16020102-014_00,Pineview Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14060003-003_00,Uinta River-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT14060003-004_00,Uinta River-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT14060003-009_00,Dry Gulch Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT-L-14070003-010_00,Johnson Valley Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16010101-006_00,Bear River-4,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2000
+UT16010101-006_00,Bear River-4,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2000
+UT-L-16030002-011_00,Koosharem Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16030002-011_00,Koosharem Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020202-012_00,Soldier Creek-1,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020202-012_00,Soldier Creek-1,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16030002-004_00,Otter Creek Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16030001-005_00,Sevier River-3,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16030002-005_00,East Fork Sevier River-4,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2000
+UT16020101-007_00,Echo Creek,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16010101-016_00,Saleratus Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-14040106-033_00,Matt Warner Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-14040106-033_00,Matt Warner Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020202-022_00,Thistle Creek-1,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT-L-14040106-034_00,Calder Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-14040106-034_00,Calder Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT14060003-001_00,Duchesne River-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT14060003-002_00,Duchesne River-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT-L-14060004-001_00,Strawberry Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-14060004-001_00,Strawberry Reservoir,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT-L-16030002-005_00,Lower Box Creek Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16030002-005_00,Lower Box Creek Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2004
+UT14030005-003_00,Colorado River-3,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2006
+UT-L-16020101-002_00,Rockport Reservoir,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020204-002_00,Jordan River-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2002
+UT16020204-002_00,Jordan River-2,DISSOLVED OXYGEN,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2002
+UT-L-16020101-001_00,Echo Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1994
+UT-L-16020101-001_00,Echo Reservoir,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14030001-005_00,Colorado River-5,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2004
+UT14030005-004_00,Colorado River-4,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2006
+UT14010005-001_00,Colorado River-6,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2004
+UT16020204-012_00,Emigration Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2008
+UT16020204-001_01,Jordan River-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2002
+UT16020204-001_01,Jordan River-1,DISSOLVED OXYGEN,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2002
+UT16020204-001_02,North Canyon Creek,DISSOLVED OXYGEN,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2002
+UT16020204-003_00,Jordan River-3,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT14060005-003_00,Ninemile,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-14070003-019_00,Forsyth Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-14070003-019_00,Forsyth Reservoir,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14070002-007_00,Quitchipah Creek Lower,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14070002-008_00,Ivie Creek Lower,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060009-003_01,Huntington Creek-3-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT14060009-003_02,Huntington Creek-3-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT14060009-003_03,Rilda Canyon,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT14060009-003_04,Bear Canyon-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT14060009-004_01,Huntington Creek-2,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,Agricultural,Not Supporting,Meeting criteria,
+UT14060009-004_02,Bear Canyon-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060009-011_00,Cottonwood Creek Lower,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060009-014_00,San Rafael Lower,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT16010202-002_00,Newton Creek,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1996
+UT16030003-012_00,Sevier River-17,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2000
+UT16030003-012_00,Sevier River-17,SEDIMENT,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2000
+UT16030003-012_00,Sevier River-17,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2000
+UT16030005-026_00,Sevier River-22,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT16030005-026_00,Sevier River-22,SEDIMENT,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT16030005-027_00,Sevier River-24,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT16030005-027_00,Sevier River-24,SEDIMENT,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT16030003-003_00,Salina Creek-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT16030001-005_00,Sevier River-3,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16030001-007_00,Sevier River-2,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2002
+UT16030001-007_00,Sevier River-2,SEDIMENT,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2002
+UT16030001-009_00,Mammoth Creek Lower,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2004
+UT14060007-006_00,Gordon Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060007-015_00,Price River-5,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT14060007-017_00,Pinnacle Wash,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT-L-16010202-013_00,Newton Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16010202-013_00,Newton Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-16030001-006_00,Panguitch Lake,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2000
+UT-L-16030001-006_00,Panguitch Lake,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16030004-001_00,San Pitch-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16030004-005_01,San Pitch-3-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT16030004-005_02,San Pitch-3-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT16030004-009_00,San Pitch-5,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16030004-009_00,San Pitch-5,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16030004-009_00,San Pitch-5,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT16020101-020_01,Silver Creek-1,CADMIUM,Cause,Domestic Source,Not Supporting,Not meeting criteria,1998
+UT16020101-020_01,Silver Creek-1,CADMIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-020_01,Silver Creek-1,CADMIUM,Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT16020101-020_01,Silver Creek-1,ZINC,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-020_02,Silver Creek-2,CADMIUM,Cause,Domestic Source,Not Supporting,Not meeting criteria,1998
+UT16020101-020_02,Silver Creek-2,CADMIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-020_02,Silver Creek-2,CADMIUM,Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT16020101-020_02,Silver Creek-2,ZINC,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT14060007-007_00,Price River-3,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT-L-14060010-008_00,Red Fleet Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT15010008-001_00,Santa Clara-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT-L-15010008-008_00,Baker Dam Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2002
+UT-L-15010008-008_00,Baker Dam Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT-L-15010008-001_00,Gunlock Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT-L-15010008-001_00,Gunlock Reservoir,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT-L-16020102-020_00,East Canyon Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT15010008-015_00,North Fork Virgin River-1,ESCHERICHIA COLI (E. COLI),Meeting Criteria,Domestic Source,Fully Supporting,Meeting criteria,
+UT15010008-015_00,North Fork Virgin River-1,ESCHERICHIA COLI (E. COLI),Meeting Criteria,Recreation and Aesthetics (Frequent Primary Contact),Fully Supporting,Meeting criteria,
+UT15010008-013_00,North Fork Virgin River-2,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2010
+UT15010008-013_00,North Fork Virgin River-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2010
+UT14070003-005_00,Fremont River-2,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT14070003-005_00,Fremont River-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14070003-008_00,Fremont River-3,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14070003-008_00,Fremont River-3,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT-L-16010203-012_00,Tony Grove Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2004
+UT14060007-017_00,Pinnacle Wash,SELENIUM,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Fully Supporting,Meeting criteria,
+UT14060007-002_00,Scofield Tributaries,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT-L-16020304-004_00,Settlement Canyon Reservoir,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT14080203-001_00,Verdure Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14070002-004_02,Ivie Creek Upper-2,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,Agricultural,Insufficient Information,Meeting criteria,
+UT16010101-006_00,Bear River-4,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020203-004_00,Provo River-4,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT16020203-004_00,Provo River-4,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020203-004_00,Provo River-4,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020203-004_00,Provo River-4,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT14070005-002_00,Birch Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020102-023_00,Hardscrabble Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT16010204-011_02,Mantua Reservoir Tributaries-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT15010003-004_00,Johnson Wash-1,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020204-022_00,Little Cottonwood Creek-2,CADMIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020204-035_00,Red Butte Creek Lower,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16010201-004_00,North Eden,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16030003-026_00,Sevier River-7,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020204-006_03,Dry Creek,TEMPERATURE,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2006
+UT-L-16020201-004_02,Provo Bay portion of Utah Lake,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1994
+UT14060004-010_00,Strawberry River-3,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020204-024_02,Butterfield Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060007-001_00,White River-Colton,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Threatened,2022
+UT-L-16030007-011_00,Minersville Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1994
+UT16010202-002_00,Newton Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT-L-16030006-002_00,Upper Enterprise Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16030002-002_00,Otter Creek-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14070003-005_00,Fremont River-2,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT15010003-001_00,Cottonwood Canyon,TEMPERATURE,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT15010003-005_00,Johnson Wash-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020204-024_02,Butterfield Creek,ESCHERICHIA COLI (E. COLI),Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT14070005-002_00,Birch Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT15010003-002_02,Kanab Creek-1-2,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Fully Supporting,Meeting criteria,
+UT14060007-007_00,Price River-3,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14040106-009_00,Birch Spring Draw,SELENIUM,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2012
+UT14040106-009_00,Birch Spring Draw,SELENIUM,Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT15010008-001_00,Santa Clara-1,ARSENIC,Meeting Criteria,Domestic Source,Fully Supporting,Meeting criteria,
+UT14030005-009_00,Castle Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT14080205-001_00,San Juan River-1,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT14080205-001_00,San Juan River-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT-L-16020203-002_00,Trial Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14080201-006_00,Cottonwood Wash-2,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT14060010-002_00,Middle Ashley Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT-L-16010203-012_00,Tony Grove Lake,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT15010008-007_00,Ash Creek-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT-L-16030004-001_00,Ninemile Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16020101-020_01,Silver Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT16020101-020_01,Silver Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14060004-002_00,Indian Canyon Creek,SELENIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020204-005_00,Jordan River-5,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2006
+UT14040107-001_00,Blacks Fork,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT14040107-001_00,Blacks Fork,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14040107-001_00,Blacks Fork,PH,Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT16030004-005_01,San Pitch-3-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16020204-021_00,Little Cottonwood Creek-1,CADMIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030004-005_01,San Pitch-3-1,"AMMONIA, TOTAL",Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2016
+UT16030004-005_01,San Pitch-3-1,"AMMONIA, TOTAL",Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2016
+UT16020102-038_00,Farmington Creek-2,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT14080201-004_00,Johnson Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT14060004-013_00,Strawberry-4,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060004-013_00,Strawberry-4,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060004-013_00,Strawberry-4,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060004-013_00,Strawberry-4,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16030003-011_00,Sevier River-12,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020201-003_00,Currant Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2002
+UT-L-14060003-297_00,Paradise Park Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16010203-006_00,Logan River-2,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16010203-006_00,Logan River-2,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16010203-006_00,Logan River-2,PH,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2020
+UT16010203-006_00,Logan River-2,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT16020203-006_01,Provo River-6-1,ZINC,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14070002-008_00,Ivie Creek Lower,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020204-006_02,Big Willow Creek,SELENIUM,Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Meeting criteria,
+UT16030006-007_00,Red Creek (Iron Co.),ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14080201-009_00,San Juan River-2,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT14080201-009_00,San Juan River-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT-L-14070005-011_00,Wide Hollow Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14040106-014_00,Cart Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020201-012_00,Mill Race Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT16010202-015_00,Clay Slough,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT14040107-001_00,Blacks Fork,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT15010008-004_00,Virgin River-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020102-038_00,Farmington Creek-2,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030004-011_00,San Pitch-4,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020102-026_03,Toll Canyon,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030001-008_00,Panguitch Creek-1,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16030007-002_00,Beaver River-2,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT-L-16020203-004_00,Mill Hollow Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1992
+UT14060009-003_02,Huntington Creek-3-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT15010003-002_01,Kanab Creek-1-1,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Fully Supporting,Meeting criteria,
+UT16020101-011_00,South Fork Chalk Creek,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT16020101-011_00,South Fork Chalk Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT-L-16030001-001_00,Navajo Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16010202-004_00,Bear River-3,SEDIMENT,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT16010202-004_00,Bear River-3,SEDIMENT,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,1998
+UT-L-16030006-019_00,Red Creek Reservoir (Iron Co),TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020204-007_00,Jordan River-7,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT16030004-002_00,Twelve Mile Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020204-001_02,North Canyon Creek,ESCHERICHIA COLI (E. COLI),Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT-L-16030003-006_00,Manning Meadow Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT-L-16020304-005_00,Grantsville Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16030001-005_00,Sevier River-3,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT14050007-003_00,Evacuation Creek,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060003-005_00,Antelope Creek,SELENIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060004-003_02,Starvation Tributaries-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT16030003-021_00,Manning Creek,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Cold Water),Not Supporting,Not enough information,
+UT16010203-020_00,Blacksmith Fork-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT-L-16020102-020_00,East Canyon Reservoir,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020202-009_00,Sixth Water Creek,SELENIUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT-L-16030002-005_00,Lower Box Creek Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT16020102-039_00,Farmington Creek-1,ALUMINUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT16030006-002_00,Pinto Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16020201-008_00,Jordan River-8,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT16020203-006_03,Provo River-6-3,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT16020203-006_03,Provo River-6-3,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020203-006_03,Provo River-6-3,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020203-006_03,Provo River-6-3,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT-L-14060003-230_00,Big Sand Wash Reservoir,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT14060003-018_00,West Fork Duchesne,PH,Meeting Criteria,Domestic Source,Fully Supporting,Meeting criteria,
+UT14060003-018_00,West Fork Duchesne,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT14060003-018_00,West Fork Duchesne,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT14060003-018_00,West Fork Duchesne,PH,Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT14070003-001_00,Johnson Valley,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020102-043_00,Barnard Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16030003-026_00,Sevier River-7,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16030003-026_00,Sevier River-7,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030003-026_00,Sevier River-7,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT15010010-001_00,Virgin River-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT-L-16020201-004_01,Utah Lake other than Provo Bay,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT14060009-007_00,Cottonwood Creek Upper,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060009-007_00,Cottonwood Creek Upper,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060009-007_00,Cottonwood Creek Upper,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060009-007_00,Cottonwood Creek Upper,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060007-013_00,Grassy Trail Creek Upper,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT15010008-015_00,North Fork Virgin River-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT16020204-006_02,Big Willow Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2008
+UT16030003-017_00,Sevier River-6,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT-L-16020203-001_00,Deer Creek Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT14060009-014_00,San Rafael Lower,TEMPERATURE,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2022
+UT16010101-004_00,Sage Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT-L-16030002-004_00,Otter Creek Reservoir,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020204-019_00,Big Cottonwood Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060007-003_00,Price River-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030003-010_00,Lost Creek3-Salina,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16030005-022_00,Chicken Creek-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16010203-009_00,Little Bear River-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14060003-019_00,North Fork Duchesne,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020102-053_00,Baer Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020204-006_02,Big Willow Creek,TEMPERATURE,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2006
+UT16020102-050_00,Mill Creek1-Davis,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14030005-015_00,North Cottonwood Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT-L-16030006-019_00,Red Creek Reservoir (Iron Co),DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT-L-14060010-002_00,Brough Reservoir,MERCURY IN FISH TISSUE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16010101-007_00,Big Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16020204-007_00,Jordan River-7,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16020102-040_00,Steed Creek,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT16020102-040_00,Steed Creek,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020102-040_00,Steed Creek,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020102-040_00,Steed Creek,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT-L-16020202-002_00,Big East Lake,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT14030001-001_00,Cottonwood Wash,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT14060010-011_02,Green River-2 Tribs-2,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060010-011_02,Green River-2 Tribs-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060010-011_02,Green River-2 Tribs-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060010-013_00,Diamond Gulch,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14030004-001_00,Dolores River,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2020
+UT16020203-009_00,Main Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16020101-016_00,Chalk Creek-4,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14060009-011_00,Cottonwood Creek Lower,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060009-011_00,Cottonwood Creek Lower,PH,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT14060009-011_00,Cottonwood Creek Lower,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16010204-008_02,Bear River-2-2,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16020102-050_00,Mill Creek1-Davis,COPPER,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT16020101-020_02,Silver Creek-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2010
+UT14060010-013_00,Diamond Gulch,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14060010-005_00,Little Brush Creek Upper,ALUMINUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT16020201-015_00,Dry Creek-Alpine,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16020201-015_00,Dry Creek-Alpine,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020201-015_00,Dry Creek-Alpine,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14080205-001_00,San Juan River-1,LEAD,Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT14080205-001_00,San Juan River-1,LEAD,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT14050007-002_00,Bitter Creek Lower,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14070003-011_00,Oak Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020202-009_00,Sixth Water Creek,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020202-009_00,Sixth Water Creek,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020202-009_00,Sixth Water Creek,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT16010101-004_00,Sage Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14060009-003_03,Rilda Canyon,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060009-003_03,Rilda Canyon,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060009-003_03,Rilda Canyon,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060009-003_03,Rilda Canyon,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060009-003_03,Rilda Canyon,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16010204-001_00,Box Elder Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020102-035_00,Holmes Creek-1,COPPER,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT16020101-020_01,Silver Creek-1,PH,Meeting Criteria,Domestic Source,Not Supporting,Meeting criteria,
+UT16020101-020_01,Silver Creek-1,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Meeting criteria,
+UT16020101-020_01,Silver Creek-1,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020101-020_01,Silver Creek-1,PH,Meeting Criteria,Agricultural,Not Supporting,Meeting criteria,
+UT16030001-004_00,Bear Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14060003-009_00,Dry Gulch Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16010204-008_02,Bear River-2-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT-L-16020101-002_00,Rockport Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16030006-005_00,Little Creek (Iron Co.),ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT14070002-002_00,Quitchipah Creek Upper,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-16030001-001_00,Navajo Lake,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14040106-010_00,Carter Creek,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020203-006_03,Provo River-6-3,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14070005-018_00,Boulder Creek,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Cold Water),Insufficient Information,Not enough information,
+UT16030002-001_00,Otter Creek-4,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT16020203-009_00,Main Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2010
+UT16020203-009_00,Main Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2010
+UT16020204-006_01,Jordan River-6,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16030003-021_00,Manning Creek,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16030003-021_00,Manning Creek,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16030003-021_00,Manning Creek,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT-L-14070005-011_00,Wide Hollow Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT16020101-020_01,Silver Creek-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2010
+UT16020204-001_01,Jordan River-1,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT-L-14040107-006_00,China Lake,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1996
+UT14060004-005_00,Avintaquin Creek,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2008
+UT16030001-014_00,Threemile Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT-L-16020201-006_00,Silver Lake Flat Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16010101-025_00,Stillwater Fork,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16010101-025_00,Stillwater Fork,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16010101-025_00,Stillwater Fork,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT16020201-002_02,Mary Ellen Gulch,ZINC,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16010201-002_00,Laketown,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT-L-14070003-044_00,Lower Bowns Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT16030002-009_00,East Fork Sevier-2,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14080201-011_00,Comb Wash,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT14060010-002_00,Middle Ashley Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT-L-16020202-002_00,Big East Lake,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1996
+UT14070005-011_00,Escalante River Lower,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT14060003-001_00,Duchesne River-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060010-002_00,Middle Ashley Creek,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT16020204-010_00,City Creek-2,CADMIUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT-L-16020102-014_00,Pineview Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1994
+UT-L-14040107-005_00,Lyman Lake,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1996
+UT14050007-003_00,Evacuation Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT16010202-004_00,Bear River-3,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT15010008-020_00,East Fork Virgin-3,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Cold Water),Insufficient Information,Not enough information,
+UT14060003-005_00,Antelope Creek,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT-L-14060003-293_00,Butterfly Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16020204-002_00,Jordan River-2,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT14030005-004_00,Colorado River-4,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT-L-16020201-004_01,Utah Lake other than Provo Bay,PCBS IN FISH TISSUE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2010
+UT16010201-004_00,North Eden,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT14060006-001_00,Willow Creek,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14070006-001_00,Wahweap Creek,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT16020201-002_02,Mary Ellen Gulch,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT-L-14060004-001_00,Strawberry Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020203-026_00,Heber Valley,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT16020203-026_00,Heber Valley,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14070006-004_00,Last Chance Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT-L-16030006-019_00,Red Creek Reservoir (Iron Co),PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT15010008-001_00,Santa Clara-1,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT-L-14070003-044_00,Lower Bowns Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT16020102-026_01,East Canyon Creek-2,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16030001-004_00,Bear Creek,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030001-004_00,Bear Creek,COPPER,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT-L-16030004-001_00,Ninemile Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT16020204-021_00,Little Cottonwood Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2008
+UT16020204-021_00,Little Cottonwood Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT16020204-021_00,Little Cottonwood Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT-L-14080201-002_00,Blanding City Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT16030003-006_00,Salina Creek-2,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16030003-006_00,Salina Creek-2,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16030003-006_00,Salina Creek-2,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT16020309-002_00,Blue Creek,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT14080201-011_00,Comb Wash,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT16030005-027_00,Sevier River-24,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,Agricultural,Not Supporting,Meeting criteria,
+UT-L-16030001-006_00,Panguitch Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT-L-14060007-005_00,Scofield Reservoir,HARMFUL ALGAL BLOOMS,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020203-006_02,Provo River-6-2,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020101-020_02,Silver Creek-2,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2006
+UT14030005-017_00,Courthouse Wash,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT16010201-002_00,Laketown,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT-L-14060003-293_00,Butterfly Lake,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT-L-14080203-002_00,Monticello Lake,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT14070007-001_00,Paria River-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2000
+UT14060009-004_02,Bear Canyon-1,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020101-020_02,Silver Creek-2,PH,Meeting Criteria,Domestic Source,Not Supporting,Meeting criteria,
+UT16020101-020_02,Silver Creek-2,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Meeting criteria,
+UT16020101-020_02,Silver Creek-2,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020101-020_02,Silver Creek-2,PH,Meeting Criteria,Agricultural,Not Supporting,Meeting criteria,
+UT14050007-002_00,Bitter Creek Lower,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14080201-006_00,Cottonwood Wash-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2012
+UT16020101-014_00,Chalk Creek3-Coalville,PH,Meeting Criteria,Domestic Source,Fully Supporting,Meeting criteria,
+UT16020101-014_00,Chalk Creek3-Coalville,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT16020101-014_00,Chalk Creek3-Coalville,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020101-014_00,Chalk Creek3-Coalville,PH,Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT-L-14080203-002_00,Monticello Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT14040107-005_00,East Fork Smiths Fork,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16010101-007_00,Big Creek,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020202-030_00,Benjamin Slough,"AMMONIA, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT-L-14040106-019_00,Browne Lake,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT-L-16020202-002_00,Big East Lake,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT16020203-009_00,Main Creek-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020204-020_00,Big Cottonwood Creek-2,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14070003-002_00,UM Creek,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14060008-002_00,Green River-5,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT-L-16020201-004_01,Utah Lake other than Provo Bay,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2006
+UT-L-14060010-006_00,Steinaker Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT15010003-005_00,Johnson Wash-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT-L-16020304-005_00,Grantsville Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16030002-002_00,Otter Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14060003-011_00,Whiterocks River Lower,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020204-025_00,Parleys Canyon Creek-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT-L-14060010-001_00,Pelican Lake,PH,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2004
+UT16020201-002_02,Mary Ellen Gulch,CADMIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020203-006_01,Provo River-6-1,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-14080201-002_00,Blanding City Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14030005-005_00,Mill Creek1-Moab,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14070003-001_00,Johnson Valley,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT14070003-001_00,Johnson Valley,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT-L-14080203-002_00,Monticello Lake,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14030005-018_00,Courthouse Wash,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT14030005-009_00,Castle Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT14030005-009_00,Castle Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14030002-001_01,La Sal Creek-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT15010008-004_00,Virgin River-2,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT16010204-003_00,Bear River-1,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Fully Supporting,Meeting criteria,
+UT16020204-017_00,Mill Creek2-SLCity,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT16020102-031_00,Kays Creek,COPPER,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT16030001-002_00,Sevier River-4,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020202-011_00,Cottonwood Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16010204-002_00,Bear River Lower-East,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Warm Water),Fully Supporting,Meeting criteria,
+UT16010204-002_00,Bear River Lower-East,DISSOLVED OXYGEN,Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Fully Supporting,Meeting criteria,
+UT16030005-019_00,Chalk Creek2-Fillmore,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16030005-019_00,Chalk Creek2-Fillmore,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16030005-019_00,Chalk Creek2-Fillmore,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT16020101-010_00,Chalk Creek1-Coalville,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020101-007_00,Echo Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060010-001_00,Ashley Creek Lower,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1992
+UT14060010-001_00,Ashley Creek Lower,SELENIUM,Cause,Agricultural,Not Supporting,Not meeting criteria,1992
+UT14040106-021_00,Pot Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020204-023_00,Bingham Creek,SELENIUM,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2014
+UT16030005-022_00,Chicken Creek-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT16020101-020_02,Silver Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT16020101-020_02,Silver Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020102-017_01,Weber Lower Tributaries-1-1,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Insufficient Information,Not enough information,
+UT14080205-001_00,San Juan River-1,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16020204-014_00,Mountain Dell Creek-1,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT14060005-009_00,Green River-3,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT14060005-009_00,Green River-3,PH,Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14060005-009_00,Green River-3,PH,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT14060005-009_00,Green River-3,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT-L-16020201-004_02,Provo Bay portion of Utah Lake,EUTROPHICATION,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT16020102-041_00,Davis Creek,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020203-015_00,Snake Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT16020203-015_00,Snake Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020204-024_01,Midas Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060010-010_00,Green River-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT14060009-010_00,Huntington Creek-1,SELENIUM,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2006
+UT16030006-002_00,Pinto Creek,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14070005-010_00,The Gulch,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT14040106-004_00,Middle Fork Beaver Creek,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT-L-16030002-011_00,Koosharem Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14030005-011_00,Pack Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2006
+UT-L-14070003-015_00,Mill Meadow Reservoir,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14060007-007_00,Price River-3,"AMMONIA, TOTAL",Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT16030003-010_00,Lost Creek3-Salina,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT-L-16020201-004_01,Utah Lake other than Provo Bay,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1994
+UT-L-14060004-004_00,Lake Canyon Lake,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT16030003-027_00,Peterson Creek,TEMPERATURE,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2022
+UT16020101-004_00,Weber River-7,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT16020204-035_00,Red Butte Creek Lower,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16010202-010_00,Cub River,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020202-035_00,Dry Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020203-007_00,South Fork Provo River,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020102-026_01,East Canyon Creek-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020102-039_00,Farmington Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16010204-006_00,Malad River-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2020
+UT14070003-008_00,Fremont River-3,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020309-002_00,Blue Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT16020204-034_00,State Canal,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT16030002-006_00,East Fork Sevier-3,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16030006-006_00,Shoal Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16030003-005_00,Lost Creek-1,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT14070002-001_00,Muddy Creek Upper,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT14070002-004_01,Ivie Creek Upper-1,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,Agricultural,Insufficient Information,Meeting criteria,
+UT16010204-008_01,Bear River-2-1,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT14070006-004_00,Last Chance Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16030002-003_00,Otter Creek-3,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16030005-027_00,Sevier River-24,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16030005-027_00,Sevier River-24,PH,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT16030005-027_00,Sevier River-24,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT14080205-001_00,San Juan River-1,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16020102-039_00,Farmington Creek-1,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020102-039_00,Farmington Creek-1,PH,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT16020102-039_00,Farmington Creek-1,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT14060007-010_00,Miller Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT16020203-013_00,Provo Deer Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14080205-001_00,San Juan River-1,COPPER,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT-L-16010204-033_00,Mantua Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14060004-015_00,Currant Creek Upper,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060006-001_00,Willow Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT14060003-005_00,Antelope Creek,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT14060009-010_00,Huntington Creek-1,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Meeting criteria,
+UT-L-16020304-005_00,Grantsville Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16030002-003_00,Otter Creek-3,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020201-009_00,Spring Creek-Lehi,CADMIUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14080203-003_00,Montezuma Creek-2,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020204-006_03,Dry Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2008
+UT14060003-024_00,Uinta River-4,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT15010008-014_00,North Creek-Virgin,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2016
+UT16020102-039_00,Farmington Creek-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT16020203-009_00,Main Creek-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14070005-003_00,North Creek-Escalante,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16010203-018_00,Blacksmith Fork-2,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT15010003-004_00,Johnson Wash-1,SELENIUM,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Fully Supporting,Meeting criteria,
+UT16020203-027_00,Spring Creek-Heber,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2016
+UT16020203-027_00,Spring Creek-Heber,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16020202-005_00,Hobble Creek-3,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16030002-005_00,East Fork Sevier River-4,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT16020202-042_00,Spring Creek-Springville,"AMMONIA, TOTAL",Meeting Criteria,Aquatic Wildlife (Warm Water),Fully Supporting,Meeting criteria,
+UT16020202-042_00,Spring Creek-Springville,"AMMONIA, TOTAL",Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Fully Supporting,Meeting criteria,
+UT14070005-012_00,Escalante River Upper,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT-L-16030006-019_00,Red Creek Reservoir (Iron Co),"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT16020203-006_03,Provo River-6-3,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14030001-003_00,Westwater Creek,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2012
+UT16020204-025_00,Parleys Canyon Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16010202-010_00,Cub River,SEDIMENT,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,1998
+UT16030003-027_00,Peterson Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT14060009-003_04,Bear Canyon-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-16030007-020_00,Kents Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14030005-011_00,Pack Creek,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2016
+UT14030005-011_00,Pack Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16030004-003_00,Six Mile Creek - Sevier,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT14050007-005_00,Bitter Creek Upper,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020102-045_00,Stone Creek-2,COPPER,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT-L-16030002-007_00,Pine Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT15010008-014_00,North Creek-Virgin,PH,Meeting Criteria,Domestic Source,Fully Supporting,Meeting criteria,
+UT15010008-014_00,North Creek-Virgin,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT15010008-014_00,North Creek-Virgin,PH,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Meeting criteria,
+UT15010008-014_00,North Creek-Virgin,PH,Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT16020309-002_00,Blue Creek,ALUMINUM,Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Meeting criteria,
+UT14040106-021_00,Pot Creek,IRON,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT15010008-001_00,Santa Clara-1,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT14030005-010_00,Onion Creek Lower,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT16020204-002_00,Jordan River-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2006
+UT16020102-036_00,Baer Creek-3,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14040106-018_00,Red Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2020
+UT14070002-003_00,Saleratus Creek - Emery,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,Agricultural,Insufficient Information,Meeting criteria,
+UT14060004-002_00,Indian Canyon Creek,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2008
+UT-L-14040106-033_00,Matt Warner Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14030005-019_00,Professor Creek,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2012
+UT14080201-008_00,Westwater Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2012
+UT14060003-020_00,Rock Creek Upper,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020204-020_00,Big Cottonwood Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT16020204-020_00,Big Cottonwood Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT14060010-007_00,Ashley Creek Upper,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060003-005_00,Antelope Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT16020101-020_01,Silver Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14080201-009_00,San Juan River-2,LEAD,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT16020102-049_00,Mill Creek2-Davis,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020201-009_00,Spring Creek-Lehi,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020202-027_00,Beer Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT16020201-009_00,Spring Creek-Lehi,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14070004-001_00,Dirty Devil River,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT16020203-026_00,Heber Valley,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020204-024_01,Midas Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020102-031_00,Kays Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16020102-043_00,Barnard Creek,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14070003-015_00,Fish Lake Tributaries,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Cold Water),Insufficient Information,Not enough information,
+UT16020102-050_00,Mill Creek1-Davis,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14060008-007_00,Ten Mile Canyon - Grand,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT16020204-006_03,Dry Creek,SELENIUM,Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Meeting criteria,
+UT14030005-007_00,Salt Wash,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT16030004-005_02,San Pitch-3-2,"AMMONIA, TOTAL",Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2016
+UT16030004-005_02,San Pitch-3-2,"AMMONIA, TOTAL",Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2016
+UT15010003-002_02,Kanab Creek-1-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT-L-16010203-009_00,Porcupine Reservoir,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020102-046_00,Stone Creek-1,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16020102-046_00,Stone Creek-1,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16020102-046_00,Stone Creek-1,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT16020201-014_00,Currant Creek-Juab Valley,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16020204-003_00,Jordan River-3,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2006
+UT-L-16020101-002_00,Rockport Reservoir,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14060003-008_00,Lake Fork-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14060003-008_00,Lake Fork-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Severely Habitat-Limited),Not Supporting,Not meeting criteria,2020
+UT16020202-001_00,Spanish Fork River-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020102-032_02,Middle Fork Kays Creek,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-14060004-004_00,Lake Canyon Lake,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT14030005-010_00,Onion Creek Lower,SELENIUM,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT-L-16020201-004_01,Utah Lake other than Provo Bay,HARMFUL ALGAL BLOOMS,Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16010202-015_00,Clay Slough,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2012
+UT16010202-015_00,Clay Slough,PH,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2012
+UT16010202-015_00,Clay Slough,PH,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2012
+UT16010202-015_00,Clay Slough,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT-L-16030004-005_00,Palisade Lake,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1992
+UT16020204-026_00,Mill Creek1-SLCity,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT14060010-001_00,Ashley Creek Lower,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1992
+UT14030005-005_00,Mill Creek1-Moab,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2016
+UT14030005-005_00,Mill Creek1-Moab,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT-L-14080201-007_00,Recapture Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020204-005_00,Jordan River-5,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Warm Water),Fully Supporting,Meeting criteria,
+UT16030003-006_00,Salina Creek-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020102-031_00,Kays Creek,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020102-031_00,Kays Creek,PH,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT16020102-031_00,Kays Creek,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT-L-16030006-002_00,Upper Enterprise Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060009-010_00,Huntington Creek-1,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Meeting criteria,
+UT-L-16020202-001_00,Salem Lake,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT14070007-005_00,Paria River-3,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2008
+UT14060009-004_01,Huntington Creek-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030004-009_00,San Pitch-5,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16020102-033_00,Snow Creek,COPPER,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2022
+UT14070005-003_00,North Creek-Escalante,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT15010010-001_00,Virgin River-1,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT14070007-002_00,Paria River-2,TEMPERATURE,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT-L-16020203-004_00,Mill Hollow Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1992
+UT14060006-001_00,Willow Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020201-005_00,Salt Creek-2,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16030001-014_00,Threemile Creek,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Threatened,2022
+UT14060004-001_00,Strawberry River-1,PH,Meeting Criteria,Domestic Source,Fully Supporting,Meeting criteria,
+UT14060004-001_00,Strawberry River-1,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT14060004-001_00,Strawberry River-1,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT14060004-001_00,Strawberry River-1,PH,Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT16020102-026_02,Murnin Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14030001-003_00,Westwater Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT16020203-014_00,Snake Creek-1,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2006
+UT14070002-003_00,Saleratus Creek - Emery,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020203-003_00,Provo River-3,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020204-005_00,Jordan River-5,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2006
+UT16020204-021_00,Little Cottonwood Creek-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT14080201-006_00,Cottonwood Wash-2,RADIUM,Cause,Domestic Source,Not Supporting,Not meeting criteria,1998
+UT-L-14080201-007_00,Recapture Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020203-001_00,Provo River-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020204-024_02,Butterfield Creek,SELENIUM,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2014
+UT14060003-002_00,Duchesne River-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16020201-012_00,Mill Race Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16020204-003_00,Jordan River-3,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT14060009-007_00,Cottonwood Creek Upper,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16030001-007_00,Sevier River-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020204-007_00,Jordan River-7,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT16020102-002_00,Weber River-3,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT-L-14060007-004_00,Lower Gooseberry Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT14060010-010_00,Green River-2,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT14060010-010_00,Green River-2,PH,Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT14060010-010_00,Green River-2,PH,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT14060010-010_00,Green River-2,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT14080201-009_00,San Juan River-2,CADMIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT14080203-007_00,Montezuma Creek-3,SELENIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030001-004_00,Bear Creek,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16030001-004_00,Bear Creek,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16030001-004_00,Bear Creek,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT-L-14040106-034_00,Calder Reservoir,EUTROPHICATION,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16030003-005_00,Lost Creek-1,TEMPERATURE,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2022
+UT15010003-004_00,Johnson Wash-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT14070002-002_00,Quitchipah Creek Upper,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT-L-16030006-008_00,Newcastle Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT-L-14060010-002_00,Brough Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT16020204-033_00,Emigration Creek Lower,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14070002-002_00,Quitchipah Creek Upper,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14050007-003_00,Evacuation Creek,SELENIUM,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16020201-009_00,Spring Creek-Lehi,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14030002-001_01,La Sal Creek-1,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Cold Water),Not Supporting,Not enough information,
+UT16020102-031_00,Kays Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT14030005-018_00,Courthouse Wash,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT16020203-014_00,Snake Creek-1,CHROMIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14030005-001_00,Kane Spring Wash,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020102-042_00,Ricks Creek,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020204-006_03,Dry Creek,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Meeting criteria,
+UT16020202-025_00,Nebo Creek,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16010204-007_01,Middle Bear East-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14070005-007_00,Calf Creek,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020203-010_00,Main Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2016
+UT16020203-010_00,Main Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT-L-16010203-012_00,Tony Grove Lake,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1996
+UT-L-16020203-003_00,Jordanelle Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16020204-004_00,Jordan River-4,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT16010204-003_00,Bear River-1,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16010204-003_00,Bear River-1,DISSOLVED OXYGEN,Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Fully Supporting,Meeting criteria,
+UT14060010-011_03,Green River-2 Tribs-3,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060010-011_03,Green River-2 Tribs-3,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060009-003_02,Huntington Creek-3-2,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060009-003_02,Huntington Creek-3-2,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060009-003_02,Huntington Creek-3-2,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060009-003_02,Huntington Creek-3-2,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16030002-002_00,Otter Creek-1,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16030002-002_00,Otter Creek-1,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16030002-002_00,Otter Creek-1,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT-L-16030007-025_00,Three Creeks Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT16020101-020_01,Silver Creek-1,NITRATE/NITRITE (NITRITE + NITRATE AS N),Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT-L-16010204-033_00,Mantua Reservoir,HARMFUL ALGAL BLOOMS,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14080205-001_00,San Juan River-1,IRON,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT14040106-016_00,Davenport Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14060009-003_02,Huntington Creek-3-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030001-004_00,Bear Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020102-046_00,Stone Creek-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14070007-001_00,Paria River-1,TEMPERATURE,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2008
+UT16020204-019_00,Big Cottonwood Creek-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14050007-002_00,Bitter Creek Lower,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020204-022_00,Little Cottonwood Creek-2,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060008-007_00,Ten Mile Canyon - Grand,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT14070003-009_00,Pleasant Creek-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT-L-16030001-011_00,Piute Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT16020204-001_02,North Canyon Creek,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Meeting criteria,
+UT16020202-008_00,Diamond Fork-3,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020204-004_00,Jordan River-4,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060009-003_01,Huntington Creek-3-1,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060009-003_01,Huntington Creek-3-1,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060009-003_01,Huntington Creek-3-1,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060009-003_01,Huntington Creek-3-1,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT-L-14060010-008_00,Red Fleet Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT16020102-006_00,North Fork Ogden River,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020101-020_01,Silver Creek-1,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2006
+UT14060005-002_00,Pariette Draw Creek,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16010101-028_00,Yellow Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14070003-005_00,Fremont River-2,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14070003-005_00,Fremont River-2,PH,Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14070003-005_00,Fremont River-2,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14070003-005_00,Fremont River-2,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020202-027_00,Beer Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16030004-009_00,San Pitch-5,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT15010003-003_00,Kanab Creek-2,SELENIUM,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2016
+UT15010003-003_00,Kanab Creek-2,SELENIUM,Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT14070003-001_00,Johnson Valley,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14060010-003_00,Brush Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT15010008-004_00,Virgin River-2,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT-L-16020201-004_02,Provo Bay portion of Utah Lake,PH,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT14060010-011_01,Green River-2 Tribs-1,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060010-011_01,Green River-2 Tribs-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT-L-14070003-044_00,Lower Bowns Reservoir,"AMMONIA, TOTAL",Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16030002-008_00,Antimony Creek,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Cold Water),Fully Supporting,Not enough information,
+UT15010003-005_00,Johnson Wash-2,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT15010003-005_00,Johnson Wash-2,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT15010003-005_00,Johnson Wash-2,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT16030001-007_00,Sevier River-2,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-16030003-006_00,Manning Meadow Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1994
+UT16010203-008_00,Spring Creek-Hyrum,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16010203-008_00,Spring Creek-Hyrum,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Warm Water),Fully Supporting,Meeting criteria,
+UT16010203-008_00,Spring Creek-Hyrum,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Meeting criteria,
+UT14050007-005_00,Bitter Creek Upper,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14080201-009_00,San Juan River-2,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT-L-14040106-034_00,Calder Reservoir,"AMMONIA, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14060005-002_00,Pariette Draw Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT14060005-002_00,Pariette Draw Creek,DISSOLVED OXYGEN,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2020
+UT16020203-006_02,Provo River-6-2,ZINC,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020201-008_00,Jordan River-8,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2006
+UT16010101-001_00,Bear River West,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14080201-009_00,San Juan River-2,IRON,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT14060004-011_00,Timber Canyon Creek,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060004-014_00,Strawberry River Upper,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT14060009-013_00,San Rafael Upper,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Fully Supporting,Meeting criteria,
+UT16020102-001_00,Weber River-1,"AMMONIA, TOTAL",Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Meeting criteria,
+UT16020102-001_00,Weber River-1,"AMMONIA, TOTAL",Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Meeting criteria,
+UT14060009-004_01,Huntington Creek-2,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT15010010-001_00,Virgin River-1,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2006
+UT16030004-005_01,San Pitch-3-1,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Meeting criteria,
+UT16030004-005_01,San Pitch-3-1,PH,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Meeting criteria,
+UT16030004-005_01,San Pitch-3-1,PH,Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Meeting criteria,
+UT16030004-005_01,San Pitch-3-1,PH,Meeting Criteria,Agricultural,Not Supporting,Meeting criteria,
+UT14080201-011_00,Comb Wash,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT16020101-015_00,East Fork Chalk Creek,PH,Meeting Criteria,Domestic Source,Fully Supporting,Meeting criteria,
+UT16020101-015_00,East Fork Chalk Creek,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT16020101-015_00,East Fork Chalk Creek,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020101-015_00,East Fork Chalk Creek,PH,Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT16010101-007_00,Big Creek,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT14060004-007_00,Red Creek Middle,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT-L-14040106-033_00,Matt Warner Reservoir,HARMFUL ALGAL BLOOMS,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14060005-004_00,Range Creek Upper,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16020102-046_00,Stone Creek-1,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020203-005_00,Provo River-5,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16010204-003_00,Bear River-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2010
+UT16030003-018_00,Clear Creek-I70,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16030003-006_00,Salina Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT14030005-011_00,Pack Creek,SELENIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT16010202-015_00,Clay Slough,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2012
+UT16010202-015_00,Clay Slough,DISSOLVED OXYGEN,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2012
+UT14030001-001_00,Cottonwood Wash,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT14070007-005_00,Paria River-3,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16030003-027_00,Peterson Creek,COPPER,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Meeting criteria,
+UT16030003-027_00,Peterson Creek,COPPER,Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Fully Supporting,Meeting criteria,
+UT14060009-004_01,Huntington Creek-2,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060009-004_01,Huntington Creek-2,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060009-004_01,Huntington Creek-2,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060009-004_01,Huntington Creek-2,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020204-001_01,Jordan River-1,COPPER,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16020204-001_01,Jordan River-1,COPPER,Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Meeting criteria,
+UT14070002-007_00,Quitchipah Creek Lower,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2010
+UT16010101-021_00,Bear River-6,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16010101-009_00,Bear River-5,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14060009-009_00,Ferron Creek Upper,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT14060009-009_00,Ferron Creek Upper,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020204-020_00,Big Cottonwood Creek-2,CADMIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030004-005_01,San Pitch-3-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2020
+UT16030004-005_01,San Pitch-3-1,DISSOLVED OXYGEN,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2020
+UT14060003-012_00,Deep Creek - Uinta,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060004-003_02,Starvation Tributaries-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14060009-003_01,Huntington Creek-3-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-14070003-044_00,Lower Bowns Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT16020304-001_00,Vernon Creek,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16020304-001_00,Vernon Creek,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020304-001_00,Vernon Creek,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14040106-009_00,Birch Spring Draw,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT14040106-021_00,Pot Creek,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT15010008-010_00,La Verkin Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT15010008-003_00,Santa Clara-3,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Threatened,2022
+UT14040106-014_00,Cart Creek,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14070002-003_00,Saleratus Creek - Emery,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020204-001_01,Jordan River-1,ESCHERICHIA COLI (E. COLI),Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT14060004-015_00,Currant Creek Upper,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14070006-001_00,Wahweap Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16030003-018_00,Clear Creek-I70,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14080201-009_00,San Juan River-2,THALLIUM,Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT16010101-002_00,Six Mile Creek - Bear,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16030003-010_00,Lost Creek3-Salina,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT-L-16020201-004_02,Provo Bay portion of Utah Lake,"AMMONIA, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT15010008-003_00,Santa Clara-3,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14070005-007_00,Calf Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14050007-002_00,Bitter Creek Lower,SELENIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020204-023_00,Bingham Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060004-002_00,Indian Canyon Creek,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT14060003-008_00,Lake Fork-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2000
+UT16030007-002_00,Beaver River-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16010204-008_02,Bear River-2-2,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT16020102-035_00,Holmes Creek-1,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020102-035_00,Holmes Creek-1,PH,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT16020102-035_00,Holmes Creek-1,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT-L-16030006-008_00,Newcastle Reservoir,MERCURY IN FISH TISSUE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT14060010-003_00,Brush Creek,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2004
+UT15010003-005_00,Johnson Wash-2,LEAD,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT15010003-005_00,Johnson Wash-2,LEAD,Meeting Criteria,Agricultural,Not Supporting,Meeting criteria,
+UT16020102-026_02,Murnin Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT-L-16020304-003_00,Stansbury Lake,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT16020102-026_03,Toll Canyon,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14060009-009_00,Ferron Creek Upper,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020204-021_00,Little Cottonwood Creek-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2006
+UT-L-16030006-002_00,Upper Enterprise Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT16030006-002_00,Pinto Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020102-053_00,Baer Creek-1,COPPER,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2022
+UT16030002-003_00,Otter Creek-3,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14060007-003_00,Price River-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT-L-16030001-011_00,Piute Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT16030001-014_00,Threemile Creek,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16030001-014_00,Threemile Creek,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16030001-014_00,Threemile Creek,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT14070005-012_00,Escalante River Upper,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT16020204-035_00,Red Butte Creek Lower,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14070003-001_00,Johnson Valley,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14060003-002_00,Duchesne River-2,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2016
+UT-L-14060004-004_00,Lake Canyon Lake,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2016
+UT14070002-008_00,Ivie Creek Lower,TEMPERATURE,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2016
+UT16020201-017_00,Currant Creek-Goshen,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT14060010-002_00,Middle Ashley Creek,ALUMINUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT14060009-001_00,Electric Lake Tributaries,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020101-020_02,Silver Creek-2,NITRATE,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT16020202-042_00,Spring Creek-Springville,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020102-001_00,Weber River-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2008
+UT16020102-001_00,Weber River-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2008
+UT-L-14060004-006_00,Starvation Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14080201-004_00,Johnson Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020204-002_00,Jordan River-2,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT16020102-046_00,Stone Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16020102-052_00,Rudd Creek,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14060004-002_00,Indian Canyon Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,1998
+UT14060009-007_00,Cottonwood Creek Upper,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060003-021_00,Moon Lake Tributaries,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020204-006_02,Big Willow Creek,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Meeting criteria,
+UT15010003-003_00,Kanab Creek-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14080201-005_00,Recapture Creek-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT16030007-002_00,Beaver River-2,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT16020204-034_00,State Canal,"AMMONIA, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT16020204-034_00,State Canal,"AMMONIA, TOTAL",Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2016
+UT-L-14060004-004_00,Lake Canyon Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16020202-035_00,Dry Creek-1,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Meeting criteria,
+UT16020202-035_00,Dry Creek-1,PH,Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT-L-16020201-004_02,Provo Bay portion of Utah Lake,HARMFUL ALGAL BLOOMS,Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16010203-008_00,Spring Creek-Hyrum,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT14050007-002_00,Bitter Creek Lower,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060004-004_00,Stawberry River-2,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT-L-14060010-001_00,Pelican Lake,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2012
+UT-L-16030004-001_00,Ninemile Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT16020204-026_00,Mill Creek1-SLCity,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14070005-002_00,Birch Creek,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Cold Water),Not Supporting,Not enough information,
+UT14060010-011_04,Green River-2 Tribs-4,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060010-011_04,Green River-2 Tribs-4,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16020102-027_00,Kimball Creek,ARSENIC,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT16030004-003_00,Six Mile Creek - Sevier,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT14080201-011_00,Comb Wash,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14040106-003_00,West Fork Beaver Creek,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT-L-16030002-002_00,Tropic Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT15010009-001_00,Fort Pearce Wash,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT16020204-024_01,Midas Creek,SELENIUM,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2014
+UT14080201-006_00,Cottonwood Wash-2,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT16010101-004_00,Sage Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT16020204-029_00,Rose Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16020203-001_00,Provo River-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14060009-003_01,Huntington Creek-3-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-14040106-033_00,Matt Warner Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1996
+UT16010101-002_00,Six Mile Creek - Bear,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020101-020_01,Silver Creek-1,NITRATE,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT16020202-003_00,Hobble Creek-1,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT16020202-003_00,Hobble Creek-1,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020202-003_00,Hobble Creek-1,PH,Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT16030002-004_00,Otter Creek-2,HABITAT ALTERATIONS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT16010203-005_00,Logan River-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT-L-16030001-011_00,Piute Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT15010003-001_00,Cottonwood Canyon,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT16030006-002_00,Pinto Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16010101-007_00,Big Creek,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Cold Water),Not Supporting,Not enough information,
+UT16020204-013_00,Parleys Canyon Creek-2,CADMIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020101-020_02,Silver Creek-2,NITRATE/NITRITE (NITRITE + NITRATE AS N),Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT15010003-002_01,Kanab Creek-1-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2008
+UT14060003-024_00,Uinta River-4,ZINC,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-16020201-004_02,Provo Bay portion of Utah Lake,PCBS IN FISH TISSUE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2010
+UT16020204-001_02,North Canyon Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2008
+UT14060003-008_00,Lake Fork-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14070003-002_00,UM Creek,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT14070003-002_00,UM Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16030003-018_00,Clear Creek-I70,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT16020204-006_01,Jordan River-6,SELENIUM,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16020102-009_00,Middle Fork Ogden River,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020202-019_00,Clear Creek-Tucker,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020204-006_01,Jordan River-6,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT15010008-018_00,East Fork Virgin-1,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Non-game Fish and Other),Fully Supporting,Not enough information,
+UT14040106-021_00,Pot Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16010204-002_00,Bear River Lower-East,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT16020102-010_00,South Fork Ogden River-1,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020102-036_00,Baer Creek-3,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT16020102-036_00,Baer Creek-3,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020102-036_00,Baer Creek-3,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020102-036_00,Baer Creek-3,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT16020202-009_00,Sixth Water Creek,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020204-021_00,Little Cottonwood Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT-L-14080201-002_00,Blanding City Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020309-002_00,Blue Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16030004-003_00,Six Mile Creek - Sevier,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT16020101-012_00,Chalk Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT16020101-012_00,Chalk Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14060009-003_04,Bear Canyon-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020204-017_00,Mill Creek2-SLCity,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2002
+UT16020102-027_00,Kimball Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020204-013_00,Parleys Canyon Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT16020204-013_00,Parleys Canyon Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT15010008-002_00,Santa Clara-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14040106-021_00,Pot Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT-L-14060004-006_00,Starvation Reservoir,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020204-022_00,Little Cottonwood Creek-2,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT16020204-022_00,Little Cottonwood Creek-2,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16020204-022_00,Little Cottonwood Creek-2,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16010204-008_01,Bear River-2-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT14080201-007_00,Cottonwood Wash-3,RADIUM,Cause,Domestic Source,Not Supporting,Not meeting criteria,2010
+UT14080201-007_00,Cottonwood Wash-3,RADIUM,Cause,Agricultural,Not Supporting,Not meeting criteria,2010
+UT16020101-004_00,Weber River-7,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT-L-14040106-019_00,Browne Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020102-044_01,Parrish Creek,COPPER,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16020102-039_00,Farmington Creek-1,COPPER,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT-L-14060007-005_00,Scofield Reservoir,EUTROPHICATION,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020203-002_00,Provo River-2,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14060003-015_00,Lake Fork-2,ZINC,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT14080205-003_00,San Juan River-1 Triburaries,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT16020203-026_00,Heber Valley,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT16020203-026_00,Heber Valley,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020203-026_00,Heber Valley,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020203-026_00,Heber Valley,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT14060003-007_00,Zimmerman Wash,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT14060009-003_03,Rilda Canyon,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16030002-002_00,Otter Creek-1,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT15010003-005_00,Johnson Wash-2,ZINC,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020201-005_00,Salt Creek-2,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT16020201-005_00,Salt Creek-2,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020201-005_00,Salt Creek-2,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14070003-008_00,Fremont River-3,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060010-010_00,Green River-2,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT16030003-005_00,Lost Creek-1,COPPER,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Meeting criteria,
+UT16030003-005_00,Lost Creek-1,COPPER,Meeting Criteria,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Fully Supporting,Meeting criteria,
+UT-L-14070005-011_00,Wide Hollow Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14080201-008_00,Westwater Creek,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2012
+UT16020204-001_02,North Canyon Creek,COPPER,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2014
+UT14080205-001_00,San Juan River-1,THALLIUM,Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT14080205-001_00,San Juan River-1,THALLIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT16030003-005_00,Lost Creek-1,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT16020101-008_00,Carruth Creek,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT16020101-008_00,Carruth Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14080201-009_00,San Juan River-2,ALUMINUM,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT-L-14040106-034_00,Calder Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT14070007-002_00,Paria River-2,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT-L-14070006-001_00,Lake Powell,PH,Meeting Criteria,Aquatic Wildlife (Warm Water),Fully Supporting,Meeting criteria,
+UT16030003-021_00,Manning Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060010-007_00,Ashley Creek Upper,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT14060010-007_00,Ashley Creek Upper,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT14060010-007_00,Ashley Creek Upper,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14060010-007_00,Ashley Creek Upper,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT16010203-020_00,Blacksmith Fork-1,DISSOLVED OXYGEN,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16010101-004_00,Sage Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14030005-019_00,Professor Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT-L-16030002-004_00,Otter Creek Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1994
+UT14070002-001_00,Muddy Creek Upper,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT-L-14040107-006_00,China Lake,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2000
+UT14060007-008_00,Coal Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT16020102-026_03,Toll Canyon,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT14060003-024_00,Uinta River-4,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Fully Supporting,Meeting criteria,
+UT14060003-024_00,Uinta River-4,PH,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT14060003-024_00,Uinta River-4,PH,Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT16020204-006_01,Jordan River-6,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2006
+UT16020102-026_01,East Canyon Creek-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020301-001_00,Lake Creek-Millard Co,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020301-001_00,Lake Creek-Millard Co,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT-L-16020202-002_00,Big East Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14040106-014_00,Cart Creek,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-14040107-004_00,Bridger Lake,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1996
+UT14060007-011_00,Desert Seep Wash,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT14060007-011_00,Desert Seep Wash,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2020
+UT14060007-011_00,Desert Seep Wash,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2020
+UT15010003-005_00,Johnson Wash-2,COPPER,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT15010003-005_00,Johnson Wash-2,COPPER,Meeting Criteria,Agricultural,Not Supporting,Meeting criteria,
+UT16010201-001_00,Bear Lake West,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16010203-008_00,Spring Creek-Hyrum,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2020
+UT16020102-055_00,Weber Lower Tributaries-5,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2020
+UT16020102-055_00,Weber Lower Tributaries-5,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14050007-003_00,Evacuation Creek,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT14060010-006_00,Big Brush Creek,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-14040106-033_00,Matt Warner Reservoir,EUTROPHICATION,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020201-010_00,Powell Slough,DISSOLVED OXYGEN,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2014
+UT16010101-002_00,Six Mile Creek - Bear,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT16030001-012_00,Sevier River-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT16020204-034_00,State Canal,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT16020204-034_00,State Canal,DISSOLVED OXYGEN,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2014
+UT16030002-001_00,Otter Creek-4,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT-L-14070003-027_00,Donkey Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020101-030_00,Beaver Creek2-Kamas,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16020304-001_00,Vernon Creek,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Cold Water),Not Supporting,Not enough information,
+UT16030001-005_00,Sevier River-3,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT15010003-005_00,Johnson Wash-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14070006-001_00,Wahweap Creek,SELENIUM,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT16030004-005_02,San Pitch-3-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT14030004-001_00,Dolores River,TEMPERATURE,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT-L-16030002-011_00,Koosharem Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT14070001-001_00,Halls Creek,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT16020203-016_00,McHenry Creek,CADMIUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060005-003_00,Ninemile,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14040106-020_00,Jackson Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16010204-008_02,Bear River-2-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT16010204-008_02,Bear River-2-2,DISSOLVED OXYGEN,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2014
+UT-L-14070003-044_00,Lower Bowns Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT16020204-003_00,Jordan River-3,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT16020202-027_00,Beer Creek,PH,Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Meeting criteria,
+UT16020202-027_00,Beer Creek,PH,Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Meeting criteria,
+UT16020202-027_00,Beer Creek,PH,Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT16010101-001_00,Bear River West,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT-L-16020201-004_01,Utah Lake other than Provo Bay,EUTROPHICATION,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2020
+UT-L-16030004-001_00,Ninemile Reservoir,"PHOSPHORUS, TOTAL",Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1996
+UT14060009-004_02,Bear Canyon-1,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060009-004_02,Bear Canyon-1,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060009-004_02,Bear Canyon-1,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060009-004_02,Bear Canyon-1,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020102-052_00,Rudd Creek,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020102-052_00,Rudd Creek,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020102-052_00,Rudd Creek,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT14070006-004_00,Last Chance Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2022
+UT14070002-001_00,Muddy Creek Upper,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14070002-001_00,Muddy Creek Upper,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020203-006_03,Provo River-6-3,ZINC,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020202-010_00,Third Water Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT-L-16030001-011_00,Piute Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020102-033_00,Snow Creek,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT-L-14040106-021_00,Flaming Gorge Reservoir,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT16010101-016_00,Saleratus Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT16030002-001_00,Otter Creek-4,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2016
+UT14060003-017_00,Duchesne River-4,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020203-016_00,McHenry Creek,ZINC,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT-L-14060010-009_00,Stewart Lake,SELENIUM,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2016
+UT16020202-027_00,Beer Creek,"AMMONIA, TOTAL",Meeting Criteria,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Meeting criteria,
+UT14080205-001_00,San Juan River-1,MERCURY,Meeting Criteria,Aquatic Wildlife (Warm Water),Not Supporting,Meeting criteria,
+UT14070007-004_00,Cottonwood Creek,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT15010003-005_00,Johnson Wash-2,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT-L-14040107-004_00,Bridger Lake,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT14070002-009_00,Muddy Creek Lower,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2020
+UT-L-16020101-002_00,Rockport Reservoir,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2022
+UT-L-16020101-002_00,Rockport Reservoir,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Frequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020102-035_00,Holmes Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT-L-15010008-008_00,Baker Dam Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1992
+UT16030001-006_00,Panguitch Creek-2,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT14030005-001_00,Kane Spring Wash,TEMPERATURE,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT16030003-006_00,Salina Creek-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT16020102-032_01,South Fork Kays Creek,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020204-001_01,Jordan River-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT16020204-001_01,Jordan River-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2008
+UT14060007-006_00,Gordon Creek,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2020
+UT14070007-001_00,Paria River-1,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2020
+UT14060004-013_00,Strawberry-4,NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS,Insufficient Information,Aquatic Wildlife (Cold Water),Not Supporting,Not enough information,
+UT14060003-008_00,Lake Fork-1,ALUMINUM,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14080201-011_00,Comb Wash,TEMPERATURE,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2014
+UT16020101-020_02,Silver Creek-2,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT14040107-005_00,East Fork Smiths Fork,ZINC,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020304-002_00,Faust Creek,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2016
+UT16020204-004_00,Jordan River-4,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2010
+UT16020102-044_02,Centerville Canyon,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060004-013_00,Strawberry-4,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020102-022_00,Weber River-6,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2008
+UT16020202-012_00,Soldier Creek-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14030004-001_00,Dolores River,TOTAL DISSOLVED SOLIDS (TDS),Meeting Criteria,Agricultural,Fully Supporting,Meeting criteria,
+UT-L-14060003-230_00,Big Sand Wash Reservoir,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT14060009-004_02,Bear Canyon-1,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060009-014_00,San Rafael Lower,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2010
+UT16020309-002_00,Blue Creek,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2012
+UT16020309-002_00,Blue Creek,PH,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2012
+UT16020309-002_00,Blue Creek,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2012
+UT16020101-014_00,Chalk Creek3-Coalville,HABITAT ALTERATIONS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1998
+UT14030002-001_01,La Sal Creek-1,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT14030002-001_01,La Sal Creek-1,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2022
+UT14030002-001_01,La Sal Creek-1,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT14060007-007_00,Price River-3,SELENIUM,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2014
+UT14060007-007_00,Price River-3,SELENIUM,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT-L-16020101-001_00,Echo Reservoir,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Not Supporting,Meeting criteria,
+UT16020102-034_00,Holmes Creek-2,COPPER,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT15010003-003_00,Kanab Creek-2,BORON,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16010204-006_00,Malad River-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT16030006-001_00,Coal Creek - C/B,TEMPERATURE,Meeting Criteria,Aquatic Wildlife (Cold Water),Fully Supporting,Meeting criteria,
+UT16030005-025_00,Sevier River-20,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Warm Water),Not Supporting,Not meeting criteria,2008
+UT16020204-025_00,Parleys Canyon Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Domestic Source,Not Supporting,Not meeting criteria,2010
+UT16020204-025_00,Parleys Canyon Creek-1,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2010
+UT14070003-002_00,UM Creek,ZINC,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2012
+UT16020204-019_00,Big Cottonwood Creek-1,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT15010008-002_00,Santa Clara-2,DISSOLVED OXYGEN,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT16020309-002_00,Blue Creek,SELENIUM,Cause,"Aquatic Wildlife (Waterfowl, Shorebirds, and Other)",Not Supporting,Not meeting criteria,2012
+UT16020102-033_00,Snow Creek,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2022
+UT16020102-033_00,Snow Creek,PH,Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2022
+UT16020102-033_00,Snow Creek,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2022
+UT16010204-006_00,Malad River-1,"AMMONIA, TOTAL",Cause,Aquatic Wildlife (Non-game Fish and Other),Not Supporting,Not meeting criteria,2020
+UT14060010-013_00,Diamond Gulch,ESCHERICHIA COLI (E. COLI),Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2020
+UT-L-16010202-013_00,Newton Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT16020203-003_00,Provo River-3,BENTHIC MACROINVERTEBRATES BIOASSESSMENTS,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2020
+UT15010008-013_00,North Fork Virgin River-2,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT-L-16010203-005_00,Hyrum Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,1994
+UT-L-14040106-034_00,Calder Reservoir,TEMPERATURE,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2010
+UT14070002-003_00,Saleratus Creek - Emery,BORON,Meeting Criteria,Agricultural,Insufficient Information,Meeting criteria,
+UT16020102-026_02,Murnin Creek,TOTAL DISSOLVED SOLIDS (TDS),Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16020203-004_00,Provo River-4,ESCHERICHIA COLI (E. COLI),Meeting Criteria,Domestic Source,Not Supporting,Meeting criteria,
+UT16020203-004_00,Provo River-4,ESCHERICHIA COLI (E. COLI),Meeting Criteria,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Meeting criteria,
+UT14060009-003_04,Bear Canyon-2,PH,Cause,Domestic Source,Not Supporting,Not meeting criteria,2014
+UT14060009-003_04,Bear Canyon-2,PH,Cause,Recreation and Aesthetics (Infrequent Primary Contact),Not Supporting,Not meeting criteria,2014
+UT14060009-003_04,Bear Canyon-2,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014
+UT14060009-003_04,Bear Canyon-2,PH,Cause,Agricultural,Not Supporting,Not meeting criteria,2014
+UT16010101-007_00,Big Creek,PH,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2006
+UT16020102-043_00,Barnard Creek,COPPER,Cause,Aquatic Wildlife (Cold Water),Not Supporting,Not meeting criteria,2014

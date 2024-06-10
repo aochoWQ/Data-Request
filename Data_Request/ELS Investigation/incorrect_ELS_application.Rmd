@@ -1,0 +1,42 @@
+
+# Observe the 2022 IR Preliminary Listings. Were these only impaired for ELS and actually put on the 303(d) list?
+```{r}
+library(readr)
+
+
+prelim_2022=prelim_asmnts
+
+els22=prelim_2022%>%
+  filter(R3172ParameterName=="Minimum Dissolved Oxygen",ParameterQualifier=="early life stages are present",IR_Cat=="NS")
+
+
+
+non_els22=prelim_2022%>%
+  filter(R3172ParameterName=="Minimum Dissolved Oxygen"&ParameterQualifier!="early life stages are present"&IR_Cat=="NS")
+table(non_els22$ParameterQualifier)
+
+ns_only_els22 = els22[!els22$ASSESS_ID%in%non_els22$ASSESS_ID,]# AUs that are only impaired for ELS criteria and no other criteria
+print(els22_aus[els22_aus%in%non_els222_aus])
+
+
+#Comparing Against what was reported in 2022 from ATTAINS Parameter Report
+
+ATTAINS2022_Param_Report <- read_csv("ATTAINS2022_Param_Report.csv")
+
+ATTAINS2022_DO_NS=ATTAINS2022_Param_Report%>%
+  rename(ASSESS_ID=ASSESSMENT_UNIT_ID,R3172ParameterName=PARAMETER_CODE_NAME)%>%
+  filter(R3172ParameterName=="DISSOLVED OXYGEN")
+
+incorrect_ATTAINS2022_ELS=ATTAINS2022_DO_NS%>%filter(ASSESS_ID%in%ns_only_els22$ASSESS_ID,FIRST_LISTED_CYCLE==2022)
+
+
+
+prelim_2024_ns_22=prelim_asmnts%>%
+  filter(R3172ParameterName=="Minimum Dissolved Oxygen"&IR_Cat=="NS"&ASSESS_ID%in%incorrect_ATTAINS2022_ELS$ASSESS_ID)
+
+#Appears that there were 11 AUs that were listed using ELS criteria in the 2022 IR. However, all but Red Butte Lower were listed again in 2024 IR uses non-ELS criteria.
+
+
+au_poly24=au_poly
+bu_poly24=bu_poly
+```

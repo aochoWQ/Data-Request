@@ -1,0 +1,135 @@
+#3/27/24 AO -- Met with Sandy and Sam they requested the data for Sand County Assessment Units.
+#List Assessment Units
+#Castle Creek-1: UT14030005-009_00 , Pack Creek-1: UT14030005-011_00, Mill Creek-1-Moab: UT14030005-005_00
+```{r}
+gc_aus=c("UT14030005-009_00","UT14030005-011_00","UT14030005-005_00",)
+
+```
+
+#Castle Creek-1: UT14030005-009_00 --- Bugs and E. coli
+```{r}
+
+```
+##Pack Creek-1: UT14030005-011_00  -- Selenium and TDS and E. coli
+```{r}
+#Assessed Criteria
+#Selenium
+assess_pc_sel=acc_data_criteria[acc_data_criteria$ASSESS_ID=="UT14030005-011_00"&acc_data_criteria$R3172ParameterName=="Selenium",]%>%
+  select(where(~ any(!is.na(.))))
+length(unique(assess_pc_sel$ResultIdentifier))
+#TDS
+assess_pc_tds=acc_data_criteria[acc_data_criteria$ASSESS_ID=="UT14030005-011_00"&acc_data_criteria$R3172ParameterName=="Total Dissolved Solids",]%>%
+  select(where(~ any(!is.na(.))))
+length(unique(assess_pc_tds$ResultIdentifier))
+#Ecoli
+assess_pc_ecoli=acc_data_criteria[acc_data_criteria$ASSESS_ID=="UT14030005-011_00"&acc_data_criteria$R3172ParameterName=="E. coli",]%>%
+  select(where(~ any(!is.na(.))))
+length(unique(assess_pc_ecoli$ResultIdentifier))
+#Temperature
+assess_pc_temp=acc_data_criteria[acc_data_criteria$ASSESS_ID=="UT14030005-011_00"&acc_data_criteria$R3172ParameterName=="Max. Temperature",]%>%
+  select(where(~ any(!is.na(.))))
+length(unique(assess_pc_temp$ResultIdentifier))
+
+#preliminary MLID assessments Pack Creek
+prelim_pc_sel=prelim_asmnts[prelim_asmnts$ASSESS_ID=="UT14030005-011_00"&prelim_asmnts$R3172ParameterName=="Selenium",]
+prelim_pc_tds=prelim_asmnts[prelim_asmnts$ASSESS_ID=="UT14030005-011_00"&prelim_asmnts$R3172ParameterName=="Total Dissolved Solids",]
+prelim_pc_ecoli=prelim_asmnts[prelim_asmnts$ASSESS_ID=="UT14030005-011_00"&prelim_asmnts$R3172ParameterName=="E. coli",]
+
+
+
+```
+
+##Mill Creek-1-Moab: UT14030005-005_00 -- Dissolved Oxygen, Temperature, E. coli
+```{r}
+
+```
+
+##All assessed data and prelim data
+#Mill Creek-1-Moab: UT14030005-005_00 -- Dissolved Oxygen, Temperature, E. coli
+#Pack Creek-1: UT14030005-011_00  -- Selenium and TDS and E. coli
+#Castle Creek-1: UT14030005-009_00 --- Bugs and E. coli
+```{r}
+#Making UID of AU_R317Param
+uid_list=c("UT14030005-005_00Minimum Dissolved Oxygen","UT14030005-005_00Max. Temperature","UT14030005-005_00E. coli","UT14030005-011_00Selenium","UT14030005-011_00Total Dissolved Solids","UT14030005-011_00E. coli","UT14030005-009_00E. coli","UT14030005-009_00Macroinvertebrates")
+
+all_prelim_gcTMDL=prelim_asmnts%>%
+  mutate(uid=paste0(ASSESS_ID,R3172ParameterName))%>%
+  filter(uid%in%uid_list)%>%
+  select(where(~ any(!is.na(.))))
+
+all_assessed_gcTMDL=acc_data_criteria%>%
+  mutate(uid=paste0(ASSESS_ID,R3172ParameterName))%>%
+  filter(uid%in%uid_list)%>%
+   select(where(~ any(!is.na(.))))
+
+bugs_assessed=as.data.frame(readxl::read_excel("/Users/alanochoa/Documents/GitHub/IR-2024/external_assessments/bugs/Bug_ReAsmnts2024_FINAL.xlsx","OG_asmnt2024"))
+castle_creek_bugs=bugs_assessed[bugs_assessed$ASSESS_ID=="UT14030005-009_00",]
+```
+
+#Overall Assessments for 3 aus
+
+```{r}
+gc_aus=c("UT14030005-009_00","UT14030005-011_00","UT14030005-005_00")
+IR2024=read.csv("/Users/alanochoa/Documents/GitHub/IR-2024/2024Draft/2024_IR_draft_v2.csv")
+grand_county_24IR=IR2024[IR2024$ASSESSMENT_UNIT_ID%in%gc_aus,]
+
+
+writexl::write_xlsx(list(Site_Assessments=all_prelim_gcTMDL,Assessed_data=all_assessed_gcTMDL,Castle_Creek_Bugs=castle_creek_bugs,All_GC_Assessments=grand_county_24IR),"/Users/alanochoa/Documents/GitHub/Data_Request/Grand County TMDL/GC_Assessment_Data.xlsx", format_headers=F, col_names=T)
+
+```
+
+# Sam asked for details regarding the original E. coli impairements for AUs in GC TMDL.
+#  Castle Creek impaired 2016
+# Pack Creek and Mill Creek1-Moab in 2016
+```{r}
+gc_aus=c("UT14030005-009","UT14030005-011","UT14030005-005")
+
+library(readxl)
+ecoli_final2016ir_1_ <- read_excel("2016_ir_data_files/ecoli-final2016ir (1).xlsx", 
+    sheet = "Data")
+
+gc_ecoli=ecoli_final2016ir_1_%>%filter(AU_ASSESS%in%gc_aus)%>%clean_names(.)%>%select(-geo_file_flag,-geo_file_comment,-waterbody_type,-station_description)%>%
+  mutate(IR_MLID=paste("UTAHDWQ_WQX-",monitoring_location_id,sep=""))
+
+Mill Creek1-Moab
+4956360 - Not Supporting Scenario A.
+
+Pack Creek
+4956530 - Not Supporitng Scenario A.
+Data from : 2014-05-27 to 2014-09-23
+
+4956510 - Not Supporitng Scenario A.
+Data from: 2014-05-27 to 	2014-09-23
+
+4956455 - Not Supporitng Scenario A.
+Data from: 2014-05-27 to 	2014-09-23
+
+#2024 Sites 
+
+masterSiteTable24 = read_excel("/Users/alanochoa/Documents/GitHub/IR-2024/ir_translation_workbook_working_2024.xlsx", 
+    sheet = "masterSiteTable")
+
+
+masterSiteTable24=masterSiteTable24%>%
+  filter(IR_MLID%in%gc_ecoli$IR_MLID)
+
+castle_au=c("UT14030005-009_00")
+
+#Castle Creek-1 was impaired in 2020. loading those assessments here
+ecoli_assessed_review2018_2020_IR <- read_excel("ecoli_assessed_review2018-2020_IR.xlsx")
+
+castle_2020=ecoli_assessed_review2018_2020_IR%>%filter(ASSESS_ID=="UT14030005-009_00")
+castle_2020_1=castle_2020%>%select(IR_MLID,ASSESS_ID,AU_NAME)
+all_ecoli_assess_2020 <- read_excel("ecoli_assessed_review2018-2020_IR.xlsx", 
+    sheet = "ecoli_allscenario_asmnts")
+
+castle_2020_assessments=all_ecoli_assess_2020%>%filter(IR_MLID%in%castle_2020$IR_MLID)
+
+castle_2020_assessments=merge(castle_2020_assessments,castle_2020_1,all.x=T,all.y=F)
+# 4958030 and 4958030 Both Not Supporting Scenario A. For 2017 Data
+
+gc_ecoli_ass=list(Assessments2016=gc_ecoli,
+                  CastleAssess2020=castle_2020_assessments)
+
+writexl::write_xlsx(gc_ecoli_ass,path="GC_tmdl_triggering_impairments.xlsx")
+```

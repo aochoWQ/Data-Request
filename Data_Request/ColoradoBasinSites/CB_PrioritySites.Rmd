@@ -1,0 +1,673 @@
+#The purpose of this is to identify priority sites for the Colorado River Basin which begins October 2024
+#Limited resources only allow sampling around 100 sites. 
+#Identify sites that were IDEX - Append over all category for this to know whether to prioritize it if not.
+#Identify AUs that could have been delisted if there was more data on a specific site.
+#Identify all impaired AUs-Parameter sites that we should continue monitoring for
+
+
+#Step 1 Bring in the All secondary Review Sites & Filter for Colorado Basin
+```{r}
+library(readxl)
+colorado_basins=c("Lower Colorado River","Southeast Colorado River","Western Colorado River")
+# 1.0 Pre 2018?
+
+# 1.1 2020 IR
+IR_20_site_au_param_asmnts_merged_v6 <- read_csv("~/Documents/GitHub/IR-2020/site_au_param_asmnts_merged_v6.csv")
+ir_20_CB_sites =IR_20_site_au_param_asmnts_merged_v6[IR_20_site_au_param_asmnts_merged_v6$Mgmt_Unit%in%colorado_basins,]
+
+
+# 1.2 2022 IR
+IR_22_secondary_review <- read_excel("~/Documents/GitHub/IR-2022/secondary-review-input-all.xlsx", sheet = "site-use-param-asmnt")
+
+ir_22_CB_sites =IR_22_secondary_review[IR_22_secondary_review$Mgmt_Unit%in%colorado_basins,]
+
+# 1.3 2024 IR
+
+IR_24_secondary_review_input <- read_excel("~/Documents/GitHub/IR-2024/ALL-secondary-review-input.xlsx", sheet = "site-use-param-asmnt")
+
+ir_24_CB_sites =IR_24_secondary_review_input[IR_24_secondary_review_input$Mgmt_Unit%in%colorado_basins,]
+
+prelim_24_CB=prelim_asmnts[prelim_asmnts$Mgmt_Unit%in%colorado_basins,]
+
+rm(IR_20_site_au_param_asmnts_merged_v6,IR_22_secondary_review,IR_24_secondary_review_input,prelim_asmnts)
+getwd()
+#Load 2024 Draft IR Results
+ap1=read.csv("/Users/alanochoa/Documents/GitHub/IR-2024/2024Draft/2024_IR_draft.csv")
+ir24_au_param = ap1[ap1$Mgmt_Unit%in%colorado_basins,]
+```
+Exploratory Data Analysis to understand data & how to best go about this task.
+```{r}
+library(DataExplorer)
+
+
+#Get counts of Unique AUs for each year
+length(unique(ir_20_CB_sites$ASSESS_ID))
+length(unique(ir_22_CB_sites$ASSESS_ID))
+length(unique(ir_24_CB_sites$ASSESS_ID))
+#Max AUs is in 22 IR with 161 AUs
+
+au_20=unique(ir_20_CB_sites$ASSESS_ID)
+au_22=unique(ir_22_CB_sites$ASSESS_ID)
+au_24=unique(ir_24_CB_sites$ASSESS_ID)
+
+length(unique(ir_20_CB_sites[!ir_20_CB_sites$ASSESS_ID%in%au_24,]$ASSESS_ID))
+length(unique(ir_22_CB_sites[!ir_22_CB_sites$ASSESS_ID%in%au_24,]$ASSESS_ID))
+length(unique(ir_24_CB_sites[!ir_24_CB_sites$ASSESS_ID%in%c(au_20,au_22),]$ASSESS_ID))
+
+#There were 18 sites from 2020 that were not assessed in 24.
+#There were 11 sites assessed in 22 that are not in 24.
+#There are 3 sites assess in 24 that weren't assessed in assessed in 20 or 22.
+
+#How many currently impaired AUs have not been assessed in last three cycles? ANSWER -- There are 232 impaired AU/Params that have not been assessed in last 3 cycles.
+length(!unique(ir24_au_param$ASSESSMENT_UNIT_ID)%in%c(au_20,au_22,au_24))
+
+#There are 54 rows that have not been assessed since 2014 or earlier.
+ir_22_CB_sites$Year=2022
+ir_22_CB_sites$IR_Lat=as.numeric(ir_22_CB_sites$IR_Lat)
+ir_22_CB_sites$IR_Long=as.numeric(ir_22_CB_sites$IR_Long)
+
+ir_20_CB_sites$Year=2020
+ir_20_22_sites=bind_rows(ir_22_CB_sites,ir_20_CB_sites)
+
+ir_24_CB_sites$Year=2024
+ir_24_CB_sites$IR_Lat=as.numeric(ir_24_CB_sites$IR_Lat)
+ir_24_CB_sites$IR_Long=as.numeric(ir_24_CB_sites$IR_Long)
+ir_20_22_24_sites=bind_rows(ir_20_22_sites,ir_24_CB_sites)
+```
+
+#Select AUs that could be FS if they had more data on specific sites. - Delistings
+```{r}
+impaired_aus24 = ir24_au_param[ir24_au_param$PARAMETER_ATTAINMENT=="Not meeting criteria",]
+impaired_aus24=impaired_aus24[!is.na(impaired_aus24$WATER_TYPE_NAME),]
+#then check which aus in prelim or ir_24_cb have all of the same parameters FS.
+
+#translate ParamNames to match ir_24_CB_sites
+library(readxl)
+paramTrans <- read_excel("/Users/alanochoa/Documents/GitHub/IR-2024/ir_translation_workbook_working_2024.xlsx", 
+    sheet = "paramTransTable")
+usesTrans <- read_excel("/Users/alanochoa/Documents/GitHub/IR-2024/ir_translation_workbook_working_2024.xlsx", 
+    sheet = "ATTAINS_uses")
+usesTrans$BeneficialUse= ifelse(usesTrans$BeneficialUse=="4.0","4",usesTrans$BeneficialUse)
+
+paramTrans=paramTrans%>%
+  select(R3172ParameterName,ATTAINS_PARAM_NAME)%>%
+  unique(.)%>%
+  filter(R3172ParameterName%in%ir_24_CB_sites$R3172ParameterName,!R3172ParameterName=="High frequency DO")
+
+#Add R317Param to impaired_aus
+impaired_aus24_=impaired_aus24%>%
+  rename(ATTAINS_PARAM_NAME=PARAMETER_CODE_NAME,
+         USE_NAME=Uses)%>%
+  merge(.,paramTrans)%>%
+  select(-ATTAINS_PARAM_NAME)%>%
+  separate_rows(USE_NAME,sep =",\\s*")%>%
+  merge(.,usesTrans)%>%
+  mutate(uid=paste0(ASSESSMENT_UNIT_ID,R3172ParameterName,BeneficialUse),
+         uid1=paste0(ASSESSMENT_UNIT_ID,R3172ParameterName))%>%
+  select(-USE_NAME)
+
+#Rollup ir_24_CB_sites to AU-PARAM-Use
+
+#May need to change AssessCat to work with it..
+ir_24_CB_sites=ir_24_CB_sites%>%rename(IR_Cat=AssessCat)
+
+
+group_vars = c("ASSESS_ID", "AU_NAME", "R3172ParameterName" ,"BeneficialUse")
+dat_all=ir_24_CB_sites
+dat_all$AssessCat=NA
+dat_all$AssessCat[dat_all$IR_Cat=="NS"]<-5
+#dat_all$AssessCat[dat_all$IR_Cat=="TMDLa"]<- 4 - (JV) turning off TMDL approved for now. Not sure if we want to include this here yet or as a sort of "secondary review" type step
+dat_all$AssessCat[dat_all$IR_Cat=="FS"]<-3
+dat_all$AssessCat[dat_all$IR_Cat=="IDEX"]<-2
+dat_all$AssessCat[dat_all$IR_Cat=="IDNE"]<-1
+dat_all$AssessCat[dat_all$IR_Cat=="ID"]<-0
+
+
+# Turn group_vars into a formula argument
+subs_eq <- paste(group_vars, collapse="+")
+
+# Convert subsetting convention to formula for input to aggregate function
+eq <- as.formula(paste("AssessCat", subs_eq, sep="~"))
+
+# Aggregate to AU by group_vars
+rollup <- aggregate(eq,dat_all,max)
+
+
+#Renaming assessment categories
+rollup$AssessCat=as.character(rollup$AssessCat)
+rollup=within(rollup,{
+	AssessCat[AssessCat=="5"]="NS"
+	AssessCat[AssessCat=="4"]="TMDLa"
+	AssessCat[AssessCat=="3"]="FS"
+	AssessCat[AssessCat=="2"]="IDEX"
+	AssessCat[AssessCat=="1"]="IDNE"
+	AssessCat[AssessCat=="0"]="ID"
+})
+
+
+#******* LIST 0
+# List sites that are NS for a parameter.
+impaired_sites24=ir_24_CB_sites%>%filter(IR_Cat%in%c("NS","IDEX"))%>%
+  select(-site_param_review,-au_rev,-AU_review, -lake,-permit,-new_listing,-pol_ind,-BEN_CLASS)%>%
+  mutate(uid1=paste0(ASSESS_ID,R3172ParameterName,BeneficialUse),
+                                             uid=paste0(IR_MLID,R3172ParameterName))
+
+cbi_data_all=acc_data_criteria[acc_data_criteria$Mgmt_Unit%in%colorado_basins,]%>%
+  distinct(.)
+#ADD Parameter counts
+cbi_data_all=acc_data_criteria[acc_data_criteria$Mgmt_Unit%in%colorado_basins,c("ASSESS_ID", "AU_NAME","Mgmt_Unit" , "IR_MLID", "R3172ParameterName" ,"ActivityStartDate"  )]%>%
+  distinct(.)
+
+cbi_data_impaired_sites=cbi_data_all%>%
+ mutate(uid=paste0(ASSESS_ID,R3172ParameterName))%>%
+  filter(uid%in%impaired_sites24$uid,as.Date(ActivityStartDate)>as.Date("2018-09-30",format="%Y-%m-%d"))
+
+cbi_data_impaired_sites_counts=cbi_data_impaired_sites%>%
+  mutate(uid=paste0(IR_MLID,R3172ParameterName))%>%group_by(uid)%>%summarize(count_d=n())
+
+impaired_sites24=merge(impaired_sites24,cbi_data_impaired_sites_counts,all.x=T)%>%
+  mutate(R3172ParameterName=ifelse(is.na(count_d),R3172ParameterName,paste0(R3172ParameterName," [n=",count_d,"]")))
+
+
+impaired_sites24_2 <- impaired_sites24 %>%
+  select(-uid1,-uid,-count_d)%>%
+  group_by(Mgmt_Unit, ASSESS_ID, AU_NAME, IR_MLID, IR_MLNAME, IR_Lat, IR_Long, R3172ParameterName, IR_Cat) %>%
+  # Summarise BeneficialUse by sorting, deduplicating, and collapsing
+  summarise(BeneficialUse = toString(sort(unique(BeneficialUse))), .groups = 'drop') %>%
+  # Spread the BeneficialUse across IR_Cat categories
+  pivot_wider(names_from = IR_Cat, values_from = BeneficialUse) %>%
+  # Combine the categories and their corresponding Beneficial Uses into a new column
+  rowwise() %>%
+  mutate(CombinedUses = paste(c(
+    if(!is.na(IDEX)) paste("IDEX(", IDEX, ")", sep=""),
+    if(!is.na(NS)) paste("NS(", NS, ")", sep="")
+  ), collapse=", "),
+  Param_Use=paste0(R3172ParameterName," (",ifelse(is.na(IDEX),NS,IDEX),")")) 
+
+#*Edit this so there are one column for NS parameters and IDEX Parameters 
+df_idex <- impaired_sites24_2 %>%
+  filter(!is.na(IDEX)) %>%
+  group_by(Mgmt_Unit, ASSESS_ID, AU_NAME, IR_MLID, IR_MLNAME, IR_Lat, IR_Long) %>%
+  summarise(IDEX_Params = paste(Param_Use, collapse = ", "), .groups = 'drop')
+
+#NS rows
+df_ns <- impaired_sites24_2 %>%
+  filter(!is.na(NS)) %>%
+  group_by(Mgmt_Unit, ASSESS_ID, AU_NAME, IR_MLID, IR_MLNAME, IR_Lat, IR_Long) %>%
+  summarise(NS_Params = paste(Param_Use, collapse = ", "), .groups = 'drop')
+
+
+#******SAVE
+#Joining the IDEX and NS mlids.
+NS_IDEX_sites24 <- impaired_sites24_2 %>%
+  select(Mgmt_Unit, ASSESS_ID, AU_NAME, IR_MLID, IR_MLNAME, IR_Lat, IR_Long) %>%
+  distinct() %>%
+  left_join(df_idex, by = c("Mgmt_Unit", "ASSESS_ID", "AU_NAME", "IR_MLID", "IR_MLNAME", "IR_Lat", "IR_Long")) %>%
+  left_join(df_ns, by = c("Mgmt_Unit", "ASSESS_ID", "AU_NAME", "IR_MLID", "IR_MLNAME", "IR_Lat", "IR_Long"))
+
+#For IDEX columns I want to add the overall AU assessment for each MLID row. For example does this NS_IDEX_sites24 count
+#ap1 file - join all impaired parameters to one column and have only that column and the ASSESS_ID
+#Join/merge that to NS_IDEX or just join to the main site_of_interest df.
+
+library(readr)
+X2024_IR_draft_v2 <- read_csv("2024Draft/2024_IR_draft_v2.csv")
+View(X2024_IR_draft_v2)
+
+
+  
+#******* LIST 1
+#*#******SAVE
+#These AU-Params are impaired even though all sites for that AU were FS. 
+#******* Investigate sites triggering impairements in these AUs. AU-PARAM-Use
+rollup24_FS_IDNE_but_Impaired=rollup%>%
+  mutate(uid=paste0(ASSESS_ID,R3172ParameterName,BeneficialUse))%>%
+  filter(AssessCat%in%c("FS","IDNE") & uid%in%impaired_aus24_$uid)
+
+
+##******* List 2
+#Which other impaired AU-PARAMs are not in this list? This may find AUs where all sites were IDNE but still impaired.. or may find AU-PARAMs that weren't assessed in 2024.
+
+#This list the AU-Param-Use that were not in the rollup24_FS_IDNE_but_Impaired AND not in the list of impaired_sites24 (which include site assessments that were IDEX or NS). Is also Use dependent. There are some rows where a specific use was not assessed for 2024 but still NS.
+unassess_impaired_AU_param=impaired_aus24_[!impaired_aus24_$uid%in%rollup24_FS_IDNE_but_Impaired$uid &!impaired_aus24_$uid%in%impaired_sites24$uid1,]
+
+unassess_impaired_AU_param=unassess_impaired_AU_param%>%
+  mutate(uid1=paste0(ASSESSMENT_UNIT_ID,R3172ParameterName))
+
+
+ir_20_22_24_sites=ir_20_22_24_sites%>%mutate(uid=paste0(ASSESS_ID,R3172ParameterName),
+                                             uid1=paste0(ASSESS_ID,R3172ParameterName,BeneficialUse))
+
+#These sites may potentially be needed.
+missing_impaired_sites=ir_20_22_24_sites[ir_20_22_24_sites$uid%in%unassess_impaired_AU_param$uid1,]
+
+#There are some sites in the list of combined 20-22-24 list of sites where the AU-Param-Use is not accounted for BUT there is already AU-Param combinations that are being accounted for in the impaired_sites24. We are filtering those out. 
+unassessed_in24_NS_auParam=missing_impaired_sites[!missing_impaired_sites$uid1%in%impaired_sites24$uid1,]
+unassessed_in24_NS_auParam$in24=ifelse(unassessed_in24_NS_auParam$uid%in%ir_24_CB_sites$uid,"Yes","")
+#******SAVE 
+
+#Save these AU-Params have not been assessed pre 2020. Check through these and find sites that could be sampled for these AUs
+unassess_NS_AU_param_pre2020=unassess_impaired_AU_param[!unassess_impaired_AU_param$uid1%in%ir_20_22_24_sites$uid,]
+#******SAVE unassess_impaired_AU_param_pre2020
+
+#Select sites from 2024IR that are FS_but impaired.
+sites_FS_IDNE_but_IR24_NS=ir_24_CB_sites%>%mutate(uid=paste0(ASSESS_ID,R3172ParameterName,BeneficialUse))%>%
+  select(-au_rev,-AU_review,-site_param_review,-lake,-permit,-new_listing,-BeneficialUse,-pol_ind)%>%
+  unique(.)%>%
+  filter(uid%in%rollup24_FS_IDNE_but_Impaired$uid)
+
+#******SAVE sites_FS_IDNE_but_IR24_NS
+
+##****** List 3
+
+
+#CREATE df as LIST OF UNIQUE SITES with what file or tab they are in so that they are not counted multiple times
+
+
+# This code collapses the rows so that all the FS and IDNE parameters are in one column
+sites_FS_IDNE_but_IR24_NS_2=sites_FS_IDNE_but_IR24_NS%>%
+  select(-BEN_CLASS,-uid)%>%
+  unique(.)%>%
+  group_by(Mgmt_Unit, ASSESS_ID, AU_NAME, IR_MLID, IR_MLNAME, IR_Lat, IR_Long)%>%
+  mutate(FS_IDNE_but_NS=paste(R3172ParameterName, collapse = ", "),
+         IR_Lat=as.character(IR_Lat),
+         IR_Long=as.character(IR_Long))%>%
+  select(Mgmt_Unit, ASSESS_ID, AU_NAME, IR_MLID, IR_MLNAME, IR_Lat, IR_Long,FS_IDNE_but_NS)%>%
+  unique(.)
+  
+mlids_coord=unassessed_in24_NS_auParam%>%
+  select(IR_MLID,IR_Lat,IR_Long)%>%
+  unique(.)%>%
+  group_by(IR_MLID) %>% 
+  slice(1) %>% ungroup()
+
+
+unassessed_in24_NS_auParam_2=unassessed_in24_NS_auParam%>%
+  select(Mgmt_Unit, ASSESS_ID, AU_NAME, IR_MLID, IR_MLNAME,R3172ParameterName)%>%
+  unique(.)%>%
+  group_by(Mgmt_Unit, ASSESS_ID, AU_NAME, IR_MLID, IR_MLNAME)%>%
+  mutate(NS_unassessed_in24=paste(R3172ParameterName, collapse = ", "))%>%
+  select(-R3172ParameterName)%>%
+  unique(.)
+unassessed_in24_NS_auParam_2$AU_NAME=ifelse(unassessed_in24_NS_auParam_2$IR_MLID=="UTAHDWQ_WQX-4955423","Quitchupah Creek Upper",unassessed_in24_NS_auParam_2$AU_NAME)
+unassessed_in24_NS_auParam_2$ASSESS_ID=ifelse(unassessed_in24_NS_auParam_2$IR_MLID=="UTAHDWQ_WQX-4955423","UT14070002-002_00",unassessed_in24_NS_auParam_2$ASSESS_ID)
+
+all_sites_of_interest=merge(NS_IDEX_sites24,sites_FS_IDNE_but_IR24_NS_2,all.x=T,all.y=T)
+all_sites_of_interest=merge(all_sites_of_interest,unassessed_in24_NS_auParam_2,all.x=T,all.y=T)
+
+
+missing_coord=all_sites_of_interest[is.na(all_sites_of_interest$IR_Lat) & all_sites_of_interest$IR_MLID%in%mlids_coord$IR_MLID,!names(all_sites_of_interest)%in%c("IR_Lat","IR_Long","count","Combined_param_uses" ,"FS_IDNE_but_NS" )]
+missing_coord=merge(missing_coord,mlids_coord,all.x=T)
+
+all_sites_of_interest1=all_sites_of_interest[!all_sites_of_interest$IR_MLID%in%missing_coord$IR_MLID,]
+
+all_sites_of_interest1=merge(all_sites_of_interest1,missing_coord,all.x=T,all.y=T)
+
+
+
+assessmentsv2=read.csv(file="/Users/alanochoa/Documents/GitHub/IR-2024/2024Draft/2024_IR_draft_v2.csv")
+overall_cat=assessmentsv2%>%
+  select(ASSESSMENT_UNIT_ID,Mgmt_Unit,DWQ_Category)%>%
+  rename(ASSESS_ID=ASSESSMENT_UNIT_ID)%>%
+  distinct(.)%>%
+  filter(Mgmt_Unit%in%colorado_basins)
+
+#Check which AUs are not in the sites of interest
+assess_missing=assessmentsv2[!assessmentsv2$ASSESSMENT_UNIT_ID%in%all_sites_of_interest1$ASSESS_ID&assessmentsv2$Mgmt_Unit%in%colorado_basins,]
+
+#there are 102 AUs that are not identified in the list..
+#check the preliminary data for aus in here..
+potent_sites=asmnts_no_pi[asmnts_no_pi$ASSESS_ID%in%assess_missing$ASSESSMENT_UNIT_ID,]
+#Filtering out sites that are FS..
+potent_sites=potent_sites%>%filter(!IR_Cat=="FS")%>%
+  select(Mgmt_Unit,ASSESS_ID,AU_NAME,IR_MLID, IR_MLNAME, IR_Lat, IR_Long,R3172ParameterName,
+         SampleCount,IR_Cat)%>%
+  distinct(.)%>%
+  mutate(uid=paste0(IR_MLID,R3172ParameterName))
+
+#Get sample counts for this 2026 cycle..
+cbi_data_IDNE=cbi_data_all%>%
+ mutate(uid=paste0(IR_MLID,R3172ParameterName))%>%
+  filter(uid%in%potent_sites$uid,as.Date(ActivityStartDate)>as.Date("2018-09-30",format="%Y-%m-%d"))
+
+cbi_data_IDNE_counts=cbi_data_IDNE%>%
+  group_by(uid)%>%summarize(count_d=n())
+
+potent_sites1=merge(potent_sites,cbi_data_IDNE_counts,all.x=T)%>%
+  mutate(R3172ParameterName=ifelse(is.na(count_d),R3172ParameterName,paste0(R3172ParameterName," [n=",count_d,"]")))
+
+df_IDNE <- potent_sites1 %>%
+  group_by(Mgmt_Unit, ASSESS_ID, AU_NAME, IR_MLID, IR_MLNAME, IR_Lat, IR_Long) %>%
+  summarise(IDNE_Params = paste(R3172ParameterName, collapse = ", "), .groups = 'drop')
+
+
+all_sites_of_interest1=bind_rows(all_sites_of_interest1,df_IDNE)
+
+
+all_sites_of_interest1=merge(all_sites_of_interest1,overall_cat,all.x=T)
+
+
+
+#Save list of tables.
+focus_sites_dfsV2=list(
+                    all_sites_of_interest = all_sites_of_interest1,
+                    
+                     )
+
+writexl::write_xlsx(focus_sites_dfsV2,
+                      "CBI_site_analysisV2.xlsx", format_headers=F, col_names=T)
+
+##*Which AUs are not impaired but could still be useful to collect data to identify long term trends. Identify which sites would be helpful.
+
+
+#Check if there are any rejected data in these AUs
+cbi_reject=prepped_data$rej_data_reasons[prepped_data$rej_data_reasons$MonitoringLocationIdentifier=="",]
+
+
+#Add a column for a summary of PARAMETER_CODE_NAME, PARAMETER_ATTAINMENT and Parameter_Status
+cbi_summary=ap1%>%
+  mutate(p_sum=paste0(PARAMETER_CODE_NAME,"-", PARAMETER_ATTAINMENT,"-", Parameter_Status))%>%
+  filter(ASSESSMENT_UNIT_ID%in%all_sites_of_interest1$ASSESSMENT_UNIT_ID)
+
+```
+
+
+#Step 3  Create map with all the sites in all_sites_of_interest1. And have a layer of the AU 24 IR
+```{r}
+
+#:TODO
+#Add Basins,add sample counts,add 
+
+all_sites_of_interest1=all_sites_of_interest1%>%
+  mutate(lab=paste0("MLID: ",IR_MLID,"<br />",
+                    "IDEX_Params : ",IDEX_Params,"<br />",
+                    "NS_Params : ",NS_Params,"<br />",
+                    "NS_unassessed_in24: ",NS_unassessed_in24,"<br />",
+                    "FS_IDNE_but_NS: ",FS_IDNE_but_NS,"<br />"),
+         IR_Lat=as.numeric(IR_Lat),
+         IR_Long=as.numeric(IR_Long))%>%
+  filter(!is.na(IR_Lat))
+  
+```
+
+#Gather the NPS projects to see if there are projects by sites that may benefit from being sampled again to catch any impacts of NPS projects..
+```{r}
+# This file is from IR-2024
+nps_proj=read.csv("/Users/alanochoa/Documents/GitHub/IR-2024/nps_proj_22.csv")#NPS projects until 2022
+
+#Trim Columns, and filter out nps projects that have spent money and active or complieted.
+nps_proj = nps_proj%>% 
+  filter(!AmountSpent==0 & !ProjectStatus=="Canceled")%>%
+  rename(IR_Lat=LatitudeMeasure,IR_Long=LongitudeMeasure)%>%
+  select(ASSESS_ID,ProjectID,ProjectTitle, BriefProjectDescription , ProjectStatus ,DateAwarded, DateCompleted , AmountSpent, AmountAwarded  ,IR_Lat , IR_Long)
+
+nps_proj_CB=nps_proj[nps_proj$ASSESS_ID%in%all_sites_of_interest1$ASSESS_ID,]
+nps_proj_CB$IR_Lat = wqTools::facToNum(nps_proj_CB$IR_Lat)
+nps_proj_CB$IR_Long = wqTools::facToNum(nps_proj_CB$IR_Long)
+
+```
+
+
+Create map
+```{r}
+library(leaflet)
+assessments=read.csv(file="/Users/alanochoa/Documents/GitHub/asmnt_map2024_OG/2024_IR_draft.csv")
+
+```
+
+#Create Map
+```{r}
+assessments=assessments[assessments$ASSESSMENT_UNIT_ID%in%all_sites_of_interest1$ASSESS_ID,]
+
+
+assessments=within(assessments, {
+	au_label=paste0(
+		"AU name: ", ASSESSMENT_UNIT_NAME, "<br />",
+		"AU ID: ", ASSESSMENT_UNIT_ID, "<br />",
+		"Numeric category: ", EPA_IR_CATEGORY_ID, "<br />",
+		"DWQ category: ", DWQ_Category,"<br />",
+		HNNC
+	)
+	param_label=paste0(PARAMETER_CODE_NAME,": ", PARAMETER_ATTAINMENT, ", ", Parameter_Status)
+	
+})
+
+au_param_labs=aggregate(param_label~ASSESSMENT_UNIT_ID+EPA_IR_CATEGORY_ID+DWQ_Category+au_label, assessments, paste, collapse = "<br/>")
+au_param_labs=within(au_param_labs, {
+	lab=paste0(au_label,"<br/> Parameters:<br/> ", param_label)
+	lab=gsub("<br/> Parameters:<br/> NA: NA, NA", "", lab)
+})
+
+aup=wqTools::au_poly
+
+suppressWarnings({centroids=sf::st_centroid(aup)})
+
+# Note: removing these 2 never assessed AU polygons
+#subset(aup, !ASSESS_ID %in% au_param_labs$ASSESSMENT_UNIT_ID)
+
+aup=merge(aup, au_param_labs, by.x="ASSESS_ID", by.y="ASSESSMENT_UNIT_ID")
+if(!dim(aup)[1]==length(unique(assessments$ASSESSMENT_UNIT_ID))){stop("Lengths do not match. Check aggregation and merging")}
+
+map=leaflet()%>%
+  addProviderTiles("Esri.WorldTopoMap", group = "World topo", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE)) %>%
+  addMapPane("au_poly", zIndex = 415)  %>%
+  addMapPane("SITES", zIndex = 419)  %>% 
+  addPolygons(data=aup[aup$EPA_IR_CATEGORY_ID=="3",],group="Cat 3: Insufficient data",fillOpacity = 0.3,weight=2,color="#a6a6a6", options = pathOptions(pane = "au_poly"),
+              popup=~lab
+  ) %>% 
+  addPolygons(data=aup[aup$EPA_IR_CATEGORY_ID=="5",],group="Cat 5: Not supporting, TMDL required",fillOpacity = 0.3,weight=2,color="#e41a1c", options = pathOptions(pane = "au_poly"),
+              popup=~lab
+  ) %>% 
+  addPolygons(data=aup[aup$EPA_IR_CATEGORY_ID=="4A",],group="Cat 4A: Approved TMDL",fillOpacity = 0.3,weight=2,color="#984ea3", options = pathOptions(pane = "au_poly"),
+              popup=~lab
+  ) %>% 
+  addPolygons(data=aup[aup$EPA_IR_CATEGORY_ID=="2",],group="Cat 2: No evidence of impairment",fillOpacity = 0.3,weight=2,color="#255d8a", options = pathOptions(pane = "au_poly"),
+              popup=~lab
+  ) %>% 
+  addPolygons(data=aup[aup$EPA_IR_CATEGORY_ID=="1",],group="Cat 1: Fully Supporting",fillOpacity = 0.3,weight=2,color="#118a11", options = pathOptions(pane = "au_poly"),
+              popup=~lab
+  ) %>% 
+  addCircles(data=all_sites_of_interest1,lat=~IR_Lat,lng=~IR_Long,group="SITES",popup=~lab,color="blue",weight = 3,radius=160,options = pathOptions(pane = "SITES"))%>%
+  addCircles(data = centroids, group = "AUID",stroke=F, fill=F, label=~ASSESS_ID,
+             popup = aup$ASSESS_ID) %>%
+  addCircles(data = centroids, group = "AUName",stroke=F, fill=F, label=~AU_NAME,
+             popup = aup$AU_NAME)%>%
+  addCircles(lat=nps_proj_CB$IR_Lat, lng=nps_proj_CB$IR_Long, group="NPS_projects", weight=3,radius=160, color="green", opacity = 0.8,
+                   popup = paste0(
+                     "Project ID: ", nps_proj_CB$ProjectID,
+                     "<br> Project Title: ", nps_proj_CB$ProjectTitle,
+                     "<br> Amount Spent: ", nps_proj_CB$AmountSpent,
+                     "<br> Date Awarded: ", nps_proj_CB$DateAwarded,
+                     "<br> Date Completed: ", nps_proj_CB$DateCompleted), options = pathOptions(pane = "SITES")) %>%
+  addLayersControl(position ="topleft",overlayGroups = c("NPS_projects" ,"SITES","Cat 1: Fully Supporting", "Cat 2: No evidence of impairment", "Cat 3: Insufficient data", "Cat 4A: Approved TMDL", "Cat 5: Not supporting, TMDL required"),
+                                options = leaflet::layersControlOptions(collapsed = TRUE, autoZIndex=FALSE))%>%
+  addLegend("topright", 
+	colors=c("#118a11", "#255d8a", "#a6a6a6", "#984ea3", "#e41a1c"), 
+	labels = c("Cat 1: Fully Supporting", "Cat 2: No evidence of impairment", "Cat 3: Insufficient data", "Cat 4A: Approved TMDL", "Cat 5: Not supporting, TMDL required"),
+	title = "Assessment Category",opacity = 0.6
+  )%>%
+  wqTools::addMapResetButton()%>%
+  leaflet.extras::addSearchFeatures(
+    targetGroups = c('AUID','AUName'),
+    options = leaflet.extras::searchFeaturesOptions(
+      zoom=12, openPopup = FALSE, firstTipSubmit = TRUE,
+      autoCollapse = TRUE, hideMarkerOnCollapse = TRUE ))
+
+map
+
+htmlwidgets::saveWidget(map, "indexSITES.html", title="Utah 2024 IR submission")
+
+save(centroids,aup,all_sites_of_interest1,nps_proj_CB,file="CBI_Sites_Shiny App/CBI_sites_data.Rdata")
+
+```
+
+#Shiny App and Map of sites
+```{r}
+library(shiny)
+library(shinyBS)
+library(wqTools)
+library(irTools)
+library(leaflet)
+
+#This rdata has: aup,all_sites_of_interest1,nps_proj_CB
+load("CBI_sites_data.Rdata")
+
+ui <- fluidPage(
+  tags$head(
+    tags$style(HTML("
+    /* Custom CSS to style legend icons as circles */
+      .legend i {
+        border-radius: 70%; /* Create circle shapes */
+        width: 10px; /* Specify width for circle */
+        height: 10px; /* Specify height for circle */
+      }
+      .selectize-input {
+        font-size: 12px; /* Adjust the font size as needed */
+      }
+    "))
+  ),
+  fileInput("import_sites", "Import site file", accept=".xlsx"),
+  fluidRow(leaflet::leafletOutput("map"))
+)
+
+# Define server
+server <- function(input, output,session) {
+  
+  
+output$map <- leaflet::renderLeaflet({
+ 
+        review_map=leaflet()%>%
+      addProviderTiles("Esri.WorldTopoMap", group = "World topo", options =  providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE)) %>%
+      addMapPane("au_poly", zIndex = 415)  %>%
+      addMapPane("SITES", zIndex = 419)  %>% 
+      addPolygons(data=aup[aup$EPA_IR_CATEGORY_ID=="3",],group="Cat 3: Insufficient data",fillOpacity = 0.3,weight=2,color="#a6a6a6", options = pathOptions(pane = "au_poly"),
+                  popup=~lab
+      ) %>% 
+      addPolygons(data=aup[aup$EPA_IR_CATEGORY_ID=="5",],group="Cat 5: Not supporting, TMDL required",fillOpacity = 0.3,weight=2,color="#e41a1c", options = pathOptions(pane = "au_poly"),
+                  popup=~lab
+      ) %>% 
+      addPolygons(data=aup[aup$EPA_IR_CATEGORY_ID=="4A",],group="Cat 4A: Approved TMDL",fillOpacity = 0.3,weight=2,color="#984ea3", options = pathOptions(pane = "au_poly"),
+                  popup=~lab
+      ) %>% 
+      addPolygons(data=aup[aup$EPA_IR_CATEGORY_ID=="2",],group="Cat 2: No evidence of impairment",fillOpacity = 0.3,weight=2,color="#255d8a", options = pathOptions(pane = "au_poly"),
+                  popup=~lab
+      ) %>% 
+      addPolygons(data=aup[aup$EPA_IR_CATEGORY_ID=="1",],group="Cat 1: Fully Supporting",fillOpacity = 0.3,weight=2,color="#118a11", options = pathOptions(pane = "au_poly"),
+                  popup=~lab
+      ) %>% 
+      addCircles(data=all_sites_of_interest1,lat=~IR_Lat,lng=~IR_Long,group="SITES",popup=~lab,color="blue",weight = 3,radius=160,options = pathOptions(pane = "SITES"))%>%
+      addCircles(data = centroids, group = "AUID",stroke=F, fill=F, label=~ASSESS_ID,
+                 popup = aup$ASSESS_ID) %>%
+      addCircles(data = centroids, group = "AUName",stroke=F, fill=F, label=~AU_NAME,
+                 popup = aup$AU_NAME)%>%
+      addCircles(data = all_sites_of_interest1,lat=~IR_Lat,lng=~IR_Long, group = "MLID",stroke=F, fill=F, label=~IR_MLID)%>%
+      addCircles(lat=nps_proj_CB$IR_Lat, lng=nps_proj_CB$IR_Long, group="NPS_projects", weight=3,radius=160, color="green", opacity = 0.8,
+                       popup = paste0(
+                         "Project ID: ", nps_proj_CB$ProjectID,
+                         "<br> Project Title: ", nps_proj_CB$ProjectTitle,
+                         "<br> Amount Spent: ", nps_proj_CB$AmountSpent,
+                         "<br> Date Awarded: ", nps_proj_CB$DateAwarded,
+                         "<br> Date Completed: ", nps_proj_CB$DateCompleted), options = pathOptions(pane = "SITES")) %>%
+      addLayersControl(position ="topleft",overlayGroups = c("NPS_projects" ,"SITES","Cat 1: Fully Supporting", "Cat 2: No evidence of impairment", "Cat 3: Insufficient data", "Cat 4A: Approved TMDL", "Cat 5: Not supporting, TMDL required"),
+                                    options = leaflet::layersControlOptions(collapsed = TRUE, autoZIndex=FALSE))%>%
+      addLegend("topright", 
+    	colors=c("#118a11", "#255d8a", "#a6a6a6", "#984ea3", "#e41a1c"), 
+    	labels = c("Cat 1: Fully Supporting", "Cat 2: No evidence of impairment", "Cat 3: Insufficient data", "Cat 4A: Approved TMDL", "Cat 5: Not supporting, TMDL required"),
+    	title = "Assessment Category",opacity = 0.6
+      )%>%
+      wqTools::addMapResetButton()%>%
+      leaflet.extras::addSearchFeatures(
+        targetGroups = c('AUID','AUName','MLID'),
+        options = leaflet.extras::searchFeaturesOptions(
+          zoom=12, openPopup = FALSE, firstTipSubmit = TRUE,
+          autoCollapse = TRUE, hideMarkerOnCollapse = TRUE ))%>%
+          addLegend(position = "bottomright", # Position the new legend
+              colors = c("green", "blue"),
+              labels = c("NPS Project Markers", "MLID Sites"),
+              title = "Marker Types",
+              opacity = .5)
+    
+        
+    
+   }) #END OF renderLeaflet
+
+   review_map_proxy=leafletProxy('map')
+   
+
+   # #Read any sites that imported 
+   # observeEvent(input$import_sites, {
+   #   # 1)read excel or csv
+   #   # 2) Ensure they have columns MLID, Lat, Long
+   #   # 3) Coordinates not null, okay if some but at least some not nullfile
+   #   # 4) Convert to numeric
+   #   # target_huc=clicked_points$huc12
+   #   # req(target_huc)
+   #   # geo_dat = geo_data[geo_data$HUC_12 ==target_huc ,]
+   #   # 
+   #   #Debugging
+   #   print(paste("Target HUC:", target_huc))
+   #   print(str(geo_dat))
+   #   if (!is.null(target_huc)& nrow(geo_dat)>0) {
+   #     review_map_proxy %>%
+   #     clearGroup(group='highlight') %>%
+   #     addPolygons(data=geo_dat, group='highlight',
+   #                 options = pathOptions(pane = "highlight"),layerId=geo_dat$OBJECTID, 
+   #                 fillColor='green',color="yellow", fillOpacity = 0.8, weight = 5, popup = 
+   #                   paste0 ("HUC_12: ",geo_dat$HUC_12, "<br> HUC12 Name: ",geo_dat$HU_12_NAME))
+   #   }
+   #    })
+   
+}#END OF SERVER
+# Run the app
+shinyApp(ui, server)
+
+```
+
+```{r}
+bakerdam_data=prelim_asmnts[prelim_asmnts$ASSESS_ID=="UT-L-15010008-008_00",]
+northcreek_data=ir_22_CB_sites[ir_22_CB_sites$ASSESS_ID=="UT14070005-003_00",]
+blandingRes=ir_20_22_24_sites[ir_20_22_24_sites$ASSESS_ID=="UT-L-14080201-002_00",]
+
+temp=ir_20_22_24_sites[ir_20_22_24_sites$ASSESS_ID=="UT14070003-001_00",]
+
+temp_data=acc_data_criteria[acc_data_criteria$IR_MLID=="UTAHDWQ_WQX-5955990",]
+temp_data=prepped_data$toxics[prepped_data$toxics$IR_MLID=="UTAHDWQ_WQX-5955990",]
+
+```
+
+#Which AUs have not been assessed for a few cycles?
+```{r}
+CBI_AUs=ap1[ap1$Mgmt_Unit%in%colorado_basins,]
+
+write.csv(CBI_AUs,"cbi_assessments.csv")
+
+```
+
+#How would it look to display all the sites within one map?
+#Consolidate column names for the three past cycles.. 
+
+```{r}
+ir_20_CB_sites, ir_22_CB_sites, prelim_24_CB #Defined in the begining of .Rmd
+#Most important columns:
+
+ir_20_CB_sites_1=ir_20_CB_sites%>%
+  rename(IR_Cat=param_asmnt)%>%
+  select(-site_asmnt,-au_asmnt)%>%
+  mutate(Year=2020)
+
+ir_22_CB_sites_1=ir_22_CB_sites%>%
+  rename(IR_Cat=AssessCat)%>%
+  select(names(ir_20_CB_sites_1))
+
+ir_22_CB_sites_1$Year=2022
+
+prelim_24_CB_1=prelim_24_CB%>%
+  select(names(ir_22_CB_sites_1))%>%
+  mutate(Year=2024)
+
+cbi_sites_all=rbind(ir_20_CB_sites_1,ir_22_CB_sites_1)
+cbi_sites_all=rbind(cbi_sites_all,prelim_24_CB_1)
+
+cbi_sites_all2=cbi_sites_all%>%filter(!grepl("L",ASSESS_ID))
+
+```
+

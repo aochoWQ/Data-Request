@@ -1,0 +1,267 @@
+#Ben H. noticed that we do not have standards for chloride in rule book but EPAs recommendations are: 
+#The recommended chloride criteria are 860 mg/L acute and 230 mg/L chronic. They would be applied similarly as a toxic parameter, but there are no equations associated with it. 
+
+#Check how many impairments there would be for chloride. How bad is it?
+```{r}
+library(wqTools)
+library(irTools)
+#chloride counts in merged datac
+chloride_d=irdata$merged_results[irdata$merged_results$CharacteristicName=="Chloride",]
+```
+
+#Load criteria and translation tables
+```{r}
+trans_path="Chloride_ir_translation_workbook_working_2024.xlsx"
+criteria_path="IR_uses_standards_working_2024_CHLORIDE_UPDATE.xlsx"
+```
+
+# Initial data processing {#init-process}
+
+## Data validation
+Functions to update & apply data validation tables, generate data with consistent nomenclature. The auto and manual site validation should be completed before running this chapter.
+1. Labs & activity types  
+2. Activity media  
+3. Parameter names & fractions  
+4. Detection conditions  
+5. Detection limit types  
+6. Unit conversion factors  
+7. Apply screening tables and subset to accepted data  
+
+
+```{r, echo=F}
+recs = unique(chloride_d)
+```
+
+**NOTE:** Stop here and review the new combinations in the translation workbook before proceeding. 
+
+### Remove San Juan-related EPA sampling 
+Per email and discussion with Shera Reems of EPA Region 8 for IR-2022, records with particular STORET ID's are not appropriate for assessment. We remove records based on whether these ID strings occur in the ActivityIdentifier.
+```{r}
+sj_related = data.frame(ActivityIdentifier =unique(chloride_d$ActivityIdentifier[grepl("02SANJUANR09|04MCELMOCR01|SJMC|4953560|02SANJUANR08|01CHINLECR27|29SANJUANR05|SJCH",chloride_d$ActivityIdentifier)]))
+sj_related$IR_SecondaryReview_FLAG = "REJECT"
+sj_related$IR_SecondaryReview_COMMENT = "Determined inappropriate for IR assessment per S. Reems of R8 EPA"
+sj_related = merge(sj_related, chloride_d, all.x = TRUE)
+sj_related_rids = chloride_d$ResultIdentifier[chloride_d$ActivityIdentifier%in%sj_related$ActivityIdentifier]
+
+merged_results = subset(chloride_d, !chloride_d$ResultIdentifier%in%sj_related_rids)
+```
+
+```{r, echo=F}
+sj_len = unique(sj_related_rids)
+recs1 = unique(merged_results$ResultIdentifier)
+if(!length(recs1)==length(recs)-length(sj_len)) "Help help help records do not match!"
+rm(sj_len, sj_related_rids)
+```
+
+### Secondary Reviews
+This section incorporates secondary review decisions made using the assessment dashboard application. It is not needed for the initial preliminary IR assessment. Do not run this section until after the secondary review has been completed and an object exists compiling the best professional judgment decisions and comments together. Refer to IR-2022 for what this file looks like.
+```{r, secondary-review-rejections, eval=FALSE}
+merged_results = subset(merged_results, !(merged_results$ResultIdentifier%in%resultids_reject))
+```
+
+```{r, echo = F}
+secrev=unique(secondary_review_rejected_records$ResultIdentifier)
+recs2 = unique(merged_results$ResultIdentifier)
+if(!length(recs2)==length(recs1)-length(secrev)) {warning("SEC REVS: Help help help records do not match!")}else{rm(secrev)}
+```
+
+
+### Apply pre-lim screening tables
+1. Reduce number of columns
+2. Sites
+3. Activity media
+4. Lab/activity
+
+### Reduce columns
+This vector contains all columns needed to proceed with the preliminary IR assessment. It is not an exhaustive list of what might be needed to make best professional judgment decisions. All assessment datasets may be re-traced to the raw data records using the ResultIdentifier. 
+```{r}
+cols = c("OrganizationIdentifier","OrganizationFormalName","ActivityIdentifier","ActivityStartDate","ActivityStartTime.Time","MonitoringLocationIdentifier","ProviderName","ResultIdentifier","DataLoggerLine","ResultDetectionConditionText","MethodSpecificationName","CharacteristicName","ResultSampleFractionText","ResultMeasureValue","ResultMeasure.MeasureUnitCode","MeasureQualifierCode","ResultStatusIdentifier","ResultStatusIdentifier","ResultAnalyticalMethod.MethodIdentifier","ResultAnalyticalMethod.MethodIdentifierContext","ResultAnalyticalMethod.MethodName","ResultAnalyticalMethod.MethodUrl","ResultAnalyticalMethod.MethodQualifierTypeName","MethodDescriptionText","LaboratoryName","ResultLaboratoryCommentText","ResultDetectionQuantitationLimitUrl","LaboratoryAccreditationIndicator","LabSamplePreparationUrl","ActivityTypeCode","ActivityMediaName","ActivityMediaSubdivisionName","ActivityRelativeDepthName","ActivityDepthHeightMeasure.MeasureValue","ActivityDepthHeightMeasure.MeasureUnitCode","ProjectIdentifier","ActivityConductingOrganizationText","ActivityCommentText","SampleCollectionMethod.MethodIdentifier","SampleCollectionMethod.MethodIdentifierContext","SampleCollectionMethod.MethodName","SampleCollectionMethod.MethodDescriptionText","SampleCollectionEquipmentName","SampleCollectionMethod.SampleCollectionEquipmentCommentText","SamplePreparationMethod.MethodIdentifier","SamplePreparationMethod.MethodIdentifierContext","SamplePreparationMethod.MethodName","SamplePreparationMethod.MethodQualifierTypeName","SamplePreparationMethod.MethodDescriptionText")
+merged_results = merged_results[,names(merged_results)%in%cols]
+```
+
+This section applies the IR decision flags to each record, first by site, and then by the other metadata columns of interest. It then splits rejected records into their own dataframes to be aggregated and recorded in a different .Rdata file for reference. 
+```{r, apply-screens}
+translation_wb='Chloride_ir_translation_workbook_working_2024.xlsx'
+#library(tidyverse)
+merged_results_flagged=merged_results %>%
+	applyScreenTable(wb=translation_wb, sheetname="masterSiteTable", startRow=1, flag_col_name="IR_Site_FLAG", com_col_name="IR_Site_COMMENT")
+rej_data_sites=subset(merged_results_flagged, IR_Site_FLAG=='REJECT')
+acc_data_sites=subset(merged_results_flagged, !IR_Site_FLAG=='REJECT')
+
+
+acc_data_filt=acc_data_sites%>% 
+	applyScreenTable(wb=translation_wb, sheetname="activityMediaNameTable", startRow=1, flag_col_name="IR_ActMedia_FLAG", com_col_name="IR_ActMedia_COMMENT") %>%
+	applyScreenTable(wb=translation_wb, sheetname="labNameActivityTable", startRow=1, flag_col_name="IR_LabAct_FLAG", com_col_name="IR_LabAct_COMMENT") %>%
+	applyScreenTable(wb=translation_wb, sheetname="detConditionTable", startRow=1, flag_col_name="IR_DetCond_FLAG", com_col_name="IR_DetCond_COMMENT")
+
+rej_data_flag=subset(acc_data_filt, IR_Site_FLAG=='REJECT' | IR_ActMedia_FLAG=='REJECT' | IR_LabAct_FLAG=='REJECT' | IR_DetCond_FLAG=='REJECT')
+rej_data=plyr::rbind.fill(sj_related,rej_data_sites, rej_data_flag)#
+
+acc_data_filt=subset(acc_data_filt, IR_Site_FLAG=='ACCEPT' & IR_ActMedia_FLAG=='ACCEPT' & (IR_LabAct_FLAG=='ACCEPT' |  IR_LabAct_FLAG=='REVIEW') & IR_DetCond_FLAG=='ACCEPT')
+```
+#site SLCOWS-KL_11.45 is not present in SLCOWS site list - Created NA on merge, reject for now..
+```{r, echo=F}
+#Check for mlids not in mastersite table
+u_mlids=unique(merged_results$MonitoringLocationIdentifier)
+masterSites=readxl::read_excel(translation_wb, sheet="masterSiteTable", guess_max = 4000)
+missing_mlids=u_mlids[!u_mlids%in%masterSites$MonitoringLocationIdentifier]
+miss_mlid_data=merged_results[merged_results$MonitoringLocationIdentifier=="SLCOWS-KL_11.45",]
+#only 1 data point - site information was not downloaded from WQP nor SLCOWS data site list.
+rm(missing_mlids,u_mlids,masterSites)
+```
+
+
+
+### Determine detection conditions and fill NDs
+This section selects detection limits for each ND and OD and determines which are not appropriate for assessment.
+```{r, fill-masked}
+# removing raw column, which doesn't work with the low and high limit selection process of fillMaskedValues
+#Temp fix for the SLCOWS data that detql values 
+irdata$detquantlim$DetectionQuantitationLimitMeasure.MeasureUnitCode = ifelse(irdata$detquantlim$DetectionQuantitationLimitMeasure.MeasureUnitCode=="MPN/100ml","MPN/100mL",irdata$detquantlim$DetectionQuantitationLimitMeasure.MeasureUnitCode)
+detquantlim = irdata$detquantlim[,!names(irdata$detquantlim)%in%c("DetectionQuantitationLimitMeasure.MeasureValue_raw")]
+acc_data_det=fillMaskedValues(results=acc_data_filt, detquantlim=detquantlim, translation_wb=translation_wb,
+									   detLimitTypeTable_sheetname="detLimitTypeTable", detLimitTypeTable_startRow=1,
+									   unitConvTable_sheetname="unitConvTable", unitConvTable_startRow=1, unitConvTable_startCol=1,
+									   lql_fac=0.5, uql_fac=1)
+
+```
+
+
+```{r, echo = F}
+# CHECK OF DATA FOLLOWING FILLMASKEDVALUES
+acc_nd = subset(acc_data_det, acc_data_det$IR_DetCond=="ND")
+unique(acc_nd$IR_LowerLimitType)
+
+acc_nrv = subset(acc_data_det, acc_data_det$IR_DetCond=="NRV")
+quants = subset(detquantlim, detquantlim$ResultIdentifier%in%acc_nrv$ResultIdentifier)
+rm(acc_nd, acc_nrv, quants)
+```
+
+### Back-fill units for data where unit was NA in data, but existed in detquantlim - add records w/o units in either to rejection dataframe
+Non-detects and over-detects do not always have units reported in the narrowresult dataset, but they are reported in detquantlim. This section moves those units into the assessment dataset.
+```{r, fill-units}
+table(is.na(acc_data_det$ResultMeasure.MeasureUnitCode))
+acc_data_det=within(acc_data_det, {
+  ResultMeasure.MeasureUnitCode_ORIG = ResultMeasure.MeasureUnitCode
+	ResultMeasure.MeasureUnitCode=ifelse(is.na(ResultMeasure.MeasureUnitCode) & !is.na(IR_Unit), as.character(IR_Unit), as.character(ResultMeasure.MeasureUnitCode))
+	IR_Unit_FLAG=ifelse(!is.na(ResultMeasure.MeasureUnitCode), 'ACCEPT', 'REJECT')
+	IR_Unit_Comment=ifelse(IR_Unit_FLAG=='ACCEPT', NA, 'No units available for data point')
+})
+table(acc_data_det$ResultMeasure.MeasureUnitCode)
+table(is.na(acc_data_det$ResultMeasure.MeasureUnitCode))
+table(acc_data_det$IR_Unit_FLAG, useNA = "always")
+unit_rej_data=subset(acc_data_det, IR_Unit_FLAG!='ACCEPT')
+rej_data=plyr::rbind.fill(rej_data, unit_rej_data)
+acc_data_det=subset(acc_data_det, IR_Unit_FLAG=='ACCEPT')
+
+# CHECK
+# write.csv(unit_rej_data,"unit_rej_data.csv", row.names = FALSE)
+```
+
+```{r, echo=F}
+#TEMP FIX - Sandy pointed out ther are 6 Zinc samples from UTAHDWQ_WQX-4997675 that are Total fraction but should be DISSOLVED
+#Count of Total - BEFORE
+dim(acc_data_det[(acc_data_det$ASSESS_ID=="UT16020203-016_00")&(acc_data_det$CharacteristicName=="Zinc")&(acc_data_det$ResultSampleFractionText=="Total"),])[1]
+       
+acc_data_det$ResultSampleFractionText=ifelse((acc_data_det$ASSESS_ID=="UT16020203-016_00")&(acc_data_det$CharacteristicName=="Zinc")&(acc_data_det$ResultSampleFractionText=="Total"),"Dissolved",acc_data_det$ResultSampleFractionText)
+#Count of Total - AFTER
+dim(acc_data_det[(acc_data_det$ASSESS_ID=="UT16020203-016_00")&(acc_data_det$CharacteristicName=="Zinc")&(acc_data_det$ResultSampleFractionText=="Total"),])[1]
+# CHECK
+rej = unique(unit_rej_data$ResultIdentifier)
+recs4 = unique(acc_data_det$ResultIdentifier)
+
+if(!length(recs4)==length(recs3)-length(rej)){warning("DETS-UNITS: Help help help records do not match!")}else{rm(rej, acc_data_filt, unit_rej_data, detquantlim)}
+```
+
+
+### Apply parameter and fraction translation table
+This section applies the decisions made in the parameter and fraction translation tables to the assessment dataset.
+```{r, param-trans}
+acc_data_param=applyScreenTable(acc_data_det, wb=translation_wb, sheetname="paramTransTable", startRow=1, flag_col_name="IR_Parameter_FLAG", com_col_name="IR_Parameter_COMMENT")
+table(acc_data_param$IR_Parameter_FLAG, exclude=NULL)
+
+acc_data_param=applyScreenTable(acc_data_param, wb=translation_wb, sheetname="paramFractionTable", startRow=1, flag_col_name="IR_Fraction_FLAG", com_col_name="IR_Fraction_COMMENT")
+table(acc_data_param$IR_Fraction_FLAG, exclude=NULL)
+acc_data_param = acc_data_param[,!names(acc_data_param)%in%c("FractionGroup")]
+
+```
+
+### Rejecting data via parameter table, rbind rejected data to rej_data object
+This section splits off the rejected parameter data from the dataset and adds these records to the already rejected data from previous screens.
+```{r, rej-param} 
+param_rej_data=subset(acc_data_param, IR_Parameter_FLAG=='REJECT'|IR_Fraction_FLAG=="REJECT")
+rej_data=plyr::rbind.fill(rej_data, param_rej_data)
+acc_data_param=subset(acc_data_param, IR_Parameter_FLAG=='ACCEPT' & !ResultIdentifier%in% param_rej_data$ResultIdentifier| IR_Parameter_FLAG=='REVIEW'& IR_Fraction_FLAG=="ACCEPT")
+
+if(!dim(param_rej_data)[1]+dim(acc_data_param)[1]==dim(acc_data_det)[1])stop("Help help counts do not match!")
+#Error check above triggered - Checks here before continuing..
+#common_rows = acc_data_param[acc_data_param$ResultIdentifier%in%param_rej_data$ResultIdentifier,]
+#Issue was that there were duplicate rows, & !ResultIdentifier%in% param_rej_data$ResultIdentifier  in first conditional statement
+table(acc_data_param$ResultSampleFractionText, acc_data_param$IR_Fraction, exclude=NULL)
+table(is.na(acc_data_param$CAS))
+
+```
+
+
+
+
+### Assign criteria and track which data do not have criteria
+This section combines the newly narrowed assessment dataset to the standards workbook. It flattens the dataset by use, specified at the site-level, and then applies numeric criteria based on the use, parameter, and fraction. It can take a long time (~10 minutes) to run.
+```{r, assign-crit}
+acc_data_criteria=assignCriteria(acc_data_param, crit_wb='IR_uses_standards_working_2024_CHLORIDE_UPDATE.xlsx', crit_sheetname='criteria', ss_sheetname='ss_criteria',
+  crit_startRow = 1, ss_startRow = 1, rm_nocrit = TRUE, print = TRUE)
+
+acc_data_nocrit = subset(acc_data_param, !(acc_data_param$ResultIdentifier%in%acc_data_criteria$ResultIdentifier))
+
+acc_data_nocrit$IR_Criteria_FLAG = "NOT ASSESSED"
+acc_data_nocrit$IR_Criteria_COMMENT = "No criteria to assess."
+```
+
+
+
+
+### Data prep
+This large function performs some final checks on the dataset before splitting it up into the appropriate bins needed to assess the data. It checks the target activities and fractions, dissolved vs total concentrations, splits off depth and flow measurements, and calculates numeric criteria for standards with correction factors, like hardness or temperature. It can take a long time(~10 minutes) to run. 
+```{r, data-prep}
+prepped_data=dataPrep(data=acc_data_criteria, translation_wb=translation_wb, unit_sheetname="unitConvTable", startRow_unit=1, cf_formulas_sheetname="cf_formulas", crit_wb="IR_uses_standards_working_2024_CHLORIDE_UPDATE.xlsx", startRow_formulas=1, split_agg_tds=TRUE)
+objects(prepped_data)
+```
+
+# Toxics and conventionals assessments {#tox_conv}
+## Define assessment grouping variables
+```{r}
+group_vars = c("IR_MLID", "IR_MLNAME", "IR_Lat", "IR_Long", "ASSESS_ID", "AU_NAME", "BeneficialUse", "BEN_CLASS",
+	"CAS", "RuleParameterName", "TargetFraction", "R3172ParameterName", "ParameterGroupName",
+	"AsmntAggPeriod","AsmntAggPeriodUnit", "TableNumber","TableDescription","CriterionLabel","ParameterQualifier","SSC_MLID", "AsmntAggFun")
+```
+
+## Toxics
+### General toxics
+```{r}
+chloride_exc=countExceedances(prepped_data$toxics, group_vars = group_vars)
+chloride_assessed=assessExcCounts(chloride_exc, min_n=4, max_exc_count=1, max_exc_count_id=0)
+with(chloride_assessed, {table(R3172ParameterName, IR_Cat)})
+with(chloride_assessed, {table(ParameterGroupName, IR_Cat)})
+```
+#AU Rollup
+```{r}
+paramsNames = readxl::read_xlsx(trans_path, sheet = "paramTransTable")
+paramsNames=unique(paramsNames[!is.na(paramsNames$ATTAINS_PARAM_NAME),c("R3172ParameterName","ATTAINS_PARAM_NAME")])
+
+#The following param name did not have an ATTAINS_PARAM_NAME
+chloride_assessed=merge(chloride_assessed,paramsNames,all.x=TRUE)
+chloride_assessed$ATTAINS_PARAM_NAME=ifelse(chloride_assessed$R3172ParameterName=="NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS","NUTRIENT/EUTROPHICATION BIOLOGICAL INDICATORS",chloride_assessed$ATTAINS_PARAM_NAME)
+
+#Why is this being renamed? df does not have paramName column
+chloride_assessed=chloride_assessed%>%
+  rename(parameterName=ATTAINS_PARAM_NAME)
+
+
+
+
+au_chloride = irTools::rollUp(list(chloride_assessed), group_vars = c("ASSESS_ID","AU_NAME","BeneficialUse","R3172ParameterName", "parameterName"), expand_uses = FALSE)
+
+chloride_list=list(AU_Assessments=au_chloride,Site_Assessments=chloride_assessed)
+
+writexl::write_xlsx(chloride_list,"chloride_assessments.xlsx")
+```

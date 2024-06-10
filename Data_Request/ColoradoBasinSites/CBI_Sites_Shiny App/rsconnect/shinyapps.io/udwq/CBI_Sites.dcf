@@ -1,0 +1,12 @@
+name: CBI_Sites
+title: CBI_Sites
+username: udwq
+account: udwq
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11444419
+bundleId: 8351170
+url: https://udwq.shinyapps.io/CBI_Sites/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
