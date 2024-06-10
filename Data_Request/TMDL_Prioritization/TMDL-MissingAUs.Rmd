@@ -1,0 +1,132 @@
+---
+title: "TMDL-Prioritization-042623"
+author: "Alan Ochoa"
+date: "2023-04-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+#Get List of MLIDs from 2022 Mastersite File for missing AUs from TMDL Prioritization
+```{r}
+sites_all = wqTools::readWQP(type = "sites",
+                 statecode="US:49",
+                 start_date = "01/01/1980", end_date = "08/30/2022",
+                 siteType = c('Aggregate surface-water-use','Lake, Reservoir, Impoundment','Spring','Stream'),
+                 sampleMedia="Water")
+
+missing_sites = wqTools::assignAUs(sites_all)
+missingAUs=c("UT15010009-001_00",	"UT16010101-028_00",	"UT16020201-010_00",	"UT14060007-013_00",	"UT14060009-003_02",	"UT14060009-003_03",	"UT14060009-003_04",	"UT14060009-004_02",	"UT16010202-015_00",	"UT16020202-030_00",	"UT16030004-005_02",	"UT-L-14040107-006_00",	"UT14030001-003_00",	"UT14070005-003_00",	"UT15010003-001_00",	"UT15010003-002_01",	"UT16010204-003_00",	"UT16020102-044_02",	"UT16020304-001_00",	"UT-L-14060007-005_00",	"UT-L-14060010-006_00",	"UT-L-16010203-012_00",	"UT14030005-015_00",	"UT14030005-017_00",	"UT14040106-018_00",	"UT14050007-005_00",	"UT14060003-009_00",	"UT14060003-024_00",	"UT14060004-007_00",	"UT14060005-004_00",	"UT14060007-001_00",	"UT14060007-006_00",	"UT14060007-008_00",	"UT14060007-011_00",	"UT14060008-007_00",	"UT14060009-007_00",	"UT14070002-003_00",	"UT14070002-007_00",	"UT14070002-009_00",	"UT14070005-010_00",	"UT14070007-004_00",	"UT14080203-001_00",	"UT14080203-003_00",	"UT15010008-003_00",	"UT15010008-007_00",	"UT15010008-010_00",	"UT15010008-014_00",	"UT16010101-009_00",	"UT16010101-016_00",	"UT16010101-021_00",	"UT16010201-001_00",	"UT16010201-004_00",	"UT16010202-004_00",	"UT16010202-010_00",	"UT16010203-005_00",	"UT16010203-020_00",	"UT16010204-001_00",	"UT16010204-007_01",	"UT16010204-008_01",	"UT16010204-011_02",	"UT16020101-008_00",	"UT16020101-012_00",	"UT16020101-014_00",	"UT16020102-001_00",	"UT16020102-010_00",	"UT16020102-022_00",	"UT16020102-049_00",	"UT16020102-055_00",	"UT16020201-002_02",	"UT16020201-005_00",	"UT16020203-002_00",	"UT16020203-003_00",	"UT16020203-013_00",	"UT16020204-001_01",	"UT16020301-001_00",	"UT16030002-004_00",	"UT16030002-009_00",	"UT16030003-026_00",	"UT16030004-011_00",	"UT16030005-025_00",	"UT16030007-002_00",	"UT14060010-011_01",	"UT14060010-011_02",	"UT14060010-011_03",	"UT14060010-011_04")
+
+
+missingMLIDstable = missing_sites[missing_sites$ASSESS_ID%in%missingAUs,]
+missingMLIDs= unique(missingMLIDstable$MonitoringLocationIdentifier)
+
+```
+
+## Download Missing MLIDS
+```{r echo=FALSE}
+library(wqTools)
+
+# split the list of site IDs into chunks of size 50
+site_chunks <- split(missingMLIDs, ceiling(seq_along(missingMLIDs)/50))
+# initialize empty list to store results
+results <- list()
+# initialize empty list to store IDs with errors
+error_ids <- list()
+# iterate over site ID chunks and download data
+for (i in seq_along(site_chunks)) {
+  tryCatch({
+    # download data for current chunk of site IDs
+    chunk_data <- wqTools::readWQP(type = "narrowresult",  start_date = "01/01/1980", end_date = "08/30/2022",
+                          siteid = site_chunks[[i]], 
+                          sampleMedia = "Water")
+    
+    # append results to list
+    results[[i]] <- chunk_data
+    
+  }, error = function(e) {
+    # if there's an error, append IDs to error list and move on to next chunk
+    error_ids[[i]] <- site_chunks[[i]]
+  })
+}
+
+# combine results into a single data frame
+all__missing_data <- do.call(rbind, results)
+
+# combine error IDs into a single vector
+all__missing_errors <- unlist(error_ids)
+
+
+
+
+```
+#Join masterSitetable with WQP download
+```{r}
+all__missing_data1 =merge(all__missing_data,missingMLIDstable)
+missingAUsMLIDcounts=all__missing_data1%>%
+  group_by(ASSESS_ID,AU_NAME,CharacteristicName)%>%
+  summarize(sampleCount=n(),
+            MLID_Count=n_distinct(MonitoringLocationIdentifier),
+            dateMIN=min(ActivityStartDate),
+            dateMAX=max(ActivityStartDate))
+
+paramTransTable=as.data.frame(suppressWarnings(readxl::read_excel('IR_translation_workbook_working_2024.xlsx', 'paramTransTable')))
+paramTransTable=paramTransTable[,names(paramTransTable)%in%c("CharacteristicName","ATTAINS_PARAM_NAME")]
+missingAUsMLIDcounts=merge(missingAUsMLIDcounts,paramTransTable)
+
+impairedAU <- read.csv("2022-Report Draft-ImpairedAU.csv")
+impairedAU$ATTAINS_PARAM_NAME = impairedAU$PARAMETER_CODE_NAME
+impairedAU$ASSESS_ID=impairedAU$ASSESSMENT_UNIT_ID
+impairedAU$Missing=1
+impairedAU=impairedAU[,names(impairedAU)%in%c("ATTAINS_PARAM_NAME","ASSESS_ID","Missing")]
+missingAUsMLIDcounts_filtered <- inner_join(missingAUsMLIDcounts, impairedAU, by = c("ATTAINS_PARAM_NAME", "ASSESS_ID"))
+
+
+# perform anti-join
+impairedAU_not_in_old_missing_data <- anti_join(impairedAU, missingAUsMLIDcounts_filtered, by = c("ASSESS_ID","ATTAINS_PARAM_NAME"))
+impairedAU_not_in_old_missing_data=merge(impairedAU_not_in_old_missing_data,paramTransTable)
+
+
+still_unaccounted <- impairedAU_not_in_old_missing_data %>%
+  group_by(ATTAINS_PARAM_NAME, ASSESS_ID) %>%
+  filter(!(is.na(CharacteristicName) & any(!is.na(CharacteristicName)))) %>%
+  ungroup()
+
+
+
+
+```
+
+#Save to XLSX File
+```{r}
+library(openxlsx)
+
+# create new Excel file
+wb <- createWorkbook()
+
+# add sheets for each data frame
+addWorksheet(wb, "impairedAU")
+writeData(wb, "impairedAU", impairedAU)
+
+addWorksheet(wb, "missingAUs_Older_Data")
+writeData(wb, "missingAUs_Older_Data", missingAUsMLIDcounts_filtered)
+
+addWorksheet(wb, "still_unaccounted")
+writeData(wb, "still_unaccounted", still_unaccounted)
+
+# save Excel file
+saveWorkbook(wb, "TMDL_unaccountedAUs.xlsx", overwrite = TRUE)
+
+```
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

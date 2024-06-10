@@ -1,0 +1,110 @@
+#Load AssociatedActions file
+
+```{r}
+load("rps_app_objects.Rdata")
+library(readr)
+library(dplyr)
+associated_actions <- read_csv("~/Documents/GitHub/IR-2024/ATTAINS_24_UPLOADS/ALL_ASMT_UTAHDWQ_2024 2/associated-actions.csv")
+```
+#Group by AU-ActionID and make new column with combined parameters under that TMDL
+```{r}
+au_actions=associated_actions%>%
+  group_by(ASSESSMENT_UNIT_ID,ACTION_ID)%>%
+  mutate(Parameters=paste(ACTION_PARAM_NAME,collapse=", "))%>%
+  select(-ACTION_PARAM_NAME,-ACTION_TYPE)%>%
+  unique(.)%>%
+  mutate(TMDL=paste0("TMDL(",ACTION_ID,"): ",Parameters))%>%
+  ungroup()%>%
+  select(-Parameters,-ACTION_ID)%>%
+  rename(AU=ASSESSMENT_UNIT_ID)
+
+au_tmdl_labels = au_actions%>%
+  group_by(AU)%>%
+  summarize(Label=paste(TMDL,collapse="<br>"))
+
+write.csv(au_tmdl_labels,"au_tmdl_labels.csv")
+
+```
+
+
+
+
+#Make label for impaired AUs to au_poly
+```{r}
+library(readr)
+au_parameters <- read_csv("~/Documents/GitHub/Data_Request/TMDL_Prioritization/UTAHDWQ_parameters_11464.csv")
+au_parameters=au_parameters[au_parameters$PARAMETER_ATTAINMENT=="Not meeting criteria",]
+
+au_parameters1= au_parameters%>%
+  select(-ASSESSMENT_UNIT_NAME,-PARAMETER_STATUS_NAME,-ATTAINMENT_CODE_NAME,-PARAMETER_ATTAINMENT,-USE_NAME)%>%
+  rename(ASSESS_ID=ASSESSMENT_UNIT_ID)%>%
+  unique(.)
+
+library(readxl)
+p_trans <- read_excel("~/Documents/GitHub/IR-2024/ir_translation_workbook_working_2024.xlsx", sheet = "paramTransTable")
+p_trans=p_trans[,c("R3172ParameterName","ATTAINS_PARAM_NAME")]
+
+
+attains_use <- read_excel("~/Documents/GitHub/IR-2024/ir_translation_workbook_working_2024.xlsx", sheet = "ATTAINS_uses")
+au_parameters1=merge(au_parameters1,attains_use,all.x=TRUE)
+
+au_parameters2=au_parameters1%>%
+  select(-USE_NAME)%>%
+  group_by(ASSESS_ID,EPA_PARAM_IR_CATEGORY_ID)%>%
+  mutate(ParamUse=paste0(PARAMETER_CODE_NAME,"(",BeneficialUse,")"))%>%
+  select(-BeneficialUse,-PARAMETER_CODE_NAME)%>%
+  mutate(Impairments=paste(ParamUse,collapse = ", "))%>%
+  ungroup()%>%
+  select(-ParamUse)%>%
+  unique(.) %>%
+  mutate(ImpairmentLabel=paste0("Category ",EPA_PARAM_IR_CATEGORY_ID," Impairments: ",Impairments))%>%
+  select(-EPA_PARAM_IR_CATEGORY_ID,-Impairments)
+
+au_parameters2= au_parameters2 %>%
+  group_by(ASSESS_ID)%>%
+  mutate(ImpairmentLabel=paste(ImpairmentLabel,collapse = "<br> "))%>%
+  unique(.)
+  
+au_poly=wqTools::au_poly
+au_poly1=wqTools::assignHUCs(au_poly)
+
+
+au_poly=merge(au_poly,au_parameters2,all.x=TRUE)
+
+#
+
+```
+
+#HUC12 Poly
+```{r}
+library(sf)
+library(readxl)
+HUC12_summmary= read_excel("/Users/alanochoa/Documents/GitHub/Data_Request/TMDL_Prioritization/All_RPS results_updated 3_19_24.xlsx")
+
+HUC12_summmary$Ecological_Index=as.numeric(HUC12_summmary$Ecological_Index)
+HUC12_summmary$Stressor_Index= as.numeric(HUC12_summmary$Stressor_Index)
+HUC12_summmary$Social_Index = as.numeric(HUC12_summmary$Social_Index)
+HUC12_summmary$RPI_Score = as.numeric(HUC12_summmary$RPI_Score)
+
+HUC12_summmary$Basin=ifelse(HUC12_summmary$Basin=="West Colorado River","W Colorado River",HUC12_summmary$Basin)
+HUC12_summmary$Basin=ifelse(HUC12_summmary$Basin=="Southeast Colorado River","SE Colorado River",HUC12_summmary$Basin)
+
+HUC12_summmary$Scenario=ifelse(HUC12_summmary$Scenario=="1C: What primary contact recreational use lakes/reservoirs are impaired as a result of Harmful Algal Blooms (advisories) and E. coli?","1C: What primary contact recreational use lakes/reservoirs are impaired as a result of Harmful Algal Blooms (advisories)",HUC12_summmary$Scenario)
+
+
+#Reading this trimmed file instead of Watersheds_Area
+shapefile_path <- 'RPS Shiny App/HUC12_Shapefile/Watersheds_Area.shp'
+geo_data <-  st_read(shapefile_path, stringsAsFactors = FALSE)
+
+#It takes a bit to start up I wonder if the large number of polygons could be why??
+#Lets trim to just the impaired huc12s
+geo_data_trimmed=geo_data[geo_data$HUC_12%in%unique(HUC12_summmary$HUC_12),]
+st_write(geo_data_trimmed, 'RPS Shiny App/HUC_12Trimmed/Watersheds_Area_Trimmed1.shp')
+HUC12Poly=geo_data_trimmed
+
+
+
+
+save(au_tmdl_labels,HUC12Poly,HUC12_summmary,au_poly,priority_permits,file="rps_app_objects.Rdata")
+
+```

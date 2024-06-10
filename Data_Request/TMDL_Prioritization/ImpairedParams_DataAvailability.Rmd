@@ -1,0 +1,145 @@
+#For the purpose of TMDL Prioritization/Vision 2.0
+
+#Get impaired params for 2022 IR
+```{r}
+listings22 = readAttains(type = "assessments", stateCode = "UT", reportingCycle = "2022")
+parms = listings$parameters
+unique(parms$parameterStatusName)
+unique(parms$parameterAttainmentCode)
+parms = subset(parms, parms$parameterAttainmentCode=="Not meeting criteria")
+impaired_params22 = unique(parms[,c("assessmentUnitIdentifier","parameterName","cycleFirstListed","cycleLastAssessed")])
+```
+
+#Add/Translate EPA Param names to R3172 names
+#Will probably need to translate again from R3172 to sample parameter names. Can you translate once? EPA-Param to sample name?
+```{r}
+impaired_params22=impaired_params22%>%
+  rename(ASSESS_ID=assessmentUnitIdentifier,
+         ATTAINS_PARAM_NAME=parameterName)
+length(unique(impaired_params22$ATTAINS_PARAM_NAME))
+length(unique(impaired_params22$ASSESS_ID))
+#open parameter translation sheet
+param_translation=readxl::read_xlsx("/Users/alanochoa/Documents/GitHub/IR-2024/ir_translation_workbook_working_2024 -51723.xlsx", sheet = "paramTransTable")
+param_translation=param_translation[,c("CharacteristicName","R3172ParameterName","ATTAINS_PARAM_NAME" )]
+
+#keep only rows with impaired params
+param_translation=param_translation[param_translation$ATTAINS_PARAM_NAME%in%impaired_params22$ATTAINS_PARAM_NAME,]
+impaired_params22_trans=merge(impaired_params22,param_translation)
+```
+
+#Get data from WQP for AU's then filter for Impaired Param data within those AUs
+#May need to do a site query from WQP, then add AUs then filter for sites within those AUs
+```{r}
+#By sites
+# sites_all = wqTools::readWQP(type = "sites",
+#                  statecode="US:49",
+#                  start_date = "01/01/2010", end_date = "08/30/2022",
+#                  siteType = c("Aggregate surface-water-use","Lake, Reservoir, Impoundment","Spring","Stream"),
+#                  sampleMedia="Water")
+
+#MAY HAVE TO SPLIT UP THE readWQP calls. Can you make a call for each AU,and impaired Parameters? Then add to final df as you loop through each one? 
+impairedAUs=unique(impaired_params22$ASSESS_ID)
+impaired_au_list=list()
+#get data by AU?
+for (i in 1:length(impairedAUs)){
+  au_target=impairedAUs[i]
+  params_target=impaired_params22_trans[impaired_params22_trans$ASSESS_ID==au_target,]
+  charList = unique(na.omit(params_target$CharacteristicName))
+  temp_impaired_data=readWQP(type="narrowresult",
+		auid=au_target,
+		start_date="01/01/1980", end_date="08/30/2022",
+		sampleMedia = "Water", print=F)
+  
+  temp_impaired_data=temp_impaired_data[temp_impaired_data$CharacteristicName%in%charList,]
+   impaired_au_list[[i]] = temp_impaired_data
+   print(au_target)
+   print(nrow(temp_impaired_data))
+   		#characteristicName=charList,
+}
+
+library(dplyr)
+impaired_au_list <- lapply(impaired_au_list, function(df) {
+  df[] <- lapply(df, as.character)
+  return(df)
+})
+
+impaired_au_data = bind_rows(impaired_au_list)
+```
+
+
+#Check which Impaired Params dont have data in WQP. These may be external assessment data.
+```{r}
+#Add/translate parameter names to impaired_au_data so it can have c("CharacteristicName","R3172ParameterName","ATTAINS_PARAM_NAME")
+#impaired_au_data does not have AU nor coordinates to assign AUs. Call site data to get Coordinates then assign AU.
+
+sites_all = wqTools::readWQP(type = "sites",
+                 statecode="US:49",
+                 start_date = "01/01/1980", end_date = "08/30/2022",
+                 siteType = c("Aggregate surface-water-use","Lake, Reservoir, Impoundment","Spring","Stream"),
+                 sampleMedia="Water")
+
+impairedSites=sites_all[sites_all$MonitoringLocationIdentifier%in%impaired_au_data$MonitoringLocationIdentifier,c("MonitoringLocationIdentifier", "LatitudeMeasure" ,"LongitudeMeasure"  )]
+impairedSitesAUs=assignAUs(impairedSites)
+
+impaired_au_data_trans=merge(impaired_au_data,param_translation)
+impaired_au_data_trans=merge(impaired_au_data_trans,impairedSitesAUs)
+
+#Check impaired_params22_trans to see which (ASSESS_ID, PARAM_NAME) pairs are not in impaired_au_data above
+library(dplyr)
+
+not_in_impaired_au_data_trans <- impaired_params22 %>%
+  anti_join(impaired_au_data_trans, by = c("ASSESS_ID", "ATTAINS_PARAM_NAME"))
+
+#Missing AU_Names - add to rows_not_in_impaired_au_data_trans
+au_poly_df=as.data.frame(wqTools::au_poly)
+au_poly_df=au_poly_df[,c("ASSESS_ID","AU_NAME","AU_Type")]
+missing_impairedParams = merge(not_in_impaired_au_data_trans,au_poly_df)
+
+```
+
+
+#Group by AU,Param -- Counts of data/Year -- Add Min/Max Date -- Total Counts -- impaired_au_data_trans
+```{r}
+library(lubridate)
+
+impaired_au_data_trans$ActivityStartDate= ymd(impaired_au_data_trans$ActivityStartDate)
+impaired_paramsCounts <- impaired_au_data_trans %>%
+  group_by(ASSESS_ID,AU_NAME, ATTAINS_PARAM_NAME) %>%
+  summarize(
+    TotalRecords = n(),
+    MinDate = min(ActivityStartDate, na.rm = TRUE),
+    MaxDate = max(ActivityStartDate, na.rm = TRUE),
+    `2012` = sum(year(ActivityStartDate) == 2012, na.rm = TRUE),
+    `2013` = sum(year(ActivityStartDate) == 2013, na.rm = TRUE),
+    `2014` = sum(year(ActivityStartDate) == 2014, na.rm = TRUE),
+    `2015` = sum(year(ActivityStartDate) == 2015, na.rm = TRUE),
+    `2016` = sum(year(ActivityStartDate) == 2016, na.rm = TRUE),
+    `2017` = sum(year(ActivityStartDate) == 2017, na.rm = TRUE),
+    `2018` = sum(year(ActivityStartDate) == 2018, na.rm = TRUE),
+    `2019` = sum(year(ActivityStartDate) == 2019, na.rm = TRUE),
+    `2020` = sum(year(ActivityStartDate) == 2020, na.rm = TRUE),
+    `2021` = sum(year(ActivityStartDate) == 2021, na.rm = TRUE),
+    `2022` = sum(year(ActivityStartDate) == 2022, na.rm = TRUE)
+  )
+
+
+```
+
+#****Save files
+```{r}
+library(openxlsx)
+
+# Create a new workbook
+wb <- createWorkbook()
+
+# Add impaired_paramsCounts to the first sheet
+addWorksheet(wb, "Impaired_Params_Counts")
+writeData(wb, "Impaired_Params_Counts", impaired_paramsCounts)
+
+# Add missing_impairedParams to the second sheet
+addWorksheet(wb, "Missing_Impaired_Params")
+writeData(wb, "Missing_Impaired_Params", missing_impairedParams)
+
+# Save the workbook to an Excel file
+saveWorkbook(wb, "Impaired_Parameters_Record_Counts.xlsx", overwrite = TRUE)
+```

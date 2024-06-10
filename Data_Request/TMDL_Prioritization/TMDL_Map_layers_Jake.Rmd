@@ -1,0 +1,61 @@
+#Jake requested an updated AU/Impairment Layer so that he can make a map for TMDL viewing purposes.
+Step 1 Import the ap1 file that is the draft assessments 
+```{r}
+library(tidyr)
+library(sf)
+
+draft_assess=read.csv("~/Documents/GitHub/IR-2024/2024Draft/2024_IR_draft.csv")
+```
+Step 2 Create a summary column that has the Impaired Parameters
+```{r}
+draft_assess$tmdls=NA
+draft_assess1=draft_assess%>%
+  select(ASSESSMENT_UNIT_ID,LAST_ASSESSED_CYCLE, DWQ_Category, EPA_IR_CATEGORY_ID, PARAMETER_CODE_NAME, PARAMETER_ATTAINMENT,  Parameter_Status,tmdls  )%>%
+  unique(.)%>%
+  mutate(tmdls=ifelse(Parameter_Status=="TMDL Needed","Impaired TMDL Needed : ",ifelse(grepl("Approved",Parameter_Status,ignore.case = TRUE),"Impaired w/TMDL : ",tmdls)))%>%
+  group_by(ASSESSMENT_UNIT_ID,DWQ_Category,tmdls)%>%
+  mutate(paramGroup=paste(PARAMETER_CODE_NAME,collapse = ", "),
+         tmdl_status=paste0(tmdls,paramGroup))%>%
+  ungroup()
+
+draft_assess2=draft_assess1%>%
+  select(ASSESSMENT_UNIT_ID,tmdl_status,DWQ_Category)%>%
+  unique(.)%>%
+  mutate(tmdl_status=ifelse(tmdl_status=="NANA",NA,tmdl_status),
+         col_name=ifelse(grepl("Needed",tmdl_status),"TMDL Needed","TMDLs"))
+
+draft_assess2 <- draft_assess2 %>%
+  pivot_wider(names_from = col_name, values_from = tmdl_status)%>%
+  rename(ASSESS_ID=ASSESSMENT_UNIT_ID)
+  
+```
+Step 3 Merge df(AU_poly,Impairment_Summary) with AU.
+```{r}
+au_poly_tmdl=wqTools::au_poly
+
+#Why are there 920 AUs in this list instead of 918.
+au_counts=au_poly_tmdl%>%
+  group_by(AU_NAME)%>%
+  mutate(counts=n())%>%
+  filter(counts>1)
+
+unique_AU_attains=unique(aus24$ASSESSMENT_UNIT_ID)
+au_missing=au_poly_tmdl[!au_poly_tmdl$ASSESS_ID%in%unique_AU_attains,]
+
+bu_poly = wqTools::bu_poly
+bu_poly= (as.data.frame(bu_poly))%>%select(-geometry)%>%rename(AU_DESCRIP=R317Descrp,)
+au_poly_tmdl1=merge(au_poly_tmdl,bu_poly,all.x=T)
+
+
+ fix this the AU_DESCRIP and  R317Descrp do not match
+ 
+
+au_poly_tmdl1=merge(au_poly_tmdl,draft_assess2,all.x=TRUE)
+```
+Step 4 Save as shapefile and send to Jake.
+```{r}
+
+st_write(au_poly_tmdl, '/Users/alanochoa/Documents/GitHub/Data_Request/TMDL_Prioritization/au_polyTMDL_Labels24.shp')
+
+rm(au_poly_tmdl,draft_assess2,draft_assess1,draft_assess)
+```

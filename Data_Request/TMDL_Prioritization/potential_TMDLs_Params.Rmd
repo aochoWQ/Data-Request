@@ -1,0 +1,37 @@
+#import RPS responses form Coordinators
+```{r}
+if (!require(janitor)) install.packages("janitor")
+library(janitor)
+library(readr)
+library(tools)
+getwd()
+results_by_basin <- read_csv("Post_RPS_ANALYSIS/303(d) Prioritization_ Recovery Potential Screening Tool Results by Basin (Responses) - Form Responses 1 (1).csv")
+names(results_by_basin)
+results_by_basin=clean_names(results_by_basin)
+names(results_by_basin)
+results_by_basin_tmdl=results_by_basin%>%filter(which_action_plan_or_bin=="TMDL")%>%rename(ASSESSMENT_UNIT_ID=which_assessment_unit_led_to_the_result)
+```
+
+# Import 2024 IR
+```{r}
+
+X2024_IR_draft <- read_csv("/Users/alanochoa/Documents/GitHub/asmnt_map2024/2024_IR_draft.csv")
+View(X2024_IR_draft)
+X2024_IR_draft_tmdl <- X2024_IR_draft%>%filter(EPA_IR_CATEGORY_ID%in%c("5","4A"),ASSESSMENT_UNIT_ID%in%results_by_basin_tmdl$ASSESSMENT_UNIT_ID)%>%
+  mutate(ParameterCodeName=tolower(ParameterCodeName))%>%
+clean_names(.,"upper_camel")
+
+X2024_IR_draft_tmdl$ParameterCodeName=toTitleCase(X2024_IR_draft_tmdl$ParameterCodeName)
+
+
+X2024_IR_draft_tmdl_params=X2024_IR_draft_tmdl%>%
+  select(AssessmentUnitId,AssessmentUnitName,ParameterCodeName)%>%
+  distinct()%>%
+  group_by(AssessmentUnitId)%>%
+  mutate(Impaired_Params=paste(ParameterCodeName,collapse = ", "))%>%
+  select(AssessmentUnitId,AssessmentUnitName,Impaired_Params)%>%
+  rename(ASSESSMENT_UNIT_ID=AssessmentUnitId)
+
+results_by_basin_tmdl1=merge(results_by_basin_tmdl,X2024_IR_draft_tmdl_params)
+write.csv(results_by_basin_tmdl1,"TMDL_Candidates_Impaired_Params.csv")
+```

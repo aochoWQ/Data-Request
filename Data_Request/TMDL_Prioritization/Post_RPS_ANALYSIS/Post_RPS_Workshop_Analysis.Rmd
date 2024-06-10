@@ -1,0 +1,144 @@
+#Pull in the priority HUC12s identified by Watershed Coordinators
+#Pull in AU-HUC12 Translation file
+#If it has HUC12 but no AU then add it to list (happened with a few)
+```{r}
+library(readr)
+library(dplyr)
+library(stringr)
+
+RPS_Results_Responses <- read_csv("RPS Results by Basin (Responses) - Form Responses 2.csv")
+RPS_Results_Responses=read_csv("303(d) Prioritization_ Recovery Potential Screening Tool Results by Basin (Responses) - Form Responses 1 (1).csv") #This is the updated file that includes scenario 7A Agriculture and TDS
+# Merge the HAB results to the responses above.
+hab_response=read_csv("hab_impairements.xlsx - hab_22.csv")
+names(hab_response)=c("Timestamp","Reviewer's Name","Basin", "Scenario","Which action plan or \"bin\"?", "Which Assessment Unit led to the result?","Is there an active watershed group for this HUC?", "Are there any major point sources in the Assessment Unit?", "Additional comments","Approved TMDL in HUC?","Parameters in TMDL")
+
+hab_response$"HUC12 ID?"="111111111111"
+
+RPS_Results_Responses=bind_rows(RPS_Results_Responses,hab_response)
+
+RPS_Results_Responses=RPS_Results_Responses[!is.na(RPS_Results_Responses$`HUC12 ID?`),]
+
+RPS_Results_Responses=RPS_Results_Responses[!RPS_Results_Responses$`HUC12 ID?`%in%c("N/A"),]
+
+#Rename columns for RPS_Results_Responses
+names(RPS_Results_Responses)=c("Timestamp","Reviewer_Name","Basin", "Scenario", "Action_plan_bin","ASSESS_ID","HUC_12","Major point sources in AU", "Additional comments" ,"Approved TMDL in HUC" ,"Parameters in TMDL","Is there an active watershed group for this HUC?","Are water quality concerns in this HUC a priority for local stakeholders?")
+
+#Load AU-HUC12 file
+au_huc12=site_type_keep = readxl::read_xlsx("all AU-HUC12 info_updated 1-3-24.xlsx")
+simp_au_huc=unique(au_huc12[,c("HUC_12","ASSESS_ID")])
+
+#Pull out rows where AU=NA or have HUC12 in it AND remove spaces from
+results_noAU <- RPS_Results_Responses %>%
+  mutate(ASSESS_ID = str_replace_all(ASSESS_ID, " ", "")) %>%
+  filter(is.na(ASSESS_ID) | str_detect(ASSESS_ID, "HUC_12:"))%>%
+  select(-ASSESS_ID)%>%
+  merge(.,simp_au_huc,all.x=T)%>%
+  filter(!ASSESS_ID=="UT-not defined"&!is.na(Scenario))
+
+
+
+results_w_AU= RPS_Results_Responses %>%
+  mutate(ASSESS_ID = str_replace_all(ASSESS_ID, " ", "")) %>%
+  filter(!is.na(ASSESS_ID) & !str_detect(ASSESS_ID, "HUC_12:"))
+ 
+results_all=rbind(results_w_AU,results_noAU)
+results_all=results_all%>%
+  mutate(ASSESS_ID = str_trim(ASSESS_ID))
+
+#Manually fix some of the typos in the AU ids
+results_all$ASSESS_ID=ifelse(results_all$ASSESS_ID=="UT16010204-002_01" ,"UT16010204-002_00",results_all$ASSESS_ID)
+results_all$ASSESS_ID=ifelse(results_all$ASSESS_ID=="UT16030003-014_01" ,"UT16030003-014_00",results_all$ASSESS_ID)
+
+#UT16010204-002_00
+
+
+
+table(results_all$Action_plan_bin)
+```
+
+
+#Pull out/simplify scenario names. 
+```{r}
+#There are different values in the Action Bin column. Consolidate variations
+results_all1=results_all%>%
+  mutate(Scen = str_extract(Scenario, "\\d+[A-Z]"),
+         Action_plan_bin=ifelse(Action_plan_bin%in%c("Protection and Restoration" ,"Protection and Restproation" ),"Protection & Restoration",Action_plan_bin))
+
+table(results_all1$Action_plan_bin)
+```
+#Simplified summary data (AU,Basin,Counts,Scenarios Included) & Simplify Actions to 3 bins, Watershed Plans NPS, Protection, TMDL
+```{r}
+
+results_all1_cleaned <- results_all1 %>%
+  mutate(ASSESS_ID = str_trim(ASSESS_ID), Basin = str_trim(Basin),
+         Action_plan_bin=ifelse(Action_plan_bin=="NPS Priority Area","Watershed Plan/NPS Priority Area",ifelse(Action_plan_bin=="Protection","Protection & Restoration",Action_plan_bin)))
+
+
+```
+
+#Save .Rdata file to include results_all1,All_RPS_Results, AU_Poly
+```{r}
+library(sf)
+All_RPS_Results <- read_csv("/Users/alanochoa/Documents/GitHub/Data_Request/TMDL_Prioritization/Post_RPS_ANALYSIS/All_RPS results - SUMMARY.csv")
+
+#Extract scenario from All_RPS_Results
+All_RPS_Results$Scen=str_extract(All_RPS_Results$Scenario, "\\d+[A-Z]")
+All_RPS_Results=All_RPS_Results%>%select(Basin,Scen,HUC_12,Watershed,Ecological_Index,Stressor_Index,
+Social_Index,RPI_Score)
+All_RPS_Results$uid=paste0(All_RPS_Results$HUC_12,All_RPS_Results$Scen)
+
+au_poly_og=wqTools::au_poly
+
+#au_poly from rps_app_obj does not have the labels in the format that I want them.
+#Don't include Use, Bold the title, Make sure they text wrap, translate names to R3172 name to take less space, create separate columns for 4A and 5A impairments.
+load("/Users/alanochoa/Documents/GitHub/Data_Request/TMDL_Prioritization/rps_map_label.Rdata")
+
+
+#by merging these two you get the ImpairmentLabel column for Cat 5&4A and merge with TMDL label column=Label
+au_poly_trim=au_poly_label
+au_poly_trim=au_poly_trim[au_poly_trim$ASSESS_ID%in%results_all1_cleaned$ASSESS_ID,]
+
+
+missing_au=results_all1[!results_all1$ASSESS_ID%in%au_poly_trim$ASSESS_ID,]
+
+shapefile_path <- '~/Documents/GitHub/Data_Request/TMDL_Prioritization/RPS Shiny App/HUC12_Shapefile/Watersheds_Area.shp'
+huc12_poly <- st_read(shapefile_path, stringsAsFactors = FALSE)
+huc12_poly=huc12_poly[huc12_poly$HUC_12%in%All_RPS_Results$HUC_12,]
+
+Scenario_summary_BU <- read_csv("Scenario_summary_BU.csv")#This file might have came from Google Sheet - Scenarios collapsed to beneficial uses_012924 will need to add agriculture file
+library(readxl)
+tmdl_rev <- read_excel("TMDL revisions and commitments for consideration in the Vision 2.0 Prioritization Process.xlsx")
+#clean up column names for tmdl_rev
+names(tmdl_rev) <- c("Basin","AU_NAME","ASSESS_ID" , "Revision_Parameters","Reason_for_revision", "Watershed Coordinator","Priority","Comments")
+tmdl_rev <- tmdl_rev %>%
+  select(-Basin,-Comments,-`Watershed Coordinator`,-AU_NAME)
+
+tmdl_rev1=tmdl_rev%>%
+  merge(.,au_poly_trim)
+tmdl_rev1$Reason_for_revision <- ifelse(is.na(tmdl_rev1$Reason_for_revision),"The MAWP has requested a beneficial use change from 3A to 3B based on temperature data collected since completion of these TMDLs in 2006. By revising the TMDLs we could determine whether or not a use change is warranted.",tmdl_rev1$Reason_for_revision)
+
+#Per request from Amy, we need to clean up some of these results.
+results_all1_cleaned=results_all1_cleaned%>%select(-Timestamp,-Reviewer_Name,-`Additional comments`,-`Approved TMDL in HUC`,-`Parameters in TMDL`,-`Are water quality concerns in this HUC a priority for local stakeholders?`)%>%
+  mutate(Action_plan_bin=ifelse(Action_plan_bin=="Protection & Restoration","Protection",Action_plan_bin))
+
+
+
+save(tmdl_rev,Scenario_summary_BU,huc12_poly,results_all1_cleaned,au_poly_trim,All_RPS_Results,au_poly_og,file="RPS_Summary_Map.Rdata")
+
+
+test_pal <- results_all1_cleaned %>%
+  select(ASSESS_ID, Basin, Scen) %>%
+  group_by(ASSESS_ID, Basin) %>%
+  summarise(PriorityCount = n(),
+            All_Scen = paste(unique(Scen), collapse = ", "),
+    .groups = 'drop')
+```
+
+#3)EVEN MORE WORK,DANGER DANGER - Feature Importance Summary
+#A) Create a feature importance function in R
+#- How do you deal with NULL values vs 0 values. How does RPS tool deal with them?
+#B) Combine all the RPS Raw Output data to get the top feature importance per Basin-Scenario. 
+#C) group_by Basin-Scenario, get feature importance for each of the 3 main index (Social, Stressor,Ecological) 
+#D) DF should list top 8 for each index and should have columnns Index,Indicator, Importance score
+#E) would be great to display a distribution table (kind of like box plot but/OR points) of the distribution of the top 8 index, (maybe have an option to select one of the index?)
+
