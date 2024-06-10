@@ -1,0 +1,438 @@
+#Purpose is to download the data for the specific sites sampled for the San Juan Watershed Analysis project
+
+#There were 35 sites identified but only thirteen sites had samples collected in some reports
+#Reference documents in https://mail.google.com/mail/u/0/#search/san+juan/FMfcgzGwJvgbFplNtRXCfWrWggXzFtDr?projector=1&messagePartId=0.2
+#Looking at all sites on project=Animas_SanJuan_Watershed
+```{r}
+library(data.table)
+library(readxl)
+library(dplyr)
+library(leaflet)
+sites_url="https://www.waterqualitydata.us/data/Station/search?project=Animas_SanJuan_Watershed&startDateLo=01-01-2010&startDateHi=12-31-2023&mimeType=csv&zip=no&providers=NWIS&providers=STEWARDS&providers=STORET"
+
+sj_sites = as.data.frame(data.table::fread(sites_url))
+sj_sites = sj_sites%>%
+  select(where(~ !all(is.na(.))))
+#There are 88 unique sites in the project=Animas_SanJuan_Watershed
+write.csv(sj_sites,"sj_sites_2010-2023.csv")# using this file to compare against site list from site list:https://docs.google.com/spreadsheets/d/10swoywTnpwNAMfF2ZBLGOMdji8pJoZHU9ffZvN-6cuo/edit#gid=0
+
+
+```
+
+#Sites list for WQP Call
+#This file is from https://docs.google.com/spreadsheets/d/10swoywTnpwNAMfF2ZBLGOMdji8pJoZHU9ffZvN-6cuo/edit#gid=0 after translating the names (there were two mistakes in the main names) ALSO Added the note for sites that were in 2023 SAP
+```{r}
+sj_project_sites=read_excel("SJ_translation_tables.xlsx", sheet = "site_translation") 
+sj_project_sites1=sj_project_sites%>%filter(!SJ_PROJECT_SITE=="No")#Filter to only sites within the SJ Watershed Group Project
+
+siteids=paste("siteid=",sj_project_sites1$MonitoringLocationIdentifier,sep="",collapse = "&")
+```
+
+#Download data for sites specified above
+#Pattern follows: siteid=MLID&
+can you download data from the project name of Animas_SanJuan_Watershed? and is this the same amount of data as downloading by site?
+```{r}
+start_date="startDateLo=01-01-2015"
+end_date="startDateHi=12-31-2023"
+#Results URL
+base0="https://www.waterqualitydata.us/data/Result/search?countrycode=US&project=Animas_SanJuan_Watershed&mimeType=csv&zip=no&dataProfile=narrowResult&providers=NWIS&providers=STEWARDS&providers=STORET"
+
+
+full_url=paste(base0,start_date,end_date,siteids,sep="&")
+full_url=gsub(" ", "%20", full_url)
+
+#****** THESE ARE ONLY SITES IN SITE LIST
+results_SJ=as.data.frame(data.table::fread(full_url))#for sites in sitesids list
+length(unique(results_SJ$MonitoringLocationIdentifier))
+results_SJ=merge(results_SJ,sj_project_sites1)
+#39 sites within this
+```
+
+#******for ALL sites in Project Animas_SanJuan_Watershed - In creating the CharacteristicName translation table and data prep, will it actually be useful to do that now to find all possible scenarios and values? Filter for only SJ Watershed Project sites later? YESYES
+```{r}
+results_Animas_SJ=as.data.frame(data.table::fread(paste(base0,start_date,end_date,sep="&")))
+length(unique(results_Animas_SJ$MonitoringLocationIdentifier))
+
+#merge with sites tables
+results_Animas_SJ1=merge(results_Animas_SJ,sj_project_sites)
+
+#download DetectionQuanitationLimits
+
+detquant_path = "https://www.waterqualitydata.us/data/ResultDetectionQuantitationLimit/search?&project=Animas_SanJuan_Watershed&mimeType=csv&zip=no&providers=NWIS&providers=STEWARDS&providers=STORET"
+detquant_path=paste(detquant_path,start_date,end_date,sep="&")
+sj_detquant=as.data.frame(data.table::fread(detquant_path))
+sj_detquant1=sj_detquant%>%
+  select(where(~ !all(is.na(.))))
+
+# Instead of the code below where we only filter for LQL and MDL, lets apply the detLimitTypeTable to get the min rank and see if any besides those are the only option. Are there any params or situations where MDL is the the top rank?
+det_lim_tab=read_excel("SJ_translation_tables.xlsx", sheet = "detLimitTypeTable") 
+det_lim_tab=det_lim_tab%>%select(DetectionQuantitationLimitTypeName,IRLimitPriorityRanking_lower)%>%filter(!is.na(IRLimitPriorityRanking_lower))
+
+sj_detquant1=merge(sj_detquant1,det_lim_tab,all.x=T)
+
+sj_detquant1=sj_detquant1%>%
+  filter(!is.na(IRLimitPriorityRanking_lower))%>%
+  group_by(ResultIdentifier)%>%
+  filter(IRLimitPriorityRanking_lower==min(IRLimitPriorityRanking_lower))%>%
+  ungroup()%>%
+  select(-IRLimitPriorityRanking_lower,-ProviderName)%>%
+  rename(dql_unit=`DetectionQuantitationLimitMeasure/MeasureUnitCode`)%>%
+  mutate(dql_unit=tolower(dql_unit))
+
+table(sj_detquant1$DetectionQuantitationLimitTypeName)
+
+#Present Below Quanitifcation Limit is only for characteristicName =="RBP2, Substrate, inorganic, gravel, 2-64 mm"
+#Present Above Quantification Limit only for CharacteristicName=="Turbidity"
+table(results_Animas_SJ1[results_Animas_SJ1$CharacteristicName%in%combined_all_criteria2$Parameter,]$ResultDetectionConditionText)
+
+
+ #May need to first check results_Animas_SJ1 in order to check if the metals of interest have any other values other than Non detects
+#Convert detquant limits to mg/l before merging?
+unit_trans=read_excel("SJ_translation_tables.xlsx", sheet = "UnitConversion") 
+unit_trans_dql=unit_trans%>%rename(dql_unit=ResultMeasure_MeasureUnitCode)
+#This filtering of only accepted units will filter out some CharacteristicName of Ammonia/Inorganic Nitrogen, E. coli, mg/g or similar weight concentrations like ug/g for metals in sediment.
+sj_detquant1=merge(sj_detquant1,unit_trans_dql,all.x=T)%>%
+  filter(UnitFlag!="Reject")%>%
+  mutate(`DetectionQuantitationLimitMeasure/MeasureValue`=`DetectionQuantitationLimitMeasure/MeasureValue`*UnitConversion,
+         dql_unit=CriterionUnit)%>%
+  select(-CriterionUnit,-UnitConversion)
+
+results_Animas_SJ2=merge(results_Animas_SJ1,sj_detquant1,all.x = T) #This is all sites in the basin.. May be interesting to map this vs the results_SJ_only to see if there are other sites that are important or make large impacts.
+
+miss_site=results_Animas_SJ2[results_Animas_SJ2$MonitoringLocationIdentifier=="21NMEX_WQX-67SanJua099.5",]
+table(miss_site$SJ_PROJECT_SITE)# IS THIS SITE REALLY NOT IN THE LIST OF SITES? It is not listed as one of the 38 sites.. Can we include all these sites and default filter them out on the Shiny App and only add them if user checks box?
+
+params_interest=c(unique(combined_all_criteria2$Parameter),"Total hardness")
+
+results_SJ_metals_only=results_Animas_SJ2[results_Animas_SJ2$CharacteristicName%in%params_interest,]%>%
+  select(where(~ !all(is.na(.))))%>%
+  mutate(`ResultMeasure/MeasureUnitCode`=ifelse(`ResultMeasure/MeasureUnitCode`=="",dql_unit,`ResultMeasure/MeasureUnitCode`)) #This is to deal with some of the cases where "Present Below Quantification Limit" occurs and the ResultMeasure Unit is an empty string.
+
+
+results_SJ_metals_only$`ResultMeasure/MeasureUnitCode`=tolower(results_SJ_metals_only$`ResultMeasure/MeasureUnitCode`) # minimize number of unit translations/combos
+table(results_SJ_metals_only$CharacteristicName,results_SJ_metals_only$`ResultMeasure/MeasureUnitCode`)
+table(results_SJ_metals_only$CharacteristicName,results_SJ_metals_only$ResultDetectionConditionText)
+table(results_SJ_metals_only$`ResultMeasure/MeasureUnitCode`)
+
+```
+#Nondetects
+```{r}
+##Investigated counts of non detect values
+table(results_SJ_metals_only$ResultDetectionConditionText)
+detection_counts=results_SJ_metals_only%>%filter(CharacteristicName%in%combined_all_criteria$Parameter)%>%
+  group_by(CharacteristicName)%>%
+  mutate(total=n(),
+         nondetect=sum(ResultDetectionConditionText=="Not Detected"),
+         percent=nondetect/total*100)%>%
+  select(CharacteristicName,total,nondetect,percent)%>%
+  distinct()
+rm(detection_counts)
+```
+#Convert all values to mg/l and minimize the columns
+```{r}
+if(any(!unique(results_SJ_metals_only$`ResultMeasure/MeasureUnitCode`)%in%unit_trans$ResultMeasure_MeasureUnitCode))
+{warning("There is a unit not included in the UnitConversion table. Please update") 
+missing_units <- unique(results_SJ_metals_only[!results_SJ_metals_only$`ResultMeasure/MeasureUnitCode` %in% unit_trans$ResultMeasure_MeasureUnitCode,]$`ResultMeasure/MeasureUnitCode`)
+    print("Missing units:")
+    print(missing_units)
+} #****** or Shiny Dashboard is it possible to create an input for UnitConversions within shiny?
+
+
+results_SJ_metals_only1=results_SJ_metals_only%>%
+  rename(ResultMeasure_MeasureUnitCode=`ResultMeasure/MeasureUnitCode`)%>%
+  merge(.,unit_trans)%>%
+  mutate(SJ_ResultValue=as.numeric(ResultMeasureValue)*UnitConversion,
+         SJ_Unit=CriterionUnit)%>%
+  select(-`AnalysisStartTime/TimeZoneCode`,-BiologicalIntentName,-SubjectTaxonomicName,-SampleTissueAnatomyName,-ResultTimeBasisText,-ResultWeightBasisText,-StatisticalBaseCode,-DataLoggerLine,-`ActivityStartTime/TimeZoneCode`,-OrganizationIdentifier,-ProviderName,-ResultStatusIdentifier,-`ResultAnalyticalMethod/MethodQualifierTypeName`,-SourceMapScaleNumeric,-MonitoringLocationTypeName,-HUCEightDigitCode,-HorizontalCollectionMethodName,-HorizontalCoordinateReferenceSystemDatumName,-`VerticalMeasure/MeasureValue`,-CountryCode,-CountyCode,-StateCode)
+```
+
+#Temporarily adding .5 MDL to Not Detected Samples and flag to add if wanted.
+```{r}
+results_SJ_metals_only1=results_SJ_metals_only1%>%
+  mutate(SJ_ND=ifelse(is.na(SJ_ResultValue),"Yes",NA),
+         SJ_ResultValue=ifelse(is.na(SJ_ResultValue),`DetectionQuantitationLimitMeasure/MeasureValue`*.5,SJ_ResultValue))
+
+```
+
+
+# Add Jurisdiction Info Creating DF - results_SJ_metals_only2
+```{r}
+library(dplyr)
+library(sf)
+# Filter for only jurisdictions in : combined_all_criteria,"SJ_combined_criteria.csv")
+jurisdictions=c("Colorado",  "Navajo Nation",  "New Mexico", "Utah", "Ute Mountain")
+
+statesJSON <- st_read("./Spatial Layers/states.geojson") #selected_states
+sj_states=statesJSON[statesJSON$NAME%in%jurisdictions,]%>%select(NAME,geometry)
+
+tribesJSON <- st_read("./Spatial Layers/tribes.geojson")
+sj_tribes=tribesJSON[tribesJSON$NAME%in%jurisdictions,]%>%select(NAME,geometry)
+
+# Looks like Navajo Nation Poly is invalid, keep having issues with it..
+# Check for invalid geometries again
+invalid_indices <- which(!st_is_valid(sj_tribes))
+sj_tribes_ok <- sj_tribes[-invalid_indices, ]
+sj_tribes_invalid <- sj_tribes[invalid_indices, ]
+# Decompose polygons into simpler parts
+decomposed <- st_cast(sj_tribes_invalid, "POLYGON")
+# Recompose the polygons
+sj_tribes_invalid_fix <- st_union(decomposed)
+# Ensure it is a MULTIPOLYGON, even if it's only one feature
+if (!inherits(sj_tribes_invalid_fix, "MULTIPOLYGON")) {
+  sj_tribes_invalid_fix <- st_cast(sj_tribes_invalid_fix, "MULTIPOLYGON")
+}
+# Create a new sf data frame
+sj_nav_nat <- st_sf(
+  NAME = "Navajo Nation",
+  geometry = st_sfc(sj_tribes_invalid_fix, crs = st_crs(sj_tribes))
+)
+# Combine with valid geometries
+sj_tribes_final <- rbind(sj_tribes_ok, sj_nav_nat)
+
+tribe_state_poly=rbind(sj_states,sj_tribes_final)%>%
+  st_transform(.,crs=4326)#sf polygon shape object
+
+# Create simple list of the sj sites
+unique_sj_sites=sj_sites%>%select( MonitoringLocationIdentifier,MonitoringLocationName,LatitudeMeasure,LongitudeMeasure)%>%
+  st_as_sf(coords = c("LongitudeMeasure", "LatitudeMeasure"), crs = 4326) %>% 
+  st_set_geometry("geometry")
+
+sj_sites_jurisdictions <- st_join(unique_sj_sites, tribe_state_poly, join = st_within)
+sj_sites_jurisdictions=sj_sites_jurisdictions%>%
+  group_by(MonitoringLocationIdentifier)%>%
+  mutate(Jurisdictions=paste(NAME,collapse = ", "))%>%
+  select(-NAME)%>%
+  ungroup()%>%
+  distinct()
+
+
+#Merge Jurisdiction and further trim column # QWH
+results_SJ_metals_only2=merge(results_SJ_metals_only1,sj_sites_jurisdictions)%>%
+  select(-ActivityIdentifier,-OrganizationFormalName,-ResultDetectionConditionText,-MethodSpecificationName,-MeasureQualifierCode,ResultValueTypeName,-ResultCommentText,-`ResultAnalyticalMethod/MethodIdentifier`,-`ResultAnalyticalMethod/MethodIdentifierContext`,-`ResultAnalyticalMethod/MethodName`,-MethodDescriptionText,-ResultDetectionQuantitationLimitUrl,-LaboratoryName,-AnalysisStartDate,-BiologicalIndividualIdentifier)%>%
+  mutate(SJ_ND=ifelse(is.na(SJ_ND),"No","Yes")) 
+
+#%>% # ADD A COLUMN FOR PRIMARY JURIS?,Prime_Jurisdiction=ifelse(Jurisdiction)
+#  filter(Jurisdictions!="NA")
+
+print(length(unique(results_SJ_metals_only2$ResultIdentifier)))
+
+p_names=unique(results_SJ_metals_only2$CharacteristicName)
+print(p_names[1:4])
+##****** PLOTS
+sum_params = results_SJ_metals_only2%>%
+  filter(ResultSampleFractionText=="Total",SJ_ND=="No",
+         CharacteristicName%in%c("Aluminum","Antimony","Arsenic","Barium"))%>%
+  select(CharacteristicName,SJ_ResultValue,ActivityStartDate)%>%
+  distinct()
+
+plot <- ggplot(sum_params, aes(x = ActivityStartDate, y = SJ_ResultValue)) +
+  geom_point(size = 3, alpha = 0.6) +  # Adjust point size and transparency
+  labs(title = "Time Series of All Parameters",
+       x = "Sample Dates",
+       y = "mg/L") +
+  facet_wrap(~CharacteristicName, scales = "free_y",ncol = 1) +  # Facet by 'CharacteristicName'
+  theme_minimal() +  # Use a minimal theme
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
+
+# Print the plot
+print(plot)
+
+# Create the plot with facet_grid
+plot <- ggplot(sum_params, aes(x = ActivityStartDate, y = SJ_ResultValue)) +
+  geom_point(size = 3, alpha = 0.6) +
+  labs(title = "Time Series of All Parameters",
+       x = "Sample Dates",
+       y = "mg/L") +
+  facet_grid(rows = vars(CharacteristicName), scales = "free_y") +  # Organize by rows
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Print or save as before
+print(plot)
+
+
+gg <- ggplot(sum_params, aes(x = ActivityStartDate, y = SJ_ResultValue)) +
+  geom_point(size = 3, alpha = 0.6) +
+  labs(title = "Time Series of All Parameters",
+       x = "Sample Dates",
+       y = "mg/L") +
+  facet_wrap(~CharacteristicName, scales = "free_y") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplotly(gg)  # Convert to an interactive plotly graph
+
+```
+# 
+#Add the hardness values to parameters with calculated criteria -- It may make sense to aggDV for Hardness so that there is only one value per site per to not duplicate THIS MAY BE IMPORTANT FOR AQUATIC WILDLIFE CONCENTRATIONS ARE HARDNESS DEPENDENT
+```{r}
+hardness_values=results_SJ_only%>%
+  filter(CharacteristicName=="Total hardness")%>%
+  select(ActivityIdentifier,ActivityStartDate,`ActivityStartTime/Time`,CharacteristicName,ResultMeasureValue,`ResultMeasure/MeasureUnitCode`)%>%
+  distinct()%>%
+  pivot_wider(names_from=CharacteristicName,
+              values_from = ResultMeasureValue)
+break There are some Total Hardness values that are less than 1. How accurate are these? Also some activities took more than 1 sample.. in Utah IR we get the min value, lower hardness typically means more stringent criteria.
+
+low_hardness=results_SJ_only%>%
+  filter(CharacteristicName=="Total hardness"&ResultMeasureValue<1)
+ 
+low_hardness=low_hardness[,c("OrganizationIdentifier","OrganizationFormalName","MonitoringLocationIdentifier","ProviderName", "ActivityIdentifier","ResultIdentifier","CharacteristicName",                                "MonitoringLocationName", "MonitoringLocationTypeName","LatitudeMeasure","LongitudeMeasure","ActivityStartDate" ,"ActivityStartTime/Time", "ResultSampleFractionText","ResultMeasureValue" ,"ResultMeasure/MeasureUnitCode","MeasureQualifierCode" , "ResultStatusIdentifier" ,                           "ResultValueTypeName"  ,"ResultCommentText" ,"ResultAnalyticalMethod/MethodIdentifier",  "ResultAnalyticalMethod/MethodIdentifierContext" , "ResultAnalyticalMethod/MethodName",
+"MethodDescriptionText","LaboratoryName", "ResultDetectionQuantitationLimitUrl"              
+,"DetectionQuantitationLimitTypeName","DetectionQuantitationLimitMeasure/MeasureValue"   
+, "DetectionQuantitationLimitMeasure/MeasureUnitCode")]
+
+write.csv(low_hardness,"Low_hardness_samples.csv")
+
+```
+
+
+#Explore significant differences between Parameters and Jurisdictions
+```{r}
+#******TODO: Add Criteria to columns and color code red if mean or median exceed criteria.
+#*
+# Calculate summary statistics for each Parameter within each Jurisdiction
+jur_param_summary <- results_SJ_metals_only2 %>%
+  group_by(Jurisdictions, CharacteristicName) %>%
+  summarise(
+    Mean = mean(SJ_ResultValue, na.rm = TRUE),
+    Median = median(SJ_ResultValue, na.rm = TRUE),
+    SD = sd(SJ_ResultValue, na.rm = TRUE),
+    .groups = 'drop'
+  )
+
+
+library(ggplot2)
+
+# Boxplot comparing distributions of Parameter values across Jurisdictions
+ggplot(results_SJ_metals_only2, aes(x = Jurisdictions, y = SJ_ResultValue, fill = Jurisdictions)) +
+  geom_boxplot() +
+  facet_wrap(~ CharacteristicName, scales = "free_y") +
+  theme_minimal() +
+  labs(title = "Comparison of Parameter Values by Jurisdiction", y = "Value", x = "Jurisdiction")
+
+library(dplyr)
+
+#Kruskal-Wallis test--
+results_kw <- results_SJ_metals_only2 %>%
+  group_by(Jurisdictions, CharacteristicName,ResultSampleFractionText) %>%
+  summarise(
+    KruskalTest = if (n_distinct(Jurisdictions) > 1) {
+      list(kruskal.test(SJ_ResultValue ~ Jurisdictions, data = cur_data()))
+    } else {
+      list(NA)  # Return NA or similar to handle groups with insufficient diversity
+    },
+    .groups = 'drop'
+  )
+
+
+# Extracting p-values from Kruskal-Wallis test results_kw
+results_kw$P_Value <- sapply(results_kw$KruskalTest, function(x) x$p.value)
+
+# Filter parameters with significant differences
+significant_parameters <- results_kw %>%
+  filter(!is.na(P_Value), P_Value < 0.05) %>%
+  pull(Parameter)
+
+```
+#Explore the type of data included in the results
+# Number of samples per day... Should the results be aggregated to the max daily value of each CharacteristicName?
+```{r}
+table(results_SJ_metals_only2$CharacteristicName)
+
+# sj_characteristics=results_SJ_metals_only2%>%select(CharacteristicName,ResultSampleFractionText)%>%distinct()
+# write.csv(sj_characteristics,"sj_params_fractions.csv")
+
+#Over 400 scenarios where more than 2 samples of same parameter sampled on same day. Do we aggregate by daily value? No.. yes? Keep aggDV() function easily accessible
+metals_date_summarries=results_SJ_metals_only2%>%
+  group_by(MonitoringLocationIdentifier,ActivityStartDate,CharacteristicName,ResultSampleFractionText)%>%
+  distinct()%>%
+  summarise(act_count=n_distinct(ResultMeasureValue))
+
+```
+
+
+#Reading Geojson files for all HUC12s - narrowing down list if we want to use a 
+```{r}
+
+# Create a bounding box from sj_sites
+bbox <- st_bbox(st_sf(sj_sites_jurisdictions))
+# Convert the bbox to an sf polygon
+bbox_poly <- st_as_sfc(bbox)
+
+
+# Set the path to the File Geodatabase
+gdb_path <- "/Users/alanochoa/Documents/GitHub/Data_Request/San Juan/wbdhu12_a_us_september2023.gdb"
+layers <- st_layers(gdb_path)
+# List all layers in the File Geodatabase
+# If layers are found, read each layer into a list of sf objects
+list_of_layers <- lapply(layers$name, function(layer_name) {
+  st_read(gdb_path, layer = layer_name)
+})
+
+# Check which HUC12 polygons intersect with the bounding box
+states_list=c("UT","NM","CO","AZ","AZ,NM","AZ,UT","AZ,CO,NM,UT","AZ,CO,UT","CO,NM","CO,UT")
+huc12_list=list_of_layers[[1]][list_of_layers[[1]]$states%in%states_list,]
+huc12_list=st_transform(huc12_list,st_crs(4326))
+huc12_list <- huc12_list[st_intersects(huc12_list, bbox_poly, sparse = FALSE), ]
+
+
+
+# Performing a spatial join
+sj_sits_hucs <- st_join( sites_sf,huc12_list, join = st_within)
+sj_hucs=huc12_list[huc12_list$huc12%in%sj_sits_hucs$huc12,]
+# This will include all rows from huc12_list where there's at least one matching sj_sites coordinate
+other_hucs=c("140801041005","140801050109","140801050105")
+
+
+rm(list_of_layers,gdb_path,states_list,layers,bbox,bbox_poly)
+```
+
+# Create the .RData file to use for the app.R dashboard.
+```{r}
+getwd()
+save(results_SJ_metals_only2,sj_tribes_final,file="SJ_WQ_Dash/SJ_dashboard_data.RData")
+
+```
+
+#Create Map with Jurisdiction Layers and Unique Site list
+```{r}
+
+#Create Leaflet map
+library(leaflet)
+ sj_map = leaflet::leaflet(options = leafletOptions(preferCanvas = TRUE, dragging=TRUE))
+    sj_map=leaflet::addProviderTiles(sj_map, "Esri.WorldTopoMap", group = "Topo", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE))%>%
+      addMapPane("States", zIndex = 415)%>%
+      addMapPane("Tribes", zIndex = 425)%>%
+      addMapPane("au_poly", zIndex = 418)%>%
+      addMapPane("bu_poly", zIndex = 420)%>%
+      addCircleMarkers(data=sj_sites,fillOpacity = 0.8,color="#0078A8",radius = 5,weight=1,
+                   popup=paste0(
+                     "Site: ", sj_sites$MonitoringLocationIdentifier)
+                  ) %>%
+      
+      addPolygons(data=sj_tribes,group = "Tribes",fillOpacity = 0.5,color="blue",weight = 3,options = pathOptions(pane = "Tribes"),
+                   popup=paste0(
+                     "Tribe Name: ", sj_tribes$NAME)
+                  ) %>%
+      addPolygons( data=sj_utah_aus,group="Assessment units",fillOpacity = 0.5, #layerId=au_poly_imp1$polyID,
+                   weight=3,color="orange",fillColor = "orange", options = pathOptions(pane = "au_poly"),
+                   popup=paste0(
+                     "AU name: ", sj_utah_aus$AU_NAME,
+                     "<br> AU ID: ", sj_utah_aus$ASSESS_ID,
+                     "<br> AU type: ", sj_utah_aus$AU_Type)
+      )%>%
+      addPolygons( data=sj_hucs,group="HUC12",fillOpacity = 0.5,
+                   weight=3,color="grey",fillColor = "green", options = pathOptions(pane = "bu_poly"),
+                   popup=paste0(
+                     "HUC_12: ", sj_hucs$huc12))%>%
+      addPolygons( data=huc12_list,group="OtherHUCs",fillOpacity = 0.5,
+                   weight=3,color="grey",fillColor = "pink", options = pathOptions(pane = "bu_poly"),
+                   popup=paste0(
+                     "HUC_12: ", huc12_list$huc12))%>%
+                     leaflet::addLayersControl(position ="topleft",
+                                baseGroups = c("Topo"),overlayGroups = c("HUC12","Assessment units", "Beneficial Uses","OtherHUCs","Tribes"),
+                                options = leaflet::layersControlOptions(collapsed = TRUE, autoZIndex=FALSE))
+
+sj_map
+```

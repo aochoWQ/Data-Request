@@ -1,0 +1,54 @@
+#Download the calculated Combined worksheet from https://docs.google.com/spreadsheets/d/1ak6cpKWFEdT1YNKUC4ZmSBxlhuemSDgr/edit#gid=2116946160
+#To plot and compare how much the different criteria differ for each parameter.
+```{r}
+comb_criteria = read.csv("Compiled Working Water Quality Criteria_FINAL_revised 06_19_2019.xlsx - Calculated_Combined.csv")
+comb_criteria$Criteria=ifelse(comb_criteria$Criteria=="Aquatic acute","Aquatic Acute",comb_criteria$Criteria)
+comb_criteria$Metal=ifelse(comb_criteria$Metal=="Dissolved Chromium 3","Dissolved Chromium",comb_criteria$Metal)
+comb_criteria_consolidated <- comb_criteria %>%
+  group_by(Metal, Enter_Hardness_mg_L, Criteria, Criteria_mg_L) %>%
+  summarise(State = paste0(State, collapse = ", "), .groups = "drop")%>%
+  rename(Hardness=Enter_Hardness_mg_L)%>%
+  mutate(Hardness=as.factor(Hardness))
+```
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# Unique metals
+unique_metals <- unique(comb_criteria_consolidated$Metal)
+
+
+# Create a PDF to save all plots
+pdf("Combined_Calc_Criteria_Comparison.pdf")
+
+# Loop through each metal
+for (metal in unique_metals) {
+  
+  # Filter comb_criteria for the current metal
+  metal_data <- comb_criteria_consolidated %>% filter(Metal == metal)
+  
+  # Plot
+  p <- # Plot with legend
+ggplot(metal_data, aes(x = Criteria, y = Criteria_mg_L, color = as.factor(State),shape = Hardness)) +
+  geom_point(size = 3) +
+  facet_wrap(~ Metal, scales = "free_y") +
+  labs(
+    title = "Water Quality Criteria by State",
+    x = "Criteria Type",
+    y = "Criteria (mg/L)",
+    color = "State"
+  ) +
+  theme_minimal() +
+  theme(
+    strip.text = element_text(size = 10, face = "bold"),
+    legend.position = "right"
+  )
+    # Print plot to PDF
+  print(p)
+}
+
+dev.off()
+
+```

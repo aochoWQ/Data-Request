@@ -1,0 +1,403 @@
+BeneficialUse,Type,Parameter,Criteria mg/L
+Fish Consumption,Total,Mercury,0.00015
+Fish Consumption,Dissolved,Thallium,0.00047
+Fish Consumption,Total,Thallium,0.001
+Aquatic Life Acute,Dissolved,Mercury,0.0014
+Domestic Use,Total,Mercury,0.002
+Domestic Use,Dissolved,Mercury,0.002
+Domestic Use,Dissolved,Thallium,0.002
+Domestic Use,Dissolved,Beryllium,0.004
+Domestic Use,Dissolved,Cadmium,0.005
+Domestic Use,Dissolved,Antimony,0.006
+Fish Consumption,Dissolved,Arsenic,0.0076
+Irrigation,Dissolved,Cadmium,0.01
+Irrigation,Dissolved,Mercury,0.01
+Livestock,Dissolved,Mercury,0.01
+Domestic Use,Total,Arsenic,0.01
+Domestic Use,Dissolved,Arsenic,0.01
+Primary Contact Recreation,Total,Lead,0.015
+Domestic Use,Dissolved,Lead,0.015
+Domestic Use,Total,Cadmium,0.018
+Aquatic Life Acute,Dissolved,Selenium,0.0184
+Irrigation,Total,Selenium,0.02
+Irrigation,Dissolved,Selenium,0.02
+Recreation,Total,Thallium,0.025
+Primary Contact Recreation,Total,Arsenic,0.03
+Domestic Use,Total,Uranium,0.03
+Domestic Use,Dissolved,Uranium,0.03
+Irrigation,Total,Cadmium,0.05
+Irrigation,Dissolved,Cobalt,0.05
+Irrigation,Dissolved,Molybdenum,0.05
+Livestock,Dissolved,Cadmium,0.05
+Livestock,Dissolved,Selenium,0.05
+Domestic Use,Dissolved,Chromium,0.05
+Domestic Use,Dissolved,Selenium,0.05
+Domestic Use,Dissolved,Silver,0.05
+Recreation,Total,Cadmium,0.062
+Primary Contact Recreation,Total,Thallium,0.075
+Fish Consumption,Total,Arsenic,0.08
+Fish Consumption,Total,Beryllium,0.085
+Aquatic Life Acute,Dissolved,Antimony,0.088
+Irrigation,Dissolved,Arsenic,0.1
+Irrigation,Dissolved,Chromium,0.1
+Irrigation,Dissolved,Vanadium,0.1
+Livestock,Total,Lead,0.1
+Livestock,Dissolved,Lead,0.1
+Livestock,Dissolved,Vanadium,0.1
+Domestic Use,Total,Chromium,0.1
+Domestic Use,Total,Selenium,0.17
+Recreation,Total,Arsenic,0.186
+Recreation,Total,Lead,0.2
+Irrigation,Dissolved,Copper,0.2
+Irrigation,Dissolved,Manganese,0.2
+Irrigation,Dissolved,Nickel,0.2
+Livestock,Total,Nickel,0.2
+Livestock,Dissolved,Arsenic,0.2
+Recreation,Total,Antimony,0.248
+Primary Contact Recreation,Total,Mercury,0.28
+Irrigation,Total,Molybdenum,0.3
+Livestock,Total,Mercury,0.3
+Aquatic Life Acute,Total,Arsenic,0.34
+Aquatic Life Acute,Dissolved,Arsenic,0.34
+Recreation,Total,Chromium,0.41
+Primary Contact Recreation,Total,Cadmium,0.47
+Irrigation,Total,Beryllium,0.5
+Livestock,Total,Copper,0.5
+Livestock,Dissolved,Copper,0.5
+Domestic Use,Total,Nickel,0.61
+Fish Consumption,Dissolved,Antimony,0.64
+Fish Consumption,Total,Selenium,0.67
+Domestic Use,Dissolved,Nickel,0.7
+Aquatic Life Acute,Dissolved,Thallium,0.7
+Primary Contact Recreation,Total,Antimony,0.747
+Livestock,Total,Molybdenum,0.75
+Aquatic Life Acute,Total,Aluminum,0.75
+Aquatic Life Acute,Dissolved,Aluminum,0.75
+Domestic Use,Total,Manganese,0.98
+Irrigation,Total,Chromium,1
+Irrigation,Total,Cobalt,1
+Irrigation,Total,Vanadium,1
+Livestock,Dissolved,Chromium,1
+Livestock,Dissolved,Cobalt,1
+Livestock,Dissolved,Nickel,1
+Domestic Use,Dissolved,Barium,1
+Aquatic Life Acute,Dissolved,Iron,1
+Recreation,Total,Beryllium,1.242
+Recreation,Total,Mercury,1.242
+Domestic Use,Total,Copper,1.3
+Domestic Use,Dissolved,Copper,1.3
+Domestic Use,Total,Boron,1.4
+Livestock,Total,Cadmium,1.5
+Domestic Use,Total,Lead,1.5
+Primary Contact Recreation,Total,Beryllium,1.87
+Aquatic Life Acute,Total,Molybdenum,1.895
+Irrigation,Total,Nickel,2
+Irrigation,Dissolved,Zinc,2
+Domestic Use,Total,Barium,2
+Livestock,Total,Beryllium,2.5
+Primary Contact Recreation,Total,Chromium VI,2.8
+Primary Contact Recreation,Total,Uranium,2.8
+Recreation,Total,Molybdenum,3.104
+Recreation,Total,Selenium,3.104
+Livestock,Total,Cobalt,3.8
+Primary Contact Recreation,Total,Chlorine,4
+Domestic Use,Total,Chlorine,4
+Fish Consumption,Dissolved,Selenium,4.2
+Livestock,Total,Arsenic,4.5
+Fish Consumption,Dissolved,Nickel,4.6
+Primary Contact Recreation,Total,Selenium,4.67
+Primary Contact Recreation,Total,Silver,4.67
+Irrigation,Total,Copper,5
+Irrigation,Dissolved,Aluminum,5
+Irrigation,Dissolved,Antimony,5
+Irrigation,Dissolved,Lead,5
+Livestock,Dissolved,Aluminum,5
+Recreation,Total,Vanadium,6.208
+Livestock,Total,Barium,6.5
+Recreation,Total,Copper,6.7
+Livestock,Total,Vanadium,7.5
+Recreation,Total,Cobalt,7.931
+Fish Consumption,Total,Silver,8
+Primary Contact Recreation,Total,Copper,9.33
+Irrigation,Total,Lead,10
+Irrigation,Total,Manganese,10
+Irrigation,Total,Zinc,10
+Domestic Use,Dissolved,Zinc,10.5
+Recreation,Total,Nickel,17.48
+Primary Contact Recreation,Total,Manganese,18.667
+Primary Contact Recreation,Total,Nickel,18.67
+Irrigation,Dissolved,Iron,20
+Livestock,Dissolved,Zinc,25
+Fish Consumption,Dissolved,Zinc,26
+Recreation,Total,Manganese,31.04
+Livestock,Total,Zinc,45
+Primary Contact Recreation,Total,Barium,98
+Livestock,Dissolved,Total Dissolved solids,120
+Recreation,Total,Barium,124.159
+Primary Contact Recreation,Total,Boron,126
+Livestock,Dissolved,Hardness,180
+Recreation,Total,Zinc,217.786
+Livestock,Dissolved,Magnesium,250
+Primary Contact Recreation,Total,Zinc,280
+Livestock,Total,Manganese,300
+Livestock,Dissolved,Calcium,500
+Recreation,Total,Aluminum,620.787
+Recreation,Total,Iron,851.582
+Livestock,Dissolved,Sodium,1000
+Primary Contact Recreation,Total,Chromium III,1400
+Recreation,Total,Arsenic (non-cancer),
+Recreation,Total,Arsenic (cancer),
+Recreation,Total,Boron,
+Recreation,Total,Calcium,
+Recreation,Total,Chlorine,
+Recreation,Total,Chromium III,
+Recreation,Total,Chromium VI,
+Recreation,Total,Hardness,
+Recreation,Total,Magnesium,
+Recreation,Total,Nitrate,
+Recreation,Total,pH,
+Recreation,Total,Potassium,
+Recreation,Total,Silver,
+Recreation,Total,Sodium,
+Recreation,Total,Total Dissolved Solids,
+Recreation,Total,Uranium,
+Primary Contact Recreation,Total,Aluminum,
+Primary Contact Recreation,Total,Arsenic (non-cancer),
+Primary Contact Recreation,Total,Arsenic (cancer),
+Primary Contact Recreation,Total,Calcium,
+Primary Contact Recreation,Total,Chromium,
+Primary Contact Recreation,Total,Cobalt,
+Primary Contact Recreation,Total,Hardness,
+Primary Contact Recreation,Total,Iron,
+Primary Contact Recreation,Total,Magnesium,
+Primary Contact Recreation,Total,Molybdenum,
+Primary Contact Recreation,Total,Nitrate,
+Primary Contact Recreation,Total,pH,
+Primary Contact Recreation,Total,Potassium,
+Primary Contact Recreation,Total,Sodium,
+Primary Contact Recreation,Total,Total Dissolved Solids,
+Primary Contact Recreation,Total,Vanadium,
+Irrigation,Total,Aluminum,
+Irrigation,Total,Antimony,
+Irrigation,Total,Arsenic,
+Irrigation,Total,Barium,
+Irrigation,Total,Boron,
+Irrigation,Total,Calcium,
+Irrigation,Total,Chromium III,
+Irrigation,Total,Chromium VI,
+Irrigation,Total,Chromium III + VI,
+Irrigation,Total,Hardness,
+Irrigation,Total,Iron,
+Irrigation,Total,Magnesium,
+Irrigation,Total,Mercury,
+Irrigation,Total,Nitrate,
+Irrigation,Total,pH,
+Irrigation,Total,Potassium,
+Irrigation,Total,Silver,
+Irrigation,Total,Sodium,
+Irrigation,Total,Thallium,
+Irrigation,Total,Total Dissolved solids,
+Irrigation,Total,Uranium,
+Irrigation,Dissolved,Barium,
+Irrigation,Dissolved,Beryllium,
+Irrigation,Dissolved,Boron,
+Irrigation,Dissolved,Calcium,
+Irrigation,Dissolved,Chromium III,
+Irrigation,Dissolved,Chromium VI,
+Irrigation,Dissolved,Chromium III + VI,
+Irrigation,Dissolved,Hardness,
+Irrigation,Dissolved,Magnesium,
+Irrigation,Dissolved,Nitrate,
+Irrigation,Dissolved,pH,
+Irrigation,Dissolved,Potassium,
+Irrigation,Dissolved,Silver,
+Irrigation,Dissolved,Sodium,
+Irrigation,Dissolved,Thallium,
+Irrigation,Dissolved,Total Dissolved solids,
+Irrigation,Dissolved,Uranium,
+Livestock,Total,Aluminum,
+Livestock,Total,Antimony,
+Livestock,Total,Boron,
+Livestock,Total,Calcium,
+Livestock,Total,Chromium,
+Livestock,Total,Chromium III,
+Livestock,Total,Chromium VI,
+Livestock,Total,Chromium III + VI,
+Livestock,Total,Hardness,
+Livestock,Total,Iron,
+Livestock,Total,Magnesium,
+Livestock,Total,Nitrate,
+Livestock,Total,pH,
+Livestock,Total,Potassium,
+Livestock,Total,Selenium,
+Livestock,Total,Silver,
+Livestock,Total,Sodium,
+Livestock,Total,Thallium,
+Livestock,Total,Total Dissolved solids,
+Livestock,Total,Uranium,
+Livestock,Dissolved,Antimony,
+Livestock,Dissolved,Barium,
+Livestock,Dissolved,Beryllium,
+Livestock,Dissolved,Boron,
+Livestock,Dissolved,Chromium III,
+Livestock,Dissolved,Chromium VI,
+Livestock,Dissolved,Chromium III + VI,
+Livestock,Dissolved,Iron,
+Livestock,Dissolved,Manganese,
+Livestock,Dissolved,Molybdenum,
+Livestock,Dissolved,Nitrate,
+Livestock,Dissolved,pH,
+Livestock,Dissolved,Potassium,
+Livestock,Dissolved,Silver,
+Livestock,Dissolved,Thallium,
+Livestock,Dissolved,Uranium,
+Domestic Use,Total,Aluminum,
+Domestic Use,Total,Antimony,
+Domestic Use,Total,,
+Domestic Use,Total,,
+Domestic Use,Total,Beryllium,
+Domestic Use,Total,Calcium,
+Domestic Use,Total,Chromium III,
+Domestic Use,Total,Chromium VI,
+Domestic Use,Total,Cobalt,
+Domestic Use,Total,Hardness,
+Domestic Use,Total,Iron,
+Domestic Use,Total,Magnesium,
+Domestic Use,Total,Molybdenum,
+Domestic Use,Total,Nitrate,
+Domestic Use,Total,pH,
+Domestic Use,Total,Potassium,
+Domestic Use,Total,Silver,
+Domestic Use,Total,Sodium,
+Domestic Use,Total,Thallium,
+Domestic Use,Total,Total Dissolved Solids,
+Domestic Use,Total,Vanadium,
+Domestic Use,Total,Zinc,
+Domestic Use,Dissolved,Aluminum,
+Domestic Use,Dissolved,,
+Domestic Use,Dissolved,,
+Domestic Use,Dissolved,Boron,
+Domestic Use,Dissolved,Calcium,
+Domestic Use,Dissolved,Chlorine,
+Domestic Use,Dissolved,Chromium III,
+Domestic Use,Dissolved,Chromium VI,
+Domestic Use,Dissolved,Cobalt,
+Domestic Use,Dissolved,Hardness,
+Domestic Use,Dissolved,Iron,
+Domestic Use,Dissolved,Magnesium,
+Domestic Use,Dissolved,Manganese,
+Domestic Use,Dissolved,Molybdenum,
+Domestic Use,Dissolved,Nitrate,
+Domestic Use,Dissolved,pH,
+Domestic Use,Dissolved,Potassium,
+Domestic Use,Dissolved,Sodium,
+Domestic Use,Dissolved,Total Dissolved Solids,
+Domestic Use,Dissolved,Vanadium,
+Fish Consumption,Total,Aluminum,
+Fish Consumption,Total,Antimony,
+Fish Consumption,Total,Barium,
+Fish Consumption,Total,Boron,
+Fish Consumption,Total,Cadmium,
+Fish Consumption,Total,Calcium,
+Fish Consumption,Total,Chlorine,
+Fish Consumption,Total,Chromium,
+Fish Consumption,Total,Chromium III,
+Fish Consumption,Total,Chromium VI,
+Fish Consumption,Total,Cobalt,
+Fish Consumption,Total,Copper,
+Fish Consumption,Total,Hardness,
+Fish Consumption,Total,Iron,
+Fish Consumption,Total,Lead,
+Fish Consumption,Total,Magnesium,
+Fish Consumption,Total,Manganese,
+Fish Consumption,Total,Molybdenum,
+Fish Consumption,Total,Nickel,
+Fish Consumption,Total,Nitrate,
+Fish Consumption,Total,pH,
+Fish Consumption,Total,Potassium,
+Fish Consumption,Total,Sodium,
+Fish Consumption,Total,Total Dissolved Solids,
+Fish Consumption,Total,Uranium,
+Fish Consumption,Total,Vanadium,
+Fish Consumption,Total,Zinc,
+Fish Consumption,Dissolved,Aluminum,
+Fish Consumption,Dissolved,Barium,
+Fish Consumption,Dissolved,Beryllium,
+Fish Consumption,Dissolved,Boron,
+Fish Consumption,Dissolved,Cadmium,
+Fish Consumption,Dissolved,Calcium,
+Fish Consumption,Dissolved,Chlorine,
+Fish Consumption,Dissolved,Chromium,
+Fish Consumption,Dissolved,Chromium III,
+Fish Consumption,Dissolved,Chromium VI,
+Fish Consumption,Dissolved,Cobalt,
+Fish Consumption,Dissolved,Copper,
+Fish Consumption,Dissolved,Hardness,
+Fish Consumption,Dissolved,Iron,
+Fish Consumption,Dissolved,Lead,
+Fish Consumption,Dissolved,Magnesium,
+Fish Consumption,Dissolved,Manganese,
+Fish Consumption,Dissolved,Mercury,
+Fish Consumption,Dissolved,Molybdenum,
+Fish Consumption,Dissolved,Nitrate,
+Fish Consumption,Dissolved,pH,
+Fish Consumption,Dissolved,Potassium,
+Fish Consumption,Dissolved,Silver,
+Fish Consumption,Dissolved,Sodium,
+Fish Consumption,Dissolved,Total Dissolved Solids,
+Fish Consumption,Dissolved,Uranium,
+Fish Consumption,Dissolved,Vanadium,
+Aquatic Life Acute,Total,Antimony,
+Aquatic Life Acute,Total,Barium,
+Aquatic Life Acute,Total,Beryllium,
+Aquatic Life Acute,Total,Boron,
+Aquatic Life Acute,Total,Cadmium,
+Aquatic Life Acute,Total,Calcium,
+Aquatic Life Acute,Total,Chlorine,
+Aquatic Life Acute,Total,Chromium,
+Aquatic Life Acute,Total,Chromium III,
+Aquatic Life Acute,Total,Chromium VI,
+Aquatic Life Acute,Total,Cobalt,
+Aquatic Life Acute,Total,Copper,
+Aquatic Life Acute,Total,Hardness,
+Aquatic Life Acute,Total,Iron,
+Aquatic Life Acute,Total,Lead,
+Aquatic Life Acute,Total,Magnesium,
+Aquatic Life Acute,Total,Manganese,
+Aquatic Life Acute,Total,Mercury,
+Aquatic Life Acute,Total,Nickel,
+Aquatic Life Acute,Total,Nitrate,
+Aquatic Life Acute,Total,Potassium,
+Aquatic Life Acute,Total,Selenium,
+Aquatic Life Acute,Total,Silver,
+Aquatic Life Acute,Total,Sodium,
+Aquatic Life Acute,Total,Thallium,
+Aquatic Life Acute,Total,Total Dissolve,
+Aquatic Life Acute,Total,Uranium,
+Aquatic Life Acute,Total,Vanadium,
+Aquatic Life Acute,Total,Zinc,
+Aquatic Life Acute,Dissolved,Barium,
+Aquatic Life Acute,Dissolved,Beryllium,
+Aquatic Life Acute,Dissolved,Boron,
+Aquatic Life Acute,Dissolved,Cadmium,
+Aquatic Life Acute,Dissolved,Calcium,
+Aquatic Life Acute,Dissolved,Chlorine,
+Aquatic Life Acute,Dissolved,Chromium,
+Aquatic Life Acute,Dissolved,Chromium III,
+Aquatic Life Acute,Dissolved,Chromium VI,
+Aquatic Life Acute,Dissolved,Cobalt,
+Aquatic Life Acute,Dissolved,Copper,
+Aquatic Life Acute,Dissolved,Hardness,
+Aquatic Life Acute,Dissolved,Lead,
+Aquatic Life Acute,Dissolved,Magnesium,
+Aquatic Life Acute,Dissolved,Manganese,
+Aquatic Life Acute,Dissolved,Molybdenum,
+Aquatic Life Acute,Dissolved,Nickel,
+Aquatic Life Acute,Dissolved,Nitrate,
+Aquatic Life Acute,Dissolved,Potassium,
+Aquatic Life Acute,Dissolved,Silver,
+Aquatic Life Acute,Dissolved,Sodium,
+Aquatic Life Acute,Dissolved,Total Dissolve,
+Aquatic Life Acute,Dissolved,Uranium,
+Aquatic Life Acute,Dissolved,Vanadium,
+Aquatic Life Acute,Dissolved,Zinc,

@@ -1,0 +1,385 @@
+#Import the three main criteria tables
+```{r}
+library(readxl)
+library(readr)
+#calculated criteria
+calculated_combined_crit <- read_excel("Compiled Working Water Quality Criteria_FINAL_revised 06_19_2019.xlsx", 
+    sheet = "Calculated_Combined")
+
+
+#dissolved criteria
+dissolved_criteria <- read_excel("Compiled Working Water Quality Criteria_FINAL_revised 06_19_2019.xlsx", 
+    sheet = "Dissolved Table Filled In", 
+    skip = 2)
+
+#total criteria
+total_criteria <- read_excel("Compiled Working Water Quality Criteria_FINAL_revised 06_19_2019.xlsx", 
+    sheet = "Total Table Filled In", 
+    skip = 2)
+
+
+```
+
+#Long format - combine dissolved and total
+```{r}
+library(dplyr)
+library(tidyr)
+
+#Chromium Navajo Livestock Watering has a value =="#ERROR!" May need to change this to 1 or remove altogether. Investigate..
+###*
+total_criteria=total_criteria[!is.na(total_criteria$`Screening Criteria`),]
+
+#Pivot long - Total
+total_crit_long=pivot_longer(total_criteria,cols=-c("Screening Criteria", "Use","Jurisdiction"),
+                             names_to="Parameter",values_to="Criteria_mg_L")%>%filter(!is.na(Criteria_mg_L))
+total_crit_long$CriteriaFraction="Total"
+
+#Dissolved Criteria
+dissolved_criteria1=dissolved_criteria%>%filter(!is.na(`Screening Criteria`))%>%mutate(Arsenic=(as.numeric(Arsenic)))
+
+dissolved_criteria_long=pivot_longer(dissolved_criteria1,cols=-c("Screening Criteria", "Use","Jurisdiction"),                         names_to="Parameter",values_to="Criteria_mg_L")%>%filter(!is.na(Criteria_mg_L))
+
+dissolved_criteria_long$CriteriaFraction="Dissolved"
+
+combined_all_criteria=rbind(dissolved_criteria_long,total_crit_long)
+```
+
+#add calculatedCriteria / Prep for join
+```{r}
+names(calculated_combined_crit)[names(calculated_combined_crit)=="State"]="Jurisdiction"
+names(calculated_combined_crit)[names(calculated_combined_crit)=="Criteria"]="Use"
+
+####******Separate Fraction from Param Name
+calculated_combined_crit1 = calculated_combined_crit %>%
+  # Extract CriteriaFraction and Parameter using a regular expression
+  extract(col = Metal, 
+          into = c("CriteriaFraction", "Parameter"), 
+          regex = "^(Dissolved|Total recoverable|Total)\\s+(.+)$") %>%
+  # Filter out entries with specific notes
+  filter(!Notes %in% c("Incorrect values with R317 formula")) %>%
+  # Select and remove unwanted columns
+  select(-Notes)
+
+
+#Combine all to calculated criteria
+combined_all_criteria=bind_rows(combined_all_criteria,calculated_combined_crit1)%>%
+  mutate(Parameter = trimws(Parameter))%>%mutate(Parameter = tools::toTitleCase(Parameter))
+
+#Chromium 3 is the only parameter that differs from WQP CharacteristicName
+combined_all_criteria$Parameter=ifelse(combined_all_criteria$Parameter=="Chromium 3","Chromium(III)",combined_all_criteria$Parameter)
+
+
+combined_all_criteria$Jurisdiction =ifelse(combined_all_criteria$Jurisdiction=="Navajo","Navajo Nation",combined_all_criteria$Jurisdiction)
+
+#Calculated Criteria don't have a Screening Criteria (basically a general use) the Use column has the specific use
+combined_all_criteria$`Screening Criteria`= ifelse(is.na(combined_all_criteria$`Screening Criteria`),"Aquatic Life",combined_all_criteria$`Screening Criteria`)
+
+#Do we want to consolidate the Use Options?
+combined_all_criteria=combined_all_criteria%>%
+  mutate(Use = case_when(
+    Use=="Aquatic Chron 4-Day"~"Aqutic Chronic 4-Day",
+Use%in%c("Domestic Source","Domestic Supply")~"Domestic Water Supply",
+Use%in%c("Livestock","Livestock updated")~"Livestock Watering",
+Use=="Recreational Screening"~"Recreational",
+Use=="Aquatic chronic"~"Aquatic Chronic",
+Use=="Aquatic acute"~"Aquatic Acute",
+Use=="Fish Ingestion"~"Fish Consumption",
+TRUE~Use
+),
+Parameter=ifelse(Parameter=="*hardness","Hardness",Parameter)
+)
+```
+
+#Create consistent calculated Criteria Formula
+```{r}
+combined_all_criteria2=combined_all_criteria%>%
+  rename(conversion_factor=`conversion_factor_alpha-(ln(hardness)_x_beta)`)%>%
+  mutate(CF=ifelse(!is.na(alpha),paste(alpha,"-ln(hardness)*",beta),conversion_factor),
+         Criterion_Formula_mgL=case_when(
+           !is.na(CF)~paste("(CF*e(",ma_slope,"*ln(hardness)+",mb_intercept,"))/1000"),
+           TRUE~NA)
+         )%>%
+  select(-Enter_Hardness_mg_L,-`ln Hardness`,-ma_slope,-mb_intercept,-conversion_factor,
+  -alpha,-beta,-Solve_Ln,-Dissolved_ug_L)
+
+write.csv(combined_all_criteria2,"SJ_combined_criteria.csv")
+```
+
+#Function for calculated_criteria
+```{r}
+
+#Before running this code, the unitconversions should be made before hand, most will be in mg/L
+
+function (data, translation_wb, unit_sheetname = "unitConvTable", 
+  crit_wb, cf_formulas_sheetname, startRow_unit = 1, startRow_formulas = 1, 
+  split_agg_tds = TRUE) 
+{
+  result = list()
+  
+  # Will we need to aggregate to daily values? Hardness most likely. Other metals?
+  aggDVbyfun1 = function(x, value_var, drop_vars, agg_var) {
+    val = x[, value_var] #Gets df of value variable only
+    x = x[, !names(x) %in% value_var & !names(x) %in% drop_vars] #filter out value_var and variables to drop - do we basically focus on MonitoringLocationIdentifier,CharacteristicName, ResultSampleFractionText?
+    num_names = names(x[unlist(lapply(x, is.numeric))]) #Get names of columns that are numeric
+    x = as.data.frame(lapply(x, addNA, ifany = T)) # Why is it adding NA
+    x = data.frame(val, x) #Why is it adding the value back to the dataframe? 
+    daily = x[0, ]
+    funs = unique(x[, agg_var])
+    for (n in 1:length(funs)) { #iterate and apply each agg type (mean, min, max etc.)
+      fun_n = funs[n] 
+      x_n = x[x[, agg_var] == fun_n, ]
+      daily_n = aggregate(val ~ ., x_n, FUN = get(paste(fun_n)))
+      daily = rbind(daily, daily_n)
+    }
+    daily[num_names] = lapply(daily[num_names], wqTools::facToNum)
+    names(daily)[names(daily) == "val"] = value_var
+    return(daily)
+  }
+  col_names = c("ResultIdentifier", "OrganizationIdentifier", 
+    "ActivityIdentifier", "ActivityStartDate", "ActivityStartTime.Time",  "MonitoringLocationIdentifier", 
+    "MonitoringLocationTypeName", "BeneficialUse", "CharacteristicName", "ParameterGroupName", 
+    "CAS", "ResultMeasure.MeasureUnitCode", "IR_DetCond",  "ResultSampleFractionText", "CriterionUnits",  "TargetFraction", "IR_LowerLimitValue", "IR_LowerLimitUnit",  "IR_UpperLimitValue", "IR_UpperLimitUnit", "DataLoggerLine",  "ActivityRelativeDepthName", "ActivityDepthHeightMeasure.MeasureValue", 
+    "ActivityDepthHeightMeasure.MeasureUnitCode", 
+   "CriterionLabel", "TargetActivityType", "DailyAggFun", 
+    "AsmntAggPeriod", "AsmntAggPeriodUnit", "AsmntAggFun", 
+    "NumericCriterion", "IR_DetCond_FLAG",  "IR_DataPrep_FLAG")
+
+  
+  # This section is interesting, we may want to talk with SJ group if we want to follow these situations as well. The chunk below is rejecting data where the dissolved_sample > total_value of the same Activity. That is why it is grouped by ActivityIdentifier and not by Result Identifier. If this is true then it is added to reject list.
+  #******
+  data1 <- data[, names(data) %in% c("ActivityStartDate", 
+    "ActivityIdentifier", "ActivityStartTime.Time", "R3172ParameterName", 
+    "ResultSampleFractionText", "CriterionUnit", "SJ_ResultValue")]
+  data1 <- unique(data1)
+  tot <- subset(data1, data1$IR_Fraction == "TOTAL")
+  dim(tot)
+
+  names(tot)[names(tot) == "SJ_ResultValue"] <- "SJ_Value_Tot"
+  diss <- subset(data1, data1$IR_Fraction == "DISSOLVED")
+  dim(diss)
+
+  names(diss)[names(diss) == "SJ_ResultValue"] <- "SJ_Value_Diss"
+  diss_tot <- merge(tot, diss, by = c("ActivityIdentifier", 
+    "ActivityStartDate", "R3172ParameterName"))
+  dim(diss_tot)
+  
+  if (dim(diss_tot)[1] > 0) {
+    diss_tot[diss_tot == ""] = NA
+   
+    diss_tot_units = within(diss_tot_units, {
+      diss_val_minus5pct = IR_Value_Diss - IR_Value_Diss *  0.05
+      tot_val_plus5pct = IR_Value_Tot + IR_Value_Tot *  0.05
+      reason = NA
+      reason[diss_val_minus5pct > tot_val_plus5pct] = "Dissolved fraction result (-5%) > total fraction result (+5%)"
+    })
+    diss_tot_units = diss_tot_units[!is.na(diss_tot_units$reason), 
+      names(diss_tot_units) %in% c("ActivityStartDate", 
+        "ActivityIdentifier", "R3172ParameterName", 
+        "reason")]
+    dim(diss_tot_units)
+    diss_tot_units = merge(diss_tot_units, data, all.x = T)
+    dim(diss_tot_units)
+    reasons = rbind(reasons, diss_tot_units[!is.na(diss_tot_units$reason), 
+      ])
+  }# End of if (dim(diss_tot)[1] > 0)
+  
+  
+  # This is for those values that have non detects.
+  data = within(data, {
+    IR_Value = IR_Value * UnitConversionFactor
+    IR_Unit = CriterionUnits
+    IR_LowerLimitValue = IR_LowerLimitValue * UnitConversionFactor
+    IR_LowerLimitUnit = CriterionUnits
+    IR_UpperLimitValue = IR_UpperLimitValue * UnitConversionFactor
+    IR_UpperLimitUnit = CriterionUnits
+  })
+  
+  # Hardness is the only Param needed for our purpose.
+  #******CONTINUE HERE
+  if (any(data$BeneficialUse == "CF")) {
+    cfs = unique(data[data$BeneficialUse == "CF", c("ActivityStartDate", 
+      "IR_MLID", "R3172ParameterName", "DailyAggFun", 
+      "IR_Unit", "IR_Value")])
+    calcs = data[which(data$NumericCriterion == "calc"), 
+      ]
+    dim(calcs)
+    data = data[is.na(data$NumericCriterion) | data$NumericCriterion != 
+      "calc", ]
+    drop_vars = ""
+    cfs_daily = aggDVbyfun(cfs, drop_vars = drop_vars, value_var = "IR_Value", 
+      agg_var = "DailyAggFun")
+    dim(cfs)
+    dim(cfs_daily)
+    cfs_daily$cf = paste0("cf_", cfs_daily$DailyAggFun, 
+      "_", cfs_daily$R3172ParameterName, "_", cfs_daily$IR_Unit)
+    cfs_daily_cast = reshape2::dcast(cfs_daily, ActivityStartDate + 
+      IR_MLID ~ cf, value.var = "IR_Value")
+    cfs_daily_cast = within(cfs_daily_cast, {
+      hardness = 100 * (`cf_min_Calcium_mg/l`/40.08 + 
+        `cf_min_Magnesium_mg/l`/24.3)
+      hardness[is.na(hardness)] = `cf_min_Hardness_mg/l`[is.na(hardness)]
+      hardness = ifelse(hardness > 400, 400, hardness)
+    })
+    dimcheck = dim(calcs)[1]
+    calcs = merge(calcs, cfs_daily_cast, all.x = T)
+    if (dim(calcs)[1] != dimcheck) {
+      stop("ERROR: Failure assigning correction factors to data.")
+    }
+
+    
+    cf_formulas = data.frame(openxlsx::readWorkbook(criterion_wb, 
+      sheet = cf_formulas_sheetname, startRow = startRow_formulas))
+    cf_formulas = unique(cf_formulas[, names(cf_formulas) %in% 
+      c("CAS", "BeneficialUse", "TableDescription", "FrequencyNumber", 
+        "FrequencyUnit", "CF", "CriterionFormula", "ParameterQualifier", 
+        "CriterionUnits", "SS_calc")])
+    names(calcs)[names(calcs) %in% names(cf_formulas)]
+    dimcheck = dim(calcs)[1]
+    calcs = merge(calcs, cf_formulas, all.x = TRUE)
+    if (dim(calcs)[1] != dimcheck) {
+      stop("ERROR assiging formulas to parameters with calculated criteria (1).")
+    }
+    table(calcs$R3172ParameterName, calcs$CriterionFormula)[rowSums(table(calcs$R3172ParameterName, 
+      calcs$CriterionFormula)) > 0, ]
+    if (any(is.na(calcs$CriterionFormula))) {
+      stop("ERROR assiging formulas to parameters with calculated criteria (2).")
+    }
+    calcs = within(calcs, {
+      CF[!is.na(CF)] = paste0("(", CF[!is.na(CF)], ")")
+      CriterionFormula = gsub("CF * ", "", CriterionFormula, 
+        fixed = TRUE)
+      CriterionFormula[!is.na(CF)] = paste0("(", CriterionFormula[!is.na(CF)], 
+        ")")
+      CriterionFormula[!is.na(CF)] = paste(CF[!is.na(CF)], 
+        "*", CriterionFormula[!is.na(CF)])
+      CriterionFormula = gsub("MIN", "min", CriterionFormula, 
+        fixed = TRUE)
+      CriterionFormula = gsub("MAX", "max", CriterionFormula, 
+        fixed = TRUE)
+      CriterionFormula = gsub("ln", "log", CriterionFormula, 
+        fixed = TRUE)
+      CriterionFormula = gsub(") (", ")*(", CriterionFormula, 
+        fixed = TRUE)
+      CriterionFormula = gsub(")(", ")*(", CriterionFormula, 
+        fixed = TRUE)
+      CriterionFormula = gsub("(e(", "(exp(", CriterionFormula, 
+        fixed = TRUE)
+      CriterionFormula = gsub("e(", "exp(", CriterionFormula, 
+        fixed = TRUE)
+      CriterionFormula = gsub("IFELSE", "ifelse", CriterionFormula, 
+        fixed = TRUE)
+      CriterionFormula = stringr::str_replace_all(CriterionFormula, 
+        "hardness", as.character(hardness))
+      CriterionFormula = stringr::str_replace_all(CriterionFormula, 
+        "min_pH", as.character(`cf_min_pH_pH units`))
+      CriterionFormula = stringr::str_replace_all(CriterionFormula, 
+        "max_pH", as.character(`cf_max_pH_pH units`))
+      CriterionFormula = stringr::str_replace_all(CriterionFormula, 
+        "T", as.character(`cf_max_Max. Temperature_C`))
+      CalculatedCrit = sapply(CriterionFormula, function(x) eval(parse(text = x)))
+      suppressWarnings({
+        NumericCriterion = wqTools::facToNum(NumericCriterion)
+      })
+      NumericCriterion = CalculatedCrit
+    })
+    dim(calcs)
+    dim(data)
+    data = plyr::rbind.fill(data, calcs)
+    table(data$BeneficialUse)
+  }
+  data_n = data
+  data_n$reason = NA
+  data_n = within(data_n, {
+    reason[R3172ParameterName != "Aluminum" & is.na(NumericCriterion) & 
+      BeneficialUse != "SUP" & BeneficialUse != "CF"] = "Missing one or more correction factors, unable to calculate criterion"
+    reason[R3172ParameterName == "Aluminum" & is.na(NumericCriterion) & 
+      BeneficialUse != "SUP" & BeneficialUse != "CF"] = "Missing one or more correction factors, unable to calculate criterion, or chronic Aluminum criterion not applicable."
+  })
+
+  data_n = data
+  data_n$reason = NA
+  suppressWarnings({
+    data_n = within(data_n, {
+      reason[which(BeneficialUse != "SUP" & BeneficialUse != 
+        "CF" & !is.na(NumericCriterion) & IR_DetCond == 
+        "ND" & as.numeric(IR_LowerLimitValue) > as.numeric(NumericCriterion))] = "Non-detect result with detection limit > criterion"
+    })
+  })
+  table(data_n$reason)
+  reasons = plyr::rbind.fill(reasons, data_n[!is.na(data_n$reason), 
+    ])
+  table(reasons$BeneficialUse)
+  rm(data_n)
+  cols = c("ResultIdentifier", "BeneficialUse", "IR_Fraction", 
+    "TableDescription", "TargetFraction", "FrequencyCombined", 
+    "CriterionLabel", "FrequencyNumber", "FrequencyUnit", 
+    "CriteriaQualifier")
+  flags = unique(reasons[, c(cols, "reason")])
+  len = dim(flags)[2]
+  flags = tidyr::pivot_wider(flags, id_cols = all_of(cols), 
+    names_from = "reason", values_from = "reason")
+  flags$IR_DataPrep_COMMENT = do.call(paste, c(flags[, len:dim(flags)[2]], 
+    sep = ","))
+  flags = flags[, names(flags) %in% c(cols, "IR_DataPrep_COMMENT")]
+  flags$IR_DataPrep_FLAG = "REJECT"
+  dimcheck = dim(data)[1]
+  data = merge(data, flags, all.x = T)
+  result$rej_data_reasons = reasons
+  if (dimcheck != dim(data)[1]) {
+    stop("ERROR: Error in applying data prep flags. Data dimension[1] has changed.")
+  }
+ 
+
+  if (any(acc_data$AssessmentType == "Toxic")) {
+    drop_vars = c("ResultIdentifier", "DataLoggerLine", 
+      "OrganizationIdentifier", "ActivityIdentifier", 
+      "ActivityStartTime.Time", "ActivityRelativeDepthName", 
+      "ActivityDepthHeightMeasure.MeasureValue", "ResultMeasure.MeasureUnitCode", 
+      "ActivityDepthHeightMeasure.MeasureUnitCode", "IR_ActivityType", 
+      "TargetActivityType", "R317Descrp", "IR_DetCond", 
+      "MonitoringLocationIdentifier", "MonitoringLocationTypeName", 
+      "IR_LowerLimitValue", "IR_LowerLimitUnit", "IR_UpperLimitValue", 
+      "IR_UpperLimitUnit", "ResultSampleFractionText", 
+      "IR_Fraction", "CharacteristicName", "IR_Site_FLAG", 
+      "IR_ActMedia_FLAG", "IR_LabAct_FLAG", "IR_DetCond_FLAG", 
+      "IR_Unit_FLAG", "IR_Parameter_FLAG")
+
+    toxics_raw = subset(acc_data, AssessmentType == "Toxic" & 
+      BeneficialUse != "CF")
+    toxics_raw = toxics_raw[toxics_raw$R3172ParameterName != 
+      "Radium 226, 228 (Combined)", ]
+    toxics_raw = toxics_raw[, col_names]
+    toxics_strms = toxics_raw[which(toxics_raw$AU_Type == 
+      "River/Stream"), ]
+    
+    if (dim(toxics_strms)[1] > 0) {
+      dim(toxics_strms)
+      toxics_strms_daily = aggDVbyfun(toxics_strms, drop_vars = drop_vars, 
+        value_var = "IR_Value", agg_var = "DailyAggFun")
+      dim(toxics_strms_daily)
+    }
+    
+    if (exists("toxics_strms_daily") & exists("toxics_lakes_daily")) {
+      toxics = plyr::rbind.fill(toxics_strms_daily, toxics_lakes_daily)
+    }
+    if (exists("toxics_strms_daily") & !exists("toxics_lakes_daily")) {
+      toxics = toxics_strms_daily
+    }
+    if (!exists("toxics_strms_daily") & exists("toxics_lakes_daily")) {
+      toxics = toxics_lakes_daily
+    }
+    result$toxics = toxics
+  }
+  
+  objects(result)
+  return(result)
+}
+
+```
+
+#Create a formula column for the calculated criteria columns
+```{r}
+
+#write_csv(combined_all_criteria,"SJ_combined_criteria.csv")
+
+```

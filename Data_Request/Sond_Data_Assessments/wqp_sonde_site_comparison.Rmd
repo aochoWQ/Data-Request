@@ -1,0 +1,202 @@
+---
+title: "WQP and BigQuery Comparison"
+author: "Alan Ochoa"
+date: "6/6/2024"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+
+
+### Load Libraries and set up keys to access BiqQuery
+```{r}
+library(bigrquery)
+library(tidyverse)
+library(wqTools)
+
+bq_auth(path = "/Users/alanochoa/Documents/GitHub/Data_Request/Sond_Data_Assessments/alan_local_keys.json")
+project_id <- 'ut-deq-highfreq-dev'
+
+```
+
+# Comparing Integrated Report Assessed Data with BigQuery High Frequency Data
+We are currently collecting a high frequency data all over the state. However, we have not been using most of this data for assessments (except for the HF Buoy data? DOUBLE CHECK). We do not have methods to assess HF Temperature data but we do have methods for HF DO. Are we assessing all HF DO data? If HF DO data is availble do we prioritize assessing that data and discard discrete samples?
+
+
+
+
+# Access the BigQuery Site List. Then compare the Assessed Sites from the WQP to the Sonde Sites
+```{r}
+# Using bq_table_download to download data directly from a table
+dataset_id <- "High_Frequency_Flat_Views"
+location_id <-"Flatview_Location_Sampling_Event"
+site_table <- bq_table(project_id, dataset_id, location_id)
+site_table <- bq_table_download(site_table)
+#THis method is not notifying me of billed data..
+
+#External Site data
+# Permission issues using this as well. May have to give permission to service account
+sql <- "SELECT * FROM `ut-deq-highfreq-dev.High_Frequency_External_Sheets.BQ_DataUpload_GS`"
+query_job <- bq_project_query(project_id, sql)
+external_site_table <- bq_table_download(query_job)
+
+
+# Alternatively, using bq_project_query for custom SQL queries
+sql <- "SELECT * FROM `ut-deq-highfreq-dev.High_Frequency_Flat_Views.Flatview_Location_Sampling_Event`"
+query_job <- bq_project_query(project_id, sql)
+sample_event_data <- bq_table_download(query_job)
+
+```
+# Query job above shows billed data..  other method did not show this, does billing differ or is that notification not built in?
+Complete
+Billed: 10.49 MB
+
+## Clean and summarize site data from Sampling Events and filter for either HUCS with masterSiteList huc12s 
+## AND lets visualize these if that method is sufficient to catch all nearby sites 
+## OR if using a distance of half mile would make most sense..
+ import MasterSiteTable
+```{r}
+sample_event_data <- sample_event_data%>%
+  separate(col = LatLong, into = c("LatitudeMeasure", "LongitudeMeasure"), sep = ",", remove = TRUE, convert = TRUE)
+
+length(unique(sample_event_data$USGS_HUC12))
+library(readxl)
+masterSiteTable2024 <- read_excel("/Users/alanochoa/Documents/GitHub/IR-2024/ir_translation_workbook_working_2024.xlsx", 
+    sheet = "masterSiteTable")
+masterSiteTable2024 <- masterSiteTable2024%>%filter(IR_FLAG=="ACCEPT")
+masterSiteTable2024 <- assignPolys(masterSiteTable2024,huc12_poly)
+masterSiteTable2024$HUC10 <- substr(masterSiteTable2024$HUC12, 1, 10)
+ir_site_hucs= unique(masterSiteTable2024$HUC12)   
+length(ir_site_hucs)
+
+# Filter bq sites only overlapping within
+bq_sites=sample_event_data%>%
+  select(HF_Location_ID,LatitudeMeasure,LongitudeMeasure,MLID,USGS_HUC12)%>%
+  distinct()%>%
+  mutate(HUC10 = substr(USGS_HUC12, 1, 10),
+         color = ifelse(USGS_HUC12%in%ir_site_hucs,"deepskyblue1","firebrick2"))
+  
+huc12_pols  = (wqTools::huc12_poly)%>%
+  filter(HUC12%in%bq_sites$USGS_HUC12|HUC12%in%masterSiteTable2024$HUC12)
+
+filtered_masterSites = masterSiteTable2024%>%
+  filter(HUC10%in%bq_sites$HUC10)
+```
+
+# Too many points on the map that may not be relevant. Filter accepted IR data for target params then minimize filtered_masterSites for sites in IR data.
+#LOAD Preliminary Assessment Data 2024
+```{r}
+load("/Users/alanochoa/Documents/GitHub/IR-2024/prelim_asmnts_data.Rdata")
+
+targ_params =c("Max. Temperature","pH","Minimum Dissolved Oxygen")
+
+acc_targ_params_criteria=acc_data_criteria[acc_data_criteria$R3172ParameterName%in%targ_params,]
+
+sum(is.na(acc_targ_params_criteria$ActivityStartTime.Time))
+
+map=baseMap()
+
+
+map=map%>%
+  addCircleMarkers(bq_sites,lat = bq_sites$LatitudeMeasure,lng = bq_sites$LongitudeMeasure, fillColor = bq_sites$color,color=bq_sites$color, options = pathOptions(pane = "markers"), radius = 5,fillOpacity = .8)%>%
+  addCircleMarkers(filtered_masterSites,lat = filtered_masterSites$LatitudeMeasure,lng = filtered_masterSites$LongitudeMeasure, fillColor = "yellow",color = "orange", options = pathOptions(pane = "markers"), radius = 5,fillOpacity = .8)%>%
+  addPolygons(data = huc12_pols, 
+      fillOpacity = 0.4, weight = 3, color = "pink", options = pathOptions(pane = "underlay_polygons"))
+  
+
+print(map)
+```
+
+# Explore IR Data, does the Sample time distirbutions. Do they mostly occur at a specific time? May need to filter for parameters of interest first. 
+```{r}
+library(dplyr)
+library(lubridate)
+sum(is.na(acc_targ_params_criteria$ActivityStartTime.Time))
+
+str(sample_time_dist)
+
+
+
+sample_time_dist=acc_targ_params_criteria%>%
+  filter(!is.na(ActivityStartTime.Time))%>%
+  mutate(ActivityStartTime.Time = as.POSIXct(ActivityStartTime.Time),
+         MinuteRounded = floor(minute(ActivityStartTime.Time) / 15) * 15, # There were far too many lines, round
+         HourMinuteRaw = format(ActivityStartTime.Time, "%H:%M"),
+         HourMinute = format(update(ActivityStartTime.Time, minutes = MinuteRounded), "%H:%M")) %>%
+  select(R3172ParameterName, HourMinute,HourMinuteRaw, ResultIdentifier) %>%
+  distinct()
+
+sample_time_dist_raw = sample_time_dist%>%
+  group_by(R3172ParameterName, HourMinuteRaw) %>%
+  summarise(timeCounts = n(), .groups = 'drop')
+  
+sample_time_dist = sample_time_dist%>%
+  group_by(R3172ParameterName, HourMinute) %>%
+  summarise(timeCounts = n(), .groups = 'drop')
+
+  
+library(ggplot2)
+
+#Bar Chart by parameters..
+p = ggplot(sample_time_dist, aes(x = HourMinute, y = timeCounts)) +
+  geom_bar(stat = "identity", position = position_dodge(), width = 0.7) +
+  labs(title = "Distribution of Sample Times",
+       x = "Time of Day (Hour:Minute)",
+       y = "Count of Samples") +
+  theme_minimal() +
+  scale_x_discrete(breaks = function(x) x[c(TRUE, FALSE,FALSE,FALSE)]) + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  facet_wrap(~R3172ParameterName, scales = "free_y",ncol = 1)
+p
+
+
+
+#We might need to convert to minutes to get statistical summaries..
+sample_time_dist <- sample_time_dist %>%
+  mutate(
+    # Convert "HH:MM" to the total minutes past midnight
+    MinutesPastMidnight = hour(hm(HourMinute)) * 60 + minute(hm(HourMinute))
+  )
+
+
+# Calculate summary statistics and convert time back to HH:MM format
+time_summary_stats <- sample_time_dist %>%
+  group_by(R3172ParameterName) %>%
+  summarise(
+    Count = n(),
+    Mean = mean(MinutesPastMidnight, na.rm = TRUE),
+    Median = median(MinutesPastMidnight, na.rm = TRUE),
+    IQR = IQR(MinutesPastMidnight, na.rm = TRUE),
+    SD = sd(MinutesPastMidnight, na.rm = TRUE),
+    Min = min(MinutesPastMidnight, na.rm = TRUE),
+    Max = max(MinutesPastMidnight, na.rm = TRUE)
+  ) %>%
+  mutate(
+    MeanTime = sprintf("%02d:%02d", as.integer(Mean %/% 60), as.integer(Mean %% 60)),
+    MedianTime = sprintf("%02d:%02d", as.integer(Median %/% 60), as.integer(Median %% 60)),
+    MinTime = sprintf("%02d:%02d", as.integer(Min %/% 60), as.integer(Min %% 60)),
+    MaxTime = sprintf("%02d:%02d", as.integer(Max %/% 60), as.integer(Max %% 60))
+  )
+
+
+#Could we use this distribution to do a series of "faux" assessments based off of the distribution of when samples are taken and a probabilistic sampling of HF data? 
+```
+
+
+# Develop method/function for keepoing only the WQP sites within a specific distance from HF sites. What distance do we want this to be?
+```{r}
+
+```
+
+
+# Can we merge two dataframes for various sonde data? For example, how many of the sonde sites have a site within a half mile distance or less? Join the data from following parameters (pH,DO, Temperature any others?). Then compare on the same chart.
+```{r}
+
+```
+# Remove seconds portion of the ActivityStartTime
+# For BQ sites should we keep times that are within a 1 hour window of time WQP time?
+```{r}
+
+```

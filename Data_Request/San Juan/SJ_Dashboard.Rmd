@@ -1,0 +1,99 @@
+Would it be helpful to make an app that shows a heatmap at the HUC12 level where you can filter by Parameter. The only issue is how does flow come into play? Would a concentration exceedance also depend upon the amount of flow and how much the water dilutes it? 
+App features
+Click on HUC 12 to see the different Agencies in that jurisdiction. 
+Display table data for the samples in that specific HUC12
+Filter by parameter?
+Filter by parameter category?
+Filter by Jurisdiction?
+How can we visualize an impact of a sample at one site and how that may impact concentrations downstream? This would probably only work if we had continuous data on these parameters. But could we use flow to visualize this? 
+
+#Load SJ sites and combined data, this data is in wide format where each site has a row for each sampling event and each row has a column for all collected parameters.
+```{r}
+SJ_sites = readxl::read_xlsx("READY FOR WQ SCREENING_Aug2021.xlsx",sheet="Site INFO",skip=1) 
+
+patterns <- SJ_sites$"Storet Name"
+
+# Step 2: Pattern Matching and Filtering
+# Create a logical vector indicating rows in sj_sites to keep
+matches <- sapply(patterns, function(pattern) {
+  str_detect(sj_sites$MonitoringLocationIdentifier, pattern)
+})
+
+# Any row that matches any pattern
+rows_to_keep <- apply(matches, 1, any)
+
+# Subset sj_sites based on the matching rows
+sj_sites_subset <- sj_sites[rows_to_keep, ]
+sj_sites_subset=sj_sites_subset[!is.na(sj_sites_subset$MonitoringLocationIdentifier),]
+
+SJ_all_data = readxl::read_xlsx("READY FOR WQ SCREENING_Aug2021.xlsx",sheet="All Dates") 
+SJ_all_data <-SJ_all_data %>%
+  mutate(Date_Time = if_else(str_detect(Date_Time, "/"),
+                             mdy(Date_Time), # For dates in 'mm/dd/yyyy' format
+                             as.Date(as.numeric(Date_Time), origin = "1899-12-30"))) 
+
+priority_sites=c("A72","Bakers Bridge","9423A","AR1-9","ADW-022","66Animas028.1","WIIN-13","64SanJua101.6","67SanJua088.1","SJSR","SJ4C","02SANJUAN08","29SANJUANR05")
+
+
+
+```
+#Basic Exploratory Data Analysis
+```{r}
+
+
+library(DataExplorer)
+create_report(SJ_all_data)
+
+```
+
+##Create basic Shiny app
+```{r}
+library(shiny)
+library(ggplot2)
+library(dplyr)
+
+
+df=SJ_all_data
+# Define UI
+ui = fluidPage(
+  titlePanel("Water Quality Data Visualization"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("parameter", "Select Parameter:", 
+                  choices = names(df)[grepl("Hardness|Aluminum|Arsenic|Barium|Beryllium|Boron|Cadmium|Calcium|Chromium|Cobalt|Copper|Iron|Lead|Magnesium|Manganese|Mercury|Molybdenum|Nickel|Potassium|Selenium|Silver|Sodium|Thallium|Vanadium|Zinc|Strontium|Uranium", names(df))]),
+      selectInput("siteID", "Select Site ID:", 
+                  choices = priority_sites, multiple = TRUE),
+      radioButtons("plotType", "Select Plot Type:", 
+                   choices = c("Scatter Plot" = "scatter", "Box Plot" = "box"))
+    ),
+    mainPanel(
+      plotOutput("plot")
+    )
+  )
+)
+
+# Define server logic
+server <- function(input, output) {
+  output$plot <- renderPlot({
+    data_selected <- df %>% 
+      filter(Site_ID %in% input$siteID) %>%
+      select(Site_ID, input$parameter)
+    
+    if (input$plotType == "scatter") {
+      ggplot(data_selected, aes_string(x = "Site_ID", y = input$parameter)) +
+        geom_point() +
+        theme(axis.text.x = element_text(angle = 65, hjust = 1)) +
+        labs(x = "Site ID", y = input$parameter)
+    } else {
+      ggplot(data_selected, aes_string(x = "Site_ID", y = input$parameter, fill = "Site_ID")) +
+        geom_boxplot() +
+        theme(axis.text.x = element_text(angle = 65, hjust = 1)) +
+        labs(x = "Site ID", y = input$parameter)
+    }
+  })
+}
+
+# Run the application
+shinyApp(ui = ui, server = server)
+
+```

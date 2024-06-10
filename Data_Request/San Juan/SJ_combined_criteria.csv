@@ -1,0 +1,505 @@
+"","Screening Criteria","Use","Jurisdiction","Parameter","Criteria_mg_L","CriteriaFraction","CF","Criterion_Formula_mgL"
+"1","Domestic Water Supply","Domestic Water Supply","New Mexico","Antimony",0.006,"Dissolved",NA,NA
+"2","Domestic Water Supply","Domestic Water Supply","New Mexico","Arsenic",0.01,"Dissolved",NA,NA
+"3","Domestic Water Supply","Domestic Water Supply","New Mexico","Barium",2,"Dissolved",NA,NA
+"4","Domestic Water Supply","Domestic Water Supply","New Mexico","Beryllium",0.004,"Dissolved",NA,NA
+"5","Domestic Water Supply","Domestic Water Supply","New Mexico","Cadmium",0.005,"Dissolved",NA,NA
+"6","Domestic Water Supply","Domestic Water Supply","New Mexico","Chromium",0.1,"Dissolved",NA,NA
+"7","Domestic Water Supply","Domestic Water Supply","New Mexico","Copper",1.3,"Dissolved",NA,NA
+"8","Domestic Water Supply","Domestic Water Supply","New Mexico","Lead",0.015,"Dissolved",NA,NA
+"9","Domestic Water Supply","Domestic Water Supply","New Mexico","Nickel",0.7,"Dissolved",NA,NA
+"10","Domestic Water Supply","Domestic Water Supply","New Mexico","Selenium",0.05,"Dissolved",NA,NA
+"11","Domestic Water Supply","Domestic Water Supply","New Mexico","Thallium",0.002,"Dissolved",NA,NA
+"12","Domestic Water Supply","Domestic Water Supply","New Mexico","Zinc",10.5,"Dissolved",NA,NA
+"13","Domestic Water Supply","Domestic Water Supply","Utah","Arsenic",0.01,"Dissolved",NA,NA
+"14","Domestic Water Supply","Domestic Water Supply","Utah","Barium",1,"Dissolved",NA,NA
+"15","Domestic Water Supply","Domestic Water Supply","Utah","Beryllium",0.004,"Dissolved",NA,NA
+"16","Domestic Water Supply","Domestic Water Supply","Utah","Cadmium",0.01,"Dissolved",NA,NA
+"17","Domestic Water Supply","Domestic Water Supply","Utah","Chromium",0.05,"Dissolved",NA,NA
+"18","Domestic Water Supply","Domestic Water Supply","Utah","Lead",0.015,"Dissolved",NA,NA
+"19","Domestic Water Supply","Domestic Water Supply","Utah","Mercury",0.002,"Dissolved",NA,NA
+"20","Domestic Water Supply","Domestic Water Supply","Utah","Selenium",0.05,"Dissolved",NA,NA
+"21","Domestic Water Supply","Domestic Water Supply","Utah","Silver",0.05,"Dissolved",NA,NA
+"22","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Barium",1,"Dissolved",NA,NA
+"23","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Cadmium",0.005,"Dissolved",NA,NA
+"24","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Chromium",0.05,"Dissolved",NA,NA
+"25","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Lead",0.05,"Dissolved",NA,NA
+"26","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Silver",0.1,"Dissolved",NA,NA
+"27","Domestic Water Supply","Drinking Water 30-Day","Ute Mountain Ute","Antimony",0.0056,"Dissolved",NA,NA
+"28","Domestic Water Supply","Drinking Water 30-Day","Ute Mountain Ute","Copper",1,"Dissolved",NA,NA
+"29","Domestic Water Supply","Drinking Water 30-Day","Ute Mountain Ute","Nickel",0.1,"Dissolved",NA,NA
+"30","Domestic Water Supply","Drinking Water 30-Day","Ute Mountain Ute","Zinc",5,"Dissolved",NA,NA
+"31","Recreation and Human Contact","Recreational","Region 6","Aluminum",170,"Dissolved",NA,NA
+"32","Recreation and Human Contact","Recreational","Region 6","Antimony",0.067,"Dissolved",NA,NA
+"33","Recreation and Human Contact","Recreational","Region 6","Arsenic",0.05,"Dissolved",NA,NA
+"34","Recreation and Human Contact","Recreational","Region 6","Barium",33,"Dissolved",NA,NA
+"35","Recreation and Human Contact","Recreational","Region 6","Beryllium",0.33,"Dissolved",NA,NA
+"36","Recreation and Human Contact","Recreational","Region 6","Cadmium",0.083,"Dissolved",NA,NA
+"37","Recreation and Human Contact","Recreational","Region 6","Chromium",220,"Dissolved",NA,NA
+"38","Recreation and Human Contact","Recreational","Region 6","Cobalt",0.05,"Dissolved",NA,NA
+"39","Recreation and Human Contact","Recreational","Region 6","Copper",6.7,"Dissolved",NA,NA
+"40","Recreation and Human Contact","Recreational","Region 6","Iron",120,"Dissolved",NA,NA
+"41","Recreation and Human Contact","Recreational","Region 6","Lead",0.2,"Dissolved",NA,NA
+"42","Recreation and Human Contact","Recreational","Region 6","Manganese",7.8,"Dissolved",NA,NA
+"43","Recreation and Human Contact","Recreational","Region 6","Mercury",0.05,"Dissolved",NA,NA
+"44","Recreation and Human Contact","Recreational","Region 6","Molybdenum",0.83,"Dissolved",NA,NA
+"45","Recreation and Human Contact","Recreational","Region 6","Nickel",3.3,"Dissolved",NA,NA
+"46","Recreation and Human Contact","Recreational","Region 6","Selenium",0.83,"Dissolved",NA,NA
+"47","Recreation and Human Contact","Recreational","Region 6","Thallium",0.002,"Dissolved",NA,NA
+"48","Recreation and Human Contact","Recreational","Region 6","Vanadium",0.83,"Dissolved",NA,NA
+"49","Recreation and Human Contact","Recreational","Region 6","Zinc",50,"Dissolved",NA,NA
+"50","Agriculture","Irrigation","Region 6","Antimony",5,"Dissolved",NA,NA
+"51","Agriculture","Irrigation","Region 6","Cadmium",0.01,"Dissolved",NA,NA
+"52","Agriculture","Irrigation","Region 6","Chromium",0.1,"Dissolved",NA,NA
+"53","Agriculture","Irrigation","Region 6","Cobalt",1,"Dissolved",NA,NA
+"54","Agriculture","Irrigation","Region 6","Copper",0.2,"Dissolved",NA,NA
+"55","Agriculture","Irrigation","Region 6","Lead",5,"Dissolved",NA,NA
+"56","Agriculture","Irrigation","Region 6","Manganese",0.2,"Dissolved",NA,NA
+"57","Agriculture","Irrigation","Region 6","Nickel",0.2,"Dissolved",NA,NA
+"58","Agriculture","Irrigation","Region 6","Selenium",0.13,"Dissolved",NA,NA
+"59","Agriculture","Irrigation","Region 6","Vanadium",0.1,"Dissolved",NA,NA
+"60","Agriculture","Irrigation","Region 6","Zinc",2,"Dissolved",NA,NA
+"61","Agriculture","Irrigation","New Mexico","Aluminum",5,"Dissolved",NA,NA
+"62","Agriculture","Irrigation","New Mexico","Arsenic",0.1,"Dissolved",NA,NA
+"63","Agriculture","Irrigation","New Mexico","Cadmium",0.01,"Dissolved",NA,NA
+"64","Agriculture","Irrigation","New Mexico","Chromium",0.1,"Dissolved",NA,NA
+"65","Agriculture","Irrigation","New Mexico","Cobalt",0.05,"Dissolved",NA,NA
+"66","Agriculture","Irrigation","New Mexico","Copper",0.2,"Dissolved",NA,NA
+"67","Agriculture","Irrigation","New Mexico","Lead",5,"Dissolved",NA,NA
+"68","Agriculture","Irrigation","New Mexico","Molybdenum",1,"Dissolved",NA,NA
+"69","Agriculture","Irrigation","New Mexico","Selenium",0.13,"Dissolved",NA,NA
+"70","Agriculture","Irrigation","New Mexico","Vanadium",0.1,"Dissolved",NA,NA
+"71","Agriculture","Irrigation","New Mexico","Zinc",2,"Dissolved",NA,NA
+"72","Agriculture","Irrigation (short-term)","Utah","Aluminum",20,"Dissolved",NA,NA
+"73","Agriculture","Irrigation (short-term)","Utah","Arsenic",2,"Dissolved",NA,NA
+"74","Agriculture","Irrigation (short-term)","Utah","Cadmium",0.05,"Dissolved",NA,NA
+"75","Agriculture","Irrigation (short-term)","Utah","Chromium",1,"Dissolved",NA,NA
+"76","Agriculture","Irrigation (short-term)","Utah","Cobalt",5,"Dissolved",NA,NA
+"77","Agriculture","Irrigation (short-term)","Utah","Copper",5,"Dissolved",NA,NA
+"78","Agriculture","Irrigation (short-term)","Utah","Iron",20,"Dissolved",NA,NA
+"79","Agriculture","Irrigation (short-term)","Utah","Lead",10,"Dissolved",NA,NA
+"80","Agriculture","Irrigation (short-term)","Utah","Manganese",10,"Dissolved",NA,NA
+"81","Agriculture","Irrigation (short-term)","Utah","Molybdenum",0.05,"Dissolved",NA,NA
+"82","Agriculture","Irrigation (short-term)","Utah","Nickel",2,"Dissolved",NA,NA
+"83","Agriculture","Irrigation (short-term)","Utah","Selenium",0.02,"Dissolved",NA,NA
+"84","Agriculture","Irrigation (short-term)","Utah","Vanadium",1,"Dissolved",NA,NA
+"85","Agriculture","Irrigation (short-term)","Utah","Zinc",10,"Dissolved",NA,NA
+"86","Agriculture","Irrigation (long-term)","Utah","Aluminum",5,"Dissolved",NA,NA
+"87","Agriculture","Irrigation (long-term)","Utah","Arsenic",0.1,"Dissolved",NA,NA
+"88","Agriculture","Irrigation (long-term)","Utah","Cadmium",0.01,"Dissolved",NA,NA
+"89","Agriculture","Irrigation (long-term)","Utah","Chromium",0.1,"Dissolved",NA,NA
+"90","Agriculture","Irrigation (long-term)","Utah","Cobalt",0.05,"Dissolved",NA,NA
+"91","Agriculture","Irrigation (long-term)","Utah","Copper",0.2,"Dissolved",NA,NA
+"92","Agriculture","Irrigation (long-term)","Utah","Iron",5,"Dissolved",NA,NA
+"93","Agriculture","Irrigation (long-term)","Utah","Lead",5,"Dissolved",NA,NA
+"94","Agriculture","Irrigation (long-term)","Utah","Manganese",0.2,"Dissolved",NA,NA
+"95","Agriculture","Irrigation (long-term)","Utah","Molybdenum",0.01,"Dissolved",NA,NA
+"96","Agriculture","Irrigation (long-term)","Utah","Nickel",0.2,"Dissolved",NA,NA
+"97","Agriculture","Irrigation (long-term)","Utah","Selenium",0.02,"Dissolved",NA,NA
+"98","Agriculture","Irrigation (long-term)","Utah","Vanadium",0.1,"Dissolved",NA,NA
+"99","Agriculture","Irrigation (long-term)","Utah","Zinc",2,"Dissolved",NA,NA
+"100","Agriculture","Agricultural Uses","Utah","Arsenic",0.1,"Dissolved",NA,NA
+"101","Agriculture","Agricultural Uses","Utah","Cadmium",0.01,"Dissolved",NA,NA
+"102","Agriculture","Agricultural Uses","Utah","Chromium",0.1,"Dissolved",NA,NA
+"103","Agriculture","Agricultural Uses","Utah","Copper",0.2,"Dissolved",NA,NA
+"104","Agriculture","Agricultural Uses","Utah","Lead",0.1,"Dissolved",NA,NA
+"105","Agriculture","Agricultural Uses","Utah","Selenium",0.05,"Dissolved",NA,NA
+"106","Agriculture","Agricultural Supply","Navajo Nation","Aluminum",20,"Dissolved",NA,NA
+"107","Agriculture","Agricultural Supply","Navajo Nation","Cobalt",5,"Dissolved",NA,NA
+"108","Agriculture","Agricultural Supply","Navajo Nation","Copper",5,"Dissolved",NA,NA
+"109","Agriculture","Agricultural Supply","Navajo Nation","Molybdenum",0.05,"Dissolved",NA,NA
+"110","Agriculture","Agricultural Supply","Navajo Nation","Vanadium",1,"Dissolved",NA,NA
+"111","Agriculture","Revised Ag Water Supply","Region 9","Aluminum",5,"Dissolved",NA,NA
+"112","Agriculture","Revised Ag Water Supply","Region 9","Arsenic",2,"Dissolved",NA,NA
+"113","Agriculture","Revised Ag Water Supply","Region 9","Cadmium",0.05,"Dissolved",NA,NA
+"114","Agriculture","Revised Ag Water Supply","Region 9","Chromium",1,"Dissolved",NA,NA
+"115","Agriculture","Revised Ag Water Supply","Region 9","Cobalt",0.05,"Dissolved",NA,NA
+"116","Agriculture","Revised Ag Water Supply","Region 9","Copper",0.2,"Dissolved",NA,NA
+"117","Agriculture","Revised Ag Water Supply","Region 9","Lead",10,"Dissolved",NA,NA
+"118","Agriculture","Revised Ag Water Supply","Region 9","Molybdenum",1,"Dissolved",NA,NA
+"119","Agriculture","Revised Ag Water Supply","Region 9","Selenium",0.02,"Dissolved",NA,NA
+"120","Agriculture","Revised Ag Water Supply","Region 9","Vanadium",0.1,"Dissolved",NA,NA
+"121","Agriculture","Revised Ag Water Supply","Region 9","Zinc",10,"Dissolved",NA,NA
+"122","Livestock","Livestock Watering","Region 6","Beryllium",0.1,"Dissolved",NA,NA
+"123","Livestock","Livestock Watering","Region 6","Cadmium",0.05,"Dissolved",NA,NA
+"124","Livestock","Livestock Watering","Region 6","Chromium",1,"Dissolved",NA,NA
+"125","Livestock","Livestock Watering","Region 6","Copper",0.5,"Dissolved",NA,NA
+"126","Livestock","Livestock Watering","Region 6","Lead",0.1,"Dissolved",NA,NA
+"127","Livestock","Livestock Watering","Region 6","Mercury",0.01,"Dissolved",NA,NA
+"128","Livestock","Livestock Watering","Region 6","Nickel",1,"Dissolved",NA,NA
+"129","Livestock","Livestock Watering","Region 6","Selenium",0.25,"Dissolved",NA,NA
+"130","Livestock","Livestock Watering","Region 6","Vanadium",0.1,"Dissolved",NA,NA
+"131","Livestock","Livestock Watering","Region 6","Zinc",25,"Dissolved",NA,NA
+"132","Livestock","Livestock Watering","Region 9","Arsenic",0.2,"Dissolved",NA,NA
+"133","Livestock","Livestock Watering","Region 9","Cadmium",0.05,"Dissolved",NA,NA
+"134","Livestock","Livestock Watering","Region 9","Chromium",1,"Dissolved",NA,NA
+"135","Livestock","Livestock Watering","Region 9","Cobalt",1,"Dissolved",NA,NA
+"136","Livestock","Livestock Watering","Region 9","Copper",0.5,"Dissolved",NA,NA
+"137","Livestock","Livestock Watering","Region 9","Lead",0.1,"Dissolved",NA,NA
+"138","Livestock","Livestock Watering","Region 9","Selenium",0.05,"Dissolved",NA,NA
+"139","Livestock","Livestock Watering","Region 9","Vanadium",0.1,"Dissolved",NA,NA
+"140","Livestock","Livestock Watering","Region 9","Zinc",25,"Dissolved",NA,NA
+"141","Livestock","Livestock Watering","New Mexico","Arsenic",0.2,"Dissolved",NA,NA
+"142","Livestock","Livestock Watering","New Mexico","Cadmium",0.05,"Dissolved",NA,NA
+"143","Livestock","Livestock Watering","New Mexico","Chromium",1,"Dissolved",NA,NA
+"144","Livestock","Livestock Watering","New Mexico","Cobalt",1,"Dissolved",NA,NA
+"145","Livestock","Livestock Watering","New Mexico","Copper",0.5,"Dissolved",NA,NA
+"146","Livestock","Livestock Watering","New Mexico","Lead",0.1,"Dissolved",NA,NA
+"147","Livestock","Livestock Watering","New Mexico","Selenium",0.05,"Dissolved",NA,NA
+"148","Livestock","Livestock Watering","New Mexico","Vanadium",0.1,"Dissolved",NA,NA
+"149","Livestock","Livestock Watering","New Mexico","Zinc",25,"Dissolved",NA,NA
+"150","Livestock","Livestock Watering","Utah","Aluminum",5,"Dissolved",NA,NA
+"151","Livestock","Livestock Watering","Utah","Arsenic",0.2,"Dissolved",NA,NA
+"152","Livestock","Livestock Watering","Utah","Cadmium",0.05,"Dissolved",NA,NA
+"153","Livestock","Livestock Watering","Utah","Calcium",500,"Dissolved",NA,NA
+"154","Livestock","Livestock Watering","Utah","Chromium",1,"Dissolved",NA,NA
+"155","Livestock","Livestock Watering","Utah","Cobalt",1,"Dissolved",NA,NA
+"156","Livestock","Livestock Watering","Utah","Copper",0.5,"Dissolved",NA,NA
+"157","Livestock","Livestock Watering","Utah","Lead",0.1,"Dissolved",NA,NA
+"158","Livestock","Livestock Watering","Utah","Magnesium",250,"Dissolved",NA,NA
+"159","Livestock","Livestock Watering","Utah","Mercury",0.01,"Dissolved",NA,NA
+"160","Livestock","Livestock Watering","Utah","Selenium",0.05,"Dissolved",NA,NA
+"161","Livestock","Livestock Watering","Utah","Sodium",1000,"Dissolved",NA,NA
+"162","Livestock","Livestock Watering","Utah","Vanadium",0.1,"Dissolved",NA,NA
+"163","Livestock","Livestock Watering","Utah","Zinc",25,"Dissolved",NA,NA
+"164","Livestock","Livestock Watering","Navajo Nation","Cobalt",1,"Dissolved",NA,NA
+"165","Livestock","Livestock Watering","Navajo Nation","Copper",0.5,"Dissolved",NA,NA
+"166","Livestock","Livestock Watering","Navajo Nation","Vanadium",0.1,"Dissolved",NA,NA
+"167","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Antimony",0.088,"Dissolved",NA,NA
+"168","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Arsenic",0.34,"Dissolved",NA,NA
+"169","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Cadmium",0.005852807266,"Dissolved",NA,NA
+"170","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Copper",0.03783678786,"Dissolved",NA,NA
+"171","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Lead",0.2085684463,"Dissolved",NA,NA
+"172","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Mercury",0.0024,"Dissolved",NA,NA
+"173","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Nickel",1.186066882,"Dissolved",NA,NA
+"174","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Silver",0.02128466642,"Dissolved",NA,NA
+"175","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Thallium",0.7,"Dissolved",NA,NA
+"176","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Zinc",0.2972487356,"Dissolved",NA,NA
+"177","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Hardness",300,"Dissolved",NA,NA
+"178","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Cadmium",0.0005270999409,"Dissolved",NA,NA
+"179","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Chromium",0.011,"Dissolved",NA,NA
+"180","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Copper",0.02289824179,"Dissolved",NA,NA
+"181","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Lead",0.008128200782,"Dissolved",NA,NA
+"182","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Nickel",0.1317354131,"Dissolved",NA,NA
+"183","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Silver",0.001800360508,"Dissolved",NA,NA
+"184","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Zinc",0.2996802181,"Dissolved",NA,NA
+"185","Aquatic Life","Aquatic Acute 1-Day","Ute Mountain Ute","Cadmium",0.005852807266,"Dissolved",NA,NA
+"186","Aquatic Life","Aquatic Acute 1-Day","Ute Mountain Ute","Chromium",1.401060574,"Dissolved",NA,NA
+"187","Aquatic Life","Aquatic Acute 1-Day","Ute Mountain Ute","Copper",0.03783678786,"Dissolved",NA,NA
+"188","Aquatic Life","Aquatic Acute 1-Day","Ute Mountain Ute","Lead",0.2085684463,"Dissolved",NA,NA
+"189","Aquatic Life","Aquatic Acute 1-Day","Ute Mountain Ute","Nickel",1.186066882,"Dissolved",NA,NA
+"190","Aquatic Life","Aquatic Acute 1-Day","Ute Mountain Ute","Silver",0.02282797887,"Dissolved",NA,NA
+"191","Aquatic Life","Aquatic Acute 1-Day","Ute Mountain Ute","Zinc",0.2996802181,"Dissolved",NA,NA
+"192","Aquatic Life","Aquatic Acute 1-Day","Ute Mountain Ute","Hardness",300,"Dissolved",NA,NA
+"193","Aquatic Life","Aquatic Acute","New Mexico","Arsenic",0.34,"Dissolved",NA,NA
+"194","Aquatic Life","Aquatic Acute","New Mexico","Cadmium",0.00421103424,"Dissolved",NA,NA
+"195","Aquatic Life","Aquatic Acute","New Mexico","Chromium",0.016,"Dissolved",NA,NA
+"196","Aquatic Life","Aquatic Acute","New Mexico","Copper",0.03783678786,"Dissolved",NA,NA
+"197","Aquatic Life","Aquatic Acute","New Mexico","Lead",0.2085835318,"Dissolved",NA,NA
+"198","Aquatic Life","Aquatic Acute","New Mexico","Manganese",4.304989347,"Dissolved",NA,NA
+"199","Aquatic Life","Aquatic Acute","New Mexico","Mercury",0.0014,"Dissolved",NA,NA
+"200","Aquatic Life","Aquatic Acute","New Mexico","Nickel",1.186066882,"Dissolved",NA,NA
+"201","Aquatic Life","Aquatic Acute","New Mexico","Silver",0.02128466642,"Dissolved",NA,NA
+"202","Aquatic Life","Aquatic Acute","New Mexico","Zinc",0.4345339917,"Dissolved",NA,NA
+"203","Aquatic Life","Aquatic Acute","New Mexico","Hardness",300,"Dissolved",NA,NA
+"204","Aquatic Life","Warm Water Fish 1-hr","Utah","Aluminum",0.75,"Dissolved",NA,NA
+"205","Aquatic Life","Warm Water Fish 1-hr","Utah","Arsenic",0.34,"Dissolved",NA,NA
+"206","Aquatic Life","Warm Water Fish 1-hr","Utah","Cadmium",0.002,"Dissolved",NA,NA
+"207","Aquatic Life","Warm Water Fish 1-hr","Utah","Chromium",0.016,"Dissolved",NA,NA
+"208","Aquatic Life","Warm Water Fish 1-hr","Utah","Copper",0.013,"Dissolved",NA,NA
+"209","Aquatic Life","Warm Water Fish 1-hr","Utah","Iron",1,"Dissolved",NA,NA
+"210","Aquatic Life","Warm Water Fish 1-hr","Utah","Lead",0.065,"Dissolved",NA,NA
+"211","Aquatic Life","Warm Water Fish 1-hr","Utah","Mercury",1.2e-05,"Dissolved",NA,NA
+"212","Aquatic Life","Warm Water Fish 1-hr","Utah","Nickel",0.468,"Dissolved",NA,NA
+"213","Aquatic Life","Warm Water Fish 1-hr","Utah","Selenium",0.0184,"Dissolved",NA,NA
+"214","Aquatic Life","Warm Water Fish 1-hr","Utah","Silver",0.01059716954,"Dissolved",NA,NA
+"215","Aquatic Life","Warm Water Fish 1-hr","Utah","Zinc",0.12,"Dissolved",NA,NA
+"216","Aquatic Life","Warm Water Fish 1-hr","Utah","Hardness",200,"Dissolved",NA,NA
+"217","Aquatic Life","Warm Water Fish 4-day","Utah","Aluminum",0.087,"Dissolved",NA,NA
+"218","Aquatic Life","Warm Water Fish 4-day","Utah","Arsenic",0.15,"Dissolved",NA,NA
+"219","Aquatic Life","Warm Water Fish 4-day","Utah","Cadmium",0.00025,"Dissolved",NA,NA
+"220","Aquatic Life","Warm Water Fish 4-day","Utah","Chromium",0.011,"Dissolved",NA,NA
+"221","Aquatic Life","Warm Water Fish 4-day","Utah","Copper",0.009,"Dissolved",NA,NA
+"222","Aquatic Life","Warm Water Fish 4-day","Utah","Iron",1,"Dissolved",NA,NA
+"223","Aquatic Life","Warm Water Fish 4-day","Utah","Lead",0.025,"Dissolved",NA,NA
+"224","Aquatic Life","Warm Water Fish 4-day","Utah","Mercury",1.2e-05,"Dissolved",NA,NA
+"225","Aquatic Life","Warm Water Fish 4-day","Utah","Nickel",0.052,"Dissolved",NA,NA
+"226","Aquatic Life","Warm Water Fish 4-day","Utah","Selenium",0.0046,"Dissolved",NA,NA
+"227","Aquatic Life","Warm Water Fish 4-day","Utah","Zinc",0.12,"Dissolved",NA,NA
+"228","Aquatic Life","Warm Water Fish 4-day","Utah","Hardness",200,"Dissolved",NA,NA
+"229","Aquatic Life","Aquatic Acute","Colorado","Arsenic",0.34,"Dissolved",NA,NA
+"230","Aquatic Life","Aquatic Acute","Colorado","Cadmium",0.005008618353,"Dissolved",NA,NA
+"231","Aquatic Life","Aquatic Acute","Colorado","Chromium",0.016,"Dissolved",NA,NA
+"232","Aquatic Life","Aquatic Acute","Colorado","Copper",0.02582323383,"Dissolved",NA,NA
+"233","Aquatic Life","Aquatic Acute","Colorado","Lead",0.1361417491,"Dissolved",NA,NA
+"234","Aquatic Life","Aquatic Acute","Colorado","Manganese",3.761110411,"Dissolved",NA,NA
+"235","Aquatic Life","Aquatic Acute","Colorado","Nickel",0.8416603029,"Dissolved",NA,NA
+"236","Aquatic Life","Aquatic Acute","Colorado","Selenium",0.0184,"Dissolved",NA,NA
+"237","Aquatic Life","Aquatic Acute","Colorado","Silver",0.006685618253,"Dissolved",NA,NA
+"238","Aquatic Life","Aquatic Acute","Colorado","Zinc",0.3005289847,"Dissolved",NA,NA
+"239","Aquatic Life","Aquatic Acute","Colorado","Hardness",200,"Dissolved",NA,NA
+"240","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Antimony",0.03,"Dissolved",NA,NA
+"241","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Arsenic",0.15,"Dissolved",NA,NA
+"242","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Cadmium",0.0005270999409,"Dissolved",NA,NA
+"243","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Copper",0.02289824179,"Dissolved",NA,NA
+"244","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Lead",0.008128200782,"Dissolved",NA,NA
+"245","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Mercury",1.2e-05,"Dissolved",NA,NA
+"246","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Nickel",0.1317354131,"Dissolved",NA,NA
+"247","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Thallium",0.15,"Dissolved",NA,NA
+"248","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Zinc",0.2996802181,"Dissolved",NA,NA
+"249","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Hardness",300,"Dissolved",NA,NA
+"250","Aquatic Life","Aquatic Chronic","New Mexico","Arsenic",0.15,"Dissolved",NA,NA
+"251","Aquatic Life","Aquatic Chronic","New Mexico","Cadmium",0.0009963914422,"Dissolved",NA,NA
+"252","Aquatic Life","Aquatic Chronic","New Mexico","Chromium",0.011,"Dissolved",NA,NA
+"253","Aquatic Life","Aquatic Chronic","New Mexico","Copper",0.02289824179,"Dissolved",NA,NA
+"254","Aquatic Life","Aquatic Chronic","New Mexico","Lead",0.008128200782,"Dissolved",NA,NA
+"255","Aquatic Life","Aquatic Chronic","New Mexico","Manganese",2.378511004,"Dissolved",NA,NA
+"256","Aquatic Life","Aquatic Chronic","New Mexico","Mercury",0.00077,"Dissolved",NA,NA
+"257","Aquatic Life","Aquatic Chronic","New Mexico","Nickel",0.1317354131,"Dissolved",NA,NA
+"258","Aquatic Life","Aquatic Chronic","New Mexico","Zinc",0.329119484,"Dissolved",NA,NA
+"259","Aquatic Life","Aquatic Chronic","New Mexico","Hardness",300,"Dissolved",NA,NA
+"260","Aquatic Life","Aquatic Chronic","Colorado","Arsenic",0.15,"Dissolved",NA,NA
+"261","Aquatic Life","Aquatic Chronic","Colorado","Cadmium",0.0007150963375,"Dissolved",NA,NA
+"262","Aquatic Life","Aquatic Chronic","Colorado","Chromium",0.011,"Dissolved",NA,NA
+"263","Aquatic Life","Aquatic Chronic","Colorado","Copper",0.01619353664,"Dissolved",NA,NA
+"264","Aquatic Life","Aquatic Chronic","Colorado","Lead",0.005305248512,"Dissolved",NA,NA
+"265","Aquatic Life","Aquatic Chronic","Colorado","Manganese",2.078017337,"Dissolved",NA,NA
+"266","Aquatic Life","Aquatic Chronic","Colorado","Nickel",0.09348270932,"Dissolved",NA,NA
+"267","Aquatic Life","Aquatic Chronic","Colorado","Selenium",0.0046,"Dissolved",NA,NA
+"268","Aquatic Life","Aquatic Chronic","Colorado","Silver",0.001054541284,"Dissolved",NA,NA
+"269","Aquatic Life","Aquatic Chronic","Colorado","Thallium",0.015,"Dissolved",NA,NA
+"270","Aquatic Life","Aquatic Chronic","Colorado","Zinc",0.2276230312,"Dissolved",NA,NA
+"271","Aquatic Life","Aquatic Chronic","Colorado","Hardness",200,"Dissolved",NA,NA
+"272","Fish Consumption","HH-OO","New Mexico","Antimony",0.64,"Dissolved",NA,NA
+"273","Fish Consumption","HH-OO","New Mexico","Arsenic",0.009,"Dissolved",NA,NA
+"274","Fish Consumption","HH-OO","New Mexico","Nickel",4.6,"Dissolved",NA,NA
+"275","Fish Consumption","HH-OO","New Mexico","Sodium",4.2,"Dissolved",NA,NA
+"276","Fish Consumption","HH-OO","New Mexico","Thallium",0.47,"Dissolved",NA,NA
+"277","Fish Consumption","HH-OO","New Mexico","Zinc",26,"Dissolved",NA,NA
+"278","Fish Consumption","Fish Consumption","Colorado","Nickel",4.6,"Dissolved",NA,NA
+"279","Fish Consumption","Fish Consumption","Colorado","Selenium",4.2,"Dissolved",NA,NA
+"280","Fish Consumption","Fish Consumption","Colorado","Thallium",0.00047,"Dissolved",NA,NA
+"281","Fish Consumption","Fish Consumption","Colorado","Zinc",7.4,"Dissolved",NA,NA
+"282","Domestic Water Supply","Domestic Water Supply","New Mexico","Mercury",0.002,"Total",NA,NA
+"283","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Antimony",0.0056,"Total",NA,NA
+"284","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Arsenic",0.01,"Total",NA,NA
+"285","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Barium",2,"Total",NA,NA
+"286","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Beryllium",0.004,"Total",NA,NA
+"287","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Cadmium",0.005,"Total",NA,NA
+"288","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Chromium",0.1,"Total",NA,NA
+"289","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Copper",1.3,"Total",NA,NA
+"290","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Lead",0.015,"Total",NA,NA
+"291","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Mercury",0.002,"Total",NA,NA
+"292","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Nickel",0.61,"Total",NA,NA
+"293","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Selenium",0.05,"Total",NA,NA
+"294","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Silver",0.035,"Total",NA,NA
+"295","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Thallium",0.002,"Total",NA,NA
+"296","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Zinc",2.1,"Total",NA,NA
+"297","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Barium",1,"Total",NA,NA
+"298","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Cadmium",0.005,"Total",NA,NA
+"299","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Chromium",0.05,"Total",NA,NA
+"300","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Lead",0.05,"Total",NA,NA
+"301","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Mercury",0.002,"Total",NA,NA
+"302","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Silver",0.1,"Total",NA,NA
+"303","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Arsenic",1.8e-05,"Total",NA,NA
+"304","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Mercury",5e-05,"Total",NA,NA
+"305","Domestic Water Supply","Domestic and Tribal 30-Day",NA,"Aluminum",1.8e-05,"Total",NA,NA
+"306","Domestic Water Supply","Domestic and Tribal 30-Day",NA,"Mercury",5e-05,"Total",NA,NA
+"307","Domestic Water Supply","Domestic and Tribal 30-Day",NA,"Selenium",0.05,"Total",NA,NA
+"308","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Antimony",0.747,"Total",NA,NA
+"309","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Arsenic",0.03,"Total",NA,NA
+"310","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Barium",98,"Total",NA,NA
+"311","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Beryllium",1.87,"Total",NA,NA
+"312","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Cadmium",0.47,"Total",NA,NA
+"313","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Copper",9.33,"Total",NA,NA
+"314","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Lead",0.015,"Total",NA,NA
+"315","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Mercury",0.28,"Total",NA,NA
+"316","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Nickel",18.67,"Total",NA,NA
+"317","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Selenium",4.67,"Total",NA,NA
+"318","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Silver",4.67,"Total",NA,NA
+"319","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Thallium",0.075,"Total",NA,NA
+"320","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Zinc",280,"Total",NA,NA
+"321","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Antimony",0.747,"Total",NA,NA
+"322","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Arsenic",0.28,"Total",NA,NA
+"323","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Barium",98,"Total",NA,NA
+"324","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Beryllium",1.87,"Total",NA,NA
+"325","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Cadmium",0.47,"Total",NA,NA
+"326","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Copper",9.33,"Total",NA,NA
+"327","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Lead",0.015,"Total",NA,NA
+"328","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Mercury",0.28,"Total",NA,NA
+"329","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Nickel",18.67,"Total",NA,NA
+"330","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Selenium",4.67,"Total",NA,NA
+"331","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Silver",4.67,"Total",NA,NA
+"332","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Thallium",0.075,"Total",NA,NA
+"333","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Zinc",280,"Total",NA,NA
+"334","Recreation and Human Contact","Recreational","Utah","Aluminum",620.767,"Total",NA,NA
+"335","Recreation and Human Contact","Recreational","Utah","Antimony",0.248,"Total",NA,NA
+"336","Recreation and Human Contact","Recreational","Utah","Arsenic",0.186,"Total",NA,NA
+"337","Recreation and Human Contact","Recreational","Utah","Barium",124.159,"Total",NA,NA
+"338","Recreation and Human Contact","Recreational","Utah","Beryllium",1.242,"Total",NA,NA
+"339","Recreation and Human Contact","Recreational","Utah","Cadmium",0.062,"Total",NA,NA
+"340","Recreation and Human Contact","Recreational","Utah","Chromium",0.41,"Total",NA,NA
+"341","Recreation and Human Contact","Recreational","Utah","Cobalt",7.931,"Total",NA,NA
+"342","Recreation and Human Contact","Recreational","Utah","Copper",6.208,"Total",NA,NA
+"343","Recreation and Human Contact","Recreational","Utah","Iron",851.582,"Total",NA,NA
+"344","Recreation and Human Contact","Recreational","Utah","Lead",0.91,"Total",NA,NA
+"345","Recreation and Human Contact","Recreational","Utah","Manganese",31.04,"Total",NA,NA
+"346","Recreation and Human Contact","Recreational","Utah","Mercury",1.242,"Total",NA,NA
+"347","Recreation and Human Contact","Recreational","Utah","Molybdenum",3.104,"Total",NA,NA
+"348","Recreation and Human Contact","Recreational","Utah","Nickel",17.48,"Total",NA,NA
+"349","Recreation and Human Contact","Recreational","Utah","Selenium",3.104,"Total",NA,NA
+"350","Recreation and Human Contact","Recreational","Utah","Silver",3.64,"Total",NA,NA
+"351","Recreation and Human Contact","Recreational","Utah","Thallium",0.025,"Total",NA,NA
+"352","Recreation and Human Contact","Recreational","Utah","Vanadium",6.208,"Total",NA,NA
+"353","Recreation and Human Contact","Recreational","Utah","Zinc",217.786,"Total",NA,NA
+"354","Agriculture","Agricultural Supply","Navajo Nation","Arsenic",2,"Total",NA,NA
+"355","Agriculture","Agricultural Supply","Navajo Nation","Cadmium",0.05,"Total",NA,NA
+"356","Agriculture","Agricultural Supply","Navajo Nation","Lead",10,"Total",NA,NA
+"357","Agriculture","Agricultural Supply","Navajo Nation","Selenium",0.02,"Total",NA,NA
+"358","Agriculture","Agricultural Supply","Navajo Nation","Zinc",10,"Total",NA,NA
+"359","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Arsenic",0.1,"Total",NA,NA
+"360","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Cadmium",0.01,"Total",NA,NA
+"361","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Chromium",0.1,"Total",NA,NA
+"362","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Copper",0.2,"Total",NA,NA
+"363","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Lead",0.1,"Total",NA,NA
+"364","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Mercury",0.01,"Total",NA,NA
+"365","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Nickel",0.2,"Total",NA,NA
+"366","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Selenium",0.02,"Total",NA,NA
+"367","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Zinc",2,"Total",NA,NA
+"368","Livestock","Livestock Watering","New Mexico","Mercury",0.01,"Total",NA,NA
+"369","Livestock","Livestock Watering","Navajo Nation","Arsenic",0.2,"Total",NA,NA
+"370","Livestock","Livestock Watering","Navajo Nation","Cadmium",0.05,"Total",NA,NA
+"371","Livestock","Livestock Watering","Navajo Nation","Chromium",1,"Total",NA,NA
+"372","Livestock","Livestock Watering","Navajo Nation","Lead",0.1,"Total",NA,NA
+"373","Livestock","Livestock Watering","Navajo Nation","Selenium",0.05,"Total",NA,NA
+"374","Livestock","Livestock Watering","Navajo Nation","Zinc",25,"Total",NA,NA
+"375","Livestock","Wildlife Habitat","New Mexico","Mercury",0.00077,"Total",NA,NA
+"376","Livestock","Wildlife Habitat","New Mexico","Selenium",0.005,"Total",NA,NA
+"377","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Aluminum",0.75,"Total",NA,NA
+"378","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Selenium",0.033,"Total",NA,NA
+"379","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Arsenic",0.15,"Total",NA,NA
+"380","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Mercury",1.2e-05,"Total",NA,NA
+"381","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Selenium",0.005,"Total",NA,NA
+"382","Aquatic Life","Aquatic Acute 1-Hour","Ute Mountain Ute","Aluminum",0.75,"Total",NA,NA
+"383","Aquatic Life","Aquatic Acute 1-Hour","Ute Mountain Ute","Arsenic",0.34,"Total",NA,NA
+"384","Aquatic Life","Aquatic Acute 1-Hour","Ute Mountain Ute","Mercury",0.0014,"Total",NA,NA
+"385","Aquatic Life","Aquatic Acute 1-Hour","Ute Mountain Ute","Selenium",0.02,"Total",NA,NA
+"386","Aquatic Life","Aquatic Acute","New Mexico","Aluminum",15.40011258,"Total",NA,NA
+"387","Aquatic Life","Aquatic Acute","New Mexico","Molybdenum",7.92,"Total",NA,NA
+"388","Aquatic Life","Aquatic Acute","New Mexico","Selenium",0.02,"Total",NA,NA
+"389","Aquatic Life","Aquatic Acute","Colorado","Aluminum",8.838262915,"Total",NA,NA
+"390","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Aluminum",0.087,"Total",NA,NA
+"391","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Selenium",0.002,"Total",NA,NA
+"392","Aquatic Life","Aquatic Chronic","New Mexico","Aluminum",6.169851812,"Total",NA,NA
+"393","Aquatic Life","Aquatic Chronic","New Mexico","Molybdenum",1.895,"Total",NA,NA
+"394","Aquatic Life","Aquatic Chronic","New Mexico","Selenium",0.005,"Total",NA,NA
+"395","Aquatic Life","Aquatic Chronic","Colorado","Aluminum",1.261738276,"Total",NA,NA
+"396","Aquatic Life","Aquatic Chronic","Colorado","Iron",1,"Total",NA,NA
+"397","Aquatic Life","Aquatic Chronic","Colorado","Mercury",1e-05,"Total",NA,NA
+"398","Fish Consumption","Fish Consumption","Colorado","Antimony",0.64,"Total",NA,NA
+"399","Fish Consumption","Fish Consumption","Colorado","Arsenic",0.0076,"Total",NA,NA
+"400","Fish Consumption","Fish Consumption","Navajo Nation","Antimony",0.64,"Total",NA,NA
+"401","Fish Consumption","Fish Consumption","Navajo Nation","Arsenic",0.08,"Total",NA,NA
+"402","Fish Consumption","Fish Consumption","Navajo Nation","Beryllium",0.085,"Total",NA,NA
+"403","Fish Consumption","Fish Consumption","Navajo Nation","Cadmium",0.008,"Total",NA,NA
+"404","Fish Consumption","Fish Consumption","Navajo Nation","Chromium",0.15,"Total",NA,NA
+"405","Fish Consumption","Fish Consumption","Navajo Nation","Mercury",0.00015,"Total",NA,NA
+"406","Fish Consumption","Fish Consumption","Navajo Nation","Nickel",4.6,"Total",NA,NA
+"407","Fish Consumption","Fish Consumption","Navajo Nation","Selenium",0.67,"Total",NA,NA
+"408","Fish Consumption","Fish Consumption","Navajo Nation","Silver",8,"Total",NA,NA
+"409","Fish Consumption","Fish Consumption","Navajo Nation","Thallium",0.001,"Total",NA,NA
+"410","Fish Consumption","Fish Consumption","Navajo Nation","Zinc",5.1,"Total",NA,NA
+"411","Fish Consumption","Fish Consumption","Ute Mountain Ute","Arsenic",1.4e-05,"Total",NA,NA
+"412","Fish Consumption","Fish Consumption","Ute Mountain Ute","Mercury",5.1e-05,"Total",NA,NA
+"413","Fish Consumption","Fish Consumption","Ute Mountain Ute","Selenium",4.2,"Total",NA,NA
+"414","Aquatic Life","Aquatic Acute","Utah","Cadmium",0.003427025717,"Dissolved","1.136672 -ln(hardness)* 0.041838","(CF*e( 0.9789 *ln(hardness)+ -3.866 ))/1000"
+"415","Aquatic Life","Aquatic Acute","New Mexico","Cadmium",0.00421103424,"Dissolved","1.136672 -ln(hardness)* 0.041838","(CF*e( 0.8968 *ln(hardness)+ -3.5699 ))/1000"
+"416","Aquatic Life","Aquatic Acute","Colorado","Cadmium",0.005008618353,"Dissolved","1.136672 -ln(hardness)* 0.041838","(CF*e( 0.9151 *ln(hardness)+ -3.1485 ))/1000"
+"417","Aquatic Life","Aquatic Acute","EPA","Cadmium",0.005002255053,"Dissolved","1.136672 -ln(hardness)* 0.041838","(CF*e( 0.9789 *ln(hardness)+ -3.866 ))/1000"
+"418","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Cadmium",0.005852807266,"Dissolved","1.136672 -ln(hardness)* 0.041838","(CF*e( 1.0166 *ln(hardness)+ -3.924 ))/1000"
+"419","Aquatic Life","Aquatic Acute","Navajo Nation","Cadmium",0.005852807266,"Dissolved","1.136672 -ln(hardness)* 0.041838","(CF*e( 1.0166 *ln(hardness)+ -3.924 ))/1000"
+"420","Aquatic Life","Aquatic Acute","Utah","Chromium(III)",1.401060574,"Dissolved","0.316","(CF*e( 0.819 *ln(hardness)+ 3.7256 ))/1000"
+"421","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Chromium(III)",1.401060574,"Dissolved","8.396997847","(CF*e( 0.819 *ln(hardness)+ 3.7256 ))/1000"
+"422","Aquatic Life","Aquatic Acute","Navajo Nation","Chromium(III)",1.401060574,"Dissolved","0.316","(CF*e( 0.819 *ln(hardness)+ 3.7256 ))/1000"
+"423","Aquatic Life","Aquatic Acute","Colorado","Chromium(III)",1.005180014,"Dissolved","1","(CF*e( 0.819 *ln(hardness)+ 2.5736 ))/1000"
+"424","Aquatic Life","Aquatic Acute","EPA","Chromium(III)",1.401060574,"Dissolved","0.316","(CF*e( 0.819 *ln(hardness)+ 3.7256 ))/1000"
+"425","Aquatic Life","Aquatic Acute","New Mexico","Chromium(III)",1.401060574,"Dissolved","0.316","(CF*e( 0.819 *ln(hardness)+ 3.7256 ))/1000"
+"426","Aquatic Life","Aquatic Acute","Utah","Copper",0.03783678786,"Dissolved","0.96","(CF*e( 0.9422 *ln(hardness)+ -1.7 ))/1000"
+"427","Aquatic Life","Aquatic Acute","New Mexico","Copper",0.03783678786,"Dissolved","0.96","(CF*e( 0.9422 *ln(hardness)+ -1.7 ))/1000"
+"428","Aquatic Life","Aquatic Acute","Colorado","Copper",0.02582323383,"Dissolved","1","(CF*e( 0.9422 *ln(hardness)+ -1.7408 ))/1000"
+"429","Aquatic Life","Aquatic Acute","EPA","Copper",0.03783678786,"Dissolved","0.96","(CF*e( 0.9422 *ln(hardness)+ -1.7 ))/1000"
+"430","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Copper",0.03783678786,"Dissolved","3.674103848","(CF*e( 0.9422 *ln(hardness)+ -1.7 ))/1000"
+"431","Aquatic Life","Aquatic Acute","Navajo Nation","Copper",0.03783678786,"Dissolved","0.96","(CF*e( 0.9422 *ln(hardness)+ -1.7 ))/1000"
+"432","Aquatic Life","Aquatic Acute","Utah","Lead",0.2085835318,"Dissolved","1.46203 -ln(hardness)* 0.145712","(CF*e( 1.273 *ln(hardness)+ -1.46 ))/1000"
+"433","Aquatic Life","Aquatic Acute","New Mexico","Lead",0.2085835318,"Dissolved","1.46203 -ln(hardness)* 0.145712","(CF*e( 1.273 *ln(hardness)+ -1.46 ))/1000"
+"434","Aquatic Life","Aquatic Acute","Colorado","Lead",0.1361417491,"Dissolved","1.46203 -ln(hardness)* 0.145712","(CF*e( 1.273 *ln(hardness)+ -1.46 ))/1000"
+"435","Aquatic Life","Aquatic Acute","EPA","Lead",0.2085835318,"Dissolved","1.46203 -ln(hardness)* 0.145712","(CF*e( 1.273 *ln(hardness)+ -1.46 ))/1000"
+"436","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Lead",0.2085684463,"Dissolved","1.46203 -ln(hardness)* 0.14572","(CF*e( 1.273 *ln(hardness)+ -1.46 ))/1000"
+"437","Aquatic Life","Aquatic Acute","Navajo Nation","Lead",0.2085684463,"Dissolved","1.46203 -ln(hardness)* 0.14572","(CF*e( 1.273 *ln(hardness)+ -1.46 ))/1000"
+"438","Aquatic Life","Aquatic Acute","New Mexico","Manganese",4.304989347,"Dissolved","1","(CF*e( 0.3331 *ln(hardness)+ 6.4676 ))/1000"
+"439","Aquatic Life","Aquatic Acute","Colorado","Manganese",3.761110411,"Dissolved","1","(CF*e( 0.3331 *ln(hardness)+ 6.4676 ))/1000"
+"440","Aquatic Life","Aquatic Acute","Utah","Nickel",1.186066882,"Dissolved","0.998","(CF*e( 0.846 *ln(hardness)+ 2.255 ))/1000"
+"441","Aquatic Life","Aquatic Acute","New Mexico","Nickel",1.186066882,"Dissolved","0.998","(CF*e( 0.846 *ln(hardness)+ 2.255 ))/1000"
+"442","Aquatic Life","Aquatic Acute","Colorado","Nickel",0.8416603029,"Dissolved","1","(CF*e( 0.846 *ln(hardness)+ 2.253 ))/1000"
+"443","Aquatic Life","Aquatic Acute","EPA","Nickel",1.186066882,"Dissolved","0.998","(CF*e( 0.846 *ln(hardness)+ 2.255 ))/1000"
+"444","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Nickel",1.186066882,"Dissolved","7.080399974","(CF*e( 0.846 *ln(hardness)+ 2.255 ))/1000"
+"445","Aquatic Life","Aquatic Acute","Navajo Nation","Nickel",1.186066882,"Dissolved","0.998","(CF*e( 0.846 *ln(hardness)+ 2.255 ))/1000"
+"446","Aquatic Life","Aquatic Acute","Utah","Silver",0.02128466642,"Dissolved","0.85","(CF*e( 1.72 *ln(hardness)+ -6.59 ))/1000"
+"447","Aquatic Life","Aquatic Acute","New Mexico","Silver",0.02128466642,"Dissolved","0.85","(CF*e( 1.72 *ln(hardness)+ -6.59 ))/1000"
+"448","Aquatic Life","Aquatic Acute","Colorado","Silver",0.006685618253,"Dissolved","0.5","(CF*e( 1.72 *ln(hardness)+ -6.52 ))/1000"
+"449","Aquatic Life","Aquatic Acute","EPA","Silver",0.02128466642,"Dissolved","0.85","(CF*e( 1.72 *ln(hardness)+ -6.59 ))/1000"
+"450","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Silver",0.02282797887,"Dissolved","3.290505856","(CF*e( 1.72 *ln(hardness)+ -6.52 ))/1000"
+"451","Aquatic Life","Aquatic Acute","Navajo Nation","Silver",0.02128466642,"Dissolved","0.85","(CF*e( 1.72 *ln(hardness)+ -6.59 ))/1000"
+"452","Aquatic Life","Aquatic Acute","Colorado","Uranium",5.156820929,"Dissolved","1","(CF*e( 1.1021 *ln(hardness)+ 2.7088 ))/1000"
+"453","Aquatic Life","Aquatic Acute","Utah","Zinc",0.2972487356,"Dissolved","0.978","(CF*e( 0.8473 *ln(hardness)+ 0.884 ))/1000"
+"454","Aquatic Life","Aquatic Acute","New Mexico","Zinc",0.4345339917,"Dissolved","0.978","(CF*e( 0.9094 *ln(hardness)+ 0.9095 ))/1000"
+"455","Aquatic Life","Aquatic Acute","Colorado","Zinc",0.3005289847,"Dissolved","0.978","(CF*e( 0.9094 *ln(hardness)+ 0.9095 ))/1000"
+"456","Aquatic Life","Aquatic Acute","EPA","Zinc",0.2972487356,"Dissolved","0.978","(CF*e( 0.8473 *ln(hardness)+ 0.884 ))/1000"
+"457","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Zinc",0.2583450156,"Dissolved","5.716814891","(CF*e( 0.8473 *ln(hardness)+ 0.884 ))/1000"
+"458","Aquatic Life","Aquatic Acute","Navajo Nation","Zinc",0.2972487356,"Dissolved","0.978","(CF*e( 0.8473 *ln(hardness)+ 0.884 ))/1000"
+"459","Aquatic Life","Aquatic Acute","New Mexico","Aluminum",15.40011258,"Total recoverable","1","(CF*e( 1.3695 *ln(hardness)+ 1.8308 ))/1000"
+"460","Aquatic Life","Aquatic Acute","Colorado","Aluminum",8.838262915,"Total recoverable","1","(CF*e( 1.3695 *ln(hardness)+ 1.8308 ))/1000"
+"461","Aquatic Life","Aquatic Chronic","Colorado","Uranium",3.219385359,"Dissolved","1","(CF*e( 1.102 *ln(hardness)+ 2.2382 ))/1000"
+"462","Aquatic Life","Aquatic Chronic","Utah","Cadmium",0.001208808938,"Dissolved","1.101672 -ln(hardness)* 0.041838","(CF*e( 0.7977 *ln(hardness)+ -3.909 ))/1000"
+"463","Aquatic Life","Aquatic Chronic","New Mexico","Cadmium",0.0009963914422,"Dissolved","1.101672 -ln(hardness)* 0.041838","(CF*e( 0.7647 *ln(hardness)+ -4.218 ))/1000"
+"464","Aquatic Life","Aquatic Chronic","Colorado","Cadmium",0.0007150963375,"Dissolved","1.101672 -ln(hardness)* 0.041838","(CF*e( 0.7998 *ln(hardness)+ -4.4451 ))/1000"
+"465","Aquatic Life","Aquatic Chronic","EPA","Cadmium",0.0016382191,"Dissolved","1.101672 -ln(hardness)* 0.041838","(CF*e( 0.7977 *ln(hardness)+ -3.909 ))/1000"
+"466","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Cadmium",0.0005270999409,"Dissolved","1.101672 -ln(hardness)* 0.041838","(CF*e( 0.7409 *ln(hardness)+ -4.719 ))/1000"
+"467","Aquatic Life","Aquatic Chronic","Navajo Nation","Cadmium",0.0005270999409,"Dissolved","1.101672 -ln(hardness)* 0.041838","(CF*e( 0.7409 *ln(hardness)+ -4.719 ))/1000"
+"468","Aquatic Life","Aquatic Chronic","Utah","Chromium(III)",0.1822491956,"Dissolved","0.86","(CF*e( 0.819 *ln(hardness)+ 0.6848 ))/1000"
+"469","Aquatic Life","Aquatic Chronic","New Mexico","Chromium(III)",0.1822491956,"Dissolved","0.86","(CF*e( 0.819 *ln(hardness)+ 0.6848 ))/1000"
+"470","Aquatic Life","Aquatic Chronic","Colorado","Chromium(III)",0.1307545528,"Dissolved","1","(CF*e( 0.819 *ln(hardness)+ 0.534 ))/1000"
+"471","Aquatic Life","Aquatic Chronic","EPA","Chromium(III)",0.1822491956,"Dissolved","0.86","(CF*e( 0.819 *ln(hardness)+ 0.6848 ))/1000"
+"472","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Chromium(III)",0.1822491956,"Dissolved","5.356197847","(CF*e( 0.819 *ln(hardness)+ 0.6848 ))/1000"
+"473","Aquatic Life","Aquatic Chronic","Navajo Nation","Chromium(III)",0.1822491956,"Dissolved","0.86","(CF*e( 0.819 *ln(hardness)+ 0.6848 ))/1000"
+"474","Aquatic Life","Aquatic Chronic","Utah","Copper",0.02289824179,"Dissolved","0.96","(CF*e( 0.8545 *ln(hardness)+ -1.702 ))/1000"
+"475","Aquatic Life","Aquatic Chronic","New Mexico","Copper",0.02289824179,"Dissolved","0.96","(CF*e( 0.8545 *ln(hardness)+ -1.702 ))/1000"
+"476","Aquatic Life","Aquatic Chronic","Colorado","Copper",0.01619353664,"Dissolved","1","(CF*e( 0.8545 *ln(hardness)+ -1.7428 ))/1000"
+"477","Aquatic Life","Aquatic Chronic","EPA","Copper",0.02289824179,"Dissolved","0.96","(CF*e( 0.8545 *ln(hardness)+ -1.702 ))/1000"
+"478","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Copper",0.02289824179,"Dissolved","3.171882125","(CF*e( 0.8545 *ln(hardness)+ -1.702 ))/1000"
+"479","Aquatic Life","Aquatic Chronic","Navajo Nation","Copper",0.02289824179,"Dissolved","0.96","(CF*e( 0.8545 *ln(hardness)+ -1.702 ))/1000"
+"480","Aquatic Life","Aquatic Chronic","Utah","Lead",0.008128200782,"Dissolved","1.46203 -ln(hardness)* 0.145712","(CF*e( 1.273 *ln(hardness)+ -4.705 ))/1000"
+"481","Aquatic Life","Aquatic Chronic","New Mexico","Lead",0.008128200782,"Dissolved","1.46203 -ln(hardness)* 0.145712","(CF*e( 1.273 *ln(hardness)+ -4.705 ))/1000"
+"482","Aquatic Life","Aquatic Chronic","Colorado","Lead",0.005305248512,"Dissolved","1.46203 -ln(hardness)* 0.145712","(CF*e( 1.273 *ln(hardness)+ -4.705 ))/1000"
+"483","Aquatic Life","Aquatic Chronic","EPA","Lead",0.008128200782,"Dissolved","1.46203 -ln(hardness)* 0.145712","(CF*e( 1.273 *ln(hardness)+ -4.705 ))/1000"
+"484","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Lead",0.008128200782,"Dissolved","1.46203 -ln(hardness)* 0.145712","(CF*e( 1.273 *ln(hardness)+ -4.705 ))/1000"
+"485","Aquatic Life","Aquatic Chronic","Navajo Nation","Lead",0.008128200782,"Dissolved","1.46203 -ln(hardness)* 0.145712","(CF*e( 1.273 *ln(hardness)+ -4.705 ))/1000"
+"486","Aquatic Life","Aquatic Chronic","New Mexico","Manganese",2.378511004,"Dissolved","1","(CF*e( 0.3331 *ln(hardness)+ 5.8743 ))/1000"
+"487","Aquatic Life","Aquatic Chronic","Colorado","Manganese",2.078017337,"Dissolved","1","(CF*e( 0.3331 *ln(hardness)+ 5.8743 ))/1000"
+"488","Aquatic Life","Aquatic Chronic","Utah","Nickel",0.1317354131,"Dissolved","0.997","(CF*e( 0.846 *ln(hardness)+ 0.0584 ))/1000"
+"489","Aquatic Life","Aquatic Chronic","New Mexico","Nickel",0.1317354131,"Dissolved","0.997","(CF*e( 0.846 *ln(hardness)+ 0.0584 ))/1000"
+"490","Aquatic Life","Aquatic Chronic","Colorado","Nickel",0.09348270932,"Dissolved","1","(CF*e( 0.846 *ln(hardness)+ 0.0554 ))/1000"
+"491","Aquatic Life","Aquatic Chronic","EPA","Nickel",0.1317354131,"Dissolved","0.997","(CF*e( 0.846 *ln(hardness)+ 0.0584 ))/1000"
+"492","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Nickel",0.1317354131,"Dissolved","4.883799974","(CF*e( 0.846 *ln(hardness)+ 0.0584 ))/1000"
+"493","Aquatic Life","Aquatic Chronic","Navajo Nation","Nickel",0.1317354131,"Dissolved","0.997","(CF*e( 0.846 *ln(hardness)+ 0.0584 ))/1000"
+"494","Aquatic Life","Aquatic Chronic","Colorado","Silver",0.001054541284,"Dissolved","1","(CF*e( 1.72 *ln(hardness)+ -9.06 ))/1000"
+"495","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Silver",0.001800360508,"Dissolved","0.7505058564","(CF*e( 1.72 *ln(hardness)+ -9.06 ))/1000"
+"496","Aquatic Life","Aquatic Chronic","Utah","Zinc",0.2125474761,"Dissolved","0.986","(CF*e( 0.8473 *ln(hardness)+ 0.884 ))/1000"
+"497","Aquatic Life","Aquatic Chronic","New Mexico","Zinc",0.329119484,"Dissolved","0.986","(CF*e( 0.9094 *ln(hardness)+ 0.6235 ))/1000"
+"498","Aquatic Life","Aquatic Chronic","Colorado","Zinc",0.2276230312,"Dissolved","0.986","(CF*e( 0.9094 *ln(hardness)+ 0.6235 ))/1000"
+"499","Aquatic Life","Aquatic Chronic","EPA","Zinc",0.2996802181,"Dissolved","0.986","(CF*e( 0.8473 *ln(hardness)+ 0.884 ))/1000"
+"500","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Zinc",0.2996802181,"Dissolved","5.716814891","(CF*e( 0.8473 *ln(hardness)+ 0.884 ))/1000"
+"501","Aquatic Life","Aquatic Chronic","Navajo Nation","Zinc",0.2996802181,"Dissolved","0.986","(CF*e( 0.8473 *ln(hardness)+ 0.884 ))/1000"
+"502","Aquatic Life","Aquatic Chronic","New Mexico","Aluminum",6.169851812,"Total","1","(CF*e( 1.3695 *ln(hardness)+ 0.9161 ))/1000"
+"503","Aquatic Life","Aquatic Chronic","Colorado","Aluminum",1.261738276,"Total","1","(CF*e( 1.3695 *ln(hardness)+ -0.1158 ))/1000"
+"504","Aquatic Life","Trout Acute","Colorado","Cadmium",0.003114473444,"Dissolved","1.136672 -ln(hardness)* 0.041838","(CF*e( 0.9151 *ln(hardness)+ -3.6236 ))/1000"

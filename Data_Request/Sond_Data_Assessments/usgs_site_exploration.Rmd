@@ -1,0 +1,52 @@
+#Explore which USGS hfdo sites are also having data on the IR/WQP
+```{r}
+library(lubridate)
+hfdo_assessed=as.data.frame(readxl::read_excel("/Users/alanochoa/Documents/GitHub/IR-2024/external_assessments/hfdo/hfdo_assessed_review.xlsx", 'HFDO_asmnts'))
+usgs_hf_sites=hfdo_assessed%>%
+  filter(grepl("USGS",IR_MLID))
+usgs_sites_list=unique(usgs_hf_sites$IR_MLID)
+
+#From 2024 IR
+usgs_acc_dat=prepped_data$acc_data[prepped_data$acc_data$IR_MLID%in%usgs_sites_list,]
+table(usgs_acc_dat$CharacteristicName,usgs_acc_dat$IR_MLID)
+
+usgs_rej_dat=prepped_data$rej_data_reasons[prepped_data$rej_data_reasons$IR_MLID%in%usgs_sites_list,]
+ table(usgs_rej_dat$CharacteristicName,usgs_rej_dat$IR_MLID) 
+ table(usgs_rej_dat$reason)
+table(usgs_rej_dat$ActivityTypeCode)
+table(usgs_rej_dat$LaboratoryName)
+
+length(unique(usgs_rej_dat$ResultIdentifier))
+nrow(usgs_rej_dat)
+usgs_rej_conv=usgs_rej_dat[usgs_rej_dat$CharacteristicName%in%c("pH","Temperature, water"),]%>%
+  select(where(~ !all(is.na(.))))
+table(usgs_rej_conv$reason)
+table(usgs_rej_conv$ActivityTypeCode)
+table(usgs_rej_conv$LaboratoryName)
+
+# How many unique samples 
+usgs_rej_conv1=usgs_rej_conv%>%
+  select(ResultIdentifier,reason,ActivityTypeCode,LaboratoryName,CharacteristicName,MonitoringLocationIdentifier,ActivityStartDate)%>%
+  distinct()%>%
+  mutate(Year=year(ymd(ActivityStartDate)),
+         Month=month(ymd(ActivityStartDate)))
+
+table(usgs_rej_conv1$Year,usgs_rej_conv1$MonitoringLocationIdentifier) 
+table(usgs_rej_conv1$Year,usgs_rej_conv1$CharacteristicName) 
+
+for (site in unique(usgs_rej_conv1$MonitoringLocationIdentifier)){
+  print(site)
+  print(table(usgs_rej_conv1[usgs_rej_conv1$MonitoringLocationIdentifier==site,]$Year,usgs_rej_conv1[usgs_rej_conv1$MonitoringLocationIdentifier==site,]$CharacteristicName) )
+  print(table(usgs_rej_conv1[usgs_rej_conv1$MonitoringLocationIdentifier==site,]$ActivityStartDate,usgs_rej_conv1[usgs_rej_conv1$MonitoringLocationIdentifier==site,]$CharacteristicName) )
+}
+
+
+USGS_09379500=usgs_rej_conv[usgs_rej_conv$IR_MLID=="USGS-09379500",]
+
+table(USGS_09379500$ActivityStartDate,USGS_09379500$CharacteristicName)
+
+usgs_update_table_data=update_table_data[update_table_data$MonitoringLocationIdentifier%in%usgs_sites_list,]
+
+
+
+```
