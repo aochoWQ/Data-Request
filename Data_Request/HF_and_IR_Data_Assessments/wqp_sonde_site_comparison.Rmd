@@ -1,0 +1,454 @@
+---
+title: "WQP and BigQuery Comparison"
+author: "Alan Ochoa"
+date: "6/6/2024"
+output:
+  pdf_document: default
+  html_document: default
+---
+# Comparing Integrated Report Assessed Data with BigQuery High Frequency Data
+We are currently collecting a high frequency data all over the state. However, we have not been using most of this data for assessments (except for the HF Buoy data? DOUBLE CHECK). We do not have methods to assess HF Temperature or pH data but we do have methods for HF DO. Are we assessing all HF DO data? If HF DO data is availble do we prioritize assessing that data and discard discrete samples?
+
+### Load Libraries and set up keys to access BiqQuery
+```{r}
+
+library(tidyverse)
+library(wqTools)
+
+library(bigrquery)
+bq_auth(path = "/Users/alanochoa/Documents/GitHub/Data_Request/HF_and_IR_Data_Assessments/alan_local_keys.json")
+project_id <- 'ut-deq-highfreq-dev'
+
+```
+
+
+# Access the BigQuery Site List. Then compare the Assessed Sites from the WQP to the HF Sites
+```{r}
+# Using bq_table_download to download data directly from a table
+dataset_id <- "High_Frequency_Flat_Views"
+location_id <-"Flatview_Location_Sampling_Event"
+site_table <- bq_table(project_id, dataset_id, location_id)
+site_table <- bq_table_download(site_table)
+#THis method is not notifying me of billed data..
+
+#External Site data
+# Permission issues using this as well. May have to give permission to service account
+# sql <- "SELECT * FROM `ut-deq-highfreq-dev.High_Frequency_External_Sheets.BQ_DataUpload_GS`"
+# query_job <- bq_project_query(project_id, sql)
+# external_site_table <- bq_table_download(query_job)
+
+
+# Alternatively, using bq_project_query for custom SQL queries
+sql <- "SELECT * FROM `ut-deq-highfreq-dev.High_Frequency_Flat_Views.Flatview_Location_Sampling_Event`"
+query_job <- bq_project_query(project_id, sql)
+sample_event_data <- bq_table_download(query_job)
+
+
+```
+# Query job above shows billed data..  other method did not show this, does billing differ or is that notification not built in?
+Complete
+Billed: 10.49 MB
+
+## Clean and summarize site data from Sampling Events and filter for either HUCS with masterSiteList huc12s 
+## AND lets visualize these if that method is sufficient to catch all nearby sites 
+## OR if using a distance of half mile would make most sense..
+ import MasterSiteTable
+```{r}
+library(wqTools)
+sample_event_data <- sample_event_data%>%
+  separate(col = LatLong, into = c("LatitudeMeasure", "LongitudeMeasure"), sep = ",", remove = TRUE, convert = TRUE)
+
+sample_event_data = assignAUs(sample_event_data)
+
+
+library(readxl)
+masterSiteTable2024 <- read_excel("/Users/alanochoa/Documents/GitHub/IR-2024/ir_translation_workbook_working_2024.xlsx", 
+    sheet = "masterSiteTable")
+masterSiteTable2024 <- masterSiteTable2024%>%filter(IR_FLAG=="ACCEPT",!is.na(HUCEightDigitCode))
+masterSiteTable2024 <- assignPolys(masterSiteTable2024,huc12_poly)
+
+ir_site_AU_ID= unique(masterSiteTable2024$ASSESS_ID)   
+
+# Filter bq sites only overlapping within
+bq_sites <- sample_event_data%>%
+  select(HF_Location_ID,Logger_Location_Description,LatitudeMeasure,LongitudeMeasure,MLID,USGS_HUC12,ASSESS_ID)%>%
+  distinct()%>%
+  mutate(HUC_10 = substr(USGS_HUC12, 1, 10),
+         assess_color = ifelse(ASSESS_ID%in%ir_site_AU_ID,"#00bfff","#ee2c2c"),
+         Assessed_AU = ifelse(ASSESS_ID%in%ir_site_AU_ID,"Yes","No"))
+  
+
+# How many sites have data for target parameters?
+target_sites_query <- 'SELECT Measurement_Description,HF_Location_ID, count(*) as Count_P FROM `ut-deq-highfreq-dev.High_Frequency_Flat_Views.looker_flatview_all_data` 
+WHERE Measurement_Description IN ("Water Temperature", "pH", "Dissolved Oxygen")
+GROUP BY Measurement_Description,HF_Location_ID'
+
+t_site_query_job <- bq_project_query(project_id, target_sites_query)
+
+# Download the count result
+site_result <- bq_table_download(t_site_query_job) # This table shows the sites that have target parameters of DO, Temp, pH
+
+
+# Original bq_sites has 348 rows after filtering for only sites within site_result that drops down to 276 rows.
+bq_sites = bq_sites[bq_sites$HF_Location_ID%in%site_result$HF_Location_ID,]
+
+```
+
+# Too many points on the map that may not be relevant. Filter accepted IR data for target params then minimize filtered_masterSites for sites in IR data.
+#LOAD Preliminary Assessment Data 2024
+# Create Map
+```{r}
+load("/Users/alanochoa/Documents/GitHub/IR-2024/prelim_asmnts_data.Rdata")
+
+targ_params =c("Max. Temperature","pH","Minimum Dissolved Oxygen")
+acc_targ_params_criteria=acc_data_criteria[acc_data_criteria$R3172ParameterName%in%targ_params,]
+
+```
+
+
+# Exploring map of sites BigQuery Assessed and Non Assessed AUs
+```{r}
+library(leaflet)
+map=baseMap()
+bq_sites
+assess_bq_sites = bq_sites[bq_sites$Assessed_AU=="Yes",]
+n_assess_bq_sites = bq_sites[bq_sites$Assessed_AU=="No",]
+
+map1 <- map %>%
+  addCircleMarkers(
+    data = assess_bq_sites,
+    lat = ~LatitudeMeasure,
+    lng = ~LongitudeMeasure,
+    fillColor = "blue",
+    color = "blue",
+    radius = 5,
+    fillOpacity = 0.8,
+    options = pathOptions(pane = "markers")
+  )
+map1 <- map1 %>%
+  addCircleMarkers(
+    data = n_assess_bq_sites,
+    lat = ~LatitudeMeasure,
+    lng = ~LongitudeMeasure,
+    fillColor = "red",
+    color = "red",
+    radius = 5,
+    fillOpacity = 0.8,
+    options = pathOptions(pane = "markers")
+  )
+
+# Add masterSiteTable2024 circle markers with clustering
+map1 <- map1 %>%
+  addCircleMarkers(
+    data = masterSiteTable2024,
+    lat = ~LatitudeMeasure,
+    lng = ~LongitudeMeasure,
+    fillColor = "yellow",
+    color = "orange",
+    radius = 5,
+    fillOpacity = 0.8,
+    clusterOptions = markerClusterOptions(
+      showCoverageOnHover = TRUE,
+      zoomToBoundsOnClick = TRUE,
+      spiderfyOnMaxZoom = TRUE,
+      removeOutsideVisibleBounds = TRUE,
+      animateAddingMarkers = TRUE,
+      chunkedLoading = TRUE
+    ),
+    options = pathOptions(pane = "markers")
+  )
+# Print the map
+print(map1)
+
+```
+
+# Explore IR Data, does the Sample time distirbutions. Do they mostly occur at a specific time? May need to filter for parameters of interest first. 
+```{r}
+library(dplyr)
+library(lubridate)
+sum(is.na(acc_targ_params_criteria$ActivityStartTime.Time))
+
+str(sample_time_dist)
+
+sample_time_dist=acc_targ_params_criteria%>%
+  filter(!is.na(ActivityStartTime.Time))%>%
+  mutate(ActivityStartTime.Time = as.POSIXct(ActivityStartTime.Time),
+         MinuteRounded = floor(minute(ActivityStartTime.Time) / 15) * 15, # There were far too many lines, round
+         HourMinuteRaw = format(ActivityStartTime.Time, "%H:%M"),
+         HourMinute = format(update(ActivityStartTime.Time, minutes = MinuteRounded), "%H:%M")) %>%
+  select(R3172ParameterName, HourMinute,HourMinuteRaw, ResultIdentifier) %>%
+  distinct()
+
+sample_time_dist_raw = sample_time_dist%>%
+  group_by(R3172ParameterName, HourMinuteRaw) %>%
+  summarise(timeCounts = n(), .groups = 'drop')
+  
+sample_time_dist = sample_time_dist%>%
+  group_by(R3172ParameterName, HourMinute) %>%
+  summarise(timeCounts = n(), .groups = 'drop')
+
+  
+library(ggplot2)
+
+#Bar Chart by parameters..
+p = ggplot(sample_time_dist, aes(x = HourMinute, y = timeCounts)) +
+  geom_bar(stat = "identity", position = position_dodge(), width = 0.7) +
+  labs(title = "Distribution of Sample Times",
+       x = "Time of Day (Hour:Minute)",
+       y = "Count of Samples") +
+  theme_minimal() +
+  scale_x_discrete(breaks = function(x) x[c(TRUE, FALSE,FALSE,FALSE)]) + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  facet_wrap(~R3172ParameterName, scales = "free_y",ncol = 1)
+p
+
+
+
+#We might need to convert to minutes to get statistical summaries..
+sample_time_dist <- sample_time_dist %>%
+  mutate(
+    # Convert "HH:MM" to the total minutes past midnight
+    MinutesPastMidnight = hour(hm(HourMinute)) * 60 + minute(hm(HourMinute))
+  )
+
+
+# Calculate summary statistics and convert time back to HH:MM format
+time_summary_stats <- sample_time_dist %>%
+  group_by(R3172ParameterName) %>%
+  summarise(
+    Count = n(),
+    Mean = mean(MinutesPastMidnight, na.rm = TRUE),
+    Median = median(MinutesPastMidnight, na.rm = TRUE),
+    IQR = IQR(MinutesPastMidnight, na.rm = TRUE),
+    SD = sd(MinutesPastMidnight, na.rm = TRUE),
+    Min = min(MinutesPastMidnight, na.rm = TRUE),
+    Max = max(MinutesPastMidnight, na.rm = TRUE)
+  ) %>%
+  mutate(
+    MeanTime = sprintf("%02d:%02d", as.integer(Mean %/% 60), as.integer(Mean %% 60)),
+    MedianTime = sprintf("%02d:%02d", as.integer(Median %/% 60), as.integer(Median %% 60)),
+    MinTime = sprintf("%02d:%02d", as.integer(Min %/% 60), as.integer(Min %% 60)),
+    MaxTime = sprintf("%02d:%02d", as.integer(Max %/% 60), as.integer(Max %% 60))
+  )
+
+
+#Could we use this distribution to do a series of "faux" assessments based off of the distribution of when samples are taken and a probabilistic sampling of HF data? 
+```
+
+# Develop method/function for keepoing only the WQP sites within a specific distance from HF sites. What distance do we want this to be?
+```{r}
+library(sf)
+library(dplyr)
+library(tidyr)
+
+
+# Define max_dis 
+max_dis = 750  # Distance in meters
+
+# Start timing
+# start_time <- Sys.time()
+
+# Convert data frames to sf objects
+filtered_masterSites_sf <- st_as_sf(masterSiteTable2024, coords = c("LongitudeMeasure", "LatitudeMeasure"), crs = 4326)
+bq_sites_sf <- st_as_sf(bq_sites, coords = c("LongitudeMeasure", "LatitudeMeasure"), crs = 4326)
+
+# Buffer bq_sites by max_dis meters and find intersections
+bq_sites_buffered <- st_buffer(bq_sites_sf, dist = max_dis)
+
+# Find intersections between the buffered sites and the master sites
+intersections <- st_intersects(bq_sites_buffered, filtered_masterSites_sf, sparse = FALSE)
+
+# Initialize result list to collect results
+results_list <- vector("list", length = nrow(filtered_masterSites_sf))
+
+# Iterate through intersections and collect results
+for (i in 1:nrow(intersections)) {
+  close_sites <- which(intersections[i, ])
+  if (length(close_sites) > 0) {
+    HF_Site <- bq_sites$HF_Location_ID[i]
+    MonitoringLocationIdentifier <- paste(masterSiteTable2024$MonitoringLocationIdentifier[close_sites], collapse = ", ")
+    print(HF_Site)
+    print(close_sites)
+    print(MonitoringLocationIdentifier)
+    results_list[[i]] <- data.frame(HF_Site = HF_Site, MonitoringLocationIdentifier = MonitoringLocationIdentifier, stringsAsFactors = FALSE)
+  }
+}
+# Combine list into a data frame, remove any NULL entries first
+results_list <- results_list[!sapply(results_list, is.null)]
+near_site_t <- do.call(rbind, results_list)
+
+near_site_t2=near_site_t%>%
+  separate_rows(MonitoringLocationIdentifier,sep=",")%>%
+  distinct()%>%
+  mutate(MonitoringLocationIdentifier=trimws(MonitoringLocationIdentifier,which = c("both")))
+
+#Add AU to translation
+site_au=masterSiteTable2024[,c("MonitoringLocationIdentifier","ASSESS_ID")]%>%
+  distinct()%>%
+  mutate(MonitoringLocationIdentifier=trimws(MonitoringLocationIdentifier,which = c("both")))
+
+bq_wqp_near_sites = merge(near_site_t2,site_au,all.x = T,all.y = F)
+
+# There are 149 HF sites that have Assessed Sites (298) within 750 meters
+
+# Redo map to exclude MLIDs
+length(unique(near_site_t2$MonitoringLocationIdentifier))
+
+
+map2 <- map %>%
+  addCircleMarkers(
+    data = assess_bq_sites,lat = ~LatitudeMeasure, lng = ~LongitudeMeasure, fillColor = "blue",
+    color = "blue", radius = 5,fillOpacity = 0.8,options = pathOptions(pane = "markers")
+  )
+map2 <- map2 %>%
+  addCircleMarkers(
+    data = n_assess_bq_sites,lat = ~LatitudeMeasure, lng = ~LongitudeMeasure, fillColor = "red",
+    color = "red", radius = 5,fillOpacity = 0.8,options = pathOptions(pane = "markers")
+  )
+
+trimmed_masterSite <-masterSiteTable2024[masterSiteTable2024$MonitoringLocationIdentifier%in%near_site_t2$MonitoringLocationIdentifier,]
+# Add masterSiteTable2024 circle markers with clustering
+map2 <- map2 %>%
+  addCircleMarkers( data = trimmed_masterSite, lat = ~LatitudeMeasure,lng = ~LongitudeMeasure,
+    fillColor = "yellow", color = "orange", radius = 5,  fillOpacity = 0.8,
+    # clusterOptions = markerClusterOptions(
+    #   showCoverageOnHover = TRUE,
+    #   zoomToBoundsOnClick = TRUE,
+    #   spiderfyOnMaxZoom = TRUE,
+    #   removeOutsideVisibleBounds = TRUE,
+    #   animateAddingMarkers = TRUE,
+    #   chunkedLoading = TRUE
+    # ),
+    options = pathOptions(pane = "markers")
+  )
+
+# Print the map
+print(map2)
+
+
+#Trim Accepted Data - Includes only data from target Params
+trimmed_acc_data = acc_targ_params_criteria[acc_targ_params_criteria$MonitoringLocationIdentifier%in%trimmed_masterSite$MonitoringLocationIdentifier,]
+
+trimmed_acc_data <- trimmed_acc_data %>%
+  mutate(ActivityDateTime = paste(ActivityStartDate, ActivityStartTime.Time),
+         ActivityDateTime = as.POSIXct(ActivityDateTime, format="%Y-%m-%d %H:%M:%S"),
+         Year = format(as.Date(ActivityStartDate),"%Y"))
+
+#****** Total of 148k rows for in this data. How slow or cumbersome might this app be? May need to remove criteria to trim down dataset. I could just keep the BU_Class and have option to assess site for all Uses as the sites are selected... test without first.
+
+# Calculate the size of the data frame in bytes
+df_size <- object.size(trimmed_acc_data)
+# Print the size in a human-readable format
+print(format(df_size, units = "auto"))
+
+dt_trimmed_acc_data = as.data.table(trimmed_acc_data)
+
+str(dt_trimmed_acc_data$ActivityDateTime)
+
+ param_translation <- data.frame(
+  Measurement_Description = c("Water Temperature", "pH", "Dissolved Oxygen"),
+  R3172ParameterName = c("Max. Temperature", "pH", "Minimum Dissolved Oxygen")
+)
+
+```
+
+# Query all data from BQ where sites in near_site_t2$HF_ID
+```{r}
+
+target_hf_id = unique(near_site_t2$HF_Site)
+hf_id_string <- paste(target_hf_id, collapse = ", ")
+count_sql <- sprintf("SELECT COUNT(*) as row_count FROM `ut-deq-highfreq-dev.High_Frequency_Flat_Views.looker_flatview_all_data` 
+                      WHERE HF_Location_ID IN (%s)", hf_id_string)
+count_query_job <- bq_project_query(project_id, count_sql)
+
+# Download the count result
+count_result <- bq_table_download(count_query_job)
+
+# Print the count result
+print(count_result)
+
+```
+
+
+# Save data for App
+# Adding Polygon Labels
+```{r}
+bq_sites = bq_sites%>%
+  mutate(Label = paste0("HF_Location_ID: ",HF_Location_ID,
+'<br />',"Location Description: ",Logger_Location_Description))
+
+  # '<div style="max-width: 550px; overflow-wrap: break-word; background: white; padding: 2px; border: 1px grey;">',
+  # "<strong>AU name: </strong>", AU_NAME,
+  # '<br />', "<strong>AU ID:</strong> ", ASSESS_ID,
+  # '<br />',"<strong>Approved TMDL: </strong>",Cat_4A,
+  # '<br />',"<strong>Impairments: </strong>",Cat_5,
+  # '</div>')
+
+
+save(param_translation,dt_trimmed_acc_data,trimmed_masterSite,bq_sites,bq_wqp_near_sites,file = "BQ_WQP_Site_Explorer/wqp_hf_app.RData")
+
+
+```
+
+
+# Narrowing down assessed data and BQ Data of interest
+# Can we use HF_ID_Weeknumber_Yr IDs?
+```{r}
+library(dplyr)
+library(lubridate)
+
+# Generate week number and year for each date
+trimmed_acc_data <- trimmed_acc_data %>%
+  mutate(WeekNumber = week(ActivityStartDate),
+         Year = year(ActivityStartDate))
+
+# Generate week number and year combinations for one week before and after
+week_combinations <- trimmed_acc_data %>%
+  rowwise() %>%
+  mutate(WeekBefore = WeekNumber - 1,
+         WeekAfter = WeekNumber + 1) %>%
+  ungroup() %>%
+  select(MonitoringLocationIdentifier, WeekNumber, Year, WeekBefore, WeekAfter) %>%
+  pivot_longer(cols = c(WeekNumber, WeekBefore, WeekAfter), names_to = "Type", values_to = "Week")
+
+# Remove duplicates and combine week and year
+week_combinations <- week_combinations %>%
+  distinct(MonitoringLocationIdentifier, Week, Year) %>%
+  mutate(WeekYearCombo = paste(Week, Year, sep = "_"))
+
+# Print the resulting combinations
+print(week_combinations)
+
+# Merge near_site_t2 with week_combinations ??
+hf_week_ids <- merge(near_site_t2,week_combinations)
+
+zz= unique(hf_week_ids$WeekYearCombo)
+
+library(data.table)
+dt_acc_param = as.data.table(acc_targ_params_criteria)
+# Calculate the size of the data frame in bytes
+df_size <- object.size(dt_acc_param)
+# Print the size in a human-readable format
+print(format(df_size, units = "auto"))
+```
+
+
+# Potential Areas of Interest
+ There will be quite a bit of data. It may be helpful to create summary data to help narrow data of interest.
+ pg 26 of Statistical Methods in Water Resources Describes that sometimes medians and IQR can be more useful for water parameters since they are not typically normally distributed.
+```{r}
+Test:
+  HM_Site_Grouping: Half Mile Site Grouping. HF Sites and WQP Sites within .5 mile radius.
+  IQR Difference: How often does the WQP data fall outside the IQR of HF sites? What about above and below Median?
+    
+On charts can we toggle on and off: Mean, Median, mean(x,trim=.25),IQR, sample variance, standard deviation? IQR(x, type = 6) quant <- as.numeric(quantile(x, type = 6)),  iqR <- quant[4] - quant[2]
+
+```
+
+
+
+# Remove seconds portion of the ActivityStartTime
+# For BQ sites should we keep times that are within a 1 hour window of time WQP time?
+```{r}
+
+```

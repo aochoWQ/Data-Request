@@ -1,0 +1,12 @@
+name: BQ_WQP_Site_Explorer
+title: BQ_WQP_Site_Explorer
+username: udwq
+account: udwq
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12182924
+bundleId: 8743055
+url: https://udwq.shinyapps.io/BQ_WQP_Site_Explorer/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
