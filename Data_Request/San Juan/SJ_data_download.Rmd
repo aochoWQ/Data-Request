@@ -15,7 +15,7 @@ sj_sites = sj_sites%>%
   select(where(~ !all(is.na(.))))
 #There are 88 unique sites in the project=Animas_SanJuan_Watershed
 write.csv(sj_sites,"sj_sites_2010-2023.csv")# using this file to compare against site list from site list:https://docs.google.com/spreadsheets/d/10swoywTnpwNAMfF2ZBLGOMdji8pJoZHU9ffZvN-6cuo/edit#gid=0
-
+ sj_sites = read.csv("sj_sites_2010-2023.csv")
 
 ```
 
@@ -80,7 +80,9 @@ sj_detquant1=sj_detquant1%>%
   mutate(dql_unit=tolower(dql_unit))
 
 table(sj_detquant1$DetectionQuantitationLimitTypeName)
+table(sj_detquant1$dql_unit)
 
+combined_all_criteria2 <- read.csv("SJ_combined_criteria.csv")
 #Present Below Quanitifcation Limit is only for characteristicName =="RBP2, Substrate, inorganic, gravel, 2-64 mm"
 #Present Above Quantification Limit only for CharacteristicName=="Turbidity"
 table(results_Animas_SJ1[results_Animas_SJ1$CharacteristicName%in%combined_all_criteria2$Parameter,]$ResultDetectionConditionText)
@@ -97,20 +99,35 @@ sj_detquant1=merge(sj_detquant1,unit_trans_dql,all.x=T)%>%
          dql_unit=CriterionUnit)%>%
   select(-CriterionUnit,-UnitConversion)
 
+table(results_Animas_SJ1$`ResultMeasure/MeasureUnitCode`)
+
+#****** I added the UnitFlag in the sj_detquant1 portion. There are some rows that have no detquant values. 1) Does it matter that they don't have those values? 2) Would be better to add those values to the overall results.
+
+results_Animas_SJ1$`ResultMeasure/MeasureUnitCode`=tolower(results_Animas_SJ1$`ResultMeasure/MeasureUnitCode`) # minimize number of unit translations/combos
+table(results_Animas_SJ1$`ResultMeasure/MeasureUnitCode`)
+
+
 results_Animas_SJ2=merge(results_Animas_SJ1,sj_detquant1,all.x = T) #This is all sites in the basin.. May be interesting to map this vs the results_SJ_only to see if there are other sites that are important or make large impacts.
 
 miss_site=results_Animas_SJ2[results_Animas_SJ2$MonitoringLocationIdentifier=="21NMEX_WQX-67SanJua099.5",]
 table(miss_site$SJ_PROJECT_SITE)# IS THIS SITE REALLY NOT IN THE LIST OF SITES? It is not listed as one of the 38 sites.. Can we include all these sites and default filter them out on the Shiny App and only add them if user checks box?
 
-params_interest=c(unique(combined_all_criteria2$Parameter),"Total hardness")
+params_interest=c(unique(combined_all_criteria2$Parameter),"Total hardness") #For calculated criteria
+
+
 
 results_SJ_metals_only=results_Animas_SJ2[results_Animas_SJ2$CharacteristicName%in%params_interest,]%>%
   select(where(~ !all(is.na(.))))%>%
-  mutate(`ResultMeasure/MeasureUnitCode`=ifelse(`ResultMeasure/MeasureUnitCode`=="",dql_unit,`ResultMeasure/MeasureUnitCode`)) #This is to deal with some of the cases where "Present Below Quantification Limit" occurs and the ResultMeasure Unit is an empty string.
+  mutate(`ResultMeasure/MeasureUnitCode`=ifelse(`ResultMeasure/MeasureUnitCode`=="",dql_unit,`ResultMeasure/MeasureUnitCode`),) #This is to deal with some of the cases where "Present Below Quantification Limit" occurs and the ResultMeasure Unit is an empty string.
 
+results_SJ_metals_only <- results_SJ_metals_only%>%
+  mutate(UnitFlag = ifelse((is.na(UnitFlag)&`ResultMeasure/MeasureUnitCode`%in%c("mg/l" , "ng/l"  ,"ug/l" )),"Accept",UnitFlag))
 
-results_SJ_metals_only$`ResultMeasure/MeasureUnitCode`=tolower(results_SJ_metals_only$`ResultMeasure/MeasureUnitCode`) # minimize number of unit translations/combos
-table(results_SJ_metals_only$CharacteristicName,results_SJ_metals_only$`ResultMeasure/MeasureUnitCode`)
+missing_unit_flag <-  results_SJ_metals_only[is.na(results_SJ_metals_only$UnitFlag),]
+
+table(missing_unit_flag$CharacteristicName)
+table(missing_unit_flag$`ResultMeasure/MeasureUnitCode`)
+
 table(results_SJ_metals_only$CharacteristicName,results_SJ_metals_only$ResultDetectionConditionText)
 table(results_SJ_metals_only$`ResultMeasure/MeasureUnitCode`)
 
@@ -119,7 +136,7 @@ table(results_SJ_metals_only$`ResultMeasure/MeasureUnitCode`)
 ```{r}
 ##Investigated counts of non detect values
 table(results_SJ_metals_only$ResultDetectionConditionText)
-detection_counts=results_SJ_metals_only%>%filter(CharacteristicName%in%combined_all_criteria$Parameter)%>%
+detection_counts=results_SJ_metals_only%>%filter(CharacteristicName%in%combined_all_criteria2$Parameter)%>%
   group_by(CharacteristicName)%>%
   mutate(total=n(),
          nondetect=sum(ResultDetectionConditionText=="Not Detected"),
@@ -140,17 +157,26 @@ missing_units <- unique(results_SJ_metals_only[!results_SJ_metals_only$`ResultMe
 
 results_SJ_metals_only1=results_SJ_metals_only%>%
   rename(ResultMeasure_MeasureUnitCode=`ResultMeasure/MeasureUnitCode`)%>%
-  merge(.,unit_trans)%>%
+  merge(.,unit_trans,all.x=T)%>%
   mutate(SJ_ResultValue=as.numeric(ResultMeasureValue)*UnitConversion,
          SJ_Unit=CriterionUnit)%>%
   select(-`AnalysisStartTime/TimeZoneCode`,-BiologicalIntentName,-SubjectTaxonomicName,-SampleTissueAnatomyName,-ResultTimeBasisText,-ResultWeightBasisText,-StatisticalBaseCode,-DataLoggerLine,-`ActivityStartTime/TimeZoneCode`,-OrganizationIdentifier,-ProviderName,-ResultStatusIdentifier,-`ResultAnalyticalMethod/MethodQualifierTypeName`,-SourceMapScaleNumeric,-MonitoringLocationTypeName,-HUCEightDigitCode,-HorizontalCollectionMethodName,-HorizontalCoordinateReferenceSystemDatumName,-`VerticalMeasure/MeasureValue`,-CountryCode,-CountyCode,-StateCode)
+
 ```
 
 #Temporarily adding .5 MDL to Not Detected Samples and flag to add if wanted.
+# And missing Total Hardness. results_SJ_metals_only1 has 346 hardness vals vs. 1303 hardness vales from results_SJ_metals_only
 ```{r}
 results_SJ_metals_only1=results_SJ_metals_only1%>%
   mutate(SJ_ND=ifelse(is.na(SJ_ResultValue),"Yes",NA),
          SJ_ResultValue=ifelse(is.na(SJ_ResultValue),`DetectionQuantitationLimitMeasure/MeasureValue`*.5,SJ_ResultValue))
+
+
+#Column UnitFlag is NA. So need to check when UnitFlag is assigned and why not assigned to Total Hardness values and possibly others..
+# Missing hardness samples
+missing_hardness=results_SJ_metals_only[results_SJ_metals_only$CharacteristicName=="Total hardness",]
+missing_hard1 <- missing_hardness%>%
+  filter(!ResultIdentifier%in%results_SJ_metals_only1$ResultIdentifier)
 
 ```
 
@@ -208,71 +234,75 @@ sj_sites_jurisdictions=sj_sites_jurisdictions%>%
 
 #Merge Jurisdiction and further trim column # QWH
 results_SJ_metals_only2=merge(results_SJ_metals_only1,sj_sites_jurisdictions)%>%
-  select(-ActivityIdentifier,-OrganizationFormalName,-ResultDetectionConditionText,-MethodSpecificationName,-MeasureQualifierCode,ResultValueTypeName,-ResultCommentText,-`ResultAnalyticalMethod/MethodIdentifier`,-`ResultAnalyticalMethod/MethodIdentifierContext`,-`ResultAnalyticalMethod/MethodName`,-MethodDescriptionText,-ResultDetectionQuantitationLimitUrl,-LaboratoryName,-AnalysisStartDate,-BiologicalIndividualIdentifier)%>%
+  select(-OrganizationFormalName,-ResultDetectionConditionText,-MethodSpecificationName,-MeasureQualifierCode,ResultValueTypeName,-ResultCommentText,-`ResultAnalyticalMethod/MethodIdentifier`,-`ResultAnalyticalMethod/MethodIdentifierContext`,-`ResultAnalyticalMethod/MethodName`,-MethodDescriptionText,-ResultDetectionQuantitationLimitUrl,-LaboratoryName,-AnalysisStartDate,-BiologicalIndividualIdentifier)%>%
   mutate(SJ_ND=ifelse(is.na(SJ_ND),"No","Yes")) 
 
 #%>% # ADD A COLUMN FOR PRIMARY JURIS?,Prime_Jurisdiction=ifelse(Jurisdiction)
 #  filter(Jurisdictions!="NA")
 
-print(length(unique(results_SJ_metals_only2$ResultIdentifier)))
+# print(length(unique(results_SJ_metals_only2$ResultIdentifier)))
+# 
+# p_names=unique(results_SJ_metals_only2$CharacteristicName)
+# print(p_names[1:4])
+# ##****** PLOTS
+# sum_params = results_SJ_metals_only2%>%
+#   filter(ResultSampleFractionText=="Total",SJ_ND=="No",
+#          CharacteristicName%in%c("Aluminum","Antimony","Arsenic","Barium"))%>%
+#   select(CharacteristicName,SJ_ResultValue,ActivityStartDate)%>%
+#   distinct()
+# 
+# plot <- ggplot(sum_params, aes(x = ActivityStartDate, y = SJ_ResultValue)) +
+#   geom_point(size = 3, alpha = 0.6) +  # Adjust point size and transparency
+#   labs(title = "Time Series of All Parameters",
+#        x = "Sample Dates",
+#        y = "mg/L") +
+#   facet_wrap(~CharacteristicName, scales = "free_y",ncol = 1) +  # Facet by 'CharacteristicName'
+#   theme_minimal() +  # Use a minimal theme
+#   theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
+# 
+# # Print the plot
+# print(plot)
 
-p_names=unique(results_SJ_metals_only2$CharacteristicName)
-print(p_names[1:4])
-##****** PLOTS
-sum_params = results_SJ_metals_only2%>%
-  filter(ResultSampleFractionText=="Total",SJ_ND=="No",
-         CharacteristicName%in%c("Aluminum","Antimony","Arsenic","Barium"))%>%
-  select(CharacteristicName,SJ_ResultValue,ActivityStartDate)%>%
-  distinct()
+# # Create the plot with facet_grid
+# plot <- ggplot(sum_params, aes(x = ActivityStartDate, y = SJ_ResultValue)) +
+#   geom_point(size = 3, alpha = 0.6) +
+#   labs(title = "Time Series of All Parameters",
+#        x = "Sample Dates",
+#        y = "mg/L") +
+#   facet_grid(rows = vars(CharacteristicName), scales = "free_y") +  # Organize by rows
+#   theme_minimal() +
+#   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 
+# # Print or save as before
+# print(plot)
 
-plot <- ggplot(sum_params, aes(x = ActivityStartDate, y = SJ_ResultValue)) +
-  geom_point(size = 3, alpha = 0.6) +  # Adjust point size and transparency
-  labs(title = "Time Series of All Parameters",
-       x = "Sample Dates",
-       y = "mg/L") +
-  facet_wrap(~CharacteristicName, scales = "free_y",ncol = 1) +  # Facet by 'CharacteristicName'
-  theme_minimal() +  # Use a minimal theme
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
-
-# Print the plot
-print(plot)
-
-# Create the plot with facet_grid
-plot <- ggplot(sum_params, aes(x = ActivityStartDate, y = SJ_ResultValue)) +
-  geom_point(size = 3, alpha = 0.6) +
-  labs(title = "Time Series of All Parameters",
-       x = "Sample Dates",
-       y = "mg/L") +
-  facet_grid(rows = vars(CharacteristicName), scales = "free_y") +  # Organize by rows
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-# Print or save as before
-print(plot)
-
-
-gg <- ggplot(sum_params, aes(x = ActivityStartDate, y = SJ_ResultValue)) +
-  geom_point(size = 3, alpha = 0.6) +
-  labs(title = "Time Series of All Parameters",
-       x = "Sample Dates",
-       y = "mg/L") +
-  facet_wrap(~CharacteristicName, scales = "free_y") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-ggplotly(gg)  # Convert to an interactive plotly graph
+# gg <- ggplot(sum_params, aes(x = ActivityStartDate, y = SJ_ResultValue)) +
+#   geom_point(size = 3, alpha = 0.6) +
+#   labs(title = "Time Series of All Parameters",
+#        x = "Sample Dates",
+#        y = "mg/L") +
+#   facet_wrap(~CharacteristicName, scales = "free_y") +
+#   theme_minimal() +
+#   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 
+# ggplotly(gg)  # Convert to an interactive plotly graph
 
 ```
 # 
 #Add the hardness values to parameters with calculated criteria -- It may make sense to aggDV for Hardness so that there is only one value per site per to not duplicate THIS MAY BE IMPORTANT FOR AQUATIC WILDLIFE CONCENTRATIONS ARE HARDNESS DEPENDENT
 ```{r}
-hardness_values=results_SJ_only%>%
+hardness_values=results_SJ_metals_only2%>%
   filter(CharacteristicName=="Total hardness")%>%
-  select(ActivityIdentifier,ActivityStartDate,`ActivityStartTime/Time`,CharacteristicName,ResultMeasureValue,`ResultMeasure/MeasureUnitCode`)%>%
-  distinct()%>%
-  pivot_wider(names_from=CharacteristicName,
-              values_from = ResultMeasureValue)
-break There are some Total Hardness values that are less than 1. How accurate are these? Also some activities took more than 1 sample.. in Utah IR we get the min value, lower hardness typically means more stringent criteria.
+  group_by(MonitoringLocationIdentifier,ActivityIdentifier,ActivityStartDate,ResultSampleFractionText)%>%
+  summarise(hardness=mean(SJ_ResultValue))%>%
+  distinct()
+
+hardness_values_T=hardness_values%>%filter(ResultSampleFractionText=="Total")%>%
+  mutate(ResultSampleFractionText="Total Recoverable")
+
+hardness_values = rbind(hardness_values,hardness_values_T)
+
+results_SJ_metals_only2_OG <- merge(results_SJ_metals_only2,hardness_values,all.x=T)
 
 low_hardness=results_SJ_only%>%
   filter(CharacteristicName=="Total hardness"&ResultMeasureValue<1)
@@ -283,6 +313,7 @@ low_hardness=low_hardness[,c("OrganizationIdentifier","OrganizationFormalName","
 , "DetectionQuantitationLimitMeasure/MeasureUnitCode")]
 
 write.csv(low_hardness,"Low_hardness_samples.csv")
+low_hardness <- read.csv("Low_hardness_samples.csv")
 
 ```
 
@@ -301,15 +332,6 @@ jur_param_summary <- results_SJ_metals_only2 %>%
     .groups = 'drop'
   )
 
-
-library(ggplot2)
-
-# Boxplot comparing distributions of Parameter values across Jurisdictions
-ggplot(results_SJ_metals_only2, aes(x = Jurisdictions, y = SJ_ResultValue, fill = Jurisdictions)) +
-  geom_boxplot() +
-  facet_wrap(~ CharacteristicName, scales = "free_y") +
-  theme_minimal() +
-  labs(title = "Comparison of Parameter Values by Jurisdiction", y = "Value", x = "Jurisdiction")
 
 library(dplyr)
 
@@ -388,51 +410,140 @@ other_hucs=c("140801041005","140801050109","140801050105")
 rm(list_of_layers,gdb_path,states_list,layers,bbox,bbox_poly)
 ```
 
+#Clean up results_SJ_metals_only2 -- Assigning and calculating criteria within the app may be heavy. Minimize unuses columns to save memory. & Simplify Jurisdictions 
+```{r}
+
+ tr_questions  = results_SJ_metals_only2_OG%>%filter(MonitoringLocationIdentifier=="USEPA_REGION8-9423A",UnitFlag == "Accept")
+
+results_SJ_metals_only2 <-results_SJ_metals_only2_OG%>%
+   select(-ActivityIdentifier,-ResultIdentifier,-ResultValueTypeName,-`AnalysisStartTime/Time`,-MonitoringLocationDescriptionText,-`VerticalMeasure/MeasureUnitCode`,-VerticalCollectionMethodName,-VerticalCoordinateReferenceSystemDatumName,-dql_unit,-DetectionQuantitationLimitTypeName,-`DetectionQuantitationLimitMeasure/MeasureValue`)%>%
+  mutate(Jurisdictions = case_when(Jurisdictions == "New Mexico, Navajo Nation" ~ "Navajo Nation",
+                                   Jurisdictions =="Colorado, Ute Mountain" ~ "Ute Mountain",
+                                   Jurisdictions == "Utah, Navajo Nation" ~ "Navajo Nation",
+                                   TRUE~Jurisdictions))%>%
+  rename(Jurisdiction = Jurisdictions)
+
+
+results_SJ_metals_only3 = results_SJ_metals_only2
+```
+
+
+# Assigning Criteria and Calcualted Criteria
+```{r}
+#Filter out the criteria that has been pre-calculated by Kate Sullivan
+combined_all_criteria3 <- combined_all_criteria2 %>% rename(ResultSampleFractionText = CriteriaFraction, CharacteristicName = Parameter) 
+combined_all_criteria3 <- combined_all_criteria3 %>%
+  group_by(Screening.Criteria, Use, Jurisdiction, CharacteristicName, ResultSampleFractionText) %>%
+  summarise(
+    Criteria_mg_L = ifelse(any(!is.na(Criteria_mg_L)), max(Criteria_mg_L, na.rm = TRUE), NA_real_),
+    CF = ifelse(any(!is.na(CF)), max(CF, na.rm = TRUE), NA_character_),
+    Criterion_Formula_mgL = ifelse(any(!is.na(Criterion_Formula_mgL)), max(Criterion_Formula_mgL, na.rm = TRUE), NA_character_),
+    .groups = 'drop'
+  )%>%
+  mutate(Criteria_mg_L = ifelse(!is.na(CF),NA,Criteria_mg_L))
+
+
+# Function to evaluate formulas
+evaluate_formula <- function(formula, hardness) {
+  if (is.na(formula) || is.na(hardness)) return(NA)
+  eval(parse(text = str_replace_all(formula,"hardness",as.character(hardness))))
+}
+
+#flag if needs hardness but doesnt have it:
+depends_on_hardness <- function(formula) {
+  if (is.na(formula)) return(FALSE)
+  return(str_detect(formula, "hardness"))
+}
+
+
+##*******-------------There are duplicate samples being counted twice. Why? Criteria that has a defined criteria and calculated formula as well.
+##*
+#Create subset that will be based off of app filters
+subset_sj <- results_SJ_metals_only3 %>%
+          filter(ResultSampleFractionText %in% c("Acid Soluble"),
+                 CharacteristicName %in% c("Aluminum"),
+                 Jurisdiction == "Navajo Nation",
+                 UnitFlag == "Accept")
+
+
+#Testing Subsets
+subset_criteria <- combined_all_criteria4 %>%
+  filter(ResultSampleFractionText == "Acid Soluble",
+         CharacteristicName == "Aluminum",
+         Jurisdiction == "Navajo Nation")
+        
+subset_sj1 <- merge(subset_sj, subset_criteria)%>%
+  mutate(flag_missing_hardness = (sapply(CF, depends_on_hardness) | sapply(Criterion_Formula_mgL, depends_on_hardness)) &   is.na(hardness))%>%
+  rowwise() %>%
+  mutate(CF_calculated = ifelse(sapply(CF, depends_on_hardness) & !is.na(hardness),
+                           evaluate_formula(CF, hardness), as.numeric(CF)),
+    criteria_calculated = ifelse(!is.na(Criterion_Formula_mgL),
+                                 eval(parse(text = str_replace_all(Criterion_Formula_mgL, 
+                                                                   c("CF" = as.character(CF_calculated),
+                                                                     "hardness" = as.character(hardness))))), Criteria_mg_L),
+    exceed = ifelse(SJ_ResultValue > criteria_calculated, 1, 0),
+    exceed = ifelse(is.na(exceed), 0, exceed),
+    missing_hardness = ifelse(flag_missing_hardness == TRUE, 1, 0)) %>%
+  ungroup()
+
+# Use exceedance summary to plot data on time series with criteria once use clicks on site on map.
+exceedance_summary <- subset_sj %>%
+  group_by(MonitoringLocationIdentifier, LatitudeMeasure, LongitudeMeasure, CharacteristicName, Screening.Criteria, Use, Jurisdiction, ResultSampleFractionText) %>%
+  summarize(missing_hardness = sum(missing_hardness),
+            sample_count = n() - missing_hardness,
+            exceedance = sum(exceed),
+            exceed_perc = exceedance / sample_count,
+            .groups = 'drop')
+
+avg_exceedance = exceedance_summary%>%
+  mutate(exceed_perc=ifelse(is.na(exceed_perc),0,exceed_perc))%>%
+  group_by(MonitoringLocationIdentifier)%>%
+  summarise(avg_exceedance = mean(exceed_perc))
+
+
+# Normalize the avg_exceedance values
+avg_exceedance1 <- avg_exceedance %>%
+  mutate(normalized_exceedance = (avg_exceedance - min(avg_exceedance)) / (max(avg_exceedance) - min(avg_exceedance)))
+
+# Create a color gradient from yellow to red
+color_function <- col_numeric(palette = c("yellow", "red"), domain = range(avg_exceedance$avg_exceedance, na.rm = TRUE))
+    
+    
+
+# Apply the colors to the data
+avg_exceedance1 <- avg_exceedance1 %>%
+  mutate(color = color_function(avg_exceedance))
+
+
+na_jurisdiction = results_SJ_metals_only2[results_SJ_metals_only2$Jurisdiction=="NA",]
+#table(na_jurisdiction$MonitoringLocationIdentifier)
+
+```
+
 # Create the .RData file to use for the app.R dashboard.
 ```{r}
-getwd()
-save(results_SJ_metals_only2,sj_tribes_final,file="SJ_WQ_Dash/SJ_dashboard_data.RData")
+tribe_state_poly
+str(combined_all_criteria2)
+str(combined_all_criteria3)
 
+sj_tribes_final <- st_transform(sj_tribes_final,crs=4326)
+
+criteria3_check <-  combined_all_criteria3%>% group_by(Screening.Criteria,Use,                     Jurisdiction,CharacteristicName)%>%summarize(criteria_count = n())
+# Need to remove where Criteria_mg_L==8.838263 (Colorado, AquaticAcute, Aluminum) & Criteria_mg_L==15.400113 (New Mexico, AquaticAcute, Aluminum)
+tr_results_SJ_metals_only2=results_SJ_metals_only2%>%filter(ResultSampleFractionText=="Total Recoverable")
+
+write.csv(combined_all_criteria3,"combined_all_criteria3.csv",na="")# Downloading to manually fix the criteria listed as Total where they are actually Total Recoverable. Must remove the duplicates and then change the formula ones for 
+combined_all_criteria4 = read.csv("combined_all_criteria4.csv")
+combined_all_criteria4 <- combined_all_criteria4%>%
+  mutate(CF = ifelse(CF=="",NA,CF),
+        Criterion_Formula_mgL= ifelse(Criterion_Formula_mgL=="",NA,Criterion_Formula_mgL),
+        ResultSampleFractionText = ifelse(ResultSampleFractionText=="Total recoverable","Total Recoverable",ResultSampleFractionText))%>%
+  mutate(across(everything(), ~trim_spaces(.)))
+
+
+save(results_SJ_metals_only3,results_SJ_metals_only2,combined_all_criteria4,sj_tribes_final,combined_all_criteria3,file="SJ_WQ_Dash/SJ_dashboard_data.RData")
+
+#load("SJ_WQ_Dash/SJ_dashboard_data.RData")
 ```
 
-#Create Map with Jurisdiction Layers and Unique Site list
-```{r}
 
-#Create Leaflet map
-library(leaflet)
- sj_map = leaflet::leaflet(options = leafletOptions(preferCanvas = TRUE, dragging=TRUE))
-    sj_map=leaflet::addProviderTiles(sj_map, "Esri.WorldTopoMap", group = "Topo", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE))%>%
-      addMapPane("States", zIndex = 415)%>%
-      addMapPane("Tribes", zIndex = 425)%>%
-      addMapPane("au_poly", zIndex = 418)%>%
-      addMapPane("bu_poly", zIndex = 420)%>%
-      addCircleMarkers(data=sj_sites,fillOpacity = 0.8,color="#0078A8",radius = 5,weight=1,
-                   popup=paste0(
-                     "Site: ", sj_sites$MonitoringLocationIdentifier)
-                  ) %>%
-      
-      addPolygons(data=sj_tribes,group = "Tribes",fillOpacity = 0.5,color="blue",weight = 3,options = pathOptions(pane = "Tribes"),
-                   popup=paste0(
-                     "Tribe Name: ", sj_tribes$NAME)
-                  ) %>%
-      addPolygons( data=sj_utah_aus,group="Assessment units",fillOpacity = 0.5, #layerId=au_poly_imp1$polyID,
-                   weight=3,color="orange",fillColor = "orange", options = pathOptions(pane = "au_poly"),
-                   popup=paste0(
-                     "AU name: ", sj_utah_aus$AU_NAME,
-                     "<br> AU ID: ", sj_utah_aus$ASSESS_ID,
-                     "<br> AU type: ", sj_utah_aus$AU_Type)
-      )%>%
-      addPolygons( data=sj_hucs,group="HUC12",fillOpacity = 0.5,
-                   weight=3,color="grey",fillColor = "green", options = pathOptions(pane = "bu_poly"),
-                   popup=paste0(
-                     "HUC_12: ", sj_hucs$huc12))%>%
-      addPolygons( data=huc12_list,group="OtherHUCs",fillOpacity = 0.5,
-                   weight=3,color="grey",fillColor = "pink", options = pathOptions(pane = "bu_poly"),
-                   popup=paste0(
-                     "HUC_12: ", huc12_list$huc12))%>%
-                     leaflet::addLayersControl(position ="topleft",
-                                baseGroups = c("Topo"),overlayGroups = c("HUC12","Assessment units", "Beneficial Uses","OtherHUCs","Tribes"),
-                                options = leaflet::layersControlOptions(collapsed = TRUE, autoZIndex=FALSE))
-
-sj_map
-```

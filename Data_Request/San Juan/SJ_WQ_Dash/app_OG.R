@@ -10,15 +10,10 @@ library(sf)
 library(ggplot2)
 library(shinycssloaders)
 library(scales)
-library(writexl)
-
 
 source("helper_functions.R") # Has a few functions for calculating criteria.
+
 load("SJ_dashboard_data.RData") # Created in SJ_data_download.Rmd (Line345) to include results_SJ_metals_only2, , criteria,  polygon_shapefiles
-
-combined_all_criteria3=combined_all_criteria4
-results_SJ_metals_only2 = results_SJ_metals_only3
-
 
 sj_data <- results_SJ_metals_only2[results_SJ_metals_only2$UnitFlag=="Accept",] #This filters out Sediment data. Assuming we don't want to use sediment data.
 sj_data$id <- sj_data$MonitoringLocationIdentifier #Adding column for clicked map id?
@@ -28,115 +23,93 @@ choices_char <- sort(unique(sj_data$CharacteristicName))
 
 #******FIX sj_data has multiple jurisdictions.. do we want to simplify to one jurisdiction?
 
-
 # Define UI
-ui <- navbarPage(
-  title = "San Juan Basin Metals Analysis Dashboard", 
-  tabPanel("Watershed Summary Map",
-              fluidPage(
-              h3("Watershed Summary Map", style = "text-align: center;"),
+ui <- dashboardPage(
+  dashboardHeader(
+    title = "San Juan Basin Metals Analysis Dashboard" , titleWidth = "30%") ,
+  dashboardSidebar(
+    sidebarMenu(
+      #menuItem("Parameter Overview", tabName = "param_sum", icon = icon("vial")),
+      menuItem("Percentile Map", tabName = "map_time_series", icon = icon("map"),selected = TRUE),
+      menuItem("Jurisdiction Criteria Map", tabName = "jurisdiction_assessments", icon = icon("line-chart"))
+    ) ),
+  dashboardBody(
+    tags$head(
+    tags$style(HTML("
+                  .main-header {
+                    position: fixed; /* Fixed Header (stay in place on scroll and position relative to viewport) */
+                    width: 100%; /* Ensure the header spans the entire width */
+                    z-index: 1030; /* Ensure the header is above other elements */
+                  }
+                  .main-sidebar {
+                    position: fixed; /* Fixed Sidebar (stay in place on scroll and position relative to viewport) */
+                    height: 100%;
+                    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+                  }
+                .content-wrapper, .right-side, .main-footer {
+                  margin-top: 40px; /* Adjust based on the header height */
+                }
+                /* Change the background color of the main content area */
+                .content-wrapper {
+                    background-color: #FFFFFF !important; /* Use !important to override default styles */
+                }
+                /* Style for the map and plot outputs to ensure they have space */
+                .leaflet-output, .plotly-output {
+                    margin-bottom: 20px;
+                    height: 600px; 
+                }
+            "))
+  ),
+    tabItems(
+      tabItem(tabName = "map_time_series",
+              h3("Parameter Percentile Map", style = "text-align: center;"),
               tags$p("The map displays the percentile distribution of average metal concentrations based on user-selected parameters and sample fractions (filters on left side). Each point represents a percentile ranking, highlighting areas of varying concentration levels within the chosen jurisdictions.", 
                      style = "padding: 4px; font-size: 14px; text-align:center;"),
-              column(2, 
-                       fluidRow(selectInput("sampleFraction", "Select Sample Fraction", choices = choices_frac)),
-                     fluidRow(selectInput("parameter", "Select Parameter", choices = sort(unique(sj_data$CharacteristicName)))),
-                       #column(6, selectInput("jurisdiction", "Select Jurisdiction(s)", choices = choices_j1, selected = choices_j1, multiple = TRUE)),
-                     fluidRow(dateRangeInput("dateFilter","Date Range",start="2015-01-01")),
-                     fluidRow(checkboxInput("nonDetect", "Include NonDetect Values", value = TRUE)),
+              fluidRow( selectInput("sampleFraction", "Select Sample Fraction", choices = choices_frac),
+                        selectInput("parameter", "Select Parameter", choices = sort(unique(sj_data$CharacteristicName))),
+                        selectInput("jurisdiction", "Select Jurisdiction(s)", choices = choices_j1, selected = choices_j1, multiple = TRUE),
+                        dateRangeInput("dateFilter","Date Range",start="2015-01-01"),
+                        checkboxInput("nonDetect", "Include NonDetect Values", value = TRUE),
                         bsTooltip(id = "nonDetect", title = "Include measurements where no detection was noted.", placement = "right", trigger = "hover"),
-                     fluidRow(checkboxInput("nonSJ_Site", "Include Non-SJ WIIN Project Sites", value = FALSE)),
+                        checkboxInput("nonSJ_Site", "Include Non-SJ WIIN Project Sites", value = FALSE),
                         bsTooltip(id = "nonSJ_Site", title = "Include sites not in SJ WIIN 39 Site List but still in SJ watershed.", placement = "right", trigger = "hover")
               ),
-              column(10,
               leafletOutput("sj_site_map", height = "600px"),
-              tags$p("Click on any site on the map to see the corresponding time series plot for that site.", style = "padding: 8px; font-size: 16px; text-align:center;"),
+              tags$p("Click on any site on the map to see the corresponding time series plot for that site.", style = "padding: 8px; font-size: 14px; text-align:center;"),
               tags$div(style = "height: 20px;"),
-              plotlyOutput("timeSeriesPlot")))),
-  
-  tabPanel(
-    "Jurisdiction Specific Criteria",
-    fluidPage(
-      splitLayout(
-        cellWidths = c("20%", "80%"), # Adjust the widths as needed
-        cellArgs = list(style = "padding: 10px"), # Adding some padding for better spacing
-        div( class = "split-layout-div",
-          p("Select option for each filter to display map.",style = "color: red;text-align: center;"),
-          selectInput("jurisdiction_2", "Jurisdiction", choices = choices_j1, multiple = FALSE, selected = "Colorado"),
-          selectInput("parameter_2", "Parameter(s)", choices = c(), multiple = TRUE, selected = "Aluminum"),#, options = list(plugins = list('remove_button', 'select_all'))
-          selectInput("sampleFraction_2", "Sample Fraction(s)", choices = c(), multiple = TRUE), #, options = list(plugins = list('remove_button', 'select_all'))
-          selectInput("criteriaUse_2", "Uses", choices = c(), multiple = TRUE),
-          dateRangeInput("dateFilter_2", "Date Range", start = "2015-01-01")
-        ),
-        div(  class = "split-layout-div",
-          h3("Jurisdiction Specific Criteria", style = "text-align: center;"),
-          p("This tab allows you to explore the data by applying Jurisdiction specific criteria. The elements in this tab are independent from the filters on the sidebar. Use filters within this window to explore data."),
-          shinyjqui::jqui_resizable(
-            bsCollapse(
-              multiple = TRUE,
-              bsCollapsePanel(
-                list(icon('plus-circle'), icon('map-marked-alt'), "Review map"), value = 1,
-                leafletOutput("assessment_map_juris", height = "600px", width = "100%")
-              ),
-              bsCollapsePanel(
-                list(icon('plus-circle'), icon('table'), p("Exceedance Summary Table", em(" - Based off of selected jurisdiction, parameter, fractions, and uses"))), value = 3,
-                dataTableOutput("exceedance_table")
-              ),
-              bsCollapsePanel(
-                list(icon('plus-circle'), icon('line-chart'), p("Site Assessment Plots", em(" - Scatter plots against use criterias."))), value = 2,
-                selectInput("plot_site", "Select Site", choices = NULL, multiple = FALSE),
-                plotlyOutput("jurisdiction_timeSeriesPlot")
-              ),
-              bsCollapsePanel(
-                list(icon('plus-circle'), icon('line-chart'), p("Download Data", em(" - based off of user selected filters."))), value = 2,
-                tags$p(
-                  "The download file includes data for ALL SITES in the filtered dataset. The Excel (.XLSX) file has two tabs: 'Exceedance Summary' and 'Sample Data'. 
-                The 'Exceedance Summary' tab contains sample counts and exceedance values based on the selected Jurisdiction, Parameter, Fractions, and Uses. 
-                The 'Sample Data' tab includes raw data with uses criteria and additional metadata.",
-                  style = "padding: 8px; font-size: 14px; text-align:center;"
-                ),
-                downloadButton("downloadData", "Download Data")
-              )
-            )
-          )
-        )
+              plotlyOutput("timeSeriesPlot")),
+      # tabItem(tabName = "param_sum",
+      #         fluidRow(
+      #           column(12,
+      #                  h3("Parameter Overview & Time Series", style = "text-align: center;"),
+      #                  withSpinner(textOutput("loadingPlot"), type = 8, color = "#000000", size = 2),
+      #           ),
+      #         plotOutput("param_facet", height = "3800px", width = "1000px")
+      #                 )
+      #         ),
+      tabItem(tabName = "jurisdiction_assessments",
+           fluidRow(
+             column(12,h3("Jurisdiction Specific Criteria", style = "text-align: center;"),p("This tab allows you to explore the data by applying Jurisdiction specific criteria. The elements in this tab are independent from the filters on the sidebar. Use filters within this window to explore data.")),
+                  fluidRow(column(4,selectInput("jurisdiction_2", "Jurisdiction", choices = choices_j1, multiple = F,selected = "Colorado")),
+                           column(4, selectInput("parameter_2", "Parameter(s)", choices = c(),multiple = T,selected = "Aluminum")),
+                            column(4, selectInput("sampleFraction_2", "Sample Fraction(s)", choices = c(),multiple=T, selected = "Total"))
+                             ),
+                  shinyjqui::jqui_resizable(bsCollapse(multiple=T,open=1,
+                       bsCollapsePanel(list(icon('plus-circle'), icon('map-marked-alt'),"Review map"), value=1,
+                             leafletOutput("assessment_map_juris", height="600px", width="100%")
+                       ),
+                       bsCollapsePanel(list(icon('plus-circle'), icon('table'), p("Exceedance Summary Table", em(" - Exceedance based off of selected jurisdiction, parameter and fractions"))), value=3,
+                                       fluidRow(dataTableOutput("exceedance_table"))
+                       ),
+                       bsCollapsePanel(list(icon('plus-circle'), icon('line-chart'), p("Site Assessment Plots", em(" - Scatter plots against jurisdiction criterias."))), value=2,
+                                       fluidRow(selectInput("plot_site", "Select Site", choices = NULL,multiple = F)),
+                                       fluidRow(plotlyOutput("jurisdiction_timeSeriesPlot")) )
+      ) ) ) )
       )
-    )
-  )
-  ,
-
-  tags$head(
-    tags$style(HTML("
-      .navbar-default {
-        background-color: #216C8A; /* Blue color for the navbar */
-        border-color: #216C8A;
-      }
-      .navbar-default .navbar-brand {
-        color: white;
-      }
-      .navbar-default .navbar-brand:hover {
-        color: lightgray;
-      }
-      .navbar-default .navbar-nav > li > a {
-        color: white;
-      }
-      .navbar-default .navbar-nav > li > a:hover {
-        color: lightgray;
-      }
-      .navbar-default .navbar-nav > .active > a,
-      .navbar-default .navbar-nav > .active > a:hover,
-      .navbar-default .navbar-nav > .active > a:focus {
-        color: white;
-        background-color: #3CABD8; /* Different color for the selected tab */
-      }
-      .split-layout-div {
-            white-space: normal;
-            overflow: hidden;
-            word-wrap: break-word;
-          }
-    "))
-  )
   
+        )
   )#UI END
+
 
 server <- function(input, output, session) {
   
@@ -145,24 +118,19 @@ server <- function(input, output, session) {
       reactive({
         req(input$sampleFraction_2)
         req(input$parameter_2)
-        req(input$criteriaUse_2)
-        
-        start=as.Date(input$dateFilter_2[1])
-        end=as.Date(input$dateFilter_2[2])
-        
         subset_sj <- sj_data %>%
           filter(ResultSampleFractionText %in% input$sampleFraction_2,
                  CharacteristicName %in% input$parameter_2,
-                 Jurisdiction == input$jurisdiction_2,
-                 ActivityStartDate>start &ActivityStartDate<end)
+                 Jurisdiction == input$jurisdiction_2)
+        
         
         subset_criteria <- combined_all_criteria3 %>%
           filter(ResultSampleFractionText %in% input$sampleFraction_2,
                  CharacteristicName %in% input$parameter_2,
-                 Jurisdiction %in% input$jurisdiction_2,
-                 Use %in% input$criteriaUse_2)
+                 Jurisdiction %in% input$jurisdiction_2)
 
         subset_sj <- merge(subset_sj, subset_criteria) 
+        
         
         subset_sj <- subset_sj%>%
           mutate(flag_missing_hardness = (sapply(CF, depends_on_hardness) | sapply(Criterion_Formula_mgL, depends_on_hardness)) & is.na(hardness)) %>%
@@ -178,21 +146,20 @@ server <- function(input, output, session) {
             exceed = ifelse(is.na(exceed), 0, exceed),
             missing_hardness = ifelse(flag_missing_hardness == TRUE, 1, 0)) %>%
           ungroup()
-
         
         exceedance_summary <- subset_sj %>%
-          group_by(MonitoringLocationIdentifier, CharacteristicName, Screening.Criteria, Use, ResultSampleFractionText, LatitudeMeasure, LongitudeMeasure,Jurisdiction) %>%
+          group_by(MonitoringLocationIdentifier, LatitudeMeasure, LongitudeMeasure, CharacteristicName, Screening.Criteria, Use, Jurisdiction, ResultSampleFractionText) %>%
           summarize(missing_hardness = sum(missing_hardness),
                     sample_count = n() - missing_hardness,
-                    exceedances = sum(exceed),
-                    exceed_perc = round((exceedances / sample_count) * 100, 2),
+                    exceedance = sum(exceed),
+                    exceed_perc = exceedance / sample_count,
                     .groups = 'drop')%>%
-          arrange(desc(exceed_perc))%>%
-          select(MonitoringLocationIdentifier,CharacteristicName,Screening.Criteria, Use, ResultSampleFractionText,exceed_perc,sample_count,exceedances,exceed_perc,missing_hardness, LatitudeMeasure, LongitudeMeasure,Jurisdiction)
+          arrange(desc(exceed_perc))
         
         list(subset_sj = subset_sj, exceedance_summary = exceedance_summary)
       }), 1500)
     
+  
   filteredData <- debounce(reactive({
 
     start=as.Date(input$dateFilter[1])
@@ -201,14 +168,13 @@ server <- function(input, output, session) {
       filter(ResultSampleFractionText %in% input$sampleFraction,
              if (input$nonDetect) TRUE else SJ_ND != "Yes",
              if (input$nonSJ_Site) TRUE else SJ_PROJECT_SITE!="No")%>%
-      #filter(stringr::str_detect(Jurisdiction, paste(input$jurisdiction, collapse = "|")))%>%
+      filter(stringr::str_detect(Jurisdiction, paste(input$jurisdiction, collapse = "|")))%>%
       filter(ActivityStartDate>start &ActivityStartDate<end)
     data
   }),800)
   
   output$sj_site_map <- renderLeaflet({
     aggregated_data <-filteredData()
-    
 
     aggregated_data <- aggregated_data %>%
       filter(CharacteristicName %in% input$parameter)%>%
@@ -224,8 +190,6 @@ server <- function(input, output, session) {
                             ifelse(AverageValue >= quantile(AverageValue, 0.25, na.rm = TRUE),"yellow", "green"))))
     
     #****** Add a box area to view based off of the sites in aggregated_data
-    aggregated_data_sf <- st_as_sf(aggregated_data, coords = c("Longitude", "Latitude"), crs = 4326)
-    view=sf::st_bbox(aggregated_data_sf)
     
     leaflet()%>%
     addProviderTiles("Esri.WorldTopoMap", group = "Topo", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE))%>%
@@ -234,19 +198,19 @@ server <- function(input, output, session) {
       addCircleMarkers(data=aggregated_data,lng=~Longitude,lat=~Latitude, color = ~color, radius = 8,
                        layerId = ~MonitoringLocationIdentifier,fillOpacity = 0.8,label = ~MonitoringLocationIdentifier,group="Sites",options = pathOptions(pane = "Sites"))%>%
       addLegend(position = "topright",
-                labels = c("Above 75th Percentile", "50th to 75th Percentile", "25th to 50th Percentile", "Below 25th Percentile","Tribal Lands"),
-colors = c("red","orange","yellow","green","blue"))%>%
-      addPolygons(data=sj_tribes_final,group = "Tribes",fillOpacity = 0.05,color="blue",weight = 2,options = pathOptions(pane = "Tribes"),
+                labels = c("Above 75th Percentile", "50th to 75th Percentile", "25th to 50th Percentile", "Below 25th Percentile"),
+colors = c("red","orange","yellow","green"))%>%
+      addPolygons(data=sj_tribes_final,group = "Tribes",fillOpacity = 0.3,color="blue",weight = 2,options = pathOptions(pane = "Tribes"),
                   popup=paste0(
-                    "Tribe Name: ", sj_tribes_final$NAME))%>%
-      fitBounds(paste(view[1]),paste(view[2]),paste(view[3]),paste(view[4])) 
+                    "Tribe Name: ", sj_tribes_final$NAME)) 
+
   })#End of renderLeaflet
 
   output$assessment_map_juris <- renderLeaflet({
     exceedance_summary <-exceedance_criteria()$exceedance_summary
     
     avg_exceedance = exceedance_summary%>%
-      mutate(exceed_perc=ifelse(is.na(exceed_perc),0,exceed_perc))%>%
+      filter(!is.na(exceed_perc))%>%
       group_by(MonitoringLocationIdentifier,LatitudeMeasure,LongitudeMeasure)%>%
       summarise(avg_exceedance = mean(exceed_perc))
     
@@ -266,9 +230,9 @@ colors = c("red","orange","yellow","green","blue"))%>%
       addCircleMarkers(data=avg_exceedance_sf,color = ~color, radius = 8,
                        layerId = ~MonitoringLocationIdentifier,fillOpacity = 0.8,label = ~MonitoringLocationIdentifier,group="Sites",options = pathOptions(pane = "Sites"))%>%
       addLegend(position = "topright",
-                labels = c("Lower Avg Exceedance", "Higher Avg Exceedance","Tribal Lands"),
-                colors = c("yellow","red","blue"))%>%
-      addPolygons(data=sj_tribes_final,group = "Tribes",fillOpacity = 0.05,color="blue",weight = 2,options = pathOptions(pane = "Tribes"),
+                labels = c("Lower Avg Exceedance", "Higher Avg Exceedance"),
+                colors = c("yellow","red"))%>%
+      addPolygons(data=sj_tribes_final,group = "Tribes",fillOpacity = 0.3,color="blue",weight = 2,options = pathOptions(pane = "Tribes"),
                   popup=paste0(
                     "Tribe Name: ", sj_tribes_final$NAME))%>%
     fitBounds(paste(view[1]),paste(view[2]),paste(view[3]),paste(view[4]))
@@ -358,27 +322,19 @@ colors = c("red","orange","yellow","green","blue"))%>%
     updateSelectInput(session, "sampleFraction_2", choices = frac_choices)
   }) 
   
-  observe({
-    req(input$sampleFraction_2)
-    j_data <- combined_all_criteria3%>% filter(Jurisdiction == input$jurisdiction_2 & CharacteristicName %in% input$parameter_2 & ResultSampleFractionText %in% input$sampleFraction_2)
-    use_choices <- sort(unique(j_data$Use))
-    updateSelectInput(session, "criteriaUse_2", choices = use_choices)
-  }) 
-  
-  
   # Update plot_site input based on table selection
   observeEvent(input$exceedance_table_rows_selected, {
     selected_row <- exceedance_criteria()$exceedance_summary[input$exceedance_table_rows_selected,]
     if (nrow(selected_row) > 0) {
       updateSelectInput(session, "plot_site", selected = selected_row$MonitoringLocationIdentifier[[1]])
     }
+   
   })
   
   output$jurisdiction_timeSeriesPlot <- renderPlotly({
     plot_data <- exceedance_criteria()$subset_sj
 
     plot_data <- plot_data[plot_data$MonitoringLocationIdentifier == input$plot_site, ]
-    plot_data <- plot_data[order(plot_data$ActivityStartDate), ]
 
     # Generate the time series plot
     p <- plot_ly(data = plot_data, x = ~ActivityStartDate, y = ~SJ_ResultValue, type = 'scatter', mode = 'markers',marker=list(size=10),name = ~MonitoringLocationIdentifier) %>%
@@ -399,21 +355,13 @@ colors = c("red","orange","yellow","green","blue"))%>%
     p
   }) #End of plotly
   
-  output$downloadData <- downloadHandler(
-    filename = function() {
-      parameters <- paste(input$parameter_2, collapse = "-")
-      paste("Data_w_Exceedance_Summary", input$jurisdiction_2, parameters, Sys.Date(), ".xlsx", sep = "_")
-    },
-    content = function(file) {
-      # Get the current values of the reactive data tables
-      subset_sj_data <- exceedance_criteria()$subset_sj
-      exceedance_summary_data <- exceedance_criteria()$exceedance_summary
-      
-      # Write the data to an Excel file using writexl
-      write_xlsx( list("Summary Data" = subset_sj_data, "Exceedance Summary" = exceedance_summary_data),
-        path = file, format_headers = FALSE, col_names = TRUE
-      ) } )
+  #******FIX Download data button 
+  #*Ask group what kind of data would they want downloaded what would they want to dig into?
+  #*Possibly in the main side-bar to download filtered data? OR create another tabItem() with filterable data download..
+
 }
+
 
 # Run the app
 shinyApp(ui, server)
+

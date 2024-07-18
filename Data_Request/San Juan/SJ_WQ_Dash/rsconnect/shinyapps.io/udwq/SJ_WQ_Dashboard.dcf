@@ -5,9 +5,9 @@ account: udwq
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12126503
-bundleId: 8711263
+bundleId: 8872168
 url: https://udwq.shinyapps.io/SJ_WQ_Dashboard/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: app.Rmd
+ignoredFiles: app_OG.R
