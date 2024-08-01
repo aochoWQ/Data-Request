@@ -1,0 +1,35 @@
+CharacteristicName,Jurisdiction,Criteria_mg_L,Screening Criteria,Use,ResultSampleFractionText,CF,Criterion_Formula_mgL
+Antimony,Southern Ute,0.0056,Human Helath,HH Water + Organism,Dissolved,,
+Antimony,Southern Ute,0.64,Human Helath,HH Organism,Dissolved,,
+Arsenic,Southern Ute,0.34,Aquatic Life,Aquatic Acute,Dissolved,,
+Arsenic,Southern Ute,0.15,Aquatic Life,Aquatic Chronic,Dissolved,,
+Arsenic,Southern Ute,0.000018,Human Helath,HH Water + Organism,Dissolved,,
+Arsenic,Southern Ute,0.00014,Human Helath,HH Organism,Dissolved,,
+Barium,Southern Ute,1,Human Helath,HH Water + Organism,Dissolved,,
+Cadmium,Southern Ute,,Aquatic Life,Aquatic Acute,Dissolved,1.136672 -log(hardness) * (0.041838),(exp(0.9789*log(hardness)+-3.866)*CF)/1000
+Cadmium,Southern Ute,,Aquatic Life,Aquatic Chronic,Dissolved,1.101672 -log(hardness) * (0.041838),(exp(0.7977*log(hardness)+-3.909)*CF)/1000
+Chromium (III),Southern Ute,,Aquatic Life,Aquatic Acute,Dissolved,0.316,(exp(0.819*log(hardness)+3.7256)*CF)/1000
+Chromium (III),Southern Ute,,Aquatic Life,Aquatic Chronic,Dissolved,0.86,(exp(0.819*log(hardness)+0.6848)*CF)/1000
+Chromium (VI),Southern Ute,0.016,Aquatic Life,Aquatic Acute,Dissolved,,
+Chromium (VI),Southern Ute,0.011,Aquatic Life,Aquatic Chronic,Dissolved,,
+Copper,Southern Ute,1.3,Human Helath,HH Water + Organism,Dissolved,,
+Iron,Southern Ute,1,Aquatic Life,Aquatic Chronic,Dissolved,,
+Lead,Southern Ute,,Aquatic Life,Aquatic Acute,Dissolved,1.46203 -log(hardness) * (0.145712),(exp(1.273*log(hardness)+-1.46)*CF)/1000
+Lead,Southern Ute,,Aquatic Life,Aquatic Chronic,Dissolved,1.46203 -log(hardness) * (0.145712),(exp(1.273*log(hardness)+-4.705)*CF)/1000
+Manganese,Southern Ute,0.05,Human Helath,HH Water + Organism,Dissolved,,
+Manganese,Southern Ute,0.1,Human Helath,HH Organism,Dissolved,,
+Mercury,Southern Ute,0.0014,Aquatic Life,Aquatic Acute,Dissolved,,
+Mercury,Southern Ute,0.00077,Aquatic Life,Aquatic Chronic,Dissolved,,
+Nickel,Southern Ute,,Aquatic Life,Aquatic Acute,Dissolved,0.998,(exp(0.846*log(hardness)+2.255)*CF)/1000
+Nickel,Southern Ute,,Aquatic Life,Aquatic Chronic,Dissolved,0.997,(exp(0.846*log(hardness)+0.0584)*CF)/1000
+Nickel,Southern Ute,0.61,Human Helath,HH Water + Organism,Dissolved,,
+Nickel,Southern Ute,4.6,Human Helath,HH Organism,Dissolved,,
+Selenium,Southern Ute,0.17,Human Helath,HH Water + Organism,Dissolved,,
+Selenium,Southern Ute,4.2,Human Helath,HH Organism,Dissolved,,
+Silver,Southern Ute,,Aquatic Life,Aquatic Acute,Dissolved,0.85,(exp(1.72*log(hardness)+-6.59)*CF)/1000
+Thallium,Southern Ute,0.00024,Human Helath,HH Water + Organism,Dissolved,,
+Thallium,Southern Ute,0.00047,Human Helath,HH Organism,Dissolved,,
+Zinc,Southern Ute,,Aquatic Life,Aquatic Acute,Dissolved,0.978,(exp(0.8473*log(hardness)+0.884)*CF)/1000
+Zinc,Southern Ute,,Aquatic Life,Aquatic Chronic,Dissolved,0.986,(exp(0.8473*log(hardness)+0.884)*CF)/1000
+Zinc,Southern Ute,7.4,Human Helath,HH Water + Organism,Dissolved,,
+Zinc,Southern Ute,26,Human Helath,HH Organism,Dissolved,,

@@ -1,0 +1,412 @@
+#Exploring the salinity methods
+# load packages
+```{r}
+library(dplyr)
+library(wqTools)
+library(irTools)
+library(plotly)
+library(leaflet)
+library(htmltools)
+library(tidyr)
+library(lubridate)
+```
+
+# Pull Salinity Data from WQP
+```{r}
+#Pull by sites, huc12 project or what?
+# Do we want to pull flow and data as well?
+g_results <- readWQP(type="result",auid=c("UT-L-16020310-001_00"))
+g_sites <- readWQP(type="sites",auid=c("UT-L-16020310-001_00"))
+g_dtql <- readWQP(type="detquantlim",auid=c("UT-L-16020310-001_00"))
+gilbert_data <- merge(g_results,g_sites)
+# How would it look if we appened other data to each salinity measure for flow nearby at different time period? For example: flow1day,flow7day,flow30day,flow90day etc..
+
+table(gilbert_data$ActivityMediaName)
+
+gilbert_biological <- gilbert_data%>%filter(ActivityMediaName=="Biological Tissue")
+table(gilbert_biological$CharacteristicName)
+
+gilbert_salinity <-  gilbert_data[gilbert_data$CharacteristicName%in%c("Salinity"),]%>% #,"Total dissolved solids"
+  filter(ActivityMediaName=="Water")%>%
+  select(where(~ !all(is.na(.))),-ConstructionDateText,-CountyCode,-StateCode,-CountryCode,-MonitoringLocationDescriptionText,-DrainageAreaMeasure.MeasureValue,-DrainageAreaMeasure.MeasureUnitCode,-SourceMapScaleNumeric,-HorizontalAccuracyMeasure.MeasureValue,-HorizontalAccuracyMeasure.MeasureUnitCode,-HorizontalCollectionMethodName,-HorizontalCoordinateReferenceSystemDatumName,-VerticalCollectionMethodName,-VerticalCoordinateReferenceSystemDatumName,-VerticalAccuracyMeasure.MeasureUnitCode,-VerticalAccuracyMeasure.MeasureValue,-WellDepthMeasure.MeasureUnitCode,-WellDepthMeasure.MeasureValue,-HUCEightDigitCode)
+
+# Convert feet to meters and add surface/bottom flag
+gilbert_salinity <-gilbert_salinity%>%
+  mutate(IR_ActivityDepthMeasure_M = ifelse(ActivityDepthHeightMeasure.MeasureUnitCode=="feet",(ActivityDepthHeightMeasure.MeasureValue*0.3048),ActivityDepthHeightMeasure.MeasureValue),
+         IR_ActivityDepthUnit = ifelse(ActivityDepthHeightMeasure.MeasureUnitCode=="feet","meters",ActivityDepthHeightMeasure.MeasureUnitCode), 
+         Depth_Flag = ifelse(as.numeric(IR_ActivityDepthMeasure_M) <=1.0,"Surface","Bottom"))
+
+missing_depth <- gilbert_salinity[is.na(gilbert_salinity$Depth_Flag),]
+
+#****** Mean Monthly Salinity
+avg_monthly_sal <- gilbert_salinity%>%
+  filter(Depth_Flag=="Surface",ResultSampleFractionText=="Dissolved")%>%
+  mutate(Years =year(ActivityStartDate), 
+         month = month(ActivityStartDate))%>%
+  group_by(Years,month)%>%
+  summarize(mean_sal = mean(as.numeric(ResultMeasureValue)))
+
+
+table(gilbert_salinity$ResultSampleFractionText)
+
+
+#****** Get counts of data by MonitoringLocation, CharacteristicName, Year
+g_sample_counts = gilbert_salinity%>%
+  mutate(year = year(ActivityStartDate))%>%
+  group_by(MonitoringLocationIdentifier,MonitoringLocationName,CharacteristicName,year)%>%
+  summarise(counts = n())
+```
+
+# Plot Salinity against TDS to see if we can or even need to extrapolate salinity from TDS.
+```{r}
+min(gilbert_salinity$ActivityStartDate)
+max(gilbert_salinity$ActivityStartDate)
+
+gilbert_sal_tds <-gilbert_data%>%filter(CharacteristicName%in%c("Salinity","Total dissolved solids"),ResultSampleFractionText=="Dissolved",ResultMeasure.MeasureUnitCode%in%c( "g/l","mg/l"), !is.na(ResultMeasureValue))%>%mutate(IR_Value = ifelse(ResultMeasure.MeasureUnitCode=="mg/l" ,as.numeric(ResultMeasureValue)/1000,as.numeric(ResultMeasureValue)))
+
+
+# Create a plotly scatter plot
+plot <- gilbert_sal_tds %>%
+  plot_ly(
+    x = ~ActivityStartDate,
+    y = ~IR_Value,
+    color = ~CharacteristicName,
+    colors = "Set1",  # Choose a color palette
+    type = 'scatter',
+    mode = 'markers'
+  ) %>%
+  layout(
+    title = "Salinity and Total Dissolved Solids in Gilbert Bay",
+    xaxis = list(title = "Activity Start Date"),
+    yaxis = list(title = "Result Measure Value"),
+    colorway = c('#1f77b4', '#ff7f0e')  # Optional: specify custom colors
+  )
+
+
+plot
+
+fraction_plot <-gilbert_salinity%>%
+  plot_ly( 
+    x = ~ActivityStartDate,
+    y = ~ResultMeasureValue,
+    color = ~ResultSampleFractionText,colors = "Set1",  # Choose a color palette
+    type = 'scatter',
+    mode = 'markers'
+  ) %>%
+  layout(
+    title = "Salinity Fractions in Gilbert Bay",
+    xaxis = list(title = "Activity Start Date"),
+    yaxis = list(title = "Result Measure Value"),
+    colorway = c('#1f77b4', '#ff7f0e')  # Optional: specify custom colors
+  )
+  
+fraction_plot
+  
+```
+
+# Consolidate sites? Visualize all different sites..
+```{r}
+gilbert_salinity_sites <- gilbert_salinity %>% select(MonitoringLocationIdentifier,OrganizationFormalName,MonitoringLocationName,MonitoringLocationTypeName,LatitudeMeasure,LongitudeMeasure)%>%distinct()
+
+```
+
+# Visualize sites..
+```{r}
+g_sites_map <- leaflet()%>%
+    addProviderTiles("Esri.WorldTopoMap", group = "Topo", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE))%>%
+      addMapPane("Sites", zIndex = 415)%>%
+      # addMapPane("Tribes", zIndex = 410)%>%
+      addCircleMarkers(data=gilbert_salinity_sites,lng=~LongitudeMeasure,lat=~LatitudeMeasure, color = "blue", radius = 4, fillOpacity = 0.8,label = ~MonitoringLocationIdentifier,group="Sites",options = pathOptions(pane = "Sites"))
+
+
+g_sites_map
+
+
+
+```
+
+
+#Other parameters to keep: 
+```{r}
+nutrients_organics <- c("Ammonia and ammonium", "Nitrate + Nitrite","Orthophosphate", "Total Phosphorus, mixed forms","Organic carbon")
+
+inorganics_metals <- c( "Aluminum","Arsenic", "Barium", "Calcium", "Chromium", "Copper", "Iron", "Lead" ,"Magnesium", "Manganese", "Mercury", "Potassium",
+"Selenium", "Silver", "Sodium","Sulfate", "Zinc")
+
+physical_params <- c("Temperature, water" ,"Dissolved oxygen (DO)", "Specific conductance", "pH", "Total dissolved solids"
+,"Turbidity", "Depth of water column", "Stream flow, instantaneous")
+
+#thers_ps <-
+#Pesticides (e.g., Atrazine, Diazinon)
+#Organic pollutants (e.g., Benzene, Toluene, Phenanthrene)
+#Chlorophyll a (indicative of phytoplankton biomass)
+```
+
+
+# Assessments by Max Salinity Standards
+# How many times has it been threatened?
+# How many times has it been not supporting?
+```{r}
+# Period of Record 2024IR
+start = as.Date("2018-10-1")
+end = as.Date("2024-09-30")
+
+sites_of_interest = c("USGS-405356112205601", "USGS-410422112200001", "USGS-410644112382601", "USGS-411116112244401")
+
+gilber_24IR <- gilbert_salinity%>%
+  filter((ActivityStartDate>start & ActivityStartDate<end), Depth_Flag=="Surface",MonitoringLocationIdentifier%in%sites_of_interest)%>%
+  mutate(year = year(ActivityStartDate),
+         IR_Value = ifelse(ResultMeasure.MeasureUnitCode=="ppt",as.numeric(ResultMeasureValue)*.01,ifelse(ResultMeasure.MeasureUnitCode=="ppth",as.numeric(ResultMeasureValue)*.5,ResultMeasureValue)),
+         IR_Unit = "g/l")
+  
+
+depth_plot <- gilber_24IR%>%
+  plot_ly(
+    x= ~IR_ActivityDepthMeasure_M,
+    y=~IR_Value,
+    type= 'scatter',
+    mode='markers',
+    color = ~MonitoringLocationIdentifier
+  )
+  depth_plot
+
+table(gilber_24IR$ResultSampleFractionText,gilber_24IR$ResultMeasure.MeasureUnitCode)
+
+
+table(gilber_24IR$ResultSampleFractionText)
+
+##****** Date counts
+date_counts <- gilber_24IR %>%
+  filter(ResultSampleFractionText=="Dissolved")%>%
+  group_by(MonitoringLocationIdentifier,ActivityStartDate)%>%
+  summarise(date_count = n(),
+            unique_depth = length(unique(IR_ActivityDepthMeasure_M)))
+  
+
+#Max Salinity Assessments
+gilbert_24_asmnt <- gilber_24IR %>%
+  select(MonitoringLocationIdentifier,ActivityStartDate,year,IR_Value) %>%
+  group_by(MonitoringLocationIdentifier,ActivityStartDate,year)%>%
+  summarise(site_daily_mean = mean(as.numeric(IR_Value)))%>%
+  group_by(ActivityStartDate,year)%>%
+  summarise(gb_daily_mean = mean(site_daily_mean))%>%
+  group_by(year)%>%
+  summarise(max_sal =max(gb_daily_mean))%>%
+  mutate(Category = ifelse(max_sal>180,"Not Supporting",ifelse(max_sal>160,"Threatened","Supporting"))
+         )
+
+gilbert_24_asmnt <- gilber_24IR_2%>%
+  group_by(MonitoringLocationIdentifier)%>%
+  summarise(final_cat = ifelse(sum(Category=="Not Supporting")>1,"NS",ifelse(any(Category=="Threatened"),"Threatened","Supporting")),
+            no_years = n(),
+            sample_count = sum(s_count))%>%
+  merge(.,gilbert_salinity_sites)%>%
+  select(-MonitoringLocationTypeName)%>%
+  mutate(color = case_when(
+    final_cat =="Supporting"~"green",
+    final_cat =="Threatened"~"orange",
+    final_cat =="NS"~"red",
+  ),
+  label=paste0("<strong>MLID:</strong>",MonitoringLocationIdentifier,
+               '<br />',"<strong>Year Data Count: </strong>",no_years ,
+               '<br/>',"<strong>Sample Count: </strong>",sample_count)
+  )
+
+```
+
+# Assessment site map
+```{r}
+library(mapview)
+library(webshot)
+getwd()
+
+max_sal_asmnts_map <- leaflet() %>%
+  addProviderTiles("Esri.WorldTopoMap", group = "Topo", options = providerTileOptions(updateWhenZooming = FALSE, updateWhenIdle = TRUE)) %>%
+  addMapPane("Sites", zIndex = 415) %>%
+  addCircleMarkers(data = gilbert_24_asmnt,
+                   lng = ~LongitudeMeasure,
+                   lat = ~LatitudeMeasure,
+                   color = ~color,
+                   radius = ~no_years,
+                   fillOpacity = 0.8,
+                   group = "Sites",
+                   options = pathOptions(pane = "Sites")) %>%
+   addLabelOnlyMarkers(data = gilbert_24_asmnt,
+                      lng = ~LongitudeMeasure,
+                      lat = ~LatitudeMeasure,
+                      label = ~MonitoringLocationIdentifier,
+                      labelOptions = labelOptions(noHide = TRUE, direction = 'top',  textOnly = TRUE,
+                        style = list(
+                          "color" = "black",
+                          "font-size" = "16px"
+                        )))%>%
+  addLegend(position="topright",labels = c("Supporting", "Threathened","Not Supporting"),
+                colors = c("green","orange","red"))
+
+# Render and save the map as a PNG
+mapshot(max_sal_asmnts_map, file = "max_sal_asmnts_map26_IR.png", vwidth = 1200, vheight = 1200)
+
+
+max_sal_asmnts_map <- leaflet()%>%
+    addProviderTiles("Esri.WorldTopoMap", group = "Topo", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE))%>%
+      addMapPane("Sites", zIndex = 415)%>%
+      # addMapPane("Tribes", zIndex = 410)%>%
+      addCircleMarkers(data=gilbert_24_asmnt,lng=~LongitudeMeasure,lat=~LatitudeMeasure, color = ~color, radius = ~no_years, fillOpacity = 0.8,label= lapply(gilbert_24_asmnt$label,HTML),group="Sites",options = pathOptions(pane = "Sites"))%>%
+  addLegend(position="topright",labels = c("Supporting", "Threathened","Not Supporting"),
+                colors = c("green","orange","red"))
+
+
+
+max_sal_asmnts_map
+
+```
+
+
+# Percent Exceedance by Year, and site?
+# Do we also want to use a percent exceedance by month for each
+# Do we want Threatened Counts and Not Supporting Counts?
+```{r}
+#Add Month
+gilber_24IR1 <- gilber_24IR %>%
+  mutate(month = month(ActivityStartDate))%>%
+  filter(ResultSampleFractionText=="Dissolved")
+
+month_year_gilbert <- gilber_24IR1%>%
+  mutate(sample_cat = ifelse(IR_Value>180,"Not Supporting",ifelse(IR_Value>160,"Threatened","Supporting")))%>%
+  group_by(month,year)%>%
+  summarise(samp_count = n(),
+            Threatened_Count = sum(sample_cat=="Threatened"),
+            Threatened_Percent = round(Threatened_Count/samp_count*100,2),
+            NS_Count = sum(sample_cat =="Not Supporting"),
+            NS_Percent = round(NS_Count/samp_count*100,2))
+  
+# Convert month numbers to month names
+month_year_gilbert$month <- factor(month.abb[month_year_gilbert$month], levels = month.abb)
+
+#Threatened % Table
+threatened_wide <- month_year_gilbert%>%
+  select(year, month, Threatened_Percent) %>%
+  pivot_wider(names_from = month, values_from = Threatened_Percent)
+
+#Not Supporting % Table
+not_supporting_wide <- month_year_gilbert %>%
+  select(year, month, NS_Percent) %>%
+  pivot_wider(names_from = month, values_from = NS_Percent)
+
+# HEAT MAPS
+# heatmap for Threatened_Percent
+threatened_long <- pivot_longer(threatened_wide, -year, names_to = "month", values_to = "Threatened_Percent")%>%
+  mutate(month= factor(month,levels=month.abb))
+
+ggplot(threatened_long, aes(x = month, y = year, fill = Threatened_Percent)) +
+  geom_tile() +
+  scale_fill_gradient(low = "white", high = "orange") +
+  labs(title = "Threatened Percent Heatmap", x = "Month", y = "Year")
+
+# heatmap for NS_Percent
+not_supporting_long <- pivot_longer(not_supporting_wide, -year, names_to = "month", values_to = "NS_Percent")%>%
+  mutate(month= factor(month,levels=month.abb))
+
+ggplot(not_supporting_long, aes(x = month, y = year, fill = NS_Percent)) +
+  geom_tile() +
+  scale_fill_gradient(low = "white", high = "red") +
+  labs(title = "Not Supporting Percent Heatmap", x = "Month", y = "Year")
+
+
+
+
+
+```
+
+
+# Save tables
+```{r}
+gilbert_24_asmnt_simp <- gilbert_24_asmnt%>%select(-color,-label)
+
+gilbert_asmnts_list <- list(threatened_yr_mo=threatened_wide,
+ns_yr_mo=not_supporting_wide,gilbert_asmnt=gilbert_24_asmnt_simp)
+
+writexl::write_xlsx(gilbert_asmnts_list,"gilbert_asmnts_24.xlsx")
+
+```
+
+
+# Import GSL Brineshimp Samples
+```{r}
+library(readr)
+Brine_Shrimp_Data <- read_csv("/Users/alanochoa/Documents/GitHub/Data_Request/GSL_Methods/GSL Brine Shrimp Data - Sampling_Data.csv")
+
+
+# Plot out data by month for each life stage, color code by year?
+bs_data_cols <- c( "Cysts", "Nauplii", "Juveniles","Males","Total\nFemales", "Females","Females with\nEggs/Naups", "Females\nwith Cysts")
+
+Brine_Shrimp_Data<- Brine_Shrimp_Data%>%
+  mutate(month = month(as.Date(Date,format = "%m/%d/%Y")),
+         month_str = factor(month.abb[month],levels = month.abb))
+
+#Add Avg monthly salinity..
+Brine_Shrimp_Data <- merge(Brine_Shrimp_Data, avg_monthly_sal)
+
+# Ensure Years is an ordered factor
+Brine_Shrimp_Data <- Brine_Shrimp_Data %>%
+  mutate(Years = factor(Years, levels = sort(unique(Years))))
+
+
+Brine_Shrimp_Data <- Brine_Shrimp_Data %>%
+  mutate(scaled_mean_sal = scales::rescale(mean_sal, to = c(1, 10)))
+
+for (vals in bs_data_cols) {
+  d <- Brine_Shrimp_Data %>% select(all_of(c(vals, "month", "Years","mean_sal")))%>%
+    group_by(month,Years,mean_sal)%>%
+    mutate(mean_val = mean(get(vals)))
+  year_colors <- colorRampPalette(c("lightblue","blue","red", "darkred"))(length(unique(d$Years)))
+  plot <- plot_ly(
+    d,
+    x = ~month,
+    y = ~mean_val,  # use get() to correctly reference the column
+    color = ~Years,
+    colors = year_colors, 
+    size = ~mean_sal,
+    type = 'scatter',
+    mode = 'markers'
+  ) %>%
+  layout(
+    title = paste0(vals, " Values by Month"),
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Values per Litre of Water")
+  )
+  print(plot)  # Print the plot to see it
+}
+
+
+
+
+```
+
+
+
+# Questions for the group
+# 1) For other parameters we use only data between certain specific seasons/timeperiods. Is there a seasonality component that we should incorporate when assessing? Time of year where foodweb is most impacted by high salinty?
+# 2) Assessing surface vs bottom measurements?
+#     a) What is considered surface measurement?
+#     b) is there a point of saturation where salinity just starts settling to the bottom? How salty is the northern arm of GSL?
+# 3) Dissolved vs Total Fractions? SOP defines as Dissolved.
+# 4) Chronic vs Acute Thresholds
+# 5) Reports of Salinity in 2020 exceeding 180 g/L. Was this data not surface samples? Surface samples only show >180 in 2022. ANSWER: Surface/Bottom Salinity chart shows those bottom exceedances around 2020.
+# 6) SOP mentions salinity as TDS. Do we use TDS and/or Salinity samples?
+
+# Create heatmap of impairment of 10% over months(X) and years(Y)
+```{r}
+
+```
+
+#Preliminary Asmnts ASSUMPTIONS
+# 1) Surface samples are those <=1m in depth. Those samples without depth were rejected.
+# 2) Majority of samples were dissolved fractions. Filtered out Total. Do we want to use Total as well? 
+<!-- Dissolved     Total  -->
+<!--       396        42  -->
+# 3) Do we want to get mean daily values? Are there 
+
+```{r}
+
+```

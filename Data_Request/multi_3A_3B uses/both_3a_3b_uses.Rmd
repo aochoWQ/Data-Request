@@ -1,0 +1,116 @@
+# Mark Stanger pointed out that :The Verdure Creek-1 assessment unit (UT14080203-001_00) is impaired for "BENTHIC MACROINVERTEBRATES BIOASSESSMENTS" which shows up as impairing both Aquatic Wildlife Warm Water (3B) and Aquatic Wildlife Cold Water (3A) beneficial uses. 
+<!-- How can the aquatic life impairment be both 3B and 3A? The aquatic wildlife beneficial use for Verdure Creek 1 is for Warm Water (3B) so I think the reverence to 3A is in error.  -->
+
+<!-- The same comment applies to Montezuma Creek-2 (UT14080203-003_00) which has a 3B beneficial use designation.    -->
+```{r}
+
+map=leaflet()%>%
+    addWMSTiles("https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WmsServer", group = "USGS topo", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE), layers = "0") %>%
+    addWMSTiles("https://basemap.nationalmap.gov/arcgis/services/USGSHydroCached/MapServer/WmsServer", group = "Hydrography", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE), layers = "0") %>%
+    addProviderTiles("Esri.WorldImagery", group = "Satellite", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE)) %>%
+    addProviderTiles("Esri.WorldTopoMap", group = "World topo", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE)) %>%
+    addMapPane("underlay_polygons", zIndex = 410) %>%
+    addMapPane("au_poly", zIndex = 415)  %>%
+    addMapPane("markers", zIndex = 420)  %>%
+    addPolygons(data=wqTools::bu_poly,group="Beneficial uses",fillOpacity = 0.1,weight=3,color="green", options = pathOptions(pane = "underlay_polygons"),
+                popup=paste0(
+                  "Description: ", wqTools::bu_poly$R317Descrp,
+                  "<br> Uses: ", wqTools::bu_poly$bu_class)
+    ) %>% 
+    addPolygons(data=wqTools::au_poly,group="Assessment units",fillOpacity = 0.1,weight=3,color="orange", options = pathOptions(pane = "au_poly"),
+                popup=paste0(
+                  "AU name: ", wqTools::au_poly$AU_NAME,
+                  "<br> AU ID: ", wqTools::au_poly$ASSESS_ID,
+                  "<br> AU type: ", wqTools::au_poly$AU_Type)
+    ) %>% 
+    addPolygons(data=wqTools::ss_poly,group="Site-specific standards",fillOpacity = 0.1,weight=3,color="blue", options = pathOptions(pane = "underlay_polygons"),
+                popup=paste0("SS std: ", wqTools::ss_poly$SiteSpecif)
+    ) %>%
+    addPolygons(data=wqTools::wmu_poly,group="Watershed management units",fillOpacity = 0.1,weight=3,color="red", options = pathOptions(pane = "underlay_polygons"),
+                popup=wqTools::wmu_poly$Mgmt_Unit
+    ) %>%
+    addPolygons(data=wqTools::antideg_poly,group="Antideg category",fillOpacity = 0.1,weight=3,color="yellow", options = pathOptions(pane = "underlay_polygons"),
+                popup=paste0(
+                  "Antideg category: ", wqTools::antideg_poly$antideg_cat)
+    ) %>% 
+    addPolygons(data=wqTools::hnnc_poly,group="Headwater NNC",fillOpacity = 0.4,weight=3,color="pink", options = pathOptions(pane = "underlay_polygons")) %>%
+    addPolygons(data=wqTools::ut_poly,group="UT boundary",fillOpacity = 0.1,weight=3,color="purple", options = pathOptions(pane = "underlay_polygons")) %>%
+    hideGroup("Site-specific standards") %>%
+    hideGroup("Antideg category") %>%
+    hideGroup("Headwater NNC") %>%
+    hideGroup("UT boundary") %>%
+    hideGroup("Watershed management units")%>%
+  addLayersControl(position ="topleft",baseGroups = c("World topo","USGS topo", "Hydrography", "Satellite"),overlayGroups = c("Assessment units","Beneficial uses", "Site-specific standards","Antideg category", "Headwater NNC", "Watershed management units", "UT boundary"),
+                                  options = leaflet::layersControlOptions(collapsed = TRUE, autoZIndex=FALSE))
+map 
+
+library(htmlwidgets)
+# Save as HTML to share with Sam..
+saveWidget(map, file = "AU_Uses_Map.html")
+
+
+```
+
+Mark also pointed out there are some AUs with the same names..
+```{r}
+au_name_many=as.data.frame(au_poly)%>%
+  select(AU_NAME)%>%
+  group_by(AU_NAME)%>%
+  summarise(au_counts=n())%>%
+  filter(au_counts>1)
+
+au_poly_many=au_poly%>%filter(AU_NAME%in%au_name_many$AU_NAME)
+
+map_many_au=leaflet()%>%
+  addWMSTiles("https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WmsServer", group = "USGS topo", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE), layers = "0") %>%
+    addWMSTiles("https://basemap.nationalmap.gov/arcgis/services/USGSHydroCached/MapServer/WmsServer", group = "Hydrography", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE), layers = "0") %>%
+    addProviderTiles("Esri.WorldImagery", group = "Satellite", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE)) %>%
+    addProviderTiles("Esri.WorldTopoMap", group = "World topo", options = providerTileOptions(updateWhenZooming = FALSE,updateWhenIdle = TRUE)) %>%
+    addMapPane("underlay_polygons", zIndex = 410) %>%
+    addMapPane("au_poly", zIndex = 415)  %>%
+  addPolygons(data=au_poly_many,group="Assessment units",fillOpacity = 0.1,weight=3,color="orange",fillColor = "yellow", options = pathOptions(pane = "au_poly"),
+                popup=paste0(
+                  "AU name: ", au_poly_many$AU_NAME,
+                  "<br> AU ID: ", au_poly_many$ASSESS_ID,
+                  "<br> AU type: ", au_poly_many$AU_Type)
+    ) 
+  
+map_many_au
+
+
+```
+
+# Moctezume and Verdure Creek-1 don't appear to have two different BU polygons in AU. Could it be sites assessed right at the border?
+#Preliminary Assessments do not have any BEN_CLASS that have both 3A and 3B. Could be cause by an older 
+
+```{r}
+
+library(readr)
+uses_delisting_all <- read_csv("/Users/alanochoa/Documents/GitHub/IR-2024/ATTAINS_24_UPLOADS/uses_delisting_all.csv")
+aquatic_uses_attains=uses_delisting_all%>%filter(USE_NAME%in%c("Aquatic Wildlife (Cold Water)","Aquatic Wildlife (Warm Water)"))%>%
+  group_by(ASSESSMENT_UNIT_ID)%>%
+  mutate(Use_names=paste(USE_NAME,collapse=", "),use_count=n())%>%
+  select(ASSESSMENT_UNIT_ID,Use_names,use_count)%>%
+  distinct()%>%
+  filter(use_count>1)
+
+
+
+#Load OG ATTAINS Use Report
+UTAHDWQ_uses_9706_2_ <- read_csv("/Users/alanochoa/Documents/GitHub/IR-2024/attains/UTAHDWQ_uses_9706 (2).csv")
+UTAHDWQ_uses_9706_2_ = UTAHDWQ_uses_9706_2_%>%
+  filter(ASSESSMENT_UNIT_ID%in%aquatic_uses_attains$ASSESSMENT_UNIT_ID &USE_NAME%in%c("Aquatic Wildlife (Cold Water)","Aquatic Wildlife (Warm Water)"))
+
+#Appears that those AUs have had those two Uses since at least 2022. Could be before a use change. Save list with appropriate Use and remove the uses that should be removed for the 2026 IR.
+
+au_uses24 = prelim_asmnts%>%
+  select(ASSESS_ID,BeneficialUse)%>%
+  filter(BeneficialUse%in%c("3A","3B"),ASSESS_ID%in%UTAHDWQ_uses_9706_2_$ASSESSMENT_UNIT_ID)%>%
+  distinct()%>%
+  rename(ASSESSMENT_UNIT_ID=ASSESS_ID)
+
+ATTAINS_INCORRECT =merge(UTAHDWQ_uses_9706_2_,au_uses24)
+
+write.csv(ATTAINS_INCORRECT,"incorrect_attains_use_FIX_THIS.csv")
+
+```

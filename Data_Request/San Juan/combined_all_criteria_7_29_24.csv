@@ -1,0 +1,484 @@
+"","Screening.Criteria","Use","Jurisdiction","CharacteristicName","ResultSampleFractionText","Criteria_mg_L","CF","Criterion_Formula_mgL"
+"1","Agriculture","Agricultural Supply","Navajo Nation","Aluminum","Total",20,NA,NA
+"2","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Aluminum","Acid Soluble ",0.75,NA,NA
+"3","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Aluminum","Acid Soluble ",0.087,NA,NA
+"4","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Antimony","Dissolved",0.088,NA,NA
+"5","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Antimony","Dissolved",0.03,NA,NA
+"6","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Antimony","Total",0.0056,NA,NA
+"7","Fish Consumption","Fish Consumption","Navajo Nation","Antimony","Total",0.64,NA,NA
+"8","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Antimony","Total",0.747,NA,NA
+"9","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Antimony","Total",0.747,NA,NA
+"10","Agriculture","Agricultural Supply","Navajo Nation","Arsenic","Total",2,NA,NA
+"11","Agriculture","Irrigation (long-term)","Utah","Aluminum","Dissolved",5,NA,NA
+"12","Agriculture","Irrigation (short-term)","Utah","Aluminum","Dissolved",20,NA,NA
+"13","Aquatic Life","Aquatic Acute","Colorado","Aluminum","Total Recoverable",NA,"1","(CF*exp( 1.3695 *log(hardness)+ 1.8308 ))/1000"
+"14","Aquatic Life","Aquatic Chronic","Colorado","Aluminum","Total Recoverable",NA,"1","(CF*exp( 1.3695 *log(hardness)+ -0.1158 ))/1000"
+"15","Aquatic Life","Warm Water Fish 1-hr","Utah","Aluminum","Dissolved",0.75,NA,NA
+"16","Aquatic Life","Warm Water Fish 4-day","Utah","Aluminum","Dissolved",0.087,NA,NA
+"17","Aquatic Life","Aquatic Acute 1-Hour","Ute Mountain Ute","Aluminum","Total Recoverable",0.75,NA,NA
+"18","Domestic Water Supply","Drinking Water 30-Day","Ute Mountain Ute","Antimony","Dissolved",0.0056,NA,NA
+"19","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Arsenic","Total Recoverable",0.1,NA,NA
+"20","Aquatic Life","Aquatic Acute 1-Hour","Ute Mountain Ute","Arsenic","Total Recoverable",0.34,NA,NA
+"21","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Arsenic","Total Recoverable",0.15,NA,NA
+"22","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Arsenic","Total Recoverable",1.8e-05,NA,NA
+"23","Fish Consumption","Fish Consumption","Ute Mountain Ute","Arsenic","Total Recoverable",1.4e-05,NA,NA
+"24","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Barium","Dissolved",1,NA,NA
+"25","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Cadmium","Total Recoverable",0.01,NA,NA
+"26","Agriculture","Irrigation","New Mexico","Aluminum","Dissolved",5,NA,NA
+"27","Aquatic Life","Aquatic Acute","New Mexico","Aluminum","Total Recoverable",NA,"1","(CF*exp( 1.3695 *log(hardness)+ 1.8308 ))/1000"
+"28","Aquatic Life","Aquatic Chronic","New Mexico","Aluminum","Total Recoverable",NA,"1","(CF*exp( 1.3695 *log(hardness)+ 0.9161 ))/1000"
+"29","Domestic Water Supply","Domestic Water Supply","New Mexico","Antimony","Dissolved",0.006,NA,NA
+"30","Fish Consumption","HH-OO","New Mexico","Antimony","Dissolved",0.64,NA,NA
+"31","Agriculture","Irrigation","New Mexico","Arsenic","Dissolved",0.1,NA,NA
+"32","Aquatic Life","Aquatic Acute","New Mexico","Arsenic","Dissolved",0.34,NA,NA
+"33","Aquatic Life","Aquatic Chronic","New Mexico","Arsenic","Dissolved",0.15,NA,NA
+"34","Domestic Water Supply","Domestic Water Supply","New Mexico","Arsenic","Dissolved",0.01,NA,NA
+"35","Fish Consumption","HH-OO","New Mexico","Arsenic","Dissolved",0.009,NA,NA
+"36","Agriculture","Revised Ag Water Supply","Region 9","Aluminum","Dissolved",5,NA,NA
+"37","Recreation and Human Contact","Recreational","Region 6","Aluminum","Dissolved",170,NA,NA
+"38","Agriculture","Irrigation","Region 6","Antimony","Dissolved",5,NA,NA
+"39","Recreation and Human Contact","Recreational","Region 6","Antimony","Dissolved",0.067,NA,NA
+"40","Agriculture","Revised Ag Water Supply","Region 9","Arsenic","Dissolved",2,NA,NA
+"41","Livestock","Livestock Watering","Region 9","Arsenic","Dissolved",0.2,NA,NA
+"42","Recreation and Human Contact","Recreational","Region 6","Arsenic","Dissolved",0.05,NA,NA
+"43","Recreation and Human Contact","Recreational","Region 6","Barium","Dissolved",33,NA,NA
+"44","Livestock","Livestock Watering","Region 6","Beryllium","Dissolved",0.1,NA,NA
+"45","Recreation and Human Contact","Recreational","Region 6","Beryllium","Dissolved",0.33,NA,NA
+"46","Agriculture","Irrigation","Region 6","Cadmium","Dissolved",0.01,NA,NA
+"47","Livestock","Livestock Watering","Utah","Aluminum","Dissolved",5,NA,NA
+"48","Recreation and Human Contact","Recreational","Utah","Aluminum","Total",620.767,NA,NA
+"49","Fish Consumption","Fish Consumption","Colorado","Antimony","Total Recoverable",0.64,NA,NA
+"50","Recreation and Human Contact","Recreational","Utah","Antimony","Total",0.248,NA,NA
+"51","Agriculture","Agricultural Uses","Utah","Arsenic","Dissolved",0.1,NA,NA
+"52","Agriculture","Irrigation (long-term)","Utah","Arsenic","Dissolved",0.1,NA,NA
+"53","Agriculture","Irrigation (short-term)","Utah","Arsenic","Dissolved",2,NA,NA
+"54","Aquatic Life","Aquatic Acute","Colorado","Arsenic","Dissolved",0.34,NA,NA
+"55","Aquatic Life","Aquatic Chronic","Colorado","Arsenic","Dissolved",0.15,NA,NA
+"56","Fish Consumption","Fish Consumption","Colorado","Arsenic","Total Recoverable",0.0076,NA,NA
+"57","Aquatic Life","Warm Water Fish 1-hr","Utah","Arsenic","Dissolved",0.34,NA,NA
+"58","Aquatic Life","Warm Water Fish 4-day","Utah","Arsenic","Dissolved",0.15,NA,NA
+"59","Domestic Water Supply","Domestic Water Supply","Utah","Arsenic","Dissolved",0.01,NA,NA
+"60","Livestock","Livestock Watering","Utah","Arsenic","Dissolved",0.2,NA,NA
+"61","Recreation and Human Contact","Recreational","Utah","Arsenic","Total",0.186,NA,NA
+"62","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Barium","Total Recoverable",1,NA,NA
+"63","Domestic Water Supply","Domestic Water Supply","Utah","Barium","Dissolved",1,NA,NA
+"64","Recreation and Human Contact","Recreational","Utah","Barium","Total",124.159,NA,NA
+"65","Domestic Water Supply","Domestic Water Supply","Utah","Beryllium","Dissolved",0.004,NA,NA
+"66","Recreation and Human Contact","Recreational","Utah","Beryllium","Total",1.242,NA,NA
+"67","Agriculture","Agricultural Uses","Utah","Cadmium","Dissolved",0.01,NA,NA
+"68","Agriculture","Irrigation (long-term)","Utah","Cadmium","Dissolved",0.01,NA,NA
+"69","Agriculture","Irrigation (short-term)","Utah","Cadmium","Dissolved",0.05,NA,NA
+"70","Aquatic Life","Aquatic Acute","Colorado","Cadmium","Dissolved",NA,"1.136672 -log(hardness)* 0.041838","(CF*exp( 0.9151 *log(hardness)+ -3.1485 ))/1000"
+"71","Aquatic Life","Aquatic Chronic","Colorado","Cadmium","Dissolved",NA,"1.101672 -log(hardness)* 0.041838","(CF*exp( 0.7998 *log(hardness)+ -4.4451 ))/1000"
+"72","Aquatic Life","Trout Acute","Colorado","Cadmium","Dissolved",NA,"1.136672 -log(hardness)* 0.041838","(CF*exp( 0.9151 *log(hardness)+ -3.6236 ))/1000"
+"73","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Cadmium","Total Recoverable",0.005,NA,NA
+"74","Aquatic Life","Aquatic Acute","Utah","Cadmium","Dissolved",NA,"1.136672 -log(hardness)* 0.041838","(CF*exp( 0.9789 *log(hardness)+ -3.866 ))/1000"
+"75","Agriculture","Revised Ag Water Supply","Region 9","Cadmium","Dissolved",0.05,NA,NA
+"76","Aquatic Life","Aquatic Acute","EPA","Cadmium","Dissolved",NA,"1.136672 -log(hardness)* 0.041838","(CF*exp( 0.9789 *log(hardness)+ -3.866 ))/1000"
+"77","Aquatic Life","Aquatic Chronic","EPA","Cadmium","Dissolved",NA,"1.101672 -log(hardness)* 0.041838","(CF*exp( 0.7977 *log(hardness)+ -3.909 ))/1000"
+"78","Livestock","Livestock Watering","Region 6","Cadmium","Dissolved",0.05,NA,NA
+"79","Livestock","Livestock Watering","Region 9","Cadmium","Dissolved",0.05,NA,NA
+"80","Recreation and Human Contact","Recreational","Region 6","Cadmium","Dissolved",0.083,NA,NA
+"81","Agriculture","Irrigation","Region 6","Chromium","Dissolved",0.1,NA,NA
+"82","Agriculture","Revised Ag Water Supply","Region 9","Chromium","Dissolved",1,NA,NA
+"83","Livestock","Livestock Watering","Region 6","Chromium","Dissolved",1,NA,NA
+"84","Livestock","Livestock Watering","Region 9","Chromium","Dissolved",1,NA,NA
+"85","Recreation and Human Contact","Recreational","Region 6","Chromium","Dissolved",220,NA,NA
+"86","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Arsenic","Dissolved",0.34,NA,NA
+"87","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Arsenic","Dissolved",0.15,NA,NA
+"88","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Arsenic","Total",0.01,NA,NA
+"89","Fish Consumption","Fish Consumption","Navajo Nation","Arsenic","Total",0.08,NA,NA
+"90","Livestock","Livestock Watering","Navajo Nation","Arsenic","Total",0.2,NA,NA
+"91","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Arsenic","Total",0.03,NA,NA
+"92","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Arsenic","Total",0.28,NA,NA
+"93","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Barium","Total",2,NA,NA
+"94","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Barium","Total",98,NA,NA
+"95","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Barium","Total",98,NA,NA
+"96","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Beryllium","Total",0.004,NA,NA
+"97","Fish Consumption","Fish Consumption","Navajo Nation","Beryllium","Total",0.085,NA,NA
+"98","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Beryllium","Total",1.87,NA,NA
+"99","Aquatic Life","Aquatic Chronic","Utah","Cadmium","Dissolved",NA,"1.101672 -log(hardness)* 0.041838","(CF*exp( 0.7977 *log(hardness)+ -3.909 ))/1000"
+"100","Aquatic Life","Warm Water Fish 1-hr","Utah","Cadmium","Dissolved",0.002,NA,NA
+"101","Aquatic Life","Warm Water Fish 4-day","Utah","Cadmium","Dissolved",0.00025,NA,NA
+"102","Domestic Water Supply","Domestic Water Supply","Utah","Cadmium","Dissolved",0.01,NA,NA
+"103","Livestock","Livestock Watering","Utah","Cadmium","Dissolved",0.05,NA,NA
+"104","Recreation and Human Contact","Recreational","Utah","Cadmium","Total",0.062,NA,NA
+"105","Livestock","Livestock Watering","Utah","Calcium","Dissolved",500,NA,NA
+"106","Agriculture","Agricultural Uses","Utah","Chromium","Dissolved",0.1,NA,NA
+"107","Agriculture","Irrigation (long-term)","Utah","Chromium","Dissolved",0.1,NA,NA
+"108","Agriculture","Irrigation (short-term)","Utah","Chromium","Dissolved",1,NA,NA
+"109","Aquatic Life","Aquatic Acute","Colorado","Chromium","Dissolved",0.016,NA,NA
+"110","Aquatic Life","Aquatic Chronic","Colorado","Chromium","Dissolved",0.011,NA,NA
+"111","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Chromium","Total Recoverable",0.05,NA,NA
+"112","Aquatic Life","Warm Water Fish 1-hr","Utah","Chromium","Dissolved",0.016,NA,NA
+"113","Aquatic Life","Aquatic Acute","EPA","Chromium(III)","Dissolved",NA,"0.316","(CF*exp( 0.819 *log(hardness)+ 3.7256 ))/1000"
+"114","Aquatic Life","Aquatic Chronic","EPA","Chromium(III)","Dissolved",NA,"0.86","(CF*exp( 0.819 *log(hardness)+ 0.6848 ))/1000"
+"115","Agriculture","Irrigation","Region 6","Cobalt","Dissolved",1,NA,NA
+"116","Agriculture","Revised Ag Water Supply","Region 9","Cobalt","Dissolved",0.05,NA,NA
+"117","Livestock","Livestock Watering","Region 9","Cobalt","Dissolved",1,NA,NA
+"118","Recreation and Human Contact","Recreational","Region 6","Cobalt","Dissolved",0.05,NA,NA
+"119","Agriculture","Irrigation","Region 6","Copper","Dissolved",0.2,NA,NA
+"120","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Beryllium","Total",1.87,NA,NA
+"121","Agriculture","Agricultural Supply","Navajo Nation","Beryllium","Total",0.05,NA,NA
+"122","Aquatic Life","Aquatic Acute","Navajo Nation","Cadmium","Dissolved",NA,"1.136672 -log(hardness)* 0.041838","(CF*exp( 1.0166 *log(hardness)+ -3.924 ))/1000"
+"123","Aquatic Life","Aquatic Chronic","Navajo Nation","Cadmium","Dissolved",NA,"1.101672 -log(hardness)* 0.041838","(CF*exp( 0.7409 *log(hardness)+ -4.719 ))/1000"
+"124","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Cadmium","Total",0.005,NA,NA
+"125","Livestock","Livestock Watering","New Mexico","Arsenic","Dissolved",0.2,NA,NA
+"126","Domestic Water Supply","Domestic Water Supply","New Mexico","Barium","Dissolved",2,NA,NA
+"127","Domestic Water Supply","Domestic Water Supply","New Mexico","Beryllium","Dissolved",0.004,NA,NA
+"128","Agriculture","Irrigation","New Mexico","Cadmium","Dissolved",0.01,NA,NA
+"129","Aquatic Life","Aquatic Acute","New Mexico","Cadmium","Dissolved",NA,"1.136672 -log(hardness)* 0.041838","(CF*exp( 0.8968 *log(hardness)+ -3.5699 ))/1000"
+"130","Aquatic Life","Aquatic Chronic","New Mexico","Cadmium","Dissolved",NA,"1.101672 -log(hardness)* 0.041838","(CF*exp( 0.7647 *log(hardness)+ -4.218 ))/1000"
+"131","Domestic Water Supply","Domestic Water Supply","New Mexico","Cadmium","Dissolved",0.005,NA,NA
+"132","Livestock","Livestock Watering","New Mexico","Cadmium","Dissolved",0.05,NA,NA
+"133","Agriculture","Irrigation","New Mexico","Chromium","Dissolved",0.1,NA,NA
+"134","Aquatic Life","Aquatic Acute","New Mexico","Chromium","Dissolved",0.016,NA,NA
+"135","Aquatic Life","Aquatic Chronic","New Mexico","Chromium","Dissolved",0.011,NA,NA
+"136","Domestic Water Supply","Domestic Water Supply","New Mexico","Chromium","Dissolved",0.1,NA,NA
+"137","Livestock","Livestock Watering","New Mexico","Chromium","Dissolved",1,NA,NA
+"138","Aquatic Life","Aquatic Acute","New Mexico","Chromium(III)","Dissolved",NA,"0.316","(CF*exp( 0.819 *log(hardness)+ 3.7256 ))/1000"
+"139","Aquatic Life","Aquatic Chronic","New Mexico","Chromium(III)","Dissolved",NA,"0.86","(CF*exp( 0.819 *log(hardness)+ 0.6848 ))/1000"
+"140","Agriculture","Irrigation","New Mexico","Cobalt","Dissolved",0.05,NA,NA
+"141","Aquatic Life","Warm Water Fish 4-day","Utah","Chromium","Dissolved",0.011,NA,NA
+"142","Domestic Water Supply","Domestic Water Supply","Utah","Chromium","Dissolved",0.05,NA,NA
+"143","Livestock","Livestock Watering","Utah","Chromium","Dissolved",1,NA,NA
+"144","Recreation and Human Contact","Recreational","Utah","Chromium","Total",0.41,NA,NA
+"145","Aquatic Life","Aquatic Acute","Utah","Chromium(III)","Dissolved",NA,"0.316","(CF*exp( 0.819 *log(hardness)+ 3.7256 ))/1000"
+"146","Aquatic Life","Aquatic Acute","Colorado","Chromium(III)","Dissolved",NA,"1","(CF*exp( 0.819 *log(hardness)+ 2.5736 ))/1000"
+"147","Aquatic Life","Aquatic Chronic","Colorado","Chromium(III)","Dissolved",NA,"1","(CF*exp( 0.819 *log(hardness)+ 0.534 ))/1000"
+"148","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Cadmium","Dissolved",NA,"1.136672 -log(hardness)* 0.041838","(CF*exp( 1.0166 *log(hardness)+ -3.924 ))/1000"
+"149","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Cadmium","Dissolved",NA,"1.101672 -log(hardness)* 0.041838","(CF*exp( 0.7409 *log(hardness)+ -4.719 ))/1000"
+"150","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Cadmium","Dissolved",0.005,NA,NA
+"151","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Chromium","Total Recoverable",0.1,NA,NA
+"152","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Chromium","Dissolved",0.011,NA,NA
+"153","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Chromium","Dissolved",0.05,NA,NA
+"154","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Chromium(III)","Dissolved",NA,"8.396997847","(CF*exp( 0.819 *log(hardness)+ 3.7256 ))/1000"
+"155","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Chromium(III)","Dissolved",NA,"5.356197847","(CF*exp( 0.819 *log(hardness)+ 0.6848 ))/1000"
+"156","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Copper","Total Recoverable",0.2,NA,NA
+"157","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Copper","Dissolved",NA,"3.674103848","(CF*exp( 0.9422 *log(hardness)+ -1.7 ))/1000"
+"158","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Copper","Dissolved",NA,"3.171882125","(CF*exp( 0.8545 *log(hardness)+ -1.702 ))/1000"
+"159","Domestic Water Supply","Drinking Water 30-Day","Ute Mountain Ute","Copper","Dissolved",1,NA,NA
+"160","Aquatic Life","Aquatic Acute 1-Day","Ute Mountain Ute","Hardness","Dissolved",300,NA,NA
+"161","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Lead","Total Recoverable",0.1,NA,NA
+"162","Aquatic Life","Aquatic Chronic","Utah","Chromium(III)","Dissolved",NA,"0.86","(CF*exp( 0.819 *log(hardness)+ 0.6848 ))/1000"
+"163","Agriculture","Irrigation (long-term)","Utah","Cobalt","Dissolved",0.05,NA,NA
+"164","Agriculture","Irrigation (short-term)","Utah","Cobalt","Dissolved",5,NA,NA
+"165","Livestock","Livestock Watering","Utah","Cobalt","Dissolved",1,NA,NA
+"166","Recreation and Human Contact","Recreational","Utah","Cobalt","Total",7.931,NA,NA
+"167","Agriculture","Agricultural Uses","Utah","Copper","Dissolved",0.2,NA,NA
+"168","Agriculture","Irrigation (long-term)","Utah","Copper","Dissolved",0.2,NA,NA
+"169","Agriculture","Irrigation (short-term)","Utah","Copper","Dissolved",5,NA,NA
+"170","Aquatic Life","Aquatic Acute","Utah","Copper","Dissolved",NA,"0.96","(CF*exp( 0.9422 *log(hardness)+ -1.7 ))/1000"
+"171","Aquatic Life","Aquatic Acute","Colorado","Copper","Dissolved",NA,"1","(CF*exp( 0.9422 *log(hardness)+ -1.7408 ))/1000"
+"172","Aquatic Life","Aquatic Chronic","Colorado","Copper","Dissolved",NA,"1","(CF*exp( 0.8545 *log(hardness)+ -1.7428 ))/1000"
+"173","Aquatic Life","Aquatic Chronic","Utah","Copper","Dissolved",NA,"0.96","(CF*exp( 0.8545 *log(hardness)+ -1.702 ))/1000"
+"174","Aquatic Life","Warm Water Fish 1-hr","Utah","Copper","Dissolved",0.013,NA,NA
+"175","Aquatic Life","Warm Water Fish 4-day","Utah","Copper","Dissolved",0.009,NA,NA
+"176","Livestock","Livestock Watering","Utah","Copper","Dissolved",0.5,NA,NA
+"177","Recreation and Human Contact","Recreational","Utah","Copper","Total",6.208,NA,NA
+"178","Aquatic Life","Aquatic Acute","Colorado","Hardness","Dissolved",200,NA,NA
+"179","Agriculture","Revised Ag Water Supply","Region 9","Copper","Dissolved",0.2,NA,NA
+"180","Aquatic Life","Aquatic Acute","EPA","Copper","Dissolved",NA,"0.96","(CF*exp( 0.9422 *log(hardness)+ -1.7 ))/1000"
+"181","Aquatic Life","Aquatic Chronic","EPA","Copper","Dissolved",NA,"0.96","(CF*exp( 0.8545 *log(hardness)+ -1.702 ))/1000"
+"182","Livestock","Livestock Watering","Region 6","Copper","Dissolved",0.5,NA,NA
+"183","Livestock","Livestock Watering","Region 9","Copper","Dissolved",0.5,NA,NA
+"184","Recreation and Human Contact","Recreational","Region 6","Copper","Dissolved",6.7,NA,NA
+"185","Fish Consumption","Fish Consumption","Navajo Nation","Cadmium","Total",0.008,NA,NA
+"186","Livestock","Livestock Watering","Navajo Nation","Cadmium","Total",0.05,NA,NA
+"187","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Cadmium","Total",0.47,NA,NA
+"188","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Cadmium","Total",0.47,NA,NA
+"189","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Chromium","Total",0.1,NA,NA
+"190","Fish Consumption","Fish Consumption","Navajo Nation","Chromium","Total",0.15,NA,NA
+"191","Livestock","Livestock Watering","New Mexico","Cobalt","Dissolved",1,NA,NA
+"192","Agriculture","Irrigation","New Mexico","Copper","Dissolved",0.2,NA,NA
+"193","Aquatic Life","Aquatic Acute","New Mexico","Copper","Dissolved",NA,"0.96","(CF*exp( 0.9422 *log(hardness)+ -1.7 ))/1000"
+"194","Aquatic Life","Aquatic Chronic","New Mexico","Copper","Dissolved",NA,"0.96","(CF*exp( 0.8545 *log(hardness)+ -1.702 ))/1000"
+"195","Domestic Water Supply","Domestic Water Supply","New Mexico","Copper","Dissolved",1.3,NA,NA
+"196","Livestock","Livestock Watering","New Mexico","Copper","Dissolved",0.5,NA,NA
+"197","Aquatic Life","Aquatic Acute","New Mexico","Hardness","Dissolved",300,NA,NA
+"198","Aquatic Life","Aquatic Chronic","New Mexico","Hardness","Dissolved",300,NA,NA
+"199","Agriculture","Irrigation","New Mexico","Lead","Dissolved",5,NA,NA
+"200","Aquatic Life","Aquatic Acute","New Mexico","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.145712","(CF*exp( 1.273 *log(hardness)+ -1.46 ))/1000"
+"201","Aquatic Life","Aquatic Chronic","New Mexico","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.145712","(CF*exp( 1.273 *log(hardness)+ -4.705 ))/1000"
+"202","Domestic Water Supply","Domestic Water Supply","New Mexico","Lead","Dissolved",0.015,NA,NA
+"203","Livestock","Livestock Watering","New Mexico","Lead","Dissolved",0.1,NA,NA
+"204","Aquatic Life","Aquatic Acute","New Mexico","Manganese","Dissolved",NA,"1","(CF*exp( 0.3331 *log(hardness)+ 6.4676 ))/1000"
+"205","Aquatic Life","Aquatic Chronic","Colorado","Hardness","Dissolved",200,NA,NA
+"206","Aquatic Life","Warm Water Fish 1-hr","Utah","Hardness","Dissolved",200,NA,NA
+"207","Aquatic Life","Warm Water Fish 4-day","Utah","Hardness","Dissolved",200,NA,NA
+"208","Agriculture","Irrigation (long-term)","Utah","Iron","Dissolved",5,NA,NA
+"209","Agriculture","Irrigation (short-term)","Utah","Iron","Dissolved",20,NA,NA
+"210","Aquatic Life","Aquatic Chronic","Colorado","Iron","Total Recoverable",1,NA,NA
+"211","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.14572","(CF*exp( 1.273 *log(hardness)+ -1.46 ))/1000"
+"212","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.145712","(CF*exp( 1.273 *log(hardness)+ -4.705 ))/1000"
+"213","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Lead","Dissolved",0.05,NA,NA
+"214","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Mercury","Total Recoverable",0.01,NA,NA
+"215","Aquatic Life","Aquatic Acute 1-Hour","Ute Mountain Ute","Mercury","Total Recoverable",0.0014,NA,NA
+"216","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Mercury","Total Recoverable",1.2e-05,NA,NA
+"217","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Mercury","Total Recoverable",5e-05,NA,NA
+"218","Fish Consumption","Fish Consumption","Ute Mountain Ute","Mercury","Total Recoverable",5.1e-05,NA,NA
+"219","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Nickel","Total Recoverable",0.2,NA,NA
+"220","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Nickel","Dissolved",NA,"7.080399974","(CF*exp( 0.846 *log(hardness)+ 2.255 ))/1000"
+"221","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Nickel","Dissolved",NA,"4.883799974","(CF*exp( 0.846 *log(hardness)+ 0.0584 ))/1000"
+"222","Domestic Water Supply","Drinking Water 30-Day","Ute Mountain Ute","Nickel","Dissolved",0.1,NA,NA
+"223","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Selenium","Total Recoverable",0.02,NA,NA
+"224","Livestock","Livestock Watering","Navajo Nation","Chromium","Total",1,NA,NA
+"225","Aquatic Life","Aquatic Acute","Navajo Nation","Chromium(III)","Dissolved",NA,"0.316","(CF*exp( 0.819 *log(hardness)+ 3.7256 ))/1000"
+"226","Aquatic Life","Aquatic Chronic","Navajo Nation","Chromium(III)","Dissolved",NA,"0.86","(CF*exp( 0.819 *log(hardness)+ 0.6848 ))/1000"
+"227","Agriculture","Agricultural Supply","Navajo Nation","Cobalt","Dissolved",5,NA,NA
+"228","Livestock","Livestock Watering","Navajo Nation","Cobalt","Dissolved",1,NA,NA
+"229","Agriculture","Agricultural Supply","Navajo Nation","Copper","Dissolved",5,NA,NA
+"230","Aquatic Life","Aquatic Acute","Navajo Nation","Copper","Dissolved",NA,"0.96","(CF*exp( 0.9422 *log(hardness)+ -1.7 ))/1000"
+"231","Aquatic Life","Aquatic Chronic","Navajo Nation","Copper","Dissolved",NA,"0.96","(CF*exp( 0.8545 *log(hardness)+ -1.702 ))/1000"
+"232","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Copper","Total",1.3,NA,NA
+"233","Livestock","Livestock Watering","Navajo Nation","Copper","Total",0.5,NA,NA
+"234","Aquatic Life","Warm Water Fish 1-hr","Utah","Iron","Dissolved",1,NA,NA
+"235","Aquatic Life","Warm Water Fish 4-day","Utah","Iron","Dissolved",1,NA,NA
+"236","Recreation and Human Contact","Recreational","Utah","Iron","Total",851.582,NA,NA
+"237","Agriculture","Agricultural Uses","Utah","Lead","Dissolved",0.1,NA,NA
+"238","Agriculture","Irrigation (long-term)","Utah","Lead","Dissolved",5,NA,NA
+"239","Agriculture","Irrigation (short-term)","Utah","Lead","Dissolved",10,NA,NA
+"240","Aquatic Life","Aquatic Acute","Utah","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.145712","(CF*exp( 1.273 *log(hardness)+ -1.46 ))/1000"
+"241","Aquatic Life","Aquatic Acute","Colorado","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.145712","(CF*exp( 1.273 *log(hardness)+ -1.46 ))/1000"
+"242","Aquatic Life","Aquatic Chronic","Colorado","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.145712","(CF*exp( 1.273 *log(hardness)+ -4.705 ))/1000"
+"243","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Lead","Total Recoverable",0.05,NA,NA
+"244","Aquatic Life","Aquatic Chronic","Utah","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.145712","(CF*exp( 1.273 *log(hardness)+ -4.705 ))/1000"
+"245","Aquatic Life","Warm Water Fish 1-hr","Utah","Lead","Dissolved",0.065,NA,NA
+"246","Aquatic Life","Warm Water Fish 4-day","Utah","Lead","Dissolved",0.025,NA,NA
+"247","Domestic Water Supply","Domestic Water Supply","Utah","Lead","Dissolved",0.015,NA,NA
+"248","Livestock","Livestock Watering","Utah","Lead","Dissolved",0.1,NA,NA
+"249","Recreation and Human Contact","Recreational","Utah","Lead","Total",0.91,NA,NA
+"250","Livestock","Livestock Watering","Utah","Magnesium","Dissolved",250,NA,NA
+"251","Agriculture","Irrigation (long-term)","Utah","Manganese","Dissolved",0.2,NA,NA
+"252","Agriculture","Irrigation (short-term)","Utah","Manganese","Dissolved",10,NA,NA
+"253","Aquatic Life","Aquatic Acute","Colorado","Manganese","Dissolved",NA,"1","(CF*exp( 0.3331 *log(hardness)+ 6.4676 ))/1000"
+"254","Aquatic Life","Aquatic Chronic","Colorado","Manganese","Dissolved",NA,"1","(CF*exp( 0.3331 *log(hardness)+ 5.8743 ))/1000"
+"255","Recreation and Human Contact","Recreational","Utah","Manganese","Total",31.04,NA,NA
+"256","Aquatic Life","Aquatic Chronic","Colorado","Mercury","Total",1e-05,NA,NA
+"257","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Mercury","Total Recoverable",0.002,NA,NA
+"258","Aquatic Life","Warm Water Fish 1-hr","Utah","Mercury","Dissolved",1.2e-05,NA,NA
+"259","Aquatic Life","Warm Water Fish 4-day","Utah","Mercury","Dissolved",1.2e-05,NA,NA
+"260","Domestic Water Supply","Domestic Water Supply","Utah","Mercury","Dissolved",0.002,NA,NA
+"261","Livestock","Livestock Watering","Utah","Mercury","Dissolved",0.01,NA,NA
+"262","Recreation and Human Contact","Recreational","Utah","Mercury","Total",1.242,NA,NA
+"263","Agriculture","Irrigation (long-term)","Utah","Molybdenum","Dissolved",0.01,NA,NA
+"264","Agriculture","Irrigation (short-term)","Utah","Molybdenum","Dissolved",0.05,NA,NA
+"265","Recreation and Human Contact","Recreational","Utah","Molybdenum","Total",3.104,NA,NA
+"266","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Copper","Total",9.33,NA,NA
+"267","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Copper","Total",9.33,NA,NA
+"268","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Hardness","Dissolved",300,NA,NA
+"269","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Hardness","Dissolved",300,NA,NA
+"270","Agriculture","Agricultural Supply","Navajo Nation","Lead","Total",10,NA,NA
+"271","Aquatic Life","Aquatic Acute","Navajo Nation","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.14572","(CF*exp( 1.273 *log(hardness)+ -1.46 ))/1000"
+"272","Aquatic Life","Aquatic Chronic","Navajo Nation","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.145712","(CF*exp( 1.273 *log(hardness)+ -4.705 ))/1000"
+"273","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Lead","Total",0.015,NA,NA
+"274","Livestock","Livestock Watering","Navajo Nation","Lead","Total",0.1,NA,NA
+"275","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Lead","Total",0.015,NA,NA
+"276","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Lead","Total",0.015,NA,NA
+"277","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Mercury","Dissolved",0.0024,NA,NA
+"278","Aquatic Life","Aquatic Chronic","New Mexico","Manganese","Dissolved",NA,"1","(CF*exp( 0.3331 *log(hardness)+ 5.8743 ))/1000"
+"279","Aquatic Life","Aquatic Acute","New Mexico","Mercury","Dissolved",0.0014,NA,NA
+"280","Aquatic Life","Aquatic Chronic","New Mexico","Mercury","Dissolved",0.00077,NA,NA
+"281","Domestic Water Supply","Domestic Water Supply","New Mexico","Mercury","Total",0.002,NA,NA
+"282","Livestock","Livestock Watering","New Mexico","Mercury","Total",0.01,NA,NA
+"283","Livestock","Wildlife Habitat","New Mexico","Mercury","Total",0.00077,NA,NA
+"284","Agriculture","Irrigation","New Mexico","Molybdenum","Dissolved",1,NA,NA
+"285","Aquatic Life","Aquatic Acute","New Mexico","Molybdenum","Total Recoverable",7.92,NA,NA
+"286","Aquatic Life","Aquatic Chronic","New Mexico","Molybdenum","Total Recoverable",1.895,NA,NA
+"287","Aquatic Life","Aquatic Acute","New Mexico","Nickel","Dissolved",NA,"0.998","(CF*exp( 0.846 *log(hardness)+ 2.255 ))/1000"
+"288","Aquatic Life","Aquatic Chronic","New Mexico","Nickel","Dissolved",NA,"0.997","(CF*exp( 0.846 *log(hardness)+ 0.0584 ))/1000"
+"289","Domestic Water Supply","Domestic Water Supply","New Mexico","Nickel","Dissolved",0.7,NA,NA
+"290","Fish Consumption","HH-OO","New Mexico","Nickel","Dissolved",4.6,NA,NA
+"291","Agriculture","Irrigation (long-term)","Utah","Nickel","Dissolved",0.2,NA,NA
+"292","Agriculture","Irrigation (short-term)","Utah","Nickel","Dissolved",2,NA,NA
+"293","Aquatic Life","Aquatic Acute","Utah","Nickel","Dissolved",NA,"0.998","(CF*exp( 0.846 *log(hardness)+ 2.255 ))/1000"
+"294","Aquatic Life","Aquatic Acute","Colorado","Nickel","Dissolved",NA,"1","(CF*exp( 0.846 *log(hardness)+ 2.253 ))/1000"
+"295","Aquatic Life","Aquatic Chronic","Colorado","Nickel","Dissolved",NA,"1","(CF*exp( 0.846 *log(hardness)+ 0.0554 ))/1000"
+"296","Fish Consumption","Fish Consumption","Colorado","Nickel","Dissolved",4.6,NA,NA
+"297","Aquatic Life","Aquatic Chronic","Utah","Nickel","Dissolved",NA,"0.997","(CF*exp( 0.846 *log(hardness)+ 0.0584 ))/1000"
+"298","Aquatic Life","Warm Water Fish 1-hr","Utah","Nickel","Dissolved",0.468,NA,NA
+"299","Aquatic Life","Warm Water Fish 4-day","Utah","Nickel","Dissolved",0.052,NA,NA
+"300","Aquatic Life","Aquatic Acute 1-Hour","Ute Mountain Ute","Selenium","Total Recoverable",0.02,NA,NA
+"301","Aquatic Life","Aqutic Chronic 4-Day","Ute Mountain Ute","Selenium","Total Recoverable",0.005,NA,NA
+"302","Fish Consumption","Fish Consumption","Ute Mountain Ute","Selenium","Total Recoverable",4.2,NA,NA
+"303","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Silver","Dissolved",NA,"3.290505856","(CF*exp( 1.72 *log(hardness)+ -6.52 ))/1000"
+"304","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Silver","Dissolved",NA,"0.7505058564","(CF*exp( 1.72 *log(hardness)+ -9.06 ))/1000"
+"305","Domestic Water Supply","Domestic and Tribal 30-Day",NA,"Aluminum","Total",1.8e-05,NA,NA
+"306","Domestic Water Supply","Domestic and Tribal 30-Day",NA,"Mercury","Total",5e-05,NA,NA
+"307","Domestic Water Supply","Domestic and Tribal 30-Day",NA,"Selenium","Total",0.05,NA,NA
+"308","Domestic Water Supply","Domestic Water and Tribal 1 Day","Ute Mountain Ute","Silver","Dissolved",0.1,NA,NA
+"309","Agriculture","Agriculture 30-Day","Ute Mountain Ute","Zinc","Total Recoverable",2,NA,NA
+"310","Aquatic Life","Aquatic Acute","Ute Mountain Ute","Zinc","Dissolved",NA,"5.716814891","(CF*exp( 0.8473 *log(hardness)+ 0.884 ))/1000"
+"311","Recreation and Human Contact","Recreational","Utah","Nickel","Total",17.48,NA,NA
+"312","Agriculture","Agricultural Uses","Utah","Selenium","Dissolved",0.05,NA,NA
+"313","Agriculture","Irrigation (long-term)","Utah","Selenium","Dissolved",0.02,NA,NA
+"314","Agriculture","Irrigation (short-term)","Utah","Selenium","Dissolved",0.02,NA,NA
+"315","Aquatic Life","Aquatic Acute","Colorado","Selenium","Dissolved",0.0184,NA,NA
+"316","Aquatic Life","Warm Water Fish 1-hr","Utah","Selenium","Dissolved",0.0184,NA,NA
+"317","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Mercury","Dissolved",1.2e-05,NA,NA
+"318","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Mercury","Total",0.002,NA,NA
+"319","Fish Consumption","Fish Consumption","Navajo Nation","Mercury","Total",0.00015,NA,NA
+"320","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Mercury","Total",0.28,NA,NA
+"321","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Mercury","Total",0.28,NA,NA
+"322","Agriculture","Agricultural Supply","Navajo Nation","Molybdenum","Total",0.05,NA,NA
+"323","Aquatic Life","Aquatic Acute","Navajo Nation","Nickel","Dissolved",NA,"0.998","(CF*exp( 0.846 *log(hardness)+ 2.255 ))/1000"
+"324","Aquatic Life","Aquatic Chronic","Navajo Nation","Nickel","Dissolved",NA,"0.997","(CF*exp( 0.846 *log(hardness)+ 0.0584 ))/1000"
+"325","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Nickel","Total",0.61,NA,NA
+"326","Aquatic Life","Aquatic Chronic","Ute Mountain Ute","Zinc","Dissolved",NA,"5.716814891","(CF*exp( 0.8473 *log(hardness)+ 0.884 ))/1000"
+"327","Domestic Water Supply","Drinking Water 30-Day","Ute Mountain Ute","Zinc","Dissolved",5,NA,NA
+"328","Agriculture","Irrigation","New Mexico","Selenium","Dissolved",0.13,NA,NA
+"329","Aquatic Life","Aquatic Acute","New Mexico","Selenium","Total Recoverable",0.02,NA,NA
+"330","Aquatic Life","Aquatic Chronic","New Mexico","Selenium","Total Recoverable",0.005,NA,NA
+"331","Domestic Water Supply","Domestic Water Supply","New Mexico","Selenium","Dissolved",0.05,NA,NA
+"332","Livestock","Livestock Watering","New Mexico","Selenium","Dissolved",0.05,NA,NA
+"333","Livestock","Wildlife Habitat","New Mexico","Selenium","Total Recoverable",0.005,NA,NA
+"334","Fish Consumption","Fish Consumption","Navajo Nation","Nickel","Total",4.6,NA,NA
+"335","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Nickel","Total",18.67,NA,NA
+"336","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Nickel","Total",18.67,NA,NA
+"337","Agriculture","Agricultural Supply","Navajo Nation","Selenium","Total",0.02,NA,NA
+"338","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Selenium","Total",0.033,NA,NA
+"339","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Selenium","Total",0.002,NA,NA
+"340","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Selenium","Total",0.05,NA,NA
+"341","Fish Consumption","Fish Consumption","Navajo Nation","Selenium","Total",0.67,NA,NA
+"342","Livestock","Livestock Watering","Navajo Nation","Selenium","Total",0.05,NA,NA
+"343","Aquatic Life","Aquatic Acute","New Mexico","Silver","Dissolved",NA,"0.85","(CF*exp( 1.72 *log(hardness)+ -6.59 ))/1000"
+"344","Fish Consumption","HH-OO","New Mexico","Sodium","Dissolved",4.2,NA,NA
+"345","Domestic Water Supply","Domestic Water Supply","New Mexico","Thallium","Dissolved",0.002,NA,NA
+"346","Fish Consumption","HH-OO","New Mexico","Thallium","Dissolved",0.47,NA,NA
+"347","Agriculture","Irrigation","New Mexico","Vanadium","Dissolved",0.1,NA,NA
+"348","Livestock","Livestock Watering","New Mexico","Vanadium","Dissolved",0.1,NA,NA
+"349","Agriculture","Irrigation","New Mexico","Zinc","Dissolved",2,NA,NA
+"350","Aquatic Life","Aquatic Acute","New Mexico","Zinc","Dissolved",NA,"0.978","(CF*exp( 0.9094 *log(hardness)+ 0.9095 ))/1000"
+"351","Aquatic Life","Aquatic Chronic","New Mexico","Zinc","Dissolved",NA,"0.986","(CF*exp( 0.9094 *log(hardness)+ 0.6235 ))/1000"
+"352","Domestic Water Supply","Domestic Water Supply","New Mexico","Zinc","Dissolved",10.5,NA,NA
+"353","Recreation and Human Contact","Recreational","Region 6","Iron","Dissolved",120,NA,NA
+"354","Agriculture","Irrigation","Region 6","Lead","Dissolved",5,NA,NA
+"355","Agriculture","Revised Ag Water Supply","Region 9","Lead","Dissolved",10,NA,NA
+"356","Aquatic Life","Aquatic Acute","EPA","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.145712","(CF*exp( 1.273 *log(hardness)+ -1.46 ))/1000"
+"357","Aquatic Life","Aquatic Chronic","EPA","Lead","Dissolved",NA,"1.46203 -log(hardness)* 0.145712","(CF*exp( 1.273 *log(hardness)+ -4.705 ))/1000"
+"358","Livestock","Livestock Watering","Region 6","Lead","Dissolved",0.1,NA,NA
+"359","Livestock","Livestock Watering","Region 9","Lead","Dissolved",0.1,NA,NA
+"360","Recreation and Human Contact","Recreational","Region 6","Lead","Dissolved",0.2,NA,NA
+"361","Agriculture","Irrigation","Region 6","Manganese","Dissolved",0.2,NA,NA
+"362","Recreation and Human Contact","Recreational","Region 6","Manganese","Dissolved",7.8,NA,NA
+"363","Livestock","Livestock Watering","Region 6","Mercury","Dissolved",0.01,NA,NA
+"364","Recreation and Human Contact","Recreational","Region 6","Mercury","Dissolved",0.05,NA,NA
+"365","Agriculture","Revised Ag Water Supply","Region 9","Molybdenum","Dissolved",1,NA,NA
+"366","Recreation and Human Contact","Recreational","Region 6","Molybdenum","Dissolved",0.83,NA,NA
+"367","Agriculture","Irrigation","Region 6","Nickel","Dissolved",0.2,NA,NA
+"368","Aquatic Life","Aquatic Acute","EPA","Nickel","Dissolved",NA,"0.998","(CF*exp( 0.846 *log(hardness)+ 2.255 ))/1000"
+"369","Aquatic Life","Aquatic Chronic","EPA","Nickel","Dissolved",NA,"0.997","(CF*exp( 0.846 *log(hardness)+ 0.0584 ))/1000"
+"370","Livestock","Livestock Watering","Region 6","Nickel","Dissolved",1,NA,NA
+"371","Recreation and Human Contact","Recreational","Region 6","Nickel","Dissolved",3.3,NA,NA
+"372","Aquatic Life","Warm Water Fish 4-day","Utah","Selenium","Dissolved",0.0046,NA,NA
+"373","Aquatic Life","Aquatic Chronic","Colorado","Selenium","Dissolved",0.0046,NA,NA
+"374","Fish Consumption","Fish Consumption","Colorado","Selenium","Dissolved",4.2,NA,NA
+"375","Domestic Water Supply","Domestic Water Supply","Utah","Selenium","Dissolved",0.05,NA,NA
+"376","Livestock","Livestock Watering","Utah","Selenium","Dissolved",0.05,NA,NA
+"377","Recreation and Human Contact","Recreational","Utah","Selenium","Total",3.104,NA,NA
+"378","Aquatic Life","Aquatic Acute","Utah","Silver","Dissolved",NA,"0.85","(CF*exp( 1.72 *log(hardness)+ -6.59 ))/1000"
+"379","Aquatic Life","Warm Water Fish 1-hr","Utah","Silver","Dissolved",0.01059716954,NA,NA
+"380","Aquatic Life","Aquatic Acute","Colorado","Silver","Dissolved",NA,"0.5","(CF*exp( 1.72 *log(hardness)+ -6.52 ))/1000"
+"381","Aquatic Life","Aquatic Chronic","Colorado","Silver","Dissolved",NA,"1","(CF*exp( 1.72 *log(hardness)+ -9.06 ))/1000"
+"382","Domestic Water Supply","Domestic Supply 1-Day","Colorado","Silver","Total Recoverable",0.1,NA,NA
+"383","Domestic Water Supply","Domestic Water Supply","Utah","Silver","Dissolved",0.05,NA,NA
+"384","Recreation and Human Contact","Recreational","Utah","Silver","Total",3.64,NA,NA
+"385","Livestock","Livestock Watering","Utah","Sodium","Dissolved",1000,NA,NA
+"386","Fish Consumption","HH-OO","New Mexico","Zinc","Dissolved",26,NA,NA
+"387","Livestock","Livestock Watering","New Mexico","Zinc","Dissolved",25,NA,NA
+"388","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Selenium","Total",4.67,NA,NA
+"389","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Selenium","Total",4.67,NA,NA
+"390","Aquatic Life","Aquatic Acute","Navajo Nation","Silver","Dissolved",NA,"0.85","(CF*exp( 1.72 *log(hardness)+ -6.59 ))/1000"
+"391","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Silver","Total",0.035,NA,NA
+"392","Fish Consumption","Fish Consumption","Navajo Nation","Silver","Total",8,NA,NA
+"393","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Silver","Total",4.67,NA,NA
+"394","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Silver","Total",4.67,NA,NA
+"395","Aquatic Life","Acute Ag and Wildlife","Navajo Nation","Thallium","Dissolved",0.7,NA,NA
+"396","Aquatic Life","Chronic Ag and Wildlife","Navajo Nation","Thallium","Dissolved",0.15,NA,NA
+"397","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Thallium","Total",0.002,NA,NA
+"398","Fish Consumption","Fish Consumption","Navajo Nation","Thallium","Total",0.001,NA,NA
+"399","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Thallium","Total",0.075,NA,NA
+"400","Agriculture","Irrigation","Region 6","Selenium","Dissolved",0.13,NA,NA
+"401","Agriculture","Revised Ag Water Supply","Region 9","Selenium","Dissolved",0.02,NA,NA
+"402","Livestock","Livestock Watering","Region 6","Selenium","Dissolved",0.25,NA,NA
+"403","Livestock","Livestock Watering","Region 9","Selenium","Dissolved",0.05,NA,NA
+"404","Recreation and Human Contact","Recreational","Region 6","Selenium","Dissolved",0.83,NA,NA
+"405","Aquatic Life","Aquatic Acute","EPA","Silver","Dissolved",NA,"0.85","(CF*exp( 1.72 *log(hardness)+ -6.59 ))/1000"
+"406","Recreation and Human Contact","Recreational","Region 6","Thallium","Dissolved",0.002,NA,NA
+"407","Agriculture","Irrigation","Region 6","Vanadium","Dissolved",0.1,NA,NA
+"408","Agriculture","Revised Ag Water Supply","Region 9","Vanadium","Dissolved",0.1,NA,NA
+"409","Livestock","Livestock Watering","Region 6","Vanadium","Dissolved",0.1,NA,NA
+"410","Livestock","Livestock Watering","Region 9","Vanadium","Dissolved",0.1,NA,NA
+"411","Recreation and Human Contact","Recreational","Region 6","Vanadium","Dissolved",0.83,NA,NA
+"412","Agriculture","Irrigation","Region 6","Zinc","Dissolved",2,NA,NA
+"413","Agriculture","Revised Ag Water Supply","Region 9","Zinc","Dissolved",10,NA,NA
+"414","Aquatic Life","Aquatic Acute","EPA","Zinc","Dissolved",NA,"0.978","(CF*exp( 0.8473 *log(hardness)+ 0.884 ))/1000"
+"415","Aquatic Life","Aquatic Chronic","EPA","Zinc","Dissolved",NA,"0.986","(CF*exp( 0.8473 *log(hardness)+ 0.884 ))/1000"
+"416","Livestock","Livestock Watering","Region 6","Zinc","Dissolved",25,NA,NA
+"417","Livestock","Livestock Watering","Region 9","Zinc","Dissolved",25,NA,NA
+"418","Recreation and Human Contact","Recreational","Region 6","Zinc","Dissolved",50,NA,NA
+"419","Aquatic Life","Aquatic Chronic","Colorado","Thallium","Dissolved",0.015,NA,NA
+"420","Fish Consumption","Fish Consumption","Colorado","Thallium","Dissolved",0.00047,NA,NA
+"421","Recreation and Human Contact","Recreational","Utah","Thallium","Total",0.025,NA,NA
+"422","Aquatic Life","Aquatic Acute","Colorado","Uranium","Dissolved",NA,"1","(CF*exp( 1.1021 *log(hardness)+ 2.7088 ))/1000"
+"423","Aquatic Life","Aquatic Chronic","Colorado","Uranium","Dissolved",NA,"1","(CF*exp( 1.102 *log(hardness)+ 2.2382 ))/1000"
+"424","Agriculture","Irrigation (long-term)","Utah","Vanadium","Dissolved",0.1,NA,NA
+"425","Agriculture","Irrigation (short-term)","Utah","Vanadium","Dissolved",1,NA,NA
+"426","Livestock","Livestock Watering","Utah","Vanadium","Dissolved",0.1,NA,NA
+"427","Recreation and Human Contact","Recreational","Utah","Vanadium","Total",6.208,NA,NA
+"428","Agriculture","Irrigation (long-term)","Utah","Zinc","Dissolved",2,NA,NA
+"429","Agriculture","Irrigation (short-term)","Utah","Zinc","Dissolved",10,NA,NA
+"430","Aquatic Life","Aquatic Acute","Utah","Zinc","Dissolved",NA,"0.978","(CF*exp( 0.8473 *log(hardness)+ 0.884 ))/1000"
+"431","Aquatic Life","Aquatic Chronic","Utah","Zinc","Dissolved",NA,"0.986","(CF*exp( 0.8473 *log(hardness)+ 0.884 ))/1000"
+"432","Aquatic Life","Warm Water Fish 1-hr","Utah","Zinc","Dissolved",0.12,NA,NA
+"433","Aquatic Life","Warm Water Fish 4-day","Utah","Zinc","Dissolved",0.12,NA,NA
+"434","Aquatic Life","Aquatic Acute","Colorado","Zinc","Dissolved",NA,"0.978","(CF*exp( 0.9094 *log(hardness)+ 0.9095 ))/1000"
+"435","Aquatic Life","Aquatic Chronic","Colorado","Zinc","Dissolved",NA,"0.986","(CF*exp( 0.9094 *log(hardness)+ 0.6235 ))/1000"
+"436","Fish Consumption","Fish Consumption","Colorado","Zinc","Dissolved",7.4,NA,NA
+"437","Livestock","Livestock Watering","Utah","Zinc","Dissolved",25,NA,NA
+"438","Recreation and Human Contact","Recreational","Utah","Zinc","Total",217.786,NA,NA
+"439","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Thallium","Total",0.075,NA,NA
+"440","Agriculture","Agricultural Supply","Navajo Nation","Vanadium","Dissolved",1,NA,NA
+"441","Livestock","Livestock Watering","Navajo Nation","Vanadium","Dissolved",0.1,NA,NA
+"442","Agriculture","Agricultural Supply","Navajo Nation","Zinc","Total",10,NA,NA
+"443","Aquatic Life","Aquatic Acute","Navajo Nation","Zinc","Dissolved",NA,"0.978","(CF*exp( 0.8473 *log(hardness)+ 0.884 ))/1000"
+"444","Aquatic Life","Aquatic Chronic","Navajo Nation","Zinc","Dissolved",NA,"0.986","(CF*exp( 0.8473 *log(hardness)+ 0.884 ))/1000"
+"445","Domestic Water Supply","Domestic Water Supply","Navajo Nation","Zinc","Total",2.1,NA,NA
+"446","Fish Consumption","Fish Consumption","Navajo Nation","Zinc","Total",5.1,NA,NA
+"447","Livestock","Livestock Watering","Navajo Nation","Zinc","Total",25,NA,NA
+"448","Recreation and Human Contact","Primary Human Contact","Navajo Nation","Zinc","Total",280,NA,NA
+"449","Recreation and Human Contact","Secondary Human Contact","Navajo Nation","Zinc","Total",280,NA,NA
+"450","Human Helath","HH Water + Organism","Southern Ute","Antimony","Dissolved",0.0056,NA,NA
+"451","Human Helath","HH Organism","Southern Ute","Antimony","Dissolved",0.64,NA,NA
+"452","Aquatic Life","Aquatic Acute","Southern Ute","Arsenic","Dissolved",0.34,NA,NA
+"453","Aquatic Life","Aquatic Chronic","Southern Ute","Arsenic","Dissolved",0.15,NA,NA
+"454","Human Helath","HH Water + Organism","Southern Ute","Arsenic","Dissolved",1.8e-05,NA,NA
+"455","Human Helath","HH Organism","Southern Ute","Arsenic","Dissolved",0.00014,NA,NA
+"456","Human Helath","HH Water + Organism","Southern Ute","Barium","Dissolved",1,NA,NA
+"457","Aquatic Life","Aquatic Acute","Southern Ute","Cadmium","Dissolved",NA,"1.136672 -log(hardness) * (0.041838)","(exp(0.9789*log(hardness)+-3.866)*CF)/1000"
+"458","Aquatic Life","Aquatic Chronic","Southern Ute","Cadmium","Dissolved",NA,"1.101672 -log(hardness) * (0.041838)","(exp(0.7977*log(hardness)+-3.909)*CF)/1000"
+"459","Aquatic Life","Aquatic Acute","Southern Ute","Chromium (III)","Dissolved",NA,"0.316","(exp(0.819*log(hardness)+3.7256)*CF)/1000"
+"460","Aquatic Life","Aquatic Chronic","Southern Ute","Chromium (III)","Dissolved",NA,"0.86","(exp(0.819*log(hardness)+0.6848)*CF)/1000"
+"461","Aquatic Life","Aquatic Acute","Southern Ute","Chromium (VI)","Dissolved",0.016,NA,NA
+"462","Aquatic Life","Aquatic Chronic","Southern Ute","Chromium (VI)","Dissolved",0.011,NA,NA
+"463","Human Helath","HH Water + Organism","Southern Ute","Copper","Dissolved",1.3,NA,NA
+"464","Aquatic Life","Aquatic Chronic","Southern Ute","Iron","Dissolved",1,NA,NA
+"465","Aquatic Life","Aquatic Acute","Southern Ute","Lead","Dissolved",NA,"1.46203 -log(hardness) * (0.145712)","(exp(1.273*log(hardness)+-1.46)*CF)/1000"
+"466","Aquatic Life","Aquatic Chronic","Southern Ute","Lead","Dissolved",NA,"1.46203 -log(hardness) * (0.145712)","(exp(1.273*log(hardness)+-4.705)*CF)/1000"
+"467","Human Helath","HH Water + Organism","Southern Ute","Manganese","Dissolved",0.05,NA,NA
+"468","Human Helath","HH Organism","Southern Ute","Manganese","Dissolved",0.1,NA,NA
+"469","Aquatic Life","Aquatic Acute","Southern Ute","Mercury","Dissolved",0.0014,NA,NA
+"470","Aquatic Life","Aquatic Chronic","Southern Ute","Mercury","Dissolved",0.00077,NA,NA
+"471","Aquatic Life","Aquatic Acute","Southern Ute","Nickel","Dissolved",NA,"0.998","(exp(0.846*log(hardness)+2.255)*CF)/1000"
+"472","Aquatic Life","Aquatic Chronic","Southern Ute","Nickel","Dissolved",NA,"0.997","(exp(0.846*log(hardness)+0.0584)*CF)/1000"
+"473","Human Helath","HH Water + Organism","Southern Ute","Nickel","Dissolved",0.61,NA,NA
+"474","Human Helath","HH Organism","Southern Ute","Nickel","Dissolved",4.6,NA,NA
+"475","Human Helath","HH Water + Organism","Southern Ute","Selenium","Dissolved",0.17,NA,NA
+"476","Human Helath","HH Organism","Southern Ute","Selenium","Dissolved",4.2,NA,NA
+"477","Aquatic Life","Aquatic Acute","Southern Ute","Silver","Dissolved",NA,"0.85","(exp(1.72*log(hardness)+-6.59)*CF)/1000"
+"478","Human Helath","HH Water + Organism","Southern Ute","Thallium","Dissolved",0.00024,NA,NA
+"479","Human Helath","HH Organism","Southern Ute","Thallium","Dissolved",0.00047,NA,NA
+"480","Aquatic Life","Aquatic Acute","Southern Ute","Zinc","Dissolved",NA,"0.978","(exp(0.8473*log(hardness)+0.884)*CF)/1000"
+"481","Aquatic Life","Aquatic Chronic","Southern Ute","Zinc","Dissolved",NA,"0.986","(exp(0.8473*log(hardness)+0.884)*CF)/1000"
+"482","Human Helath","HH Water + Organism","Southern Ute","Zinc","Dissolved",7.4,NA,NA
+"483","Human Helath","HH Organism","Southern Ute","Zinc","Dissolved",26,NA,NA
